@@ -5,98 +5,23 @@
 <head>
 	<meta charset="UTF-8">
 
+	<title>
+		DJ Track Tagging • Cardacci
+	</title>
+
 	<meta
 		content="width=device-width, initial-scale=1.0"
 		name="viewport"
 	>
 
-	<title>
-		DJ Track Tagging • Cardacci
-	</title>
-
-	<style>
-		body {
-			background-color: #111111;
-			color: #EEEEEE;
-			font-family: sans-serif;
-			padding: 20px;
-		}
-
-		.container {
-			border-radius: 5px;
-			border: 1px solid #333333;
-			display: flex;
-			flex-direction: column;
-			margin: 0 auto;
-			max-width: 400px;
-			padding: 20px;
-		}
-
-		h2 {
-			color: #CCCCCC;
-			margin-top: 0;
-		}
-
-		.list {
-			margin-bottom: 20px;
-		}
-
-		.item {
-			cursor: pointer;
-			display: block;
-			margin-bottom: 5px;
-		}
-
-		.item input[type="checkbox"] {
-			margin-right: 10px;
-		}
-
-		.item label {
-			cursor: pointer;
-		}
-
-		#result {
-			background-color: #222222;
-			border: 1px solid #333333;
-			box-sizing: border-box;
-			color: #EEEEEE;
-			height: 100px;
-			margin-top: 20px;
-			overflow-y: auto;
-			padding: 10px;
-			resize: vertical;
-			white-space: pre-wrap;
-			width: 100%;
-		}
-
-		/* Container to align buttons */
-		.button-container {
-			display: flex;
-			justify-content: space-between; /* Aligns buttons to the extremes */
-			margin-top: 10px;
-		}
-
-		#clear, #copy {
-			background-color: #4CAF50;
-			border-radius: 4px;
-			border: none;
-			color: #FFFFFF;
-			cursor: pointer;
-			display: inline-block;
-			font-size: 14px;
-			padding: 8px 16px;
-			text-align: center;
-			text-decoration: none;
-		}
-
-		/* Red color for the clear button */
-		#clear {
-			background-color: #F44336;
-		}
-	</style>
+	<link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body>
+	<h1>
+		DJ Track Tagging <span class="subtitle">• by <a href="https://www.youtube.com/@CARDACCI" target="_blank">Cardacci</a></span>
+	</h1>
+
 	<div class="container">
 		<h2>
 			Set Time
@@ -294,60 +219,63 @@
 		</div>
 	</div>
 
-	<script>
-		const setTimeCheckboxes = document.querySelectorAll('#set-time input[type="checkbox"]');
-		const componentsCheckboxes = document.querySelectorAll('#components input[type="checkbox"]');
-		const resultTextarea = document.getElementById('result');
-		const copyButton = document.getElementById('copy');
-		const clearButton = document.getElementById('clear');
+	<footer class="social-footer">
+		<h2>
+			Follow me on
+		</h2>
 
-		function updateResult() {
-			let allSelected = [];
+		<div class="social-icons">
+			<a
+				class="social-icon youtube"
+				href="https://www.youtube.com/@CARDACCI"
+				target="_blank"
+			>
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+				</svg>
 
-			allSelected = allSelected.concat(getSelected(setTimeCheckboxes));
-			allSelected = allSelected.concat(getSelected(componentsCheckboxes));
+				<span>
+					YouTube
+				</span>
+			</a>
 
-			const uniqueSelected = [...new Set(allSelected)];
+			<a
+				class="social-icon mixcloud"
+				href="https://www.mixcloud.com/CARDACCI/"
+				target="_blank"
+			>
+				<img 
+					alt="Mixcloud Logo"
+					height="40"
+					src="../assets/mixcloud-logo.png" 
+					width="40" 
+				>
 
-			resultTextarea.value = uniqueSelected.join(" / ");
-		}
+				<span>
+					Mixcloud
+				</span>
+			</a>
 
-		function getSelected(checkboxes) {
-			let selected = [];
+			<a
+				class="social-icon soundcloud"
+				href="https://soundcloud.com/cardacci"
+				target="_blank"
+			>
+				<img 
+					alt="SoundCloud Logo"
+					height="40"
+					src="../assets/soundcloud-logo.svg" 
+					width="40" 
+				>
 
-			checkboxes.forEach(checkbox => {
-				if (checkbox.checked) {
-					selected.push(checkbox.id);
-				}
-			});
+				<span>
+					SoundCloud
+				</span>
+			</a>
+		</div>
+	</footer>
 
-			return selected;
-		}
-
-		setTimeCheckboxes.forEach(checkbox => {
-			checkbox.addEventListener('change', updateResult);
-		});
-
-		componentsCheckboxes.forEach(checkbox => {
-			checkbox.addEventListener('change', updateResult);
-		});
-
-		copyButton.addEventListener('click', () => {
-			resultTextarea.select();
-			document.execCommand('copy');
-			resultTextarea.setSelectionRange(0, 0);
-		});
-
-		clearButton.addEventListener('click', () => {
-			// Uncheck all checkboxes
-			setTimeCheckboxes.forEach(checkbox => checkbox.checked = false);
-			componentsCheckboxes.forEach(checkbox => checkbox.checked = false);
-			// Clear the textarea
-			resultTextarea.value = "";
-		});
-
-		updateResult();
-	</script>
+	<script src="../js/track-tagger.js"></script>
 </body>
 
 </html>
