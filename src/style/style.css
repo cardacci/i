@@ -151,8 +151,8 @@ h2 {
 }
 
 .item input[type="checkbox"]:checked::after {
-	border-bottom: 2px solid white;
-	border-left: 2px solid white;
+	border-bottom: 2px solid #FFFFFF;
+	border-left: 2px solid #FFFFFF;
 	content: "";
 	display: block;
 	height: 5px;
