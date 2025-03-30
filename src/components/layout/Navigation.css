@@ -1,0 +1,33 @@
+.navigation {
+	padding: 1rem 0;
+}
+
+.navigation ul {
+	display: flex;
+	gap: 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigation li {
+	margin: 0;
+}
+
+.navigation a {
+	color: #333333;
+	font-weight: 500;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+	color: #0066cc;
+}
+
+@media (max-width: 768px) {
+	.navigation ul {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}

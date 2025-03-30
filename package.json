@@ -1,0 +1,36 @@
+{
+	"author": "Gabriel Cardacci",
+	"dependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"react-router-dom": "^7.4.1",
+		"typescript": "^4.0.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^4.3.4",
+		"prettier": "^3.5.3",
+		"vite": "^4.0.0"
+	},
+	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
+	"keywords": [
+		"cardacci",
+		"engineer",
+		"javascript",
+		"personal",
+		"portfolio",
+		"react",
+		"typescript",
+		"vite",
+		"website"
+	],
+	"license": "MIT",
+	"main": "src/main.tsx",
+	"name": "i",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
+		"serve": "vite preview"
+	},
+	"version": "1.0.0"
+}

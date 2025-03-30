@@ -1,0 +1,75 @@
+{
+	"crypto": {
+		"interests": [
+			"Inversiones en criptomonedas",
+			"Desarrollo de contratos inteligentes",
+			"Análisis de mercado"
+		]
+	},
+	"djing": {
+		"experiences": [
+			{
+				"event": "Fiesta de Verano 2023",
+				"location": "Club Ejemplo",
+				"year": "2023"
+			}
+		],
+		"genres": [
+			"Electrónica",
+			"House",
+			"Techno"
+		]
+	},
+	"personalInfo": {
+		"bio": "Apasionado por la tecnología, la programación y la música. Siempre en busca de nuevas experiencias y conocimientos.",
+		"name": "Gabriel Cardacci",
+		"title": "Desarrollador Web y DJ"
+	},
+	"resume": {
+		"education": [
+			{
+				"degree": "Licenciatura en Ciencias de la Computación",
+				"institution": "Universidad Ejemplo",
+				"year": "2020"
+			}
+		],
+		"experience": [
+			{
+				"company": "Empresa Ejemplo",
+				"jobTitle": "Desarrollador Frontend",
+				"responsibilities": [
+					"Desarrollo de aplicaciones web utilizando React y TypeScript.",
+					"Colaboración en proyectos de equipo y gestión de versiones con Git."
+				],
+				"year": "2021 - Presente"
+			}
+		],
+		"skills": [
+			"CSS",
+			"JavaScript",
+			"Node.js",
+			"React",
+			"TypeScript"
+		]
+	},
+	"tech": {
+		"topics": [
+			"Desarrollo web",
+			"Inteligencia artificial",
+			"Blockchain",
+			"Ciberseguridad"
+		]
+	},
+	"travel": {
+		"destinations": [
+			{
+				"place": "Barcelona, España",
+				"year": "2022"
+			},
+			{
+				"place": "Tokio, Japón",
+				"year": "2023"
+			}
+		]
+	}
+}

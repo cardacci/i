@@ -1,17 +1,94 @@
-# i - Personal Website
+# Personal Website
 
-Welcome to my personal website repository. This site highlights various aspects of my life and interests, including my career, DJing projects, investment insights, travel experiences, and curated tech resources.
+This project is a personal website that showcases various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, DJing experiences, and travel adventures.
 
-## Sections
+## Project Structure
 
-- **Career**: My professional journey, resume, education, and projects.
-- **DJing**: My own musical sets and tracks, with videos hosted on YouTube and tracks on SoundCloud.
-- **Crypto & Investments**: My investment portfolio and insights on crypto and financial topics.
-- **Travel**: Photos and summaries of my travel experiences around the world.
-- **Tech Links**: Articles and resources on technology and software development.
+The project is organized as follows:
 
-## Tech Stack
+```
+personal-website
+├── src
+│   ├── components
+│   │   ├── layout
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── Navigation.tsx
+│   │   ├── sections
+│   │   │   ├── Home.tsx
+│   │   │   ├── Resume.tsx
+│   │   │   ├── Crypto.tsx
+│   │   │   ├── Tech.tsx
+│   │   │   ├── DJing.tsx
+│   │   │   └── Travel.tsx
+│   │   └── shared
+│   │       ├── Button.tsx
+│   │       ├── Card.tsx
+│   │       └── SocialLinks.tsx
+│   ├── hooks
+│   │   └── useTheme.ts
+│   ├── styles
+│   │   ├── global.css
+│   │   └── theme.ts
+│   ├── utils
+│   │   └── index.ts
+│   ├── types
+│   │   └── index.ts
+│   ├── pages
+│   │   ├── Home.tsx
+│   │   ├── Resume.tsx
+│   │   ├── Crypto.tsx
+│   │   ├── Tech.tsx
+│   │   ├── DJing.tsx
+│   │   └── Travel.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── public
+│   └── assets
+│       └── data.json
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
 
-- Framework: TBD
-- Styling: TBD
-- Deployment: GitHub Pages with GitHub Actions
+## Technologies Used
+
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and better development experience.
+- **Vite**: For fast development and build processes.
+- **CSS**: For styling the components.
+
+## Features
+
+- **Home Section**: Displays personal information and an introduction.
+- **Resume Section**: Presents the user's CV.
+- **Crypto Section**: Provides insights about cryptocurrencies.
+- **Tech Section**: Shares information about technology and programming.
+- **DJing Section**: Showcases DJing experiences and related content.
+- **Travel Section**: Shares travel experiences and related information.
+
+## Getting Started
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```
+   cd personal-website
+   ```
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+## License
+
+This project is licensed under the MIT License.
