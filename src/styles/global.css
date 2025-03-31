@@ -3,7 +3,7 @@ body {
 	font-family: 'Arial', sans-serif;
 	line-height: 1.6;
 	background-color: #f4f4f4;
-	color: #333;
+	color: #333333;
 }
 
 header {
@@ -59,7 +59,7 @@ button:hover {
 }
 
 .card {
-	border: 1px solid #ddd;
+	border: 1px solid #dddddd;
 	border-radius: 5px;
 	padding: 15px;
 	margin: 10px 0;

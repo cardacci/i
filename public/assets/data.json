@@ -1,73 +1,63 @@
 {
 	"crypto": {
 		"interests": [
-			"Inversiones en criptomonedas",
-			"Desarrollo de contratos inteligentes",
-			"Análisis de mercado"
+			"Cryptocurrency investments",
+			"Smart contract development",
+			"Market analysis"
 		]
 	},
 	"djing": {
 		"experiences": [
 			{
-				"event": "Fiesta de Verano 2023",
-				"location": "Club Ejemplo",
+				"event": "Summer Party 2023",
+				"location": "Example Club",
 				"year": "2023"
 			}
 		],
-		"genres": [
-			"Electrónica",
-			"House",
-			"Techno"
-		]
+		"genres": ["Electronic", "House", "Techno"]
 	},
 	"personalInfo": {
-		"bio": "Apasionado por la tecnología, la programación y la música. Siempre en busca de nuevas experiencias y conocimientos.",
+		"bio": "Passionate about technology, programming, and music. Always seeking new experiences and knowledge.",
 		"name": "Gabriel Cardacci",
-		"title": "Desarrollador Web y DJ"
+		"title": "Web Developer and DJ"
 	},
 	"resume": {
 		"education": [
 			{
-				"degree": "Licenciatura en Ciencias de la Computación",
-				"institution": "Universidad Ejemplo",
+				"degree": "Bachelor in Computer Science",
+				"institution": "Example University",
 				"year": "2020"
 			}
 		],
 		"experience": [
 			{
-				"company": "Empresa Ejemplo",
-				"jobTitle": "Desarrollador Frontend",
+				"company": "Example Company",
+				"jobTitle": "Frontend Developer",
 				"responsibilities": [
-					"Desarrollo de aplicaciones web utilizando React y TypeScript.",
-					"Colaboración en proyectos de equipo y gestión de versiones con Git."
+					"Developing web applications using React and TypeScript.",
+					"Collaborating on team projects and managing versions with Git."
 				],
-				"year": "2021 - Presente"
+				"year": "2021 - Present"
 			}
 		],
-		"skills": [
-			"CSS",
-			"JavaScript",
-			"Node.js",
-			"React",
-			"TypeScript"
-		]
+		"skills": ["CSS", "JavaScript", "Node.js", "React", "TypeScript"]
 	},
 	"tech": {
 		"topics": [
-			"Desarrollo web",
-			"Inteligencia artificial",
+			"Web development",
+			"Artificial Intelligence",
 			"Blockchain",
-			"Ciberseguridad"
+			"Cybersecurity"
 		]
 	},
 	"travel": {
 		"destinations": [
 			{
-				"place": "Barcelona, España",
+				"place": "Barcelona, Spain",
 				"year": "2022"
 			},
 			{
-				"place": "Tokio, Japón",
+				"place": "Tokyo, Japan",
 				"year": "2023"
 			}
 		]

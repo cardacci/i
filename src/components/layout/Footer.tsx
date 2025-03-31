@@ -3,7 +3,9 @@ import React from 'react';
 const Footer: React.FC = () => {
 	return (
 		<footer>
-			<p>&copy; {new Date().getFullYear()} Gabriel Cardacci. Todos los derechos reservados.</p>
+			<p>
+				&copy; {new Date().getFullYear()} Gabriel Cardacci. All rights reserved.
+			</p>
 		</footer>
 	);
 };

@@ -7,7 +7,10 @@ This project is a personal website that showcases various aspects of my life, in
 The project is organized as follows:
 
 ```
-personal-website
+i
+├── public
+│   └── assets
+│       └── data.json
 ├── src
 │   ├── components
 │   │   ├── layout
@@ -21,32 +24,13 @@ personal-website
 │   │   │   ├── Tech.tsx
 │   │   │   ├── DJing.tsx
 │   │   │   └── Travel.tsx
-│   │   └── shared
-│   │       ├── Button.tsx
-│   │       ├── Card.tsx
-│   │       └── SocialLinks.tsx
-│   ├── hooks
-│   │   └── useTheme.ts
 │   ├── styles
-│   │   ├── global.css
-│   │   └── theme.ts
-│   ├── utils
-│   │   └── index.ts
+│   │   └── global.css
 │   ├── types
 │   │   └── index.ts
-│   ├── pages
-│   │   ├── Home.tsx
-│   │   ├── Resume.tsx
-│   │   ├── Crypto.tsx
-│   │   ├── Tech.tsx
-│   │   ├── DJing.tsx
-│   │   └── Travel.tsx
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── vite-env.d.ts
-├── public
-│   └── assets
-│       └── data.json
 ├── index.html
 ├── package.json
 ├── tsconfig.json
@@ -56,10 +40,10 @@ personal-website
 
 ## Technologies Used
 
+- **CSS**: For styling the components.
 - **React**: For building the user interface.
 - **TypeScript**: For type safety and better development experience.
 - **Vite**: For fast development and build processes.
-- **CSS**: For styling the components.
 
 ## Features
 
