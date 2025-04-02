@@ -18,11 +18,13 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
+		"gh-pages": "^6.3.0",
 		"postcss": "^8.4.31",
 		"prettier": "^3.5.3",
 		"tailwindcss": "^3.4.1",
 		"vite": "^4.0.0"
 	},
+	"homepage": "https://cardacci.github.io/i/",
 	"keywords": [
 		"cardacci",
 		"engineer",
@@ -39,11 +41,12 @@
 	"name": "i",
 	"scripts": {
 		"build": "vite build",
+		"deploy": "npm run build && gh-pages -d dist",
 		"dev": "vite",
 		"format": "prettier --write .",
 		"lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.0.0"
+	"version": "1.04.02"
 }
