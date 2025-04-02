@@ -51,7 +51,7 @@ const router = createBrowserRouter([
 				element: <Tech />,
 			},
 			{
-				path: 'djing/*', // Note the wildcard to support nested routes
+				path: 'djing/*', // Note the wildcard to support nested routes.
 				element: <DJing />,
 			},
 			{

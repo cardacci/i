@@ -17,7 +17,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	const navigate = useNavigate();
 	const { tabId } = useParams<{ tabId: string }>();
 
-	// Find active tab or use default
+	// Find active tab or use default.
 	const activeTab =
 		tabs.find((tab) => tab.id === tabId) ||
 		(defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);

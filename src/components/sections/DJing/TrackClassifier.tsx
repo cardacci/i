@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const TrackClassifier: React.FC = () => {
-	// State to track selected checkboxes
-	const [setTimeSelections, setSetTimeSelections] = useState<string[]>([]);
+	// State to track selected checkboxes.
+	const [timeSelections, setTimeSelections] = useState<string[]>([]);
 	const [componentSelections, setComponentSelections] = useState<string[]>([]);
 	const [result, setResult] = useState<string>('');
 
-	// Define checkbox options
+	// Define checkbox options.
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	const componentOptions = [
@@ -21,16 +21,16 @@ const TrackClassifier: React.FC = () => {
 		'Vocal',
 	];
 
-	// Update result whenever selections change
+	// Update result whenever selections change.
 	useEffect(() => {
-		const allSelected = [...setTimeSelections, ...componentSelections];
+		const allSelected = [...timeSelections, ...componentSelections];
 		const uniqueSelected = [...new Set(allSelected)];
 		setResult(uniqueSelected.join(' / '));
-	}, [setTimeSelections, componentSelections]);
+	}, [timeSelections, componentSelections]);
 
-	// Handle checkbox changes
-	const handleSetTimeChange = (option: string) => {
-		setSetTimeSelections((prev) => {
+	// Handle checkbox changes.
+	const handleTimeChange = (option: string) => {
+		setTimeSelections((prev) => {
 			if (prev.includes(option)) {
 				return prev.filter((item) => item !== option);
 			} else {
@@ -49,11 +49,11 @@ const TrackClassifier: React.FC = () => {
 		});
 	};
 
-	// Copy and Clear functions
+	// Copy and Clear functions.
 	const handleCopy = () => {
 		navigator.clipboard.writeText(result).then(
 			() => {
-				// Could add a toast/notification here
+				// Could add a toast/notification here.
 			},
 			(err) => {
 				console.error('Could not copy text: ', err);
@@ -62,11 +62,11 @@ const TrackClassifier: React.FC = () => {
 	};
 
 	const handleClear = () => {
-		setSetTimeSelections([]);
+		setTimeSelections([]);
 		setComponentSelections([]);
 	};
 
-	// Checkbox component for consistent styling
+	// Checkbox component for consistent styling.
 	const Checkbox = ({
 		id,
 		label,
@@ -107,8 +107,8 @@ const TrackClassifier: React.FC = () => {
 							key={option}
 							id={option}
 							label={option}
-							checked={setTimeSelections.includes(option)}
-							onChange={() => handleSetTimeChange(option)}
+							checked={timeSelections.includes(option)}
+							onChange={() => handleTimeChange(option)}
 						/>
 					))}
 				</div>
