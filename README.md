@@ -1,6 +1,6 @@
-# Personal Website
+# i
 
-This project is a personal website that showcases various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, DJing experiences, and travel adventures.
+This personal website showcases who I am and various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, DJing experiences, and travel adventures.
 
 ## Project Structure
 
@@ -25,7 +25,8 @@ i
 │   │   │   ├── DJing.tsx
 │   │   │   └── Travel.tsx
 │   ├── styles
-│   │   └── global.css
+│   │   ├── global.css
+│   │   └── tailwind.css
 │   ├── types
 │   │   └── index.ts
 │   ├── App.tsx
@@ -33,8 +34,12 @@ i
 │   └── vite-env.d.ts
 ├── index.html
 ├── package.json
+├── postcss.config.js
+├── tailwind.config.js
 ├── tsconfig.json
 ├── vite.config.ts
+├── .eslintrc.json
+├── .prettierrc
 └── README.md
 ```
 
@@ -62,7 +67,7 @@ i
    ```
 2. Navigate to the project directory:
    ```
-   cd personal-website
+   cd i
    ```
 3. Install the dependencies:
    ```
