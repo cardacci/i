@@ -50,9 +50,7 @@ const Header: React.FC = () => {
 			<div className="container mx-auto px-4 flex items-center justify-between">
 				<h1 className="text-white font-bold text-3xl transition-all duration-300">
 					Gabriel Cardacci
-					<span className="block text-sm font-light mt-1 text-blue-200 opacity-90">
-						Principal Frontend Engineer | Computer Science Engineer | DJ
-					</span>
+					<span className="block text-sm font-light mt-1 text-blue-200 opacity-90">Principal Frontend Engineer | Computer Science Engineer | DJ</span>
 				</h1>
 
 				{/* Typing animation effect */}

@@ -13,25 +13,18 @@ const Home: React.FC = () => {
 				</div>
 
 				<div className="md:w-2/3 text-center md:text-left">
-					<h1 className="text-4xl font-bold mb-4 text-blue-800">
-						Welcome to My Personal Website
-					</h1>
+					<h1 className="text-4xl font-bold mb-4 text-blue-800">Welcome to My Personal Website</h1>
 
 					<p className="text-lg mb-4">
-						Hello, I&apos;m{' '}
-						<span className="font-semibold">Gabriel Cardacci</span>, passionate
-						about technology, programming, DJing and traveling.
+						Hello, I&apos;m <span className="font-semibold">Gabriel Cardacci</span>, passionate about technology, programming, DJing and traveling.
 					</p>
 
 					<p className="text-gray-700 mb-6">
-						On this site, you&apos;ll find information about my professional
-						experience, my projects in the cryptocurrency world, and my
-						adventures around the globe.
+						On this site, you&apos;ll find information about my professional experience, my projects in the cryptocurrency world, and my adventures
+						around the globe.
 					</p>
 
-					<p className="text-gray-800 font-medium">
-						Explore and connect with me!
-					</p>
+					<p className="text-gray-800 font-medium">Explore and connect with me!</p>
 
 					<div className="mt-6 space-x-4">
 						<a

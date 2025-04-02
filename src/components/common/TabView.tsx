@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 interface Tab {
 	id: string;
@@ -15,16 +15,10 @@ interface TabViewProps {
 
 const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	const navigate = useNavigate();
-	const location = useLocation();
+	const { tabId } = useParams<{ tabId: string }>();
 
-	// Extract the active tab from the URL or use the default
-	const currentPath = location.pathname;
-	const activeTabId = currentPath.split('/').pop();
-
-	// Handle case when no specific tab is in the URL
-	const activeTab =
-		tabs.find((tab) => tab.id === activeTabId) ||
-		(defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);
+	// Find active tab or use default
+	const activeTab = tabs.find((tab) => tab.id === tabId) || (defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);
 
 	const handleTabClick = (tabId: string) => {
 		navigate(`${baseUrl}/${tabId}`);
@@ -34,16 +28,16 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 		<div className="w-full">
 			{/* Tab navigation */}
 			<div className="border-b border-gray-200 mb-6">
-				<nav className="flex space-x-8">
+				<nav className="-mb-px flex space-x-8">
 					{tabs.map((tab) => (
 						<button
 							key={tab.id}
 							onClick={() => handleTabClick(tab.id)}
-							className={`py-4 px-1 font-medium text-sm border-b-2 ${
-								activeTab?.id === tab.id
-									? 'border-blue-500 text-blue-600'
-									: 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-							} transition-colors`}
+							className={`
+                whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
+                ${activeTab?.id === tab.id ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+                transition-colors duration-150
+              `}
 							aria-current={activeTab?.id === tab.id ? 'page' : undefined}
 						>
 							{tab.label}

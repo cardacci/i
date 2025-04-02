@@ -62,21 +62,21 @@ i
 ## Getting Started
 
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
+    ```
+    git clone <repository-url>
+    ```
 2. Navigate to the project directory:
-   ```
-   cd i
-   ```
+    ```
+    cd i
+    ```
 3. Install the dependencies:
-   ```
-   npm install
-   ```
+    ```
+    npm install
+    ```
 4. Start the development server:
-   ```
-   npm run dev
-   ```
+    ```
+    npm run dev
+    ```
 
 ## License
 

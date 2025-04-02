@@ -1,10 +1,6 @@
 {
 	"crypto": {
-		"interests": [
-			"Cryptocurrency investments",
-			"Smart contract development",
-			"Market analysis"
-		]
+		"interests": ["Cryptocurrency investments", "Smart contract development", "Market analysis"]
 	},
 	"djing": {
 		"experiences": [
@@ -43,12 +39,7 @@
 		"skills": ["CSS", "JavaScript", "Node.js", "React", "TypeScript"]
 	},
 	"tech": {
-		"topics": [
-			"Web development",
-			"Artificial Intelligence",
-			"Blockchain",
-			"Cybersecurity"
-		]
+		"topics": ["Web development", "Artificial Intelligence", "Blockchain", "Cybersecurity"]
 	},
 	"travel": {
 		"destinations": [
