@@ -1,57 +1,47 @@
 import React from 'react';
+import UnderConstruction from '../common/UnderConstruction';
 
 const DJing: React.FC = () => {
 	return (
-		<section>
-			<h2>DJing Experiences</h2>
+		<section id="djing" className="py-10 max-w-5xl mx-auto">
+			<h1 className="text-3xl font-bold mb-6 text-blue-800">DJing</h1>
 
-			<p>
-				Welcome to my DJing section! Here, I share my experiences, mixes, and
-				insights into the world of DJing.
-			</p>
+			<UnderConstruction />
 
-			<h3>My Journey</h3>
+			<div className="bg-white p-6 rounded-lg shadow-md">
+				<p className="mb-6">
+					Welcome to my DJing section. Here, I share my passion for music,
+					playlists, and events where Isrc/components/sections/Home.tsxve
+					performed.
+				</p>
 
-			<p>
-				I started DJing in [Year] and have since played at various events,
-				including [list notable events or venues].
-			</p>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					My Style
+				</h3>
+				<p className="mb-4">
+					My DJ sets blend electronic music with elements of house, techno, and
+					ambient sounds. I focus on creating flowing experiences that take
+					listeners on a journey.
+				</p>
 
-			<h3>Mixes</h3>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Equipment
+				</h3>
+				<ul className="list-disc pl-5 space-y-2">
+					<li>Pioneer DJ controllers</li>
+					<li>Serato DJ software</li>
+					<li>Custom audio interfaces</li>
+					<li>High-quality monitoring headphones</li>
+				</ul>
 
-			<p>Check out some of my favorite mixes:</p>
-
-			<ul>
-				<li>
-					<a href="[link-to-mix-1]" rel="noopener noreferrer" target="_blank">
-						Mix Title 1
-					</a>
-				</li>
-
-				<li>
-					<a href="[link-to-mix-2]" rel="noopener noreferrer" target="_blank">
-						Mix Title 2
-					</a>
-				</li>
-
-				<li>
-					<a href="[link-to-mix-3]" rel="noopener noreferrer" target="_blank">
-						Mix Title 3
-					</a>
-				</li>
-			</ul>
-
-			<h3>Equipment</h3>
-
-			<p>I use the following equipment for my DJ sets:</p>
-
-			<ul>
-				<li>DJ Controller: [My DJ Controller]</li>
-
-				<li>Software: [My DJ Software]</li>
-
-				<li>Headphones: [My Headphones]</li>
-			</ul>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Featured Mixes
+				</h3>
+				<p className="mb-4">
+					Coming soon! Isrc/components/sections/Home.tsxll be sharing some of my
+					favorite mixes and recording sessions.
+				</p>
+			</div>
 		</section>
 	);
 };

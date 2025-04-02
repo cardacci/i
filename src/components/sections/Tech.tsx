@@ -1,54 +1,39 @@
 import React from 'react';
+import UnderConstruction from '../common/UnderConstruction';
 
 const Tech: React.FC = () => {
 	return (
-		<section>
-			<h2>Technology and Programming</h2>
+		<section id="tech" className="py-10 max-w-5xl mx-auto">
+			<h1 className="text-3xl font-bold mb-6 text-blue-800">Technology</h1>
 
-			<p>
-				Here you&apos;ll find information about the latest trends in technology,
-				programming languages, tools, and useful resources for developers.
-			</p>
+			<UnderConstruction />
 
-			<h3>Current Trends</h3>
+			<div className="bg-white p-6 rounded-lg shadow-md">
+				<p className="mb-6">
+					This section is dedicated to exploring my interests in technology and
+					software development. I&apos;ll share insights about programming
+					languages, frameworks, and interesting projects I&apos;ve worked on.
+				</p>
 
-			<ul>
-				<li>
-					Web application development with modern frameworks like React, Vue,
-					and Angular.
-				</li>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Technologies I Work With
+				</h3>
+				<ul className="list-disc pl-5 space-y-2">
+					<li>JavaScript/TypeScript</li>
+					<li>React & React Native</li>
+					<li>Node.js</li>
+					<li>HTML/CSS</li>
+					<li>Tailwind CSS</li>
+				</ul>
 
-				<li>Artificial Intelligence and Machine Learning.</li>
-
-				<li>
-					Mobile application development with technologies like React Native and
-					Flutter.
-				</li>
-
-				<li>Blockchain and its impact across various industries.</li>
-			</ul>
-
-			<h3>Recommended Resources</h3>
-
-			<p>Explore the following resources to improve your skills:</p>
-
-			<ul>
-				<li>
-					<a href="https://www.freecodecamp.org/">FreeCodeCamp</a>
-				</li>
-
-				<li>
-					<a href="https://www.codecademy.com/">Codecademy</a>
-				</li>
-
-				<li>
-					<a href="https://www.udemy.com/">Udemy</a>
-				</li>
-
-				<li>
-					<a href="https://www.coursera.org/">Coursera</a>
-				</li>
-			</ul>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Current Interests
+				</h3>
+				<p className="mb-4">
+					I&apos;m currently exploring modern web development techniques,
+					performance optimizations, and building accessible user interfaces.
+				</p>
+			</div>
 		</section>
 	);
 };
