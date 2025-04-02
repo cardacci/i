@@ -8,30 +8,49 @@ The project is organized as follows:
 
 ```
 i
+├── .github
+│   └── workflows
+│       └── deploy.yml
 ├── public
-│   └── assets
-│       └── data.json
+│   ├── assets
+│   │   └── data.json
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── .nojekyll
+│   ├── 404.html
+│   ├── _redirects
+│   └── site.webmanifest
 ├── src
+│   ├── assets
+│   │   └── images
+│   │       └── profile.png
 │   ├── components
+│   │   ├── common
+│   │   │   ├── TabView.tsx
+│   │   │   └── UnderConstruction.tsx
 │   │   ├── layout
 │   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   └── Navigation.tsx
 │   │   ├── sections
+│   │   │   ├── DJing
+│   │   │   │   ├── DJing.tsx
+│   │   │   │   ├── DjInfo.tsx
+│   │   │   │   └── TrackClassifier.tsx
 │   │   │   ├── Home.tsx
 │   │   │   ├── Resume.tsx
 │   │   │   ├── Crypto.tsx
 │   │   │   ├── Tech.tsx
-│   │   │   ├── DJing.tsx
 │   │   │   └── Travel.tsx
 │   ├── styles
-│   │   ├── global.css
 │   │   └── tailwind.css
 │   ├── types
 │   │   └── index.ts
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── vite-env.d.ts
+├── .vscode
+│   └── settings.json
 ├── index.html
 ├── package.json
 ├── postcss.config.js
@@ -40,11 +59,13 @@ i
 ├── vite.config.ts
 ├── .eslintrc.json
 ├── .prettierrc
+├── .gitignore
 └── README.md
 ```
 
 ## Technologies Used
 
+- **GitHub Actions**: For automated deployment to GitHub Pages.
 - **React**: For building the user interface with functional components and hooks.
 - **React Router**: For client-side routing between different sections.
 - **Tailwind CSS**: For utility-first styling with responsive design support.
@@ -73,26 +94,43 @@ This project follows industry best practices and coding standards:
 - **Animated UI Elements**: Smooth transitions and typing effects.
 - **Tab Navigation**: URL-based tab system in the DJing section.
 
+## Deployment
+
+This project is automatically deployed to GitHub Pages using GitHub Actions:
+
+- Every push to the `main` branch triggers the deployment workflow.
+- The workflow builds the project and publishes it to the `gh-pages` branch.
+- Configuration is defined in `.github/workflows/deploy.yml`
+- The site is accessible at: `https://cardacci.github.io/i/`
+
+The deployment process includes:
+
+1. Checking out the repository.
+2. Setting up Node.js environment.
+3. Installing dependencies.
+4. Building the project.
+5. Deploying to the `gh-pages` branch.
+
 ## Getting Started
 
 1. Clone the repository:
-    ```
+    ```bash
     git clone <repository-url>
     ```
 2. Navigate to the project directory:
-    ```
+    ```bash
     cd i
     ```
 3. Install the dependencies:
-    ```
+    ```bash
     npm install
     ```
 4. Start the development server:
-    ```
+    ```bash
     npm run dev
     ```
 5. Build for production:
-    ```
+    ```bash
     npm run build
     ```
 
@@ -104,6 +142,19 @@ This project follows industry best practices and coding standards:
 - `npm run lint`: Run ESLint to check for code issues
 - `npm run preview`: Preview the production build locally
 
+## Browser Compatibility
+
+This website is optimized for modern browsers:
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
 ## License
 
 This project is licensed under the MIT License.
+
+## Author
+
+Gabriel Cardacci - Principal Frontend Engineer, Computer Science Engineer, Investor, Crypto Enthusiast, World Explorer, and DJ.
