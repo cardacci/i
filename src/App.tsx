@@ -9,22 +9,22 @@ import Navigation from './components/layout/Navigation';
 import Resume from './components/sections/Resume';
 import Tech from './components/sections/Tech';
 import Travel from './components/sections/Travel';
-import './styles/global.css';
 
 // Layout component that will be present on all pages.
 const Layout = () => {
 	return (
-		<>
+		<div className="flex flex-col min-h-screen">
 			<Header />
 
 			<Navigation />
 
-			<main>
-				<Outlet />
+			<main className="flex-grow">
+				<div className="container mx-auto px-4 py-6">
+					<Outlet />
+				</div>
 			</main>
-
 			<Footer />
-		</>
+		</div>
 	);
 };
 

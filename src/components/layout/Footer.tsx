@@ -2,10 +2,13 @@ import React from 'react';
 
 const Footer: React.FC = () => {
 	return (
-		<footer>
-			<p>
-				&copy; {new Date().getFullYear()} Gabriel Cardacci. All rights reserved.
-			</p>
+		<footer className="bg-gray-800 text-white p-4 mt-auto">
+			<div className="container mx-auto text-center">
+				<p>
+					&copy; {new Date().getFullYear()} Gabriel Cardacci. All rights
+					reserved.
+				</p>
+			</div>
 		</footer>
 	);
 };
