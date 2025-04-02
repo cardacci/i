@@ -15,14 +15,15 @@ const Layout = () => {
 	return (
 		<div className="flex flex-col min-h-screen">
 			<Header />
-
-			<Navigation />
-
-			<main className="flex-grow">
-				<div className="container mx-auto px-4 py-6">
-					<Outlet />
-				</div>
-			</main>
+			<div className="pt-32 md:pt-28">
+				{/* Increased padding-top for mobile (32) and adjusted for desktop (28) */}
+				<Navigation />
+				<main className="flex-grow">
+					<div className="container mx-auto px-4 py-6">
+						<Outlet />
+					</div>
+				</main>
+			</div>
 			<Footer />
 		</div>
 	);
