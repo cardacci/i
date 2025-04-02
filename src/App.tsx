@@ -16,7 +16,6 @@ const Layout = () => {
 		<div className="flex flex-col min-h-screen">
 			<Header />
 			<div className="pt-32 md:pt-28">
-				{/* Increased padding-top for mobile (32) and adjusted for desktop (28) */}
 				<Navigation />
 				<main className="flex-grow">
 					<div className="container mx-auto px-4 py-6">
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
 				element: <Tech />,
 			},
 			{
-				path: 'djing',
+				path: 'djing/*', // Note the wildcard to support nested routes
 				element: <DJing />,
 			},
 			{
