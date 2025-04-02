@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Crypto from './components/sections/Crypto';
-import DJing from './components/sections/DJing';
+import DJing from './components/sections/DJing/DJing';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Home from './components/sections/Home';

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import UnderConstruction from '../common/UnderConstruction';
-import TabView from '../common/TabView';
-import DjInfo from './DJing/DjInfo';
-import TrackClassifier from './DJing/TrackClassifier';
+import UnderConstruction from '../../common/UnderConstruction';
+import TabView from '../../common/TabView';
+import DjInfo from './DjInfo';
+import TrackClassifier from './TrackClassifier';
 
 const DJing: React.FC = () => {
 	const tabs = [
