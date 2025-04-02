@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Crypto from '@/components/sections/Crypto';
 import DJing from '@/components/sections/DJing/DJing';
 import Footer from '@/components/layout/Footer';
@@ -29,7 +29,7 @@ const Layout = () => {
 };
 
 // Define routes.
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: '/',
 		element: <Layout />,

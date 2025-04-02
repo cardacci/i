@@ -45,6 +45,7 @@ i
 
 ## Technologies Used
 
+- **GitHub Actions**: For automated deployment to GitHub Pages.
 - **React**: For building the user interface with functional components and hooks.
 - **React Router**: For client-side routing between different sections.
 - **Tailwind CSS**: For utility-first styling with responsive design support.
@@ -73,6 +74,31 @@ This project follows industry best practices and coding standards:
 - **Animated UI Elements**: Smooth transitions and typing effects.
 - **Tab Navigation**: URL-based tab system in the DJing section.
 
+## Deployment
+
+This project is automatically deployed to GitHub Pages using GitHub Actions:
+
+- Every push to the `main` branch triggers the deployment workflow.
+- The workflow builds the project and publishes it to the `gh-pages` branch.
+- Configuration is defined in `.github/workflows/deploy.yml`
+- The site is accessible at: `https://cardacci.github.io/i/`
+
+The deployment process includes:
+
+1. Checking out the repository.
+2. Setting up Node.js environment.
+3. Installing dependencies.
+4. Building the project.
+5. Deploying to the `gh-pages` branch.
+
+### Manual Deployment
+
+You can also deploy manually using:
+`     npm run deploy
+    `
+
+This command builds the project and then uses the gh-pages package to publish the dist directory to the gh-pages branch.
+
 ## Getting Started
 
 1. Clone the repository:
@@ -99,11 +125,25 @@ This project follows industry best practices and coding standards:
 ## Scripts
 
 - `npm run build`: Build for production
+- `npm run deploy`: Deploy manually to GitHub Pages
 - `npm run dev`: Start the development server
 - `npm run format`: Format code using Prettier
 - `npm run lint`: Run ESLint to check for code issues
 - `npm run preview`: Preview the production build locally
 
+## Browser Compatibility
+
+This website is optimized for modern browsers:
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
 ## License
 
 This project is licensed under the MIT License.
+
+## Author
+
+Gabriel Cardacci - Principal Frontend Engineer, Computer Science Engineer, Investor, Crypto Enthusiast, World Explorer, and DJ.

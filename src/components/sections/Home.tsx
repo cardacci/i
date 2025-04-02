@@ -6,7 +6,7 @@ const Home: React.FC = () => {
 			<div className="flex flex-col md:flex-row items-center gap-8">
 				<div className="md:w-1/3 flex justify-center">
 					<img
-						src="/assets/images/profile.png"
+						src="./assets/images/profile.png"
 						alt="Gabriel Cardacci"
 						className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-white"
 					/>
