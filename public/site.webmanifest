@@ -1,0 +1,19 @@
+{
+	"background_color": "#FFFFFF",
+	"display": "standalone",
+	"icons": [
+		{
+			"sizes": "192x192",
+			"src": "/web-app-manifest-192x192.png",
+			"type": "image/png"
+		},
+		{
+			"sizes": "512x512",
+			"src": "/web-app-manifest-512x512.png",
+			"type": "image/png"
+		}
+	],
+	"name": "Gabriel Cardacci",
+	"short_name": "Cardacci",
+	"theme_color": "#1E40AF"
+}
