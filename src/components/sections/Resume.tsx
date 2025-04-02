@@ -1,5 +1,5 @@
 import React from 'react';
-import UnderConstruction from '../common/UnderConstruction';
+import UnderConstruction from '@/components/common/UnderConstruction';
 
 const Resume: React.FC = () => {
 	return (

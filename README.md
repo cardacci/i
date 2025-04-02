@@ -1,4 +1,4 @@
-# i
+# Cardacci Personal Website
 
 This personal website showcases who I am and various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, DJing experiences, and travel adventures.
 
@@ -45,19 +45,33 @@ i
 
 ## Technologies Used
 
-- **CSS**: For styling the components.
-- **React**: For building the user interface.
-- **TypeScript**: For type safety and better development experience.
-- **Vite**: For fast development and build processes.
+- **React**: For building the user interface with functional components and hooks.
+- **React Router**: For client-side routing between different sections.
+- **Tailwind CSS**: For utility-first styling with responsive design support.
+- **TypeScript**: For type safety, better developer experience, and code reliability.
+- **Vite**: For fast development and optimized builds.
+
+## Code Standards
+
+This project follows industry best practices and coding standards:
+
+- **ESLint**: Configured with recommended React and TypeScript rules.
+- **Prettier**: For consistent code formatting across the codebase.
+- **Path Aliases**: Using `@/` for cleaner imports from the src directory.
+- **Component Organization**: Structured by feature and responsibility.
+- **Modern JavaScript**: Using ES modules with proper import ordering.
 
 ## Features
 
-- **Home Section**: Displays personal information and an introduction.
-- **Resume Section**: Presents the user's CV.
-- **Crypto Section**: Provides insights about cryptocurrencies.
-- **Tech Section**: Shares information about technology and programming.
-- **DJing Section**: Showcases DJing experiences and related content.
-- **Travel Section**: Shares travel experiences and related information.
+- **Home Section**: Personal introduction with profile image and social links.
+- **Resume Section**: Professional CV with education, experience, and skills.
+- **Crypto Section**: Information and insights about cryptocurrencies.
+- **Tech Section**: Technology articles and programming information.
+- **DJing Section**: Music experiences and a custom track classification tool.
+- **Travel Section**: Adventures and travel experiences around the world.
+- **Responsive Design**: Optimized for both mobile and desktop experiences.
+- **Animated UI Elements**: Smooth transitions and typing effects.
+- **Tab Navigation**: URL-based tab system in the DJing section.
 
 ## Getting Started
 
@@ -77,6 +91,18 @@ i
     ```
     npm run dev
     ```
+5. Build for production:
+    ```
+    npm run build
+    ```
+
+## Scripts
+
+- `npm run build`: Build for production
+- `npm run dev`: Start the development server
+- `npm run format`: Format code using Prettier
+- `npm run lint`: Run ESLint to check for code issues
+- `npm run preview`: Preview the production build locally
 
 ## License
 

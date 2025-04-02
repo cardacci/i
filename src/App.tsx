@@ -1,14 +1,14 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Crypto from './components/sections/Crypto';
-import DJing from './components/sections/DJing/DJing';
-import Footer from './components/layout/Footer';
-import Header from './components/layout/Header';
-import Home from './components/sections/Home';
-import Navigation from './components/layout/Navigation';
-import Resume from './components/sections/Resume';
-import Tech from './components/sections/Tech';
-import Travel from './components/sections/Travel';
+import Crypto from '@/components/sections/Crypto';
+import DJing from '@/components/sections/DJing/DJing';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import Home from '@/components/sections/Home';
+import Navigation from '@/components/layout/Navigation';
+import Resume from '@/components/sections/Resume';
+import Tech from '@/components/sections/Tech';
+import Travel from '@/components/sections/Travel';
 
 // Layout component that will be present on all pages.
 const Layout = () => {

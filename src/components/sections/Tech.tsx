@@ -1,5 +1,5 @@
 import React from 'react';
-import UnderConstruction from '../common/UnderConstruction';
+import UnderConstruction from '@/components/common/UnderConstruction';
 
 const Tech: React.FC = () => {
 	return (
@@ -10,11 +10,14 @@ const Tech: React.FC = () => {
 
 			<div className="bg-white p-6 rounded-lg shadow-md">
 				<p className="mb-6">
-					This section is dedicated to exploring my interests in technology and software development. I&apos;ll share insights about programming
-					languages, frameworks, and interesting projects I&apos;ve worked on.
+					This section is dedicated to exploring my interests in technology and software
+					development. I&apos;ll share insights about programming languages, frameworks,
+					and interesting projects I&apos;ve worked on.
 				</p>
 
-				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Technologies I Work With</h3>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Technologies I Work With
+				</h3>
 				<ul className="list-disc pl-5 space-y-2">
 					<li>JavaScript/TypeScript</li>
 					<li>React & React Native</li>
@@ -25,7 +28,8 @@ const Tech: React.FC = () => {
 
 				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Current Interests</h3>
 				<p className="mb-4">
-					I&apos;m currently exploring modern web development techniques, performance optimizations, and building accessible user interfaces.
+					I&apos;m currently exploring modern web development techniques, performance
+					optimizations, and building accessible user interfaces.
 				</p>
 			</div>
 		</section>

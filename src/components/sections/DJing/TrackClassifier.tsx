@@ -9,7 +9,17 @@ const TrackClassifier: React.FC = () => {
 	// Define checkbox options
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
-	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
+	const componentOptions = [
+		'Acid',
+		'Dark',
+		'Ethereal',
+		'Light',
+		'Melodic',
+		'Oriental',
+		'Soft',
+		'Tribal',
+		'Vocal',
+	];
 
 	// Update result whenever selections change
 	useEffect(() => {
@@ -57,7 +67,17 @@ const TrackClassifier: React.FC = () => {
 	};
 
 	// Checkbox component for consistent styling
-	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
+	const Checkbox = ({
+		id,
+		label,
+		checked,
+		onChange,
+	}: {
+		id: string;
+		label: string;
+		checked: boolean;
+		onChange: () => void;
+	}) => (
 		<div className="flex items-center bg-white rounded-lg shadow-sm border border-gray-200 px-4 py-2 m-1">
 			<input
 				id={id}
@@ -66,7 +86,10 @@ const TrackClassifier: React.FC = () => {
 				onChange={onChange}
 				className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
 			/>
-			<label htmlFor={id} className="ml-2 block text-sm text-gray-700 font-medium cursor-pointer">
+			<label
+				htmlFor={id}
+				className="ml-2 block text-sm text-gray-700 font-medium cursor-pointer"
+			>
 				{label}
 			</label>
 		</div>
@@ -141,7 +164,12 @@ const TrackClassifier: React.FC = () => {
 						rel="noopener noreferrer"
 						className="flex items-center gap-2 px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors"
 					>
-						<svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+						<svg
+							className="w-5 h-5"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+						>
 							<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
 						</svg>
 						YouTube

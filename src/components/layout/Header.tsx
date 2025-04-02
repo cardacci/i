@@ -51,7 +51,8 @@ const Header: React.FC = () => {
 				<h1 className="text-white font-bold text-3xl transition-all duration-300">
 					Gabriel Cardacci
 					<span className="block text-sm font-light mt-1 text-blue-200 opacity-90">
-						Principal Frontend Engineer | CS Engineer | Investor | Crypto Enthusiast | World Explorer | DJ
+						Principal Frontend Engineer | CS Engineer | Investor | Crypto Enthusiast |
+						World Explorer | DJ
 					</span>
 				</h1>
 

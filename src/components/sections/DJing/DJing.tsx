@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import UnderConstruction from '../../common/UnderConstruction';
-import TabView from '../../common/TabView';
+import UnderConstruction from '@/components/common/UnderConstruction';
+import TabView from '@/components/common/TabView';
 import DjInfo from './DjInfo';
 import TrackClassifier from './TrackClassifier';
 
@@ -27,7 +27,10 @@ const DJing: React.FC = () => {
 
 			<Routes>
 				<Route path="/" element={<Navigate replace to="info" />} />
-				<Route path=":tabId" element={<TabView tabs={tabs} baseUrl="/djing" defaultTab="info" />} />
+				<Route
+					path=":tabId"
+					element={<TabView tabs={tabs} baseUrl="/djing" defaultTab="info" />}
+				/>
 			</Routes>
 		</section>
 	);

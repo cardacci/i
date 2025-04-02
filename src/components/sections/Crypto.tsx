@@ -1,5 +1,5 @@
 import React from 'react';
-import UnderConstruction from '../common/UnderConstruction';
+import UnderConstruction from '@/components/common/UnderConstruction';
 
 const Crypto: React.FC = () => {
 	return (
@@ -10,27 +10,34 @@ const Crypto: React.FC = () => {
 
 			<div className="bg-white p-6 rounded-lg shadow-md">
 				<p className="mb-6">
-					Welcome to the cryptocurrency section of my personal website. Here, you will find information and insights about various cryptocurrencies,
-					market trends, and investment strategies.
+					Welcome to the cryptocurrency section of my personal website. Here, you will
+					find information and insights about various cryptocurrencies, market trends, and
+					investment strategies.
 				</p>
 
-				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Popular Cryptocurrencies</h3>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Popular Cryptocurrencies
+				</h3>
 				<ul className="list-disc pl-5 space-y-2">
 					<li>Bitcoin (BTC)</li>
 					<li>Ethereum (ETH)</li>
-					<li>Ripple (XRP)</li>
+					<li>Solana (SOL)</li>
 					<li>Litecoin (LTC)</li>
 					<li>Cardano (ADA)</li>
 				</ul>
 
 				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Market Trends</h3>
 				<p className="mb-4">
-					Stay updated with the latest trends in the cryptocurrency market. Understanding market movements can help you make informed decisions.
+					Stay updated with the latest trends in the cryptocurrency market. Understanding
+					market movements can help you make informed decisions.
 				</p>
 
-				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Investment Strategies</h3>
+				<h3 className="text-xl font-semibold mt-6 mb-4 text-gray-800">
+					Investment Strategies
+				</h3>
 				<p className="mb-4">
-					Explore different investment strategies for cryptocurrencies, including long-term holding, day trading, and diversification.
+					Explore different investment strategies for cryptocurrencies, including
+					long-term holding, day trading, and diversification.
 				</p>
 			</div>
 		</section>

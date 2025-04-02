@@ -12,12 +12,18 @@ const Navigation: React.FC = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/resume" className="text-gray-800 hover:text-blue-600 font-medium">
+						<Link
+							to="/resume"
+							className="text-gray-800 hover:text-blue-600 font-medium"
+						>
 							Resume
 						</Link>
 					</li>
 					<li>
-						<Link to="/crypto" className="text-gray-800 hover:text-blue-600 font-medium">
+						<Link
+							to="/crypto"
+							className="text-gray-800 hover:text-blue-600 font-medium"
+						>
 							Crypto
 						</Link>
 					</li>
@@ -32,7 +38,10 @@ const Navigation: React.FC = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/travel" className="text-gray-800 hover:text-blue-600 font-medium">
+						<Link
+							to="/travel"
+							className="text-gray-800 hover:text-blue-600 font-medium"
+						>
 							Travel
 						</Link>
 					</li>
