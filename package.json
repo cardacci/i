@@ -24,6 +24,7 @@
 		"tailwindcss": "^3.4.1",
 		"vite": "^4.0.0"
 	},
+	"homepage": "https://cardacci.github.io/i/",
 	"keywords": [
 		"cardacci",
 		"engineer",
@@ -47,5 +48,5 @@
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.0.0"
+	"version": "1.04.02"
 }
