@@ -8,30 +8,49 @@ The project is organized as follows:
 
 ```
 i
+├── .github
+│   └── workflows
+│       └── deploy.yml
 ├── public
-│   └── assets
-│       └── data.json
+│   ├── assets
+│   │   └── data.json
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── .nojekyll
+│   ├── 404.html
+│   ├── _redirects
+│   └── site.webmanifest
 ├── src
+│   ├── assets
+│   │   └── images
+│   │       └── profile.png
 │   ├── components
+│   │   ├── common
+│   │   │   ├── TabView.tsx
+│   │   │   └── UnderConstruction.tsx
 │   │   ├── layout
 │   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   └── Navigation.tsx
 │   │   ├── sections
+│   │   │   ├── DJing
+│   │   │   │   ├── DJing.tsx
+│   │   │   │   ├── DjInfo.tsx
+│   │   │   │   └── TrackClassifier.tsx
 │   │   │   ├── Home.tsx
 │   │   │   ├── Resume.tsx
 │   │   │   ├── Crypto.tsx
 │   │   │   ├── Tech.tsx
-│   │   │   ├── DJing.tsx
 │   │   │   └── Travel.tsx
 │   ├── styles
-│   │   ├── global.css
 │   │   └── tailwind.css
 │   ├── types
 │   │   └── index.ts
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── vite-env.d.ts
+├── .vscode
+│   └── settings.json
 ├── index.html
 ├── package.json
 ├── postcss.config.js
@@ -40,6 +59,7 @@ i
 ├── vite.config.ts
 ├── .eslintrc.json
 ├── .prettierrc
+├── .gitignore
 └── README.md
 ```
 
@@ -91,41 +111,32 @@ The deployment process includes:
 4. Building the project.
 5. Deploying to the `gh-pages` branch.
 
-### Manual Deployment
-
-You can also deploy manually using:
-`     npm run deploy
-    `
-
-This command builds the project and then uses the gh-pages package to publish the dist directory to the gh-pages branch.
-
 ## Getting Started
 
 1. Clone the repository:
-    ```
+    ```bash
     git clone <repository-url>
     ```
 2. Navigate to the project directory:
-    ```
+    ```bash
     cd i
     ```
 3. Install the dependencies:
-    ```
+    ```bash
     npm install
     ```
 4. Start the development server:
-    ```
+    ```bash
     npm run dev
     ```
 5. Build for production:
-    ```
+    ```bash
     npm run build
     ```
 
 ## Scripts
 
 - `npm run build`: Build for production
-- `npm run deploy`: Deploy manually to GitHub Pages
 - `npm run dev`: Start the development server
 - `npm run format`: Format code using Prettier
 - `npm run lint`: Run ESLint to check for code issues
