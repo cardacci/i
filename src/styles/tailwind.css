@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Configuración de componentes base */
+@layer components {
+	h1 {
+		@apply font-bold mb-4 text-3xl;
+	}
+	h2 {
+		@apply font-bold mb-3 text-2xl;
+	}
+	h3 {
+		@apply font-semibold mb-2 text-xl;
+	}
+	p {
+		@apply mb-4;
+	}
+	a {
+		@apply text-blue-600 hover:text-blue-800;
+	}
+}
