@@ -1,15 +1,14 @@
 {
 	"author": "Gabriel Cardacci",
 	"dependencies": {
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0",
-		"react-router-dom": "^7.4.1",
-		"typescript": "^4.0.0"
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router-dom": "^7.5.0"
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
 	"devDependencies": {
-		"@types/react": "^19.0.12",
-		"@types/react-dom": "^19.0.4",
+		"@types/react": "^19.1.0",
+		"@types/react-dom": "^19.1.1",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"@vitejs/plugin-react": "^4.3.4",
@@ -22,7 +21,8 @@
 		"postcss": "^8.4.31",
 		"prettier": "^3.5.3",
 		"tailwindcss": "^3.4.1",
-		"vite": "^4.0.0"
+		"typescript": "^5.8.3",
+		"vite": "^6.2.5"
 	},
 	"homepage": "https://cardacci.github.io/i/",
 	"keywords": [
@@ -41,12 +41,12 @@
 	"name": "i",
 	"scripts": {
 		"build": "vite build",
-		"deploy": "npm run build && gh-pages -d dist",
+		"deploy": "gh-pages -d dist",
 		"dev": "vite",
 		"format": "prettier --write .",
 		"lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.04.02"
+	"version": "1.04.06"
 }
