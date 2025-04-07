@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Cardacci website to GitHub Pages
 
 on:
     push:
@@ -9,25 +9,20 @@ permissions:
     contents: write # Allows writing to the repository.
 
 jobs:
-    build-and-deploy:
+    build-deploy:
         runs-on: ubuntu-latest
+
         steps:
+			# Checkout the repository.
             - name: Checkout 🛎️
               uses: actions/checkout@v4
 
+			# Setup Node.js and install dependencies.
             - name: Setup Node.js ⚙️
               uses: actions/setup-node@v4
               with:
-                  node-version: '18'
+                  node-version: '20'
                   cache: 'npm'
-
-            - name: Cache dependencies
-              uses: actions/cache@v3
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-node-
 
             - name: Install dependencies 📦
               run: npm ci
@@ -35,9 +30,9 @@ jobs:
             - name: Build 🔧
               run: npm run build
 
+			  # Deploy to GitHub Pages.
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@v4
               with:
                   folder: dist # The output folder from Vite build.
-                  branch: gh-pages # The branch where the site is published.
                   clean: true # Removes files from previous deployments.
