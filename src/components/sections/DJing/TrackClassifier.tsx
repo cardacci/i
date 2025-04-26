@@ -23,10 +23,26 @@ const TrackClassifier: React.FC = () => {
 
 	// Update result whenever selections change.
 	useEffect(() => {
-		const allSelected = [...timeSelections, ...componentSelections];
-		const uniqueSelected = [...new Set(allSelected)];
-		setResult(uniqueSelected.join(' / '));
-	}, [timeSelections, componentSelections]);
+		// Create ordered result by iterating through original arrays in order.
+		const orderedResults: string[] = [];
+
+		// First add all selected time options in their original order.
+		setTimeOptions.forEach((option) => {
+			if (timeSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Then add all selected component options in their original order.
+		componentOptions.forEach((option) => {
+			if (componentSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Join the ordered selections with the separator.
+		setResult(orderedResults.join(' / '));
+	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	// Handle checkbox changes.
 	const handleTimeChange = (option: string) => {
