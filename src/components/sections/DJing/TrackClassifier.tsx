@@ -14,6 +14,7 @@ const TrackClassifier: React.FC = () => {
 		'Acid',
 		'Dark',
 		'Ethereal',
+		'Funky',
 		'Light',
 		'Melodic',
 		'Oriental',
