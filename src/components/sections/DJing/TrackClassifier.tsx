@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
 const TrackClassifier: React.FC = () => {
-	// State to track selected checkboxes.
-	const [timeSelections, setTimeSelections] = useState<string[]>([]);
+	/* ===== State ===== */
 	const [componentSelections, setComponentSelections] = useState<string[]>([]);
 	const [result, setResult] = useState<string>('');
+	const [timeSelections, setTimeSelections] = useState<string[]>([]);
+	const [validationError, setValidationError] = useState<string>('');
 
-	// Define checkbox options.
-	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
-
+	/* ===== Variables ===== */
 	const componentOptions = [
 		'Acid',
 		'Dark',
 		'Ethereal',
+		'Funky',
 		'Light',
 		'Melodic',
 		'Oriental',
@@ -20,13 +20,8 @@ const TrackClassifier: React.FC = () => {
 		'Tribal',
 		'Vocal',
 	];
-
-	// Update result whenever selections change.
-	useEffect(() => {
-		const allSelected = [...timeSelections, ...componentSelections];
-		const uniqueSelected = [...new Set(allSelected)];
-		setResult(uniqueSelected.join(' / '));
-	}, [timeSelections, componentSelections]);
+	// Define checkbox options.
+	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	// Handle checkbox changes.
 	const handleTimeChange = (option: string) => {
@@ -51,12 +46,22 @@ const TrackClassifier: React.FC = () => {
 
 	// Copy and Clear functions.
 	const handleCopy = () => {
+		// Validate selections before copying
+		if (timeSelections.length === 0) {
+			setValidationError('Please select at least one Set Time option.');
+
+			return;
+		}
+
+		// If validation passes, copy to clipboard
 		navigator.clipboard.writeText(result).then(
 			() => {
-				// Could add a toast/notification here.
+				// Clear any validation errors
+				setValidationError('');
 			},
 			(err) => {
 				console.error('Could not copy text: ', err);
+				setValidationError('Failed to copy text to clipboard.');
 			}
 		);
 	};
@@ -64,7 +69,37 @@ const TrackClassifier: React.FC = () => {
 	const handleClear = () => {
 		setTimeSelections([]);
 		setComponentSelections([]);
+		setValidationError('');
 	};
+
+	/* ===== Effects ===== */
+	// Update result whenever selections change.
+	useEffect(() => {
+		// Create ordered result by iterating through original arrays in order.
+		const orderedResults: string[] = [];
+
+		// First add all selected time options in their original order.
+		setTimeOptions.forEach((option) => {
+			if (timeSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Then add all selected component options in their original order.
+		componentOptions.forEach((option) => {
+			if (componentSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Join the ordered selections with the separator.
+		setResult(orderedResults.join(' / '));
+
+		// Clear validation error if at least one time selection is made.
+		if (timeSelections.length > 0) {
+			setValidationError('');
+		}
+	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	// Checkbox component for consistent styling.
 	const Checkbox = ({
@@ -129,6 +164,12 @@ const TrackClassifier: React.FC = () => {
 				</div>
 			</div>
 
+			{validationError && (
+				<div className="mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md">
+					{validationError}
+				</div>
+			)}
+
 			<div className="mb-6">
 				<textarea
 					id="result"
@@ -142,14 +183,19 @@ const TrackClassifier: React.FC = () => {
 
 			<div className="flex justify-end space-x-4">
 				<button
+					className={`px-6 py-2 ${
+						timeSelections.length > 0
+							? 'bg-blue-600 hover:bg-blue-700'
+							: 'bg-blue-400 cursor-not-allowed'
+					} text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
 					onClick={handleCopy}
-					className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150"
 				>
 					Copy
 				</button>
+
 				<button
-					onClick={handleClear}
 					className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150"
+					onClick={handleClear}
 				>
 					Clear
 				</button>
