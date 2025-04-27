@@ -11,15 +11,20 @@ i
 ├── .github
 │   └── workflows
 │       └── deploy.yml
+├── .vscode
+│   └── settings.json
 ├── public
 │   ├── assets
 │   │   └── data.json
-│   ├── favicon.ico
-│   ├── favicon.svg
+│   ├── _redirects
 │   ├── .nojekyll
 │   ├── 404.html
-│   ├── _redirects
-│   └── site.webmanifest
+│   ├── apple-touch-icon.png
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── site.webmanifest
+│   ├── web-app-manifest-192x192.png
+│   └── web-app-manifest-512x512.png
 ├── src
 │   ├── assets
 │   │   └── images
@@ -29,17 +34,17 @@ i
 │   │   │   ├── TabView.tsx
 │   │   │   └── UnderConstruction.tsx
 │   │   ├── layout
-│   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
+│   │   │   ├── Header.tsx
 │   │   │   └── Navigation.tsx
 │   │   ├── sections
 │   │   │   ├── DJing
-│   │   │   │   ├── DJing.tsx
 │   │   │   │   ├── DjInfo.tsx
+│   │   │   │   ├── DJing.tsx
 │   │   │   │   └── TrackClassifier.tsx
+│   │   │   ├── Crypto.tsx
 │   │   │   ├── Home.tsx
 │   │   │   ├── Resume.tsx
-│   │   │   ├── Crypto.tsx
 │   │   │   ├── Tech.tsx
 │   │   │   └── Travel.tsx
 │   ├── styles
@@ -49,18 +54,18 @@ i
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── vite-env.d.ts
-├── .vscode
-│   └── settings.json
 ├── index.html
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc
+├── fix-paths.js
 ├── package.json
+├── package-lock.json
 ├── postcss.config.js
+├── README.md
 ├── tailwind.config.js
 ├── tsconfig.json
-├── vite.config.ts
-├── .eslintrc.json
-├── .prettierrc
-├── .gitignore
-└── README.md
+└── vite.config.ts
 ```
 
 ## Technologies Used
@@ -93,6 +98,17 @@ This project follows industry best practices and coding standards:
 - **Responsive Design**: Optimized for both mobile and desktop experiences.
 - **Animated UI Elements**: Smooth transitions and typing effects.
 - **Tab Navigation**: URL-based tab system in the DJing section.
+- **Version Tracking**: Automatic versioning based on build timestamp (format: YY.MMDD.HHMM).
+
+## Build and Versioning
+
+The project includes an automatic versioning system:
+
+- The version is generated at build time in the format `YY.MMDD.HHMM`
+    - Example: `25.0421.1745` (for April 21, 2025 at 17:45)
+- The versioning system is configured in `vite.config.ts`
+- The version is displayed in the footer of the website
+- This approach ensures each build can be uniquely identified by when it was created
 
 ## Deployment
 
@@ -108,8 +124,9 @@ The deployment process includes:
 1. Checking out the repository.
 2. Setting up Node.js environment.
 3. Installing dependencies.
-4. Building the project.
-5. Deploying to the `gh-pages` branch.
+4. Building the project (which includes generating the version).
+5. Running the `fix-paths.js` script to adjust paths for GitHub Pages.
+6. Deploying to GitHub Pages.
 
 ## Getting Started
 
@@ -136,7 +153,7 @@ The deployment process includes:
 
 ## Scripts
 
-- `npm run build`: Build for production
+- `npm run build`: Build for production and run the fix-paths script
 - `npm run dev`: Start the development server
 - `npm run format`: Format code using Prettier
 - `npm run lint`: Run ESLint to check for code issues
