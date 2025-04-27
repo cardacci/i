@@ -40,7 +40,7 @@
 	"main": "src/main.tsx",
 	"name": "i",
 	"scripts": {
-		"build": "vite build",
+		"build": "vite build && node fix-paths.js",
 		"deploy": "gh-pages -d dist",
 		"dev": "vite",
 		"format": "prettier --write .",

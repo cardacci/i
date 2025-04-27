@@ -10,6 +10,9 @@ export default defineConfig({
 			'@': '/src',
 		},
 	},
+	build: {
+		assetsDir: 'assets',
+	},
 	server: {
 		open: true,
 		port: 2025,
