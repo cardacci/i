@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 const TrackClassifier: React.FC = () => {
-	// State to track selected checkboxes.
-	const [timeSelections, setTimeSelections] = useState<string[]>([]);
+	/* ===== State ===== */
 	const [componentSelections, setComponentSelections] = useState<string[]>([]);
 	const [result, setResult] = useState<string>('');
+	const [timeSelections, setTimeSelections] = useState<string[]>([]);
 	const [validationError, setValidationError] = useState<string>('');
 
-	// Define checkbox options.
-	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
-
+	/* ===== Variables ===== */
 	const componentOptions = [
 		'Acid',
 		'Dark',
@@ -22,34 +20,8 @@ const TrackClassifier: React.FC = () => {
 		'Tribal',
 		'Vocal',
 	];
-
-	// Update result whenever selections change.
-	useEffect(() => {
-		// Create ordered result by iterating through original arrays in order.
-		const orderedResults: string[] = [];
-
-		// First add all selected time options in their original order.
-		setTimeOptions.forEach((option) => {
-			if (timeSelections.includes(option)) {
-				orderedResults.push(option);
-			}
-		});
-
-		// Then add all selected component options in their original order.
-		componentOptions.forEach((option) => {
-			if (componentSelections.includes(option)) {
-				orderedResults.push(option);
-			}
-		});
-
-		// Join the ordered selections with the separator.
-		setResult(orderedResults.join(' / '));
-
-		// Clear validation error if both categories have selections.
-		if (timeSelections.length > 0 && componentSelections.length > 0) {
-			setValidationError('');
-		}
-	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
+	// Define checkbox options.
+	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	// Handle checkbox changes.
 	const handleTimeChange = (option: string) => {
@@ -75,16 +47,8 @@ const TrackClassifier: React.FC = () => {
 	// Copy and Clear functions.
 	const handleCopy = () => {
 		// Validate selections before copying
-		if (timeSelections.length === 0 && componentSelections.length === 0) {
-			setValidationError('Please select at least one Set Time and one Component option.');
-
-			return;
-		} else if (timeSelections.length === 0) {
+		if (timeSelections.length === 0) {
 			setValidationError('Please select at least one Set Time option.');
-
-			return;
-		} else if (componentSelections.length === 0) {
-			setValidationError('Please select at least one Component option.');
 
 			return;
 		}
@@ -107,6 +71,35 @@ const TrackClassifier: React.FC = () => {
 		setComponentSelections([]);
 		setValidationError('');
 	};
+
+	/* ===== Effects ===== */
+	// Update result whenever selections change.
+	useEffect(() => {
+		// Create ordered result by iterating through original arrays in order.
+		const orderedResults: string[] = [];
+
+		// First add all selected time options in their original order.
+		setTimeOptions.forEach((option) => {
+			if (timeSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Then add all selected component options in their original order.
+		componentOptions.forEach((option) => {
+			if (componentSelections.includes(option)) {
+				orderedResults.push(option);
+			}
+		});
+
+		// Join the ordered selections with the separator.
+		setResult(orderedResults.join(' / '));
+
+		// Clear validation error if at least one time selection is made.
+		if (timeSelections.length > 0) {
+			setValidationError('');
+		}
+	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	// Checkbox component for consistent styling.
 	const Checkbox = ({
@@ -191,7 +184,7 @@ const TrackClassifier: React.FC = () => {
 			<div className="flex justify-end space-x-4">
 				<button
 					className={`px-6 py-2 ${
-						timeSelections.length > 0 && componentSelections.length > 0
+						timeSelections.length > 0
 							? 'bg-blue-600 hover:bg-blue-700'
 							: 'bg-blue-400 cursor-not-allowed'
 					} text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
