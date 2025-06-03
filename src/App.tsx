@@ -17,7 +17,7 @@ const Layout = () => {
 			<Header />
 			<div className="pt-32 md:pt-28">
 				<Navigation />
-				<main className="flex-grow">
+				<main className="grow">
 					<div className="container mx-auto px-4 py-6">
 						<Outlet />
 					</div>

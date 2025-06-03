@@ -15,4 +15,8 @@ export default {
 		},
 	},
 	plugins: [],
+	// Enable future compatibility and performance optimizations
+	future: {
+		hoverOnlyWhenSupported: true,
+	},
 };

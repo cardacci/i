@@ -7,20 +7,20 @@
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
 	"devDependencies": {
+		"@tailwindcss/postcss": "^4.1.8",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.1",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"@vitejs/plugin-react": "^4.3.4",
-		"autoprefixer": "^10.4.16",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
-		"glob": "^10.4.5",
-		"postcss": "^8.4.31",
+		"glob": "^11.0.2",
+		"postcss": "^8.5.4",
 		"prettier": "^3.5.3",
-		"tailwindcss": "^3.4.1",
+		"tailwindcss": "^4.1.8",
 		"typescript": "^5.8.3",
 		"vite": "^6.2.5"
 	},
@@ -47,5 +47,5 @@
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.04.06"
+	"version": "1.06.02"
 }

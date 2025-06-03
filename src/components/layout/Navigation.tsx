@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
 	return (
-		<nav className="bg-gray-100 shadow-sm">
+		<nav className="bg-gray-100 shadow-xs">
 			<div className="container mx-auto px-4 py-3">
 				<ul className="flex flex-wrap gap-4 md:gap-8">
 					<li>
