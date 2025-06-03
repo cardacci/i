@@ -3,19 +3,16 @@ import { useCardHover } from '@/utils';
 
 const ProjectTech: React.FC = () => {
 	const projectTechnologies = [
-		{ name: 'React', description: 'Library for building user interfaces (v19.1.0)' },
-		{ name: 'TypeScript', description: 'JavaScript with static type definitions (v5.8.3)' },
-		{ name: 'Vite', description: 'Fast build tool and development server (v6.2.5)' },
-		{
-			name: 'React Router Dom',
-			description: 'Declarative routing for React applications (v7.5.0)',
-		},
-		{ name: 'Tailwind CSS', description: 'Utility-first CSS framework (v4.1.8)' },
-		{ name: 'ESLint', description: 'Linting utility for JavaScript/TypeScript (v8.56.0)' },
-		{ name: 'Prettier', description: 'Code formatter for consistent code style (v3.5.3)' },
-		{ name: 'PostCSS', description: 'Tool for transforming CSS with JavaScript (v8.5.4)' },
+		{ name: 'ESLint', description: 'Linting utility for JavaScript/TypeScript' },
 		{ name: 'Git', description: 'Version control system for tracking changes' },
 		{ name: 'GitHub Pages', description: 'Static site hosting platform for deployment' },
+		{ name: 'PostCSS', description: 'Tool for transforming CSS with JavaScript' },
+		{ name: 'Prettier', description: 'Code formatter for consistent code style' },
+		{ name: 'React', description: 'Library for building user interfaces' },
+		{ name: 'React Router Dom', description: 'Declarative routing for React applications' },
+		{ name: 'Tailwind CSS', description: 'Utility-first CSS framework' },
+		{ name: 'TypeScript', description: 'JavaScript with static type definitions' },
+		{ name: 'Vite', description: 'Fast build tool and development server' },
 	];
 
 	// Use the card hover utility with slightly less intensity for these cards
@@ -25,8 +22,7 @@ const ProjectTech: React.FC = () => {
 		<div>
 			<h3 className="text-xl font-semibold mb-4 text-gray-800">Project Technology Stack</h3>
 			<p className="mb-4 text-gray-600">
-				Technologies and tools used in the development of this personal portfolio
-				(v1.06.02):
+				Technologies and tools used in the development of this personal portfolio:
 			</p>
 			<div className="grid gap-4 md:grid-cols-2">
 				{projectTechnologies.map((tech, index) => (
