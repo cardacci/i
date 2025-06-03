@@ -7,7 +7,7 @@ import Header from '@/components/layout/Header';
 import Home from '@/components/sections/Home';
 import Navigation from '@/components/layout/Navigation';
 import Resume from '@/components/sections/Resume';
-import Tech from '@/components/sections/Tech';
+import Tech from '@/components/sections/Tech/Tech';
 import Travel from '@/components/sections/Travel';
 
 // Layout component that will be present on all pages.
@@ -47,11 +47,11 @@ const router = createHashRouter([
 				element: <Crypto />,
 			},
 			{
-				path: 'tech',
+				path: 'tech/*', // Wildcard to support nested routes.
 				element: <Tech />,
 			},
 			{
-				path: 'djing/*', // Note the wildcard to support nested routes.
+				path: 'djing/*', // Wildcard to support nested routes.
 				element: <DJing />,
 			},
 			{
