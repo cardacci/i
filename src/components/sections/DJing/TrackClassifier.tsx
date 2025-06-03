@@ -113,13 +113,13 @@ const TrackClassifier: React.FC = () => {
 		checked: boolean;
 		onChange: () => void;
 	}) => (
-		<div className="flex items-center bg-white rounded-lg shadow-sm border border-gray-200 px-4 py-2 m-1">
+		<div className="flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1">
 			<input
 				id={id}
 				type="checkbox"
 				checked={checked}
 				onChange={onChange}
-				className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+				className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm"
 			/>
 			<label
 				htmlFor={id}
@@ -175,7 +175,7 @@ const TrackClassifier: React.FC = () => {
 					id="result"
 					value={result}
 					readOnly
-					className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-700"
+					className="w-full p-3 border border-gray-300 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-700"
 					rows={3}
 					placeholder="Selected tags will appear here..."
 				/>
@@ -187,14 +187,14 @@ const TrackClassifier: React.FC = () => {
 						timeSelections.length > 0
 							? 'bg-blue-600 hover:bg-blue-700'
 							: 'bg-blue-400 cursor-not-allowed'
-					} text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
+					} text-white rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
 					onClick={handleCopy}
 				>
 					Copy
 				</button>
 
 				<button
-					className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150"
+					className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150"
 					onClick={handleClear}
 				>
 					Clear
