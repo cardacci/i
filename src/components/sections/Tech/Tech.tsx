@@ -5,6 +5,7 @@ import ProjectTech from './ProjectTech';
 import MySkills from './MySkills';
 
 const Tech: React.FC = () => {
+	/* ===== Constants ===== */
 	const tabs = [
 		{
 			id: 'skills',

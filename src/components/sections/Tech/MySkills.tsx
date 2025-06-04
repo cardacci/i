@@ -9,6 +9,10 @@ interface Technology {
 }
 
 const MySkills: React.FC = () => {
+	/* ===== Hooks ===== */
+	const { handleMouseMove, handleMouseLeave } = useCardHover(0.1);
+
+	/* ===== Constants ===== */
 	const myTechnologies: Technology[] = [
 		{ category: TECH_CATEGORIES.BUILD_TOOLS, name: 'Webpack', years: 8.5 },
 		{ category: TECH_CATEGORIES.FRONTEND, name: 'Angular', years: 1.5 },
@@ -27,16 +31,16 @@ const MySkills: React.FC = () => {
 		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'Web Workers', years: 2.5 },
 		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'WebSockets', years: 3.5 },
 	];
-
-	// Sort by years of experience (descending)
-	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years);
-
-	// Use the card hover utility
-	const { handleMouseMove, handleMouseLeave } = useCardHover(0.1);
+	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years); // Sort by years of experience (descending).
 
 	const formatYears = (years: number) => {
-		if (years === 1) return '1 year';
-		if (years % 1 === 0) return `${years} years`;
+		if (years === 1) {
+			return '1 year';
+		}
+		if (years % 1 === 0) {
+			return `${years} years`;
+		}
+
 		return `${years} years`;
 	};
 

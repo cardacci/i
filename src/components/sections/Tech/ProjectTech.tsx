@@ -2,7 +2,12 @@ import React from 'react';
 import { useCardHover } from '@/utils';
 
 const ProjectTech: React.FC = () => {
+	/* ===== Hooks ===== */
+	const { handleMouseMove, handleMouseLeave } = useCardHover(0.08);
+
+	/* ===== Constants ===== */
 	const projectTechnologies = [
+		{ name: 'daisyUI', description: 'Tailwind CSS component library' },
 		{ name: 'ESLint', description: 'Linting utility for JavaScript/TypeScript' },
 		{ name: 'Git', description: 'Version control system for tracking changes' },
 		{ name: 'GitHub Pages', description: 'Static site hosting platform for deployment' },
@@ -14,9 +19,6 @@ const ProjectTech: React.FC = () => {
 		{ name: 'TypeScript', description: 'JavaScript with static type definitions' },
 		{ name: 'Vite', description: 'Fast build tool and development server' },
 	];
-
-	// Use the card hover utility with slightly less intensity for these cards
-	const { handleMouseMove, handleMouseLeave } = useCardHover(0.08);
 
 	return (
 		<div>
@@ -52,7 +54,7 @@ const ProjectTech: React.FC = () => {
 						formatting
 					</li>
 					<li>
-						• <strong>Styling:</strong> Tailwind CSS with PostCSS for utility-first
+						• <strong>Styling:</strong> Tailwind CSS with daisyUI for component-based
 						styling
 					</li>
 					<li>

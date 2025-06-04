@@ -6,6 +6,7 @@ import DjInfo from './DjInfo';
 import TrackClassifier from './TrackClassifier';
 
 const DJing: React.FC = () => {
+	/* ===== Constants ===== */
 	const tabs = [
 		{
 			id: 'info',
