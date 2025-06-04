@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 				<div className="md:w-1/3 flex justify-center">
 					<img
 						alt="Gabriel Cardacci"
-						className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-white"
+						className="rounded-full w-64 h-64 object-cover shadow-2xl border-4 border-white ring-4 ring-blue-500/20 hover:ring-blue-500/40 transition-all duration-300 hover:scale-105"
 						src={profileImage}
 					/>
 				</div>
