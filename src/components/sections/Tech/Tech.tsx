@@ -1,29 +1,28 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import TabView from '@/components/common/TabView';
-import ProjectTech from './ProjectTech';
+import { BaseView, ContentCard } from '@/utils';
 import MySkills from './MySkills';
+import ProjectTech from './ProjectTech';
 
 const Tech: React.FC = () => {
 	/* ===== Constants ===== */
 	const tabs = [
 		{
+			content: <MySkills />,
 			id: 'skills',
 			label: 'My Skills',
-			content: <MySkills />,
 		},
 		{
+			content: <ProjectTech />,
 			id: 'project',
 			label: 'Project Technologies',
-			content: <ProjectTech />,
 		},
 	];
 
 	return (
-		<section id="tech" className="py-10 max-w-5xl mx-auto">
-			<h1 className="text-3xl font-bold mb-6 text-blue-800">Technology</h1>
-
-			<div className="bg-white p-6 rounded-lg shadow-md">
+		<BaseView id="tech" title="Technology">
+			<ContentCard>
 				<p className="mb-6">
 					This section is dedicated to exploring my interests in technology and software
 					development. I&apos;ll share insights about programming languages, frameworks,
@@ -31,14 +30,15 @@ const Tech: React.FC = () => {
 				</p>
 
 				<Routes>
-					<Route path="/" element={<Navigate replace to="skills" />} />
+					<Route element={<Navigate replace to="skills" />} path="/" />
+
 					<Route
-						path=":tabId"
 						element={<TabView tabs={tabs} baseUrl="/tech" defaultTab="skills" />}
+						path=":tabId"
 					/>
 				</Routes>
-			</div>
-		</section>
+			</ContentCard>
+		</BaseView>
 	);
 };
 

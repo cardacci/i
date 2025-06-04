@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import UnderConstruction from '@/components/common/UnderConstruction';
+import BaseView from '@/components/common/BaseView';
 import TabView from '@/components/common/TabView';
+import UnderConstruction from '@/components/common/UnderConstruction';
 import DjInfo from './DjInfo';
 import TrackClassifier from './TrackClassifier';
 
@@ -9,31 +10,30 @@ const DJing: React.FC = () => {
 	/* ===== Constants ===== */
 	const tabs = [
 		{
+			content: <DjInfo />,
 			id: 'info',
 			label: 'DJ Info',
-			content: <DjInfo />,
 		},
 		{
+			content: <TrackClassifier />,
 			id: 'classifier',
 			label: 'Track Classifier',
-			content: <TrackClassifier />,
 		},
 	];
 
 	return (
-		<section id="djing" className="py-10 max-w-5xl mx-auto">
-			<h1 className="text-3xl font-bold mb-6 text-blue-800">DJing</h1>
-
+		<BaseView id="djing" title="DJing">
 			<UnderConstruction />
 
 			<Routes>
-				<Route path="/" element={<Navigate replace to="info" />} />
+				<Route element={<Navigate replace to="info" />} path="/" />
+
 				<Route
+					element={<TabView baseUrl="/djing" defaultTab="info" tabs={tabs} />}
 					path=":tabId"
-					element={<TabView tabs={tabs} baseUrl="/djing" defaultTab="info" />}
 				/>
 			</Routes>
-		</section>
+		</BaseView>
 	);
 };
 
