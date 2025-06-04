@@ -34,9 +34,8 @@ i
 │   │   │   ├── TabView.tsx
 │   │   │   └── UnderConstruction.tsx
 │   │   ├── layout
-│   │   │   ├── Footer.tsx
 │   │   │   ├── Header.tsx
-│   │   │   └── Navigation.tsx
+│   │   │   └── SidebarNavigation.tsx
 │   │   ├── sections
 │   │   │   ├── DJing
 │   │   │   │   ├── DjInfo.tsx

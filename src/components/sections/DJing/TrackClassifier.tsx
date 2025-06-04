@@ -7,7 +7,7 @@ const TrackClassifier: React.FC = () => {
 	const [timeSelections, setTimeSelections] = useState<string[]>([]);
 	const [validationError, setValidationError] = useState<string>('');
 
-	/* ===== Variables ===== */
+	/* ===== Constants ===== */
 	const componentOptions = [
 		'Acid',
 		'Dark',
@@ -20,10 +20,11 @@ const TrackClassifier: React.FC = () => {
 		'Tribal',
 		'Vocal',
 	];
-	// Define checkbox options.
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
-	// Handle checkbox changes.
+	/**
+	 * Handle checkbox changes.
+	 */
 	const handleTimeChange = (option: string) => {
 		setTimeSelections((prev) => {
 			if (prev.includes(option)) {
@@ -44,19 +45,21 @@ const TrackClassifier: React.FC = () => {
 		});
 	};
 
-	// Copy and Clear functions.
+	/**
+	 * Copy and Clear functions.
+	 */
 	const handleCopy = () => {
-		// Validate selections before copying
+		// Validate selections before copying.
 		if (timeSelections.length === 0) {
 			setValidationError('Please select at least one Set Time option.');
 
 			return;
 		}
 
-		// If validation passes, copy to clipboard
+		// If validation passes, copy to clipboard.
 		navigator.clipboard.writeText(result).then(
 			() => {
-				// Clear any validation errors
+				// Clear any validation errors.
 				setValidationError('');
 			},
 			(err) => {

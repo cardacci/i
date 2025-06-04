@@ -20,12 +20,14 @@ const Home: React.FC = () => {
 
 					<p className="text-lg mb-4">
 						Hello, I&apos;m <span className="font-semibold">Gabriel Cardacci</span>,
-						passionate about technology, programming, DJing and traveling.
+						passionate about technology, programming, cryptocurrency, DJing and
+						traveling.
 					</p>
 
 					<p className="text-gray-700 mb-6">
 						On this site, you&apos;ll find information about my professional experience,
-						my projects in the cryptocurrency world, and my adventures around the globe.
+						my projects in the cryptocurrency world, blockchain innovations, my passion
+						for electronic music and DJing, and my adventures around the globe.
 					</p>
 
 					<p className="text-gray-800 font-medium">Explore and connect with me!</p>

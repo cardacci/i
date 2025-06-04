@@ -14,9 +14,11 @@ interface TabViewProps {
 }
 
 const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
+	/* ===== Hooks ===== */
 	const navigate = useNavigate();
 	const { tabId } = useParams<{ tabId: string }>();
 
+	/* ===== Constants ===== */
 	// Find active tab or use default.
 	const activeTab =
 		tabs.find((tab) => tab.id === tabId) ||
