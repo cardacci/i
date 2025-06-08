@@ -10,6 +10,32 @@ export default [
 	// Base configuration.
 	js.configs.recommended,
 
+	// Global settings.
+	{
+		languageOptions: {
+			globals: {
+				// Browser globals
+				clearInterval: 'readonly',
+				clearTimeout: 'readonly',
+				console: 'readonly',
+				document: 'readonly',
+				fetch: 'readonly',
+				localStorage: 'readonly',
+				navigator: 'readonly',
+				sessionStorage: 'readonly',
+				setInterval: 'readonly',
+				setTimeout: 'readonly',
+				window: 'readonly',
+				// Node globals
+				__dirname: 'readonly',
+				__filename: 'readonly',
+				Buffer: 'readonly',
+				global: 'readonly',
+				process: 'readonly'
+			}
+		}
+	},
+
 	// TypeScript configuration.
 	{
 		files: ['**/*.{ts,tsx}'],
@@ -32,7 +58,16 @@ export default [
 		rules: {
 			// TypeScript rules.
 			'@typescript-eslint/no-explicit-any': 'warn',
-			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+			'@typescript-eslint/no-unused-vars': [
+				'warn',
+				{
+					// Ignore enum members - they are meant to be exported.
+					argsIgnorePattern: '^_',
+					destructuredArrayIgnorePattern: '^_',
+					ignoreRestSiblings: true,
+					varsIgnorePattern: '^_'
+				}
+			],
 
 			// Import rules.
 			'import/first': 'error',
@@ -70,7 +105,11 @@ export default [
 
 			// React rules.
 			'react/prop-types': 'off',
-			'react/react-in-jsx-scope': 'off'
+			'react/react-in-jsx-scope': 'off',
+
+			// Disable problematic rules for TypeScript.
+			'no-undef': 'off',
+			'no-unused-vars': 'off' // Let @typescript-eslint handle this
 		},
 		settings: {
 			'import/resolver': {
@@ -85,6 +124,15 @@ export default [
 			react: {
 				version: 'detect'
 			}
+		}
+	},
+
+	// Configuration for constants/enums files - disable unused vars.
+	{
+		files: ['**/constants/**/*.{ts,tsx}', '**/enums/**/*.{ts,tsx}'],
+		rules: {
+			'@typescript-eslint/no-unused-vars': 'off',
+			'no-unused-vars': 'off'
 		}
 	},
 
@@ -112,16 +160,5 @@ export default [
 	},
 
 	// Prettier integration (must be last).
-	prettierConfig,
-
-	// Global settings.
-	{
-		languageOptions: {
-			globals: {
-				browser: true,
-				es2021: true,
-				node: true
-			}
-		}
-	}
+	prettierConfig
 ];
