@@ -1,7 +1,6 @@
 import React from 'react';
 
 import type { TechCategory } from '@/utils';
-
 import { useCardHover, TECH_CATEGORIES, SectionTitle } from '@/utils';
 
 interface Technology {

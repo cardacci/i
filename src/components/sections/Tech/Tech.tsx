@@ -1,11 +1,13 @@
 import React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
+
+import TabView from '@/components/common/TabView';
+import { BaseView, ContentCard } from '@/utils';
 
 import MySkills from './MySkills';
 import ProjectTech from './ProjectTech';
 
-import TabView from '@/components/common/TabView';
-import { BaseView, ContentCard } from '@/utils';
 
 const Tech: React.FC = () => {
 	/* ===== Constants ===== */
