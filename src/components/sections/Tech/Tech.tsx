@@ -8,7 +8,6 @@ import { BaseView, ContentCard } from '@/utils';
 import MySkills from './MySkills';
 import ProjectTech from './ProjectTech';
 
-
 const Tech: React.FC = () => {
 	/* ===== Constants ===== */
 	const tabs = [
@@ -35,7 +34,7 @@ const Tech: React.FC = () => {
 				<Routes>
 					<Route element={<Navigate replace to='skills' />} path='/' />
 
-					<Route element={<TabView tabs={tabs} baseUrl='/tech' defaultTab='skills' />} path=':tabId' />
+					<Route element={<TabView baseUrl='/tech' defaultTab='skills' tabs={tabs} />} path=':tabId' />
 				</Routes>
 			</ContentCard>
 		</BaseView>

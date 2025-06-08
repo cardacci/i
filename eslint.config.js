@@ -14,24 +14,22 @@ export default [
 	{
 		languageOptions: {
 			globals: {
-				// Browser globals
+				__dirname: 'readonly',
+				__filename: 'readonly',
+				Buffer: 'readonly',
 				clearInterval: 'readonly',
 				clearTimeout: 'readonly',
 				console: 'readonly',
 				document: 'readonly',
 				fetch: 'readonly',
+				global: 'readonly',
 				localStorage: 'readonly',
 				navigator: 'readonly',
+				process: 'readonly',
 				sessionStorage: 'readonly',
 				setInterval: 'readonly',
 				setTimeout: 'readonly',
-				window: 'readonly',
-				// Node globals
-				__dirname: 'readonly',
-				__filename: 'readonly',
-				Buffer: 'readonly',
-				global: 'readonly',
-				process: 'readonly'
+				window: 'readonly'
 			}
 		}
 	},
@@ -61,7 +59,6 @@ export default [
 			'@typescript-eslint/no-unused-vars': [
 				'warn',
 				{
-					// Ignore enum members - they are meant to be exported.
 					argsIgnorePattern: '^_',
 					destructuredArrayIgnorePattern: '^_',
 					ignoreRestSiblings: true,
@@ -103,13 +100,35 @@ export default [
 				}
 			],
 
+			// Disable problematic rules for TypeScript.
+			'no-undef': 'off',
+			'no-unused-vars': 'off',
+
 			// React rules.
+			'react/jsx-sort-props': [
+				'error',
+				{
+					callbacksLast: false,
+					ignoreCase: true,
+					noSortAlphabetically: false,
+					reservedFirst: false,
+					shorthandFirst: false,
+					shorthandLast: false
+				}
+			],
 			'react/prop-types': 'off',
 			'react/react-in-jsx-scope': 'off',
 
-			// Disable problematic rules for TypeScript.
-			'no-undef': 'off',
-			'no-unused-vars': 'off' // Let @typescript-eslint handle this
+			// Object properties sorting.
+			'sort-keys': [
+				'error',
+				'asc',
+				{
+					caseSensitive: false,
+					minKeys: 2,
+					natural: true
+				}
+			]
 		},
 		settings: {
 			'import/resolver': {
@@ -127,12 +146,13 @@ export default [
 		}
 	},
 
-	// Configuration for constants/enums files - disable unused vars.
+	// Configuration for constants/enums files - disable unused vars and sorting.
 	{
 		files: ['**/constants/**/*.{ts,tsx}', '**/enums/**/*.{ts,tsx}'],
 		rules: {
 			'@typescript-eslint/no-unused-vars': 'off',
-			'no-unused-vars': 'off'
+			'no-unused-vars': 'off',
+			'sort-keys': 'off' // Disable object sorting for constants
 		}
 	},
 
@@ -154,8 +174,31 @@ export default [
 			'react-hooks': reactHooks
 		},
 		rules: {
+			// React JSX props sorting.
+			'react/jsx-sort-props': [
+				'error',
+				{
+					callbacksLast: false,
+					ignoreCase: true,
+					noSortAlphabetically: false,
+					reservedFirst: false,
+					shorthandFirst: false,
+					shorthandLast: false
+				}
+			],
 			'react/prop-types': 'off',
-			'react/react-in-jsx-scope': 'off'
+			'react/react-in-jsx-scope': 'off',
+
+			// Object properties sorting.
+			'sort-keys': [
+				'error',
+				'asc',
+				{
+					caseSensitive: false,
+					minKeys: 2,
+					natural: true
+				}
+			]
 		}
 	},
 

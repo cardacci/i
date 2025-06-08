@@ -38,34 +38,34 @@ const Layout = () => {
  */
 const router = createHashRouter([
 	{
-		path: '/',
-		element: <Layout />,
 		children: [
 			{
-				index: true,
-				element: <Home />
+				element: <Home />,
+				index: true
 			},
 			{
-				path: 'resume',
-				element: <Resume />
+				element: <Resume />,
+				path: 'resume'
 			},
 			{
-				path: 'crypto',
-				element: <Crypto />
+				element: <Crypto />,
+				path: 'crypto'
 			},
 			{
-				path: 'tech/*',
-				element: <Tech />
+				element: <Tech />,
+				path: 'tech/*'
 			},
 			{
-				path: 'djing/*',
-				element: <DJing />
+				element: <DJing />,
+				path: 'djing/*'
 			},
 			{
-				path: 'travel',
-				element: <Travel />
+				element: <Travel />,
+				path: 'travel'
 			}
-		]
+		],
+		element: <Layout />,
+		path: '/'
 	}
 ]);
 

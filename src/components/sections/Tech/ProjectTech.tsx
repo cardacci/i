@@ -8,17 +8,17 @@ const ProjectTech: React.FC = () => {
 
 	/* ===== Constants ===== */
 	const projectTechnologies = [
-		{ name: 'daisyUI', description: 'Tailwind CSS component library' },
-		{ name: 'ESLint', description: 'Linting utility for JavaScript/TypeScript' },
-		{ name: 'Git', description: 'Version control system for tracking changes' },
-		{ name: 'GitHub Pages', description: 'Static site hosting platform for deployment' },
-		{ name: 'PostCSS', description: 'Tool for transforming CSS with JavaScript' },
-		{ name: 'Prettier', description: 'Code formatter for consistent code style' },
-		{ name: 'React', description: 'Library for building user interfaces' },
-		{ name: 'React Router Dom', description: 'Declarative routing for React applications' },
-		{ name: 'Tailwind CSS', description: 'Utility-first CSS framework' },
-		{ name: 'TypeScript', description: 'JavaScript with static type definitions' },
-		{ name: 'Vite', description: 'Fast build tool and development server' }
+		{ description: 'Tailwind CSS component library', name: 'daisyUI' },
+		{ description: 'Linting utility for JavaScript/TypeScript', name: 'ESLint' },
+		{ description: 'Version control system for tracking changes', name: 'Git' },
+		{ description: 'Static site hosting platform for deployment', name: 'GitHub Pages' },
+		{ description: 'Tool for transforming CSS with JavaScript', name: 'PostCSS' },
+		{ description: 'Code formatter for consistent code style', name: 'Prettier' },
+		{ description: 'Library for building user interfaces', name: 'React' },
+		{ description: 'Declarative routing for React applications', name: 'React Router Dom' },
+		{ description: 'Utility-first CSS framework', name: 'Tailwind CSS' },
+		{ description: 'JavaScript with static type definitions', name: 'TypeScript' },
+		{ description: 'Fast build tool and development server', name: 'Vite' }
 	];
 
 	return (
