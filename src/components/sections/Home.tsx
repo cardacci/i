@@ -5,12 +5,7 @@ import { BaseView, useSocialLinks, SocialNetwork } from '@/utils';
 
 const Home: React.FC = () => {
 	/* ===== Hooks ===== */
-	const { socialLinks } = useSocialLinks([
-		SocialNetwork.GITHUB,
-		SocialNetwork.INSTAGRAM,
-		SocialNetwork.LINKEDIN,
-		SocialNetwork.YOUTUBE,
-	]);
+	const { socialLinks } = useSocialLinks([SocialNetwork.GITHUB, SocialNetwork.INSTAGRAM, SocialNetwork.LINKEDIN, SocialNetwork.YOUTUBE]);
 
 	return (
 		<BaseView id='home' title='Welcome to My Personal Website'>
@@ -25,15 +20,13 @@ const Home: React.FC = () => {
 
 				<div className='md:w-2/3 text-center md:text-left'>
 					<p className='text-lg mb-4'>
-						Hello, I&apos;m <span className='font-semibold'>Gabriel Cardacci</span>,
-						passionate about technology, programming, cryptocurrency, DJing and
-						traveling.
+						Hello, I&apos;m <span className='font-semibold'>Gabriel Cardacci</span>, passionate about technology, programming, cryptocurrency, DJing
+						and traveling.
 					</p>
 
 					<p className='text-gray-700 mb-6'>
-						On this site, you&apos;ll find information about my professional experience,
-						my projects in the cryptocurrency world, blockchain innovations, my DJ
-						journey and music experiences, and my adventures around the globe.
+						On this site, you&apos;ll find information about my professional experience, my projects in the cryptocurrency world, blockchain
+						innovations, my DJ journey and music experiences, and my adventures around the globe.
 					</p>
 
 					<p className='text-gray-800 font-medium'>Explore and connect with me!</p>
@@ -49,11 +42,7 @@ const Home: React.FC = () => {
 							>
 								{link.icon && link.icon}
 
-								{!link.icon && (
-									<span className='font-bold'>
-										{link.name.substring(0, 2).toUpperCase()}
-									</span>
-								)}
+								{!link.icon && <span className='font-bold'>{link.name.substring(0, 2).toUpperCase()}</span>}
 
 								{link.name}
 							</a>

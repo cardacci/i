@@ -15,14 +15,10 @@ const SectionTitle: React.FC<SectionTitleProps> = (props) => {
 	const sizeClasses = {
 		h2: 'text-2xl',
 		h3: 'text-xl',
-		h4: 'text-lg',
+		h4: 'text-lg'
 	};
 
-	return (
-		<Component className={`${baseClasses} ${sizeClasses[level]} ${className}`}>
-			{children}
-		</Component>
-	);
+	return <Component className={`${baseClasses} ${sizeClasses[level]} ${className}`}>{children}</Component>;
 };
 
 export default SectionTitle;

@@ -4,13 +4,7 @@
 		"es2021": true,
 		"node": true
 	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react-hooks/recommended",
-		"plugin:react/recommended",
-		"prettier"
-	],
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "plugin:react/recommended", "prettier"],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -24,23 +18,14 @@
 		"import/order": [
 			"error",
 			{
-				"groups": [
-					"builtin",
-					"external",
-					"internal",
-					"parent",
-					"sibling",
-					"index",
-					"object",
-					"type"
-				],
+				"groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
 				"newlines-between": "always",
 				"alphabetize": { "order": "asc", "caseInsensitive": true }
 			}
 		],
 		"indent": ["error", "tab"],
 		"jsx-quotes": ["error", "prefer-single"],
-		"quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+		"quotes": ["error", "single", { "allowTemplateLiterals": true, "avoidEscape": true }],
 		"react/react-in-jsx-scope": "off"
 	},
 	"settings": {

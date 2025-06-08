@@ -2,7 +2,7 @@ export enum SocialNetwork {
 	GITHUB = 'github',
 	INSTAGRAM = 'instagram',
 	LINKEDIN = 'linkedin',
-	YOUTUBE = 'youtube',
+	YOUTUBE = 'youtube'
 }
 
 export interface SocialLinkData {

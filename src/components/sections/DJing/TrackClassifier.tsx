@@ -13,18 +13,7 @@ const TrackClassifier: React.FC = () => {
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 
 	/* ===== Constants ===== */
-	const componentOptions = [
-		'Acid',
-		'Dark',
-		'Ethereal',
-		'Funky',
-		'Light',
-		'Melodic',
-		'Oriental',
-		'Soft',
-		'Tribal',
-		'Vocal',
-	];
+	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	const handleTimeChange = (option: string) => {
@@ -95,17 +84,7 @@ const TrackClassifier: React.FC = () => {
 	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	/* ===== Components ===== */
-	const Checkbox = ({
-		id,
-		label,
-		checked,
-		onChange,
-	}: {
-		id: string;
-		label: string;
-		checked: boolean;
-		onChange: () => void;
-	}) => (
+	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
 		<div className='flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1'>
 			<input
 				checked={checked}
@@ -115,10 +94,7 @@ const TrackClassifier: React.FC = () => {
 				type='checkbox'
 			/>
 
-			<label
-				className='ml-2 block text-sm text-gray-700 font-medium cursor-pointer'
-				htmlFor={id}
-			>
+			<label className='ml-2 block text-sm text-gray-700 font-medium cursor-pointer' htmlFor={id}>
 				{label}
 			</label>
 		</div>
@@ -135,13 +111,7 @@ const TrackClassifier: React.FC = () => {
 
 				<div className='flex flex-wrap -m-1'>
 					{setTimeOptions.map((option) => (
-						<Checkbox
-							checked={timeSelections.includes(option)}
-							id={option}
-							key={option}
-							label={option}
-							onChange={() => handleTimeChange(option)}
-						/>
+						<Checkbox checked={timeSelections.includes(option)} id={option} key={option} label={option} onChange={() => handleTimeChange(option)} />
 					))}
 				</div>
 			</div>
@@ -162,11 +132,7 @@ const TrackClassifier: React.FC = () => {
 				</div>
 			</div>
 
-			{validationError && (
-				<div className='mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md'>
-					{validationError}
-				</div>
-			)}
+			{validationError && <div className='mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md'>{validationError}</div>}
 
 			<div className='mb-6'>
 				<textarea
@@ -182,9 +148,7 @@ const TrackClassifier: React.FC = () => {
 			<div className='flex justify-end space-x-4'>
 				<button
 					className={`px-6 py-2 ${
-						timeSelections.length > 0
-							? 'bg-blue-600 hover:bg-blue-700'
-							: 'bg-blue-400 cursor-not-allowed'
+						timeSelections.length > 0 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-400 cursor-not-allowed'
 					} text-white rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
 					onClick={handleCopy}
 				>
@@ -213,11 +177,7 @@ const TrackClassifier: React.FC = () => {
 						>
 							{link.icon && link.icon}
 
-							{!link.icon && (
-								<span className='font-bold'>
-									{link.name.substring(0, 2).toUpperCase()}
-								</span>
-							)}
+							{!link.icon && <span className='font-bold'>{link.name.substring(0, 2).toUpperCase()}</span>}
 
 							{link.name}
 						</a>

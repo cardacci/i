@@ -18,16 +18,14 @@ const ProjectTech: React.FC = () => {
 		{ name: 'React Router Dom', description: 'Declarative routing for React applications' },
 		{ name: 'Tailwind CSS', description: 'Utility-first CSS framework' },
 		{ name: 'TypeScript', description: 'JavaScript with static type definitions' },
-		{ name: 'Vite', description: 'Fast build tool and development server' },
+		{ name: 'Vite', description: 'Fast build tool and development server' }
 	];
 
 	return (
 		<div>
 			<SectionTitle level='h3'>Project Technology Stack</SectionTitle>
 
-			<p className='mb-4 text-gray-600'>
-				Technologies and tools used in the development of this personal portfolio:
-			</p>
+			<p className='mb-4 text-gray-600'>Technologies and tools used in the development of this personal portfolio:</p>
 
 			<div className='grid gap-4 md:grid-cols-2'>
 				{projectTechnologies.map((tech, index) => (
@@ -47,24 +45,19 @@ const ProjectTech: React.FC = () => {
 			<div className='mt-6'>
 				<SectionTitle level='h4'>Development Setup</SectionTitle>
 
-				<p className='text-gray-600 mb-2'>
-					This project uses modern web development tools and follows best practices:
-				</p>
+				<p className='text-gray-600 mb-2'>This project uses modern web development tools and follows best practices:</p>
 
 				<ul className='text-sm text-gray-600 space-y-1'>
 					<li>
-						• <strong>Build System:</strong> Vite for fast development and optimized
-						production builds
+						• <strong>Build System:</strong> Vite for fast development and optimized production builds
 					</li>
 
 					<li>
-						• <strong>Code Quality:</strong> ESLint + Prettier for consistent code
-						formatting
+						• <strong>Code Quality:</strong> ESLint + Prettier for consistent code formatting
 					</li>
 
 					<li>
-						• <strong>Styling:</strong> Tailwind CSS with daisyUI for component-based
-						styling
+						• <strong>Styling:</strong> Tailwind CSS with daisyUI for component-based styling
 					</li>
 
 					<li>

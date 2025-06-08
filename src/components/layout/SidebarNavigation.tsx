@@ -15,19 +15,19 @@ const SidebarNavigation: React.FC = () => {
 			id: 'home',
 			label: 'Home',
 			path: '/',
-			icon: '🏠',
+			icon: '🏠'
 		},
 		{
 			id: 'resume',
 			label: 'Resume',
 			path: '/resume',
-			icon: '📄',
+			icon: '📄'
 		},
 		{
 			id: 'crypto',
 			label: 'Crypto',
 			path: '/crypto',
-			icon: '🪙',
+			icon: '🪙'
 		},
 		{
 			id: 'tech',
@@ -36,8 +36,8 @@ const SidebarNavigation: React.FC = () => {
 			icon: '💻',
 			children: [
 				{ label: 'My Skills', path: '/tech/skills' },
-				{ label: 'Project Technologies', path: '/tech/project' },
-			],
+				{ label: 'Project Technologies', path: '/tech/project' }
+			]
 		},
 		{
 			id: 'djing',
@@ -46,15 +46,15 @@ const SidebarNavigation: React.FC = () => {
 			icon: '🎧',
 			children: [
 				{ label: 'DJ Info', path: '/djing/info' },
-				{ label: 'Track Classifier', path: '/djing/classifier' },
-			],
+				{ label: 'Track Classifier', path: '/djing/classifier' }
+			]
 		},
 		{
 			id: 'travel',
 			label: 'Travel',
 			path: '/travel',
-			icon: '✈️',
-		},
+			icon: '✈️'
+		}
 	];
 
 	const closeSidebar = () => setIsOpen(false);
@@ -64,45 +64,24 @@ const SidebarNavigation: React.FC = () => {
 	return (
 		<>
 			{/* Hamburger Button - always on the left but lower on mobile */}
-			<div className="fixed top-4 left-4 md:top-4 md:left-4 z-50">
+			<div className='fixed top-4 left-4 md:top-4 md:left-4 z-50'>
 				<button
-					className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors cursor-pointer"
+					className='flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors cursor-pointer'
 					onClick={toggleSidebar}
-					aria-label="Toggle menu"
+					aria-label='Toggle menu'
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						className="h-5 w-5 md:h-6 md:w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
+					<svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 md:h-6 md:w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
 						{isOpen ? (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M6 18L18 6M6 6l12 12"
-							/>
+							<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
 						) : (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
+							<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16M4 18h16' />
 						)}
 					</svg>
 				</button>
 			</div>
 
 			{/* Blur Overlay */}
-			{isOpen && (
-				<div
-					className="fixed inset-0 backdrop-blur-sm bg-white/30 z-40"
-					onClick={closeSidebar}
-				></div>
-			)}
+			{isOpen && <div className='fixed inset-0 backdrop-blur-sm bg-white/30 z-40' onClick={closeSidebar}></div>}
 
 			{/* Sidebar - always from the left */}
 			<div
@@ -110,65 +89,45 @@ const SidebarNavigation: React.FC = () => {
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				}`}
 			>
-				<div className="p-6 h-full flex flex-col">
+				<div className='p-6 h-full flex flex-col'>
 					{/* Header */}
-					<div className="flex items-center justify-between mb-6">
-						<h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-							🚀 Explore
-						</h2>
+					<div className='flex items-center justify-between mb-6'>
+						<h2 className='text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
 						<button
-							className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+							className='p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors'
 							onClick={closeSidebar}
-							aria-label="Close menu"
+							aria-label='Close menu'
 						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								className="h-5 w-5"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="2"
-									d="M6 18L18 6M6 6l12 12"
-								/>
+							<svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+								<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
 							</svg>
 						</button>
 					</div>
 
 					{/* File Tree Menu */}
-					<nav className="flex-1 overflow-y-auto">
-						<ul className="space-y-2">
+					<nav className='flex-1 overflow-y-auto'>
+						<ul className='space-y-2'>
 							{menuItems.map((item) => (
 								<li key={item.id}>
 									{item.children ? (
-										<details open={isActive(item.path)} className="group">
+										<details open={isActive(item.path)} className='group'>
 											<summary
 												className={`flex items-center p-3 rounded-lg cursor-pointer list-none font-semibold transition-colors ${
-													isActive(item.path)
-														? 'text-blue-600 bg-blue-50'
-														: 'text-gray-700 hover:bg-gray-100'
+													isActive(item.path) ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-100'
 												}`}
 											>
-												<span className="mr-3">{item.icon}</span>
-												<span className="flex-1">{item.label}</span>
+												<span className='mr-3'>{item.icon}</span>
+												<span className='flex-1'>{item.label}</span>
 												<svg
-													className="w-4 h-4 transition-transform group-open:rotate-90"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24"
+													className='w-4 h-4 transition-transform group-open:rotate-90'
+													fill='none'
+													stroke='currentColor'
+													viewBox='0 0 24 24'
 												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth={2}
-														d="M9 5l7 7-7 7"
-													/>
+													<path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
 												</svg>
 											</summary>
-											<ul className="mt-2 ml-8 space-y-1">
+											<ul className='mt-2 ml-8 space-y-1'>
 												{item.children.map((child) => (
 													<li key={child.path}>
 														<Link
@@ -190,13 +149,11 @@ const SidebarNavigation: React.FC = () => {
 										<Link
 											to={item.path}
 											className={`flex items-center p-3 rounded-lg font-semibold transition-colors ${
-												location.pathname === item.path
-													? 'bg-blue-600 text-white'
-													: 'text-gray-700 hover:bg-gray-100'
+												location.pathname === item.path ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
 											}`}
 											onClick={closeSidebar}
 										>
-											<span className="mr-3">{item.icon}</span>
+											<span className='mr-3'>{item.icon}</span>
 											{item.label}
 										</Link>
 									)}
@@ -206,11 +163,11 @@ const SidebarNavigation: React.FC = () => {
 					</nav>
 
 					{/* Footer */}
-					<div className="pt-6 border-t border-gray-200">
-						<div className="text-sm text-gray-500 text-center">
+					<div className='pt-6 border-t border-gray-200'>
+						<div className='text-sm text-gray-500 text-center'>
 							&copy; {new Date().getFullYear()} Gabriel Cardacci
 							<br />
-							<span className="text-xs">{appVersion}</span>
+							<span className='text-xs'>{appVersion}</span>
 						</div>
 					</div>
 				</div>

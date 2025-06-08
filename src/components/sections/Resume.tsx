@@ -5,14 +5,8 @@ import { BaseView, ContentCard, ListWithTitle, SectionTitle } from '@/utils';
 
 const Resume: React.FC = () => {
 	/* ===== Constants ===== */
-	const education = [
-		'[Degree] in [Field of Study], [University], [Year]',
-		'[Additional Degrees or Certifications]',
-	];
-	const experience = [
-		'[Job Title] at [Company] - [Year] to [Year]',
-		'[Job Title] at [Company] - [Year] to [Year]',
-	];
+	const education = ['[Degree] in [Field of Study], [University], [Year]', '[Additional Degrees or Certifications]'];
+	const experience = ['[Job Title] at [Company] - [Year] to [Year]', '[Job Title] at [Company] - [Year] to [Year]'];
 
 	const skills = ['[Skill 1]', '[Skill 2]', '[Skill 3]'];
 

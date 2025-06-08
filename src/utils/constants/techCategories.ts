@@ -6,7 +6,7 @@ export const TECH_CATEGORIES = {
 	STATE_MANAGEMENT: 'State Management',
 	STYLING: 'Styling',
 	TOOLS: 'Tools',
-	WEB_TECHNOLOGIES: 'Web Technologies',
+	WEB_TECHNOLOGIES: 'Web Technologies'
 } as const;
 
 export type TechCategory = (typeof TECH_CATEGORIES)[keyof typeof TECH_CATEGORIES];

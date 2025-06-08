@@ -3,13 +3,7 @@ import React from 'react';
 const UnderConstruction: React.FC = () => {
 	return (
 		<div className='flex flex-col items-center justify-center py-6 px-4 text-center border-2 border-dashed border-yellow-400 bg-yellow-50 rounded-lg mb-8'>
-			<svg
-				xmlns='http://www.w3.org/2000/svg'
-				className='h-12 w-12 text-yellow-500 mb-2'
-				fill='none'
-				viewBox='0 0 24 24'
-				stroke='currentColor'
-			>
+			<svg xmlns='http://www.w3.org/2000/svg' className='h-12 w-12 text-yellow-500 mb-2' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
 				<path
 					strokeLinecap='round'
 					strokeLinejoin='round'
@@ -18,9 +12,7 @@ const UnderConstruction: React.FC = () => {
 				/>
 			</svg>
 			<h2 className='text-xl font-semibold text-gray-800 mb-1'>Under Construction</h2>
-			<p className='text-gray-600 text-sm'>
-				This section is currently being built. Check back soon for updates!
-			</p>
+			<p className='text-gray-600 text-sm'>This section is currently being built. Check back soon for updates!</p>
 		</div>
 	);
 };

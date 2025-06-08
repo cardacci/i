@@ -18,21 +18,21 @@ export default defineConfig({
 	base: '/i/',
 	define: {
 		// Define environment variable that will be available only at build time.
-		'import.meta.env.VITE_BUILD_TIMESTAMP': JSON.stringify(generateBuildTimestamp()),
+		'import.meta.env.VITE_BUILD_TIMESTAMP': JSON.stringify(generateBuildTimestamp())
 	},
 	plugins: [tailwindcss(), react()],
 	resolve: {
 		alias: {
-			'@': '/src',
-		},
+			'@': '/src'
+		}
 	},
 	build: {
 		assetsDir: 'assets',
 		outDir: 'dist',
-		sourcemap: true,
+		sourcemap: true
 	},
 	server: {
 		open: true,
-		port: 2025,
-	},
+		port: 2025
+	}
 });

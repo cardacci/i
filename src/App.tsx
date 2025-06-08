@@ -42,30 +42,30 @@ const router = createHashRouter([
 		children: [
 			{
 				index: true,
-				element: <Home />,
+				element: <Home />
 			},
 			{
 				path: 'resume',
-				element: <Resume />,
+				element: <Resume />
 			},
 			{
 				path: 'crypto',
-				element: <Crypto />,
+				element: <Crypto />
 			},
 			{
 				path: 'tech/*',
-				element: <Tech />,
+				element: <Tech />
 			},
 			{
 				path: 'djing/*',
-				element: <DJing />,
+				element: <DJing />
 			},
 			{
 				path: 'travel',
-				element: <Travel />,
-			},
-		],
-	},
+				element: <Travel />
+			}
+		]
+	}
 ]);
 
 const App: React.FC = () => {

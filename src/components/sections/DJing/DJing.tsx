@@ -14,13 +14,13 @@ const DJing: React.FC = () => {
 		{
 			content: <DjInfo />,
 			id: 'info',
-			label: 'DJ Info',
+			label: 'DJ Info'
 		},
 		{
 			content: <TrackClassifier />,
 			id: 'classifier',
-			label: 'Track Classifier',
-		},
+			label: 'Track Classifier'
+		}
 	];
 
 	return (
@@ -30,10 +30,7 @@ const DJing: React.FC = () => {
 			<Routes>
 				<Route element={<Navigate replace to='info' />} path='/' />
 
-				<Route
-					element={<TabView baseUrl='/djing' defaultTab='info' tabs={tabs} />}
-					path=':tabId'
-				/>
+				<Route element={<TabView baseUrl='/djing' defaultTab='info' tabs={tabs} />} path=':tabId' />
 			</Routes>
 		</BaseView>
 	);
