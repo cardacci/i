@@ -63,7 +63,7 @@ const SidebarNavigation: React.FC = () => {
 
 	return (
 		<>
-			{/* Hamburger Button - siempre a la izquierda pero más abajo en móviles */}
+			{/* Hamburger Button - always on the left but lower on mobile */}
 			<div className="fixed top-4 left-4 md:top-4 md:left-4 z-50">
 				<button
 					className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors"
@@ -104,7 +104,7 @@ const SidebarNavigation: React.FC = () => {
 				></div>
 			)}
 
-			{/* Sidebar - siempre desde la izquierda */}
+			{/* Sidebar - always from the left */}
 			<div
 				className={`fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
