@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { ContentCard, SectionTitle, useSocialLinks, SocialNetwork } from '@/utils';
 
 const TrackClassifier: React.FC = () => {
@@ -105,17 +106,17 @@ const TrackClassifier: React.FC = () => {
 		checked: boolean;
 		onChange: () => void;
 	}) => (
-		<div className="flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1">
+		<div className='flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1'>
 			<input
 				checked={checked}
-				className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm"
+				className='h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm'
 				id={id}
 				onChange={onChange}
-				type="checkbox"
+				type='checkbox'
 			/>
 
 			<label
-				className="ml-2 block text-sm text-gray-700 font-medium cursor-pointer"
+				className='ml-2 block text-sm text-gray-700 font-medium cursor-pointer'
 				htmlFor={id}
 			>
 				{label}
@@ -125,14 +126,14 @@ const TrackClassifier: React.FC = () => {
 
 	return (
 		<ContentCard>
-			<SectionTitle className="text-blue-800 mb-6" level="h2">
+			<SectionTitle className='text-blue-800 mb-6' level='h2'>
 				DJ Track Tagging Tool
 			</SectionTitle>
 
-			<div className="mb-8">
-				<SectionTitle level="h3">Set Time</SectionTitle>
+			<div className='mb-8'>
+				<SectionTitle level='h3'>Set Time</SectionTitle>
 
-				<div className="flex flex-wrap -m-1">
+				<div className='flex flex-wrap -m-1'>
 					{setTimeOptions.map((option) => (
 						<Checkbox
 							checked={timeSelections.includes(option)}
@@ -145,10 +146,10 @@ const TrackClassifier: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="mb-8">
-				<SectionTitle level="h3">Components</SectionTitle>
+			<div className='mb-8'>
+				<SectionTitle level='h3'>Components</SectionTitle>
 
-				<div className="flex flex-wrap -m-1">
+				<div className='flex flex-wrap -m-1'>
 					{componentOptions.map((option) => (
 						<Checkbox
 							checked={componentSelections.includes(option)}
@@ -162,23 +163,23 @@ const TrackClassifier: React.FC = () => {
 			</div>
 
 			{validationError && (
-				<div className="mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md">
+				<div className='mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md'>
 					{validationError}
 				</div>
 			)}
 
-			<div className="mb-6">
+			<div className='mb-6'>
 				<textarea
-					className="w-full p-3 border border-gray-300 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-700"
-					id="result"
-					placeholder="Selected tags will appear here..."
+					className='w-full p-3 border border-gray-300 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-700'
+					id='result'
+					placeholder='Selected tags will appear here...'
 					readOnly
 					rows={3}
 					value={result}
 				/>
 			</div>
 
-			<div className="flex justify-end space-x-4">
+			<div className='flex justify-end space-x-4'>
 				<button
 					className={`px-6 py-2 ${
 						timeSelections.length > 0
@@ -191,29 +192,29 @@ const TrackClassifier: React.FC = () => {
 				</button>
 
 				<button
-					className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150"
+					className='px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150'
 					onClick={handleClear}
 				>
 					Clear
 				</button>
 			</div>
 
-			<div className="mt-12 pt-8 border-t border-gray-200">
-				<SectionTitle level="h3">Follow my DJ content on</SectionTitle>
+			<div className='mt-12 pt-8 border-t border-gray-200'>
+				<SectionTitle level='h3'>Follow my DJ content on</SectionTitle>
 
-				<div className="flex flex-wrap items-center gap-4">
+				<div className='flex flex-wrap items-center gap-4'>
 					{socialLinks.map((link) => (
 						<a
 							className={`flex items-center gap-2 px-4 py-2 rounded-md text-white transition-colors ${link.className}`}
 							href={link.url}
 							key={link.name}
-							rel="noopener noreferrer"
-							target="_blank"
+							rel='noopener noreferrer'
+							target='_blank'
 						>
 							{link.icon && link.icon}
 
 							{!link.icon && (
-								<span className="font-bold">
+								<span className='font-bold'>
 									{link.name.substring(0, 2).toUpperCase()}
 								</span>
 							)}

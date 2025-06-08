@@ -39,6 +39,8 @@
 			}
 		],
 		"indent": ["error", "tab"],
+		"jsx-quotes": ["error", "prefer-single"],
+		"quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
 		"react/react-in-jsx-scope": "off"
 	},
 	"settings": {

@@ -66,7 +66,7 @@ const SidebarNavigation: React.FC = () => {
 			{/* Hamburger Button - always on the left but lower on mobile */}
 			<div className="fixed top-4 left-4 md:top-4 md:left-4 z-50">
 				<button
-					className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors"
+					className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors cursor-pointer"
 					onClick={toggleSidebar}
 					aria-label="Toggle menu"
 				>

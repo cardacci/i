@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 // Generate version string in YY.MMDD.HHMM format.
 const generateBuildTimestamp = () => {

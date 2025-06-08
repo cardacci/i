@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import { globSync } from 'glob';
 
 // Get current directory (ES modules compatible).

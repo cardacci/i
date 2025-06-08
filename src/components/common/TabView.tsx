@@ -29,10 +29,10 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	};
 
 	return (
-		<div className="w-full">
+		<div className='w-full'>
 			{/* Tab navigation */}
-			<div className="border-b border-gray-200 mb-6">
-				<nav className="-mb-px flex space-x-8">
+			<div className='border-b border-gray-200 mb-6'>
+				<nav className='-mb-px flex space-x-8'>
 					{tabs.map((tab) => (
 						<button
 							key={tab.id}
@@ -51,7 +51,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 			</div>
 
 			{/* Tab content */}
-			<div className="tab-content">{activeTab?.content}</div>
+			<div className='tab-content'>{activeTab?.content}</div>
 		</div>
 	);
 };

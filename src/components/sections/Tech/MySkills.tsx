@@ -1,6 +1,8 @@
 import React from 'react';
-import { useCardHover, TECH_CATEGORIES, SectionTitle } from '@/utils';
+
 import type { TechCategory } from '@/utils';
+
+import { useCardHover, TECH_CATEGORIES, SectionTitle } from '@/utils';
 
 interface Technology {
 	category: TechCategory;
@@ -49,38 +51,38 @@ const MySkills: React.FC = () => {
 
 	return (
 		<div>
-			<SectionTitle level="h3">Technologies I Work With</SectionTitle>
+			<SectionTitle level='h3'>Technologies I Work With</SectionTitle>
 
-			<p className="mb-4 text-gray-600">
+			<p className='mb-4 text-gray-600'>
 				Tools and technologies I have experience with (updated as of June 2025):
 			</p>
 
-			<div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+			<div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
 				{sortedTechnologies.map((tech, index) => (
 					<div
-						className="p-3 border rounded-lg bg-blue-50 cursor-pointer transition-transform duration-200 ease-out hover:shadow-lg"
+						className='p-3 border rounded-lg bg-blue-50 cursor-pointer transition-transform duration-200 ease-out hover:shadow-lg'
 						key={index}
 						onMouseLeave={handleMouseLeave}
 						onMouseMove={handleMouseMove}
 					>
-						<div className="flex justify-between items-start mb-1">
-							<h4 className="font-semibold text-gray-800">{tech.name}</h4>
+						<div className='flex justify-between items-start mb-1'>
+							<h4 className='font-semibold text-gray-800'>{tech.name}</h4>
 
-							<span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+							<span className='text-xs text-green-600 bg-green-100 px-2 py-1 rounded'>
 								{formatYears(tech.years)}
 							</span>
 						</div>
 
-						<span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">
+						<span className='text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block'>
 							{tech.category}
 						</span>
 					</div>
 				))}
 			</div>
-			<div className="mt-6">
-				<SectionTitle level="h4">Current Focus</SectionTitle>
+			<div className='mt-6'>
+				<SectionTitle level='h4'>Current Focus</SectionTitle>
 
-				<p className="text-gray-600">
+				<p className='text-gray-600'>
 					With nearly a decade of JavaScript experience, I&apos;m currently deepening my
 					TypeScript knowledge and exploring modern web development patterns, performance
 					optimizations, and advanced React techniques.

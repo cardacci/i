@@ -12,7 +12,7 @@ const BaseView: React.FC<BaseViewProps> = (props) => {
 
 	return (
 		<section className={`py-6 max-w-5xl mx-auto ${className}`} id={id}>
-			<h1 className="text-3xl font-bold mb-6 text-blue-800 text-center md:text-left">
+			<h1 className='text-3xl font-bold mb-6 text-blue-800 text-center md:text-left'>
 				{title}
 			</h1>
 			{children}

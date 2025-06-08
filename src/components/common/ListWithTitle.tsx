@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SectionTitle from './SectionTitle';
 
 interface ListWithTitleProps {
@@ -16,7 +17,7 @@ const ListWithTitle: React.FC<ListWithTitleProps> = (props) => {
 
 	return (
 		<div className={className}>
-			<SectionTitle level="h3">{title}</SectionTitle>
+			<SectionTitle level='h3'>{title}</SectionTitle>
 
 			<ListComponent className={`${ordered ? 'list-decimal' : 'list-disc'} pl-5 space-y-2`}>
 				{items.map((item, index) => (
