@@ -4,7 +4,7 @@ import UnderConstruction from '@/components/common/UnderConstruction';
 import { BaseView, ContentCard, ListWithTitle, SectionTitle } from '@/utils';
 
 const Travel: React.FC = () => {
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const destinations = ['Barcelona, Spain', 'Tokyo, Japan', 'New York City, USA', 'Bali, Indonesia', 'Patagonia, Argentina'];
 
 	return (

@@ -13,7 +13,7 @@ const MySkills: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { handleMouseMove, handleMouseLeave } = useCardHover(0.1);
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const myTechnologies: Technology[] = [
 		{ category: TECH_CATEGORIES.BUILD_TOOLS, name: 'Webpack', years: 8.5 },
 		{ category: TECH_CATEGORIES.FRONTEND, name: 'Angular', years: 1.5 },
@@ -33,9 +33,6 @@ const MySkills: React.FC = () => {
 		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'WebSockets', years: 3.5 }
 	];
 
-	/* ===== Functions ===== */
-	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years);
-
 	const formatYears = (years: number) => {
 		if (years === 1) {
 			return '1 year';
@@ -47,6 +44,8 @@ const MySkills: React.FC = () => {
 
 		return `${years} years`;
 	};
+
+	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years);
 
 	return (
 		<div>

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-
 import BaseView from '@/components/common/BaseView';
 import TabView from '@/components/common/TabView';
 import UnderConstruction from '@/components/common/UnderConstruction';
@@ -11,7 +10,7 @@ import DjInfo from './DjInfo';
 import TrackClassifier from './TrackClassifier';
 
 const DJing: React.FC = () => {
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const tabs = [
 		{
 			content: <DjInfo />,

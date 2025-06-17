@@ -5,7 +5,7 @@ import { SocialNetwork, SocialLinksConfig } from '../constants/socialNetworks';
 import type { SocialLinkData } from '../constants/socialNetworks';
 
 export const useSocialLinks = (selectedNetworks?: SocialNetwork[]) => {
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const allSocialLinks: SocialLinksConfig = {
 		[SocialNetwork.GITHUB]: {
 			className: 'bg-gray-800 hover:bg-gray-900',

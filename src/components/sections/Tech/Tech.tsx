@@ -9,7 +9,7 @@ import MySkills from './MySkills';
 import ProjectTech from './ProjectTech';
 
 const Tech: React.FC = () => {
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const tabs = [
 		{
 			content: <MySkills />,

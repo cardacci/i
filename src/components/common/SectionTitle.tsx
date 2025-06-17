@@ -9,7 +9,7 @@ interface SectionTitleProps {
 const SectionTitle: React.FC<SectionTitleProps> = (props) => {
 	const { children, className = '', level = 'h3' } = props;
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const baseClasses = 'font-semibold text-gray-800 mb-4';
 	const Component = level;
 	const sizeClasses = {

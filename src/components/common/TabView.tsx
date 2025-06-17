@@ -19,7 +19,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	const navigate = useNavigate();
 	const { tabId } = useParams<{ tabId: string }>();
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	// Find active tab or use default.
 	const activeTab = tabs.find((tab) => tab.id === tabId) || (defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);
 
@@ -36,7 +36,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 						<button
 							aria-current={activeTab?.id === tab.id ? 'page' : undefined}
 							className={`
-				whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
+				whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm cursor-pointer
 				${activeTab?.id === tab.id ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
 				transition-colors duration-150
 			  `}

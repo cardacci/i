@@ -9,7 +9,7 @@ const SidebarNavigation: React.FC = () => {
 	/* ===== Hooks ===== */
 	const location = useLocation();
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const appVersion = import.meta.env.VITE_BUILD_TIMESTAMP; // Use the BUILD_TIMESTAMP created during build time.
 	const menuItems = [
 		{
@@ -25,6 +25,10 @@ const SidebarNavigation: React.FC = () => {
 			path: '/resume'
 		},
 		{
+			children: [
+				{ label: 'Bitcoin History', path: '/crypto/bitcoin' },
+				{ label: 'Fair Value Analysis', path: '/crypto/fair-value-analysis' }
+			],
 			icon: '🪙',
 			id: 'crypto',
 			label: 'Crypto',

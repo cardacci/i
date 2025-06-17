@@ -6,7 +6,7 @@ const ProjectTech: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { handleMouseMove, handleMouseLeave } = useCardHover(0.08);
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const projectTechnologies = [
 		{ description: 'Tailwind CSS component library', name: 'daisyUI' },
 		{ description: 'Linting utility for JavaScript/TypeScript', name: 'ESLint' },

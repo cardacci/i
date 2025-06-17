@@ -4,7 +4,7 @@ import { createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 import Header from '@/components/layout/Header';
 import SidebarNavigation from '@/components/layout/SidebarNavigation';
-import Crypto from '@/components/sections/Crypto';
+import Crypto from '@/components/sections/Crypto/Crypto';
 import DJing from '@/components/sections/DJing/DJing';
 import Home from '@/components/sections/Home';
 import Resume from '@/components/sections/Resume';
@@ -49,7 +49,7 @@ const router = createHashRouter([
 			},
 			{
 				element: <Crypto />,
-				path: 'crypto'
+				path: 'crypto/*'
 			},
 			{
 				element: <Tech />,

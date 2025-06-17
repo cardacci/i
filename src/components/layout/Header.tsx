@@ -6,7 +6,7 @@ const Header: React.FC = () => {
 	const [typedText, setTypedText] = useState('');
 	const [visible, setVisible] = useState(false);
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const textToType = 'Welcome';
 
 	/* ===== Effects ===== */

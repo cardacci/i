@@ -12,18 +12,14 @@ const TrackClassifier: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
-	const handleTimeChange = (option: string) => {
-		setTimeSelections((prev) => {
-			if (prev.includes(option)) {
-				return prev.filter((item) => item !== option);
-			} else {
-				return [...prev, option];
-			}
-		});
+	const handleClear = () => {
+		setTimeSelections([]);
+		setComponentSelections([]);
+		setValidationError('');
 	};
 
 	const handleComponentChange = (option: string) => {
@@ -54,10 +50,14 @@ const TrackClassifier: React.FC = () => {
 		);
 	};
 
-	const handleClear = () => {
-		setTimeSelections([]);
-		setComponentSelections([]);
-		setValidationError('');
+	const handleTimeChange = (option: string) => {
+		setTimeSelections((prev) => {
+			if (prev.includes(option)) {
+				return prev.filter((item) => item !== option);
+			} else {
+				return [...prev, option];
+			}
+		});
 	};
 
 	/* ===== Effects ===== */
@@ -83,7 +83,6 @@ const TrackClassifier: React.FC = () => {
 		}
 	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
-	/* ===== Components ===== */
 	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
 		<div className='flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1'>
 			<input

@@ -12,7 +12,7 @@ interface ListWithTitleProps {
 const ListWithTitle: React.FC<ListWithTitleProps> = (props) => {
 	const { className = '', items, ordered = false, title } = props;
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const ListComponent = ordered ? 'ol' : 'ul';
 
 	return (

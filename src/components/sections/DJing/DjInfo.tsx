@@ -3,7 +3,7 @@ import React from 'react';
 import { ContentCard, SectionTitle, ListWithTitle } from '@/utils';
 
 const DjInfo: React.FC = () => {
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const equipment = ['Pioneer DJ controllers', 'Serato DJ software', 'Custom audio interfaces', 'High-quality monitoring headphones'];
 
 	return (
