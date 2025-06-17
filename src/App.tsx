@@ -10,6 +10,7 @@ import Home from '@/components/sections/Home';
 import Resume from '@/components/sections/Resume';
 import Tech from '@/components/sections/Tech/Tech';
 import Travel from '@/components/sections/Travel';
+import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
 
 /**
@@ -22,7 +23,7 @@ const Layout = () => {
 
 			<SidebarNavigation />
 
-			<div className='pt-20 md:pt-24'>
+			<div className='pt-32 md:pt-28'>
 				<main className='grow'>
 					<div className='container mx-auto px-4 py-6 md:pl-20'>
 						<Outlet />
@@ -34,7 +35,7 @@ const Layout = () => {
 };
 
 /**
- * Define routes.
+ * Define routes using ROUTES constants.
  */
 const router = createHashRouter([
 	{
@@ -45,27 +46,27 @@ const router = createHashRouter([
 			},
 			{
 				element: <Resume />,
-				path: 'resume'
+				path: ROUTES.RESUME.id
 			},
 			{
 				element: <Crypto />,
-				path: 'crypto/*'
+				path: `${ROUTES.CRYPTO.id}/*`
 			},
 			{
 				element: <Tech />,
-				path: 'tech/*'
+				path: `${ROUTES.TECH.id}/*`
 			},
 			{
 				element: <DJing />,
-				path: 'djing/*'
+				path: `${ROUTES.DJING.id}/*`
 			},
 			{
 				element: <Travel />,
-				path: 'travel'
+				path: ROUTES.TRAVEL.id
 			}
 		],
 		element: <Layout />,
-		path: '/'
+		path: ROUTES.HOME.path
 	}
 ]);
 
