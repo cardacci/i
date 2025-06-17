@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
+import { ROUTES } from '@/utils/constants/routes';
+
 const SidebarNavigation: React.FC = () => {
 	/* ===== State ===== */
 	const [isOpen, setIsOpen] = useState(false);
@@ -10,61 +12,51 @@ const SidebarNavigation: React.FC = () => {
 	const location = useLocation();
 
 	/* ===== Constants & Variables ===== */
-	const appVersion = import.meta.env.VITE_BUILD_TIMESTAMP; // Use the BUILD_TIMESTAMP created during build time.
+	const appVersion = import.meta.env.VITE_BUILD_TIMESTAMP;
 	const menuItems = [
 		{
-			icon: '🏠',
-			id: 'home',
-			label: 'Home',
-			path: '/'
+			...ROUTES.HOME
 		},
 		{
-			icon: '📄',
-			id: 'resume',
-			label: 'Resume',
-			path: '/resume'
+			...ROUTES.RESUME
 		},
 		{
-			children: [
-				{ label: 'Bitcoin History', path: '/crypto/bitcoin' },
-				{ label: 'Fair Value Analysis', path: '/crypto/fair-value-analysis' }
-			],
-			icon: '🪙',
-			id: 'crypto',
-			label: 'Crypto',
-			path: '/crypto'
+			...ROUTES.CRYPTO,
+			children: getChildrenFromRoute(ROUTES.CRYPTO)
 		},
 		{
-			children: [
-				{ label: 'My Skills', path: '/tech/skills' },
-				{ label: 'Project Technologies', path: '/tech/project' }
-			],
-			icon: '💻',
-			id: 'tech',
-			label: 'Technology',
-			path: '/tech'
+			...ROUTES.TECH,
+			children: getChildrenFromRoute(ROUTES.TECH)
 		},
 		{
-			children: [
-				{ label: 'DJ Info', path: '/djing/info' },
-				{ label: 'Track Classifier', path: '/djing/classifier' }
-			],
-			icon: '🎧',
-			id: 'djing',
-			label: 'DJing',
-			path: '/djing'
+			...ROUTES.DJING,
+			children: getChildrenFromRoute(ROUTES.DJING)
 		},
 		{
-			icon: '✈️',
-			id: 'travel',
-			label: 'Travel',
-			path: '/travel'
+			...ROUTES.TRAVEL
 		}
 	];
 
-	const closeSidebar = () => setIsOpen(false);
-	const isActive = (path: string) => location.pathname.startsWith(path);
-	const toggleSidebar = () => setIsOpen(!isOpen);
+	function closeSidebar() {
+		setIsOpen(false);
+	}
+
+	function isActive(path: string) {
+		location.pathname.startsWith(path);
+	}
+
+	function toggleSidebar() {
+		setIsOpen(!isOpen);
+	}
+
+	function getChildrenFromRoute(route: any) {
+		return Object.keys(route)
+			.filter((key) => typeof route[key] === 'object' && route[key].id && route[key].path && route[key].label)
+			.map((key) => ({
+				label: route[key].label,
+				path: route[key].path
+			}));
+	}
 
 	return (
 		<>

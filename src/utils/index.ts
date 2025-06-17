@@ -3,6 +3,7 @@ export { SocialNetwork } from './constants/socialNetworks';
 export type { SocialLinkData, SocialLinksConfig } from './constants/socialNetworks';
 export { TECH_CATEGORIES } from './constants/techCategories';
 export type { TechCategory } from './constants/techCategories';
+export * from './helpers/routeHelpers';
 export { useCardHover } from './hooks/useCardHover';
 export { useSocialLinks } from './hooks/useSocialLinks';
 export { default as BaseView } from '../components/common/BaseView';
