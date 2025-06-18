@@ -3,10 +3,12 @@ import React from 'react';
 import { useCardHover, SectionTitle } from '@/utils';
 
 interface CryptoMetric {
+	circulatingSupply: number;
+	currentMC: number;
 	currentPrice: number;
-	fairValue: number;
-	marketCap: string;
+	marketCapATH: number;
 	name: string;
+	priceATH: number;
 	symbol: string;
 }
 
@@ -17,54 +19,80 @@ const FairValueAnalysis: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const cryptoMetrics: CryptoMetric[] = [
 		{
+			circulatingSupply: 19800000,
+			currentMC: 1880000,
 			currentPrice: 95000,
-			fairValue: 120000,
-			marketCap: '$1.88T',
+			marketCapATH: 1280000,
 			name: 'Bitcoin',
+			priceATH: 69000,
 			symbol: 'BTC'
 		},
 		{
+			circulatingSupply: 120280000,
+			currentMC: 421000,
 			currentPrice: 3500,
-			fairValue: 4200,
-			marketCap: '$421B',
+			marketCapATH: 569000,
 			name: 'Ethereum',
+			priceATH: 4878,
 			symbol: 'ETH'
 		},
 		{
+			circulatingSupply: 472200000,
+			currentMC: 85000,
 			currentPrice: 180,
-			fairValue: 250,
-			marketCap: '$85B',
+			marketCapATH: 76000,
 			name: 'Solana',
+			priceATH: 260,
 			symbol: 'SOL'
 		},
 		{
+			circulatingSupply: 636850000,
+			currentMC: 14000,
 			currentPrice: 22,
-			fairValue: 35,
-			marketCap: '$14B',
+			marketCapATH: 20000,
 			name: 'Chainlink',
+			priceATH: 52.7,
 			symbol: 'LINK'
 		},
 		{
+			circulatingSupply: 404690000,
+			currentMC: 17000,
 			currentPrice: 42,
-			fairValue: 55,
-			marketCap: '$17B',
+			marketCapATH: 29000,
 			name: 'Avalanche',
+			priceATH: 146.22,
 			symbol: 'AVAX'
 		}
 	];
 
-	const calculatePotential = (current: number, fair: number): number => {
-		return ((fair - current) / current) * 100;
-	};
+	function calculateMCDelta(currentMC: number, athMC: number): number {
+		return ((currentMC - athMC) / athMC) * 100;
+	}
 
-	const formatPrice = (price: number): string => {
+	function calculatePotentialUpside(priceAdjustToMC: number, currentPrice: number): number {
+		return ((priceAdjustToMC - currentPrice) / currentPrice) * 100;
+	}
+
+	function calculatePriceAdjustToMC(athMC: number, circulatingSupply: number): number {
+		return (athMC * 1000000) / circulatingSupply;
+	}
+
+	function calculatePriceDelta(currentPrice: number, athPrice: number): number {
+		return ((currentPrice - athPrice) / athPrice) * 100;
+	}
+
+	function formatNumber(num: number): string {
+		return new Intl.NumberFormat('en-US').format(num);
+	}
+
+	function formatPrice(price: number): string {
 		return new Intl.NumberFormat('en-US', {
 			currency: 'USD',
 			style: 'currency'
 		}).format(price);
-	};
+	}
 
-	const getPotentialColor = (potential: number): string => {
+	function getPotentialColor(potential: number): string {
 		if (potential > 20) {
 			return 'text-green-600 bg-green-100';
 		}
@@ -74,31 +102,40 @@ const FairValueAnalysis: React.FC = () => {
 		}
 
 		return 'text-red-600 bg-red-100';
-	};
+	}
 
 	return (
 		<div>
-			<SectionTitle level='h3'>Cryptocurrency Fair Value Analysis</SectionTitle>
+			<SectionTitle level='h3'>Cryptocurrency Market Analysis</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				This analysis attempts to estimate fair values for major cryptocurrencies based on various fundamental metrics including network activity,
-				adoption rates, and utility value. These are educational estimates and should not be considered investment advice.
+				This analysis compares current market conditions with all-time highs (ATH) and calculates potential upside based on market cap adjustments.
+				These are educational estimates and should not be considered investment advice.
 			</p>
 
 			<div className='overflow-x-auto'>
-				<table className='w-full border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm'>
+				<table className='w-full border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm text-sm'>
 					<thead className='bg-blue-50'>
 						<tr>
-							<th className='border border-gray-300 px-4 py-3 text-left font-semibold text-gray-800'>Cryptocurrency</th>
-							<th className='border border-gray-300 px-4 py-3 text-right font-semibold text-gray-800'>Current Price</th>
-							<th className='border border-gray-300 px-4 py-3 text-right font-semibold text-gray-800'>Fair Value</th>
-							<th className='border border-gray-300 px-4 py-3 text-right font-semibold text-gray-800'>Market Cap</th>
-							<th className='border border-gray-300 px-4 py-3 text-center font-semibold text-gray-800'>Potential</th>
+							<th className='border border-gray-300 px-3 py-2 text-left font-semibold text-gray-800'>Coin</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Market cap ATH (Millions)</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Current MC (Millions)</th>
+							<th className='border border-gray-300 px-3 py-2 text-center font-semibold text-gray-800'>MC Delta</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Price ATH (USDT)</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Current price (USDT)</th>
+							<th className='border border-gray-300 px-3 py-2 text-center font-semibold text-gray-800'>Price Delta</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Price adjust to MC (USDT)</th>
+							<th className='border border-gray-300 px-3 py-2 text-center font-semibold text-gray-800'>Potential upside</th>
+							<th className='border border-gray-300 px-3 py-2 text-right font-semibold text-gray-800'>Circulating supply</th>
 						</tr>
 					</thead>
 					<tbody>
 						{cryptoMetrics.map((crypto) => {
-							const potential = calculatePotential(crypto.currentPrice, crypto.fairValue);
+							const mcDelta = calculateMCDelta(crypto.currentMC, crypto.marketCapATH);
+							const priceDelta = calculatePriceDelta(crypto.currentPrice, crypto.priceATH);
+							const priceAdjustToMC = calculatePriceAdjustToMC(crypto.marketCapATH, crypto.circulatingSupply);
+							const potentialUpside = calculatePotentialUpside(priceAdjustToMC, crypto.currentPrice);
+
 							return (
 								<tr
 									className='hover:bg-gray-50 cursor-pointer transition-transform duration-200 ease-out'
@@ -106,22 +143,39 @@ const FairValueAnalysis: React.FC = () => {
 									onMouseLeave={handleMouseLeave}
 									onMouseMove={handleMouseMove}
 								>
-									<td className='border border-gray-300 px-4 py-3'>
+									<td className='border border-gray-300 px-3 py-2'>
 										<div>
 											<div className='font-semibold text-gray-800'>{crypto.name}</div>
-											<div className='text-sm text-gray-500'>{crypto.symbol}</div>
+											<div className='text-xs text-gray-500'>{crypto.symbol}</div>
 										</div>
 									</td>
-									<td className='border border-gray-300 px-4 py-3 text-right font-mono'>{formatPrice(crypto.currentPrice)}</td>
-									<td className='border border-gray-300 px-4 py-3 text-right font-mono font-semibold text-blue-600'>
-										{formatPrice(crypto.fairValue)}
-									</td>
-									<td className='border border-gray-300 px-4 py-3 text-right text-gray-600'>{crypto.marketCap}</td>
-									<td className='border border-gray-300 px-4 py-3 text-center'>
-										<span className={`px-2 py-1 rounded text-xs font-semibold ${getPotentialColor(potential)}`}>
-											{potential > 0 ? '+' : ''}
-											{potential.toFixed(1)}%
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono'>${formatNumber(crypto.marketCapATH)}M</td>
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono'>${formatNumber(crypto.currentMC)}M</td>
+									<td className='border border-gray-300 px-3 py-2 text-center'>
+										<span className={mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
+											{mcDelta >= 0 ? '+' : ''}
+											{mcDelta.toFixed(1)}%
 										</span>
+									</td>
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono'>{formatPrice(crypto.priceATH)}</td>
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono font-semibold'>{formatPrice(crypto.currentPrice)}</td>
+									<td className='border border-gray-300 px-3 py-2 text-center'>
+										<span className={priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
+											{priceDelta >= 0 ? '+' : ''}
+											{priceDelta.toFixed(1)}%
+										</span>
+									</td>
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono text-blue-600 font-semibold'>
+										{formatPrice(priceAdjustToMC)}
+									</td>
+									<td className='border border-gray-300 px-3 py-2 text-center'>
+										<span className={`px-2 py-1 rounded text-xs font-semibold ${getPotentialColor(potentialUpside)}`}>
+											{potentialUpside >= 0 ? '+' : ''}
+											{potentialUpside.toFixed(1)}%
+										</span>
+									</td>
+									<td className='border border-gray-300 px-3 py-2 text-right font-mono text-gray-600'>
+										{formatNumber(crypto.circulatingSupply)}
 									</td>
 								</tr>
 							);
@@ -134,10 +188,11 @@ const FairValueAnalysis: React.FC = () => {
 				<SectionTitle level='h4'>Methodology & Disclaimer</SectionTitle>
 
 				<ul className='text-sm text-gray-700 space-y-1 mb-4'>
-					<li>• Fair values are estimated using network value metrics, adoption curves, and utility analysis</li>
-					<li>• Current prices are approximate and for educational purposes only</li>
-					<li>• Cryptocurrency markets are highly volatile and unpredictable</li>
-					<li>• This analysis should not be considered financial or investment advice</li>
+					<li>• MC Delta: Percentage change from ATH market cap to current market cap</li>
+					<li>• Price Delta: Percentage change from ATH price to current price</li>
+					<li>• Price adjust to MC: What the price would be if market cap returned to ATH levels</li>
+					<li>• Potential upside: Percentage gain if price reaches the MC-adjusted target</li>
+					<li>• Data is approximate and for educational purposes only</li>
 				</ul>
 
 				<p className='text-xs text-amber-800 font-medium'>
