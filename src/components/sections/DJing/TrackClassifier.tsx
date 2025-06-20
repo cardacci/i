@@ -13,7 +13,7 @@ const TrackClassifier: React.FC = () => {
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 
 	/* ===== Constants & Variables ===== */
-	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
+	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Groovy', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	const handleClear = () => {
