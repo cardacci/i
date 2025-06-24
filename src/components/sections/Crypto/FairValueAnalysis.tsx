@@ -43,13 +43,14 @@ const FIELDS = {
 } as const;
 
 // Crypto tickers to fetch
-const CRYPTO_TICKERS = ['bitcoin', 'ethereum', 'solana', 'chainlink', 'avalanche-2', 'cardano', 'polkadot', 'polygon'];
+const CRYPTO_TICKERS = ['avalanche-2', 'bitcoin', 'chainlink', 'ethereum', 'solana'];
 
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
 
 const FairValueAnalysis: React.FC = () => {
 	/* ===== State ===== */
 	const [cryptoMetrics, setCryptoMetrics] = useState<CryptoMetric[]>([]);
+	console.log('cryptoMetrics', cryptoMetrics);
 	const [error, setError] = useState<string>('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [lastUpdated, setLastUpdated] = useState<Date | null>(null);

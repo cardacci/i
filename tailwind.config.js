@@ -1,44 +1,63 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-	theme: {
-		extend: {
-			animation: {
-				blink: 'blink 1s step-end infinite'
-			},
-			keyframes: {
-				blink: {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0' }
-				}
-			}
-		}
+	daisyui: {
+		base: true,
+		darkTheme: 'light',
+		logs: false,
+		prefix: '',
+		styled: true,
+		themeRoot: ':root',
+		themes: ['light'],
+		utils: true
 	},
 	plugins: [
 		function ({ addUtilities }) {
 			// Utilities básicas de daisyUI para componentes que necesitas
 			addUtilities({
-				// Table styles
-				'.table': {
-					'border-collapse': 'collapse',
-					width: '100%',
-					'text-align': 'left'
+				// Alert styles
+				'.alert': {
+					'align-items': 'center',
+					border: '1px solid transparent',
+					'border-radius': '0.5rem',
+					display: 'flex',
+					gap: '0.5rem',
+					padding: '1rem'
 				},
-				'.table-zebra tbody tr:nth-child(even)': {
-					'background-color': 'rgb(248 250 252)'
+				'.alert-error': {
+					'background-color': 'rgb(254 242 242)',
+					'border-color': 'rgb(252 165 165)',
+					color: 'rgb(153 27 27)'
+				},
+
+				// Badge styles
+				'.badge': {
+					'align-items': 'center',
+					'background-color': 'rgb(229 231 235)',
+					'border-radius': '9999px',
+					color: 'rgb(31 41 55)',
+					display: 'inline-flex',
+					'font-size': '0.75rem',
+					'font-weight': '600',
+					'justify-content': 'center',
+					padding: '0.25rem 0.5rem'
+				},
+				'.badge-lg': {
+					'font-size': '0.875rem',
+					padding: '0.375rem 0.75rem'
 				},
 
 				// Button styles
 				'.btn': {
-					display: 'inline-flex',
 					'align-items': 'center',
-					'justify-content': 'center',
-					'border-radius': '0.5rem',
-					padding: '0.5rem 1rem',
-					'font-weight': '600',
-					'text-decoration': 'none',
-					cursor: 'pointer',
 					border: '1px solid transparent',
+					'border-radius': '0.5rem',
+					cursor: 'pointer',
+					display: 'inline-flex',
+					'font-weight': '600',
+					'justify-content': 'center',
+					padding: '0.5rem 1rem',
+					'text-decoration': 'none',
 					transition: 'all 0.2s ease-in-out'
 				},
 				'.btn-primary': {
@@ -56,63 +75,41 @@ export default {
 					'background-color': 'rgb(75 85 99)'
 				},
 				'.btn-sm': {
-					padding: '0.25rem 0.75rem',
-					'font-size': '0.875rem'
+					'font-size': '0.875rem',
+					padding: '0.25rem 0.75rem'
 				},
 
 				// Loading styles
 				'.loading': {
-					display: 'inline-block',
-					animation: 'spin 1s linear infinite'
+					animation: 'spin 1s linear infinite',
+					display: 'inline-block'
+				},
+				'.loading-sm': {
+					height: '1rem',
+					width: '1rem'
 				},
 				'.loading-spinner': {
 					border: '2px solid transparent',
-					'border-top': '2px solid currentColor',
-					'border-radius': '50%'
-				},
-				'.loading-sm': {
-					width: '1rem',
-					height: '1rem'
-				},
-				'.loading-xs': {
-					width: '0.75rem',
-					height: '0.75rem'
+					'border-radius': '50%',
+					'border-top': '2px solid currentColor'
 				},
 				'.loading-xl': {
-					width: '2rem',
-					height: '2rem'
+					height: '2rem',
+					width: '2rem'
+				},
+				'.loading-xs': {
+					height: '0.75rem',
+					width: '0.75rem'
 				},
 
-				// Badge styles
-				'.badge': {
-					display: 'inline-flex',
-					'align-items': 'center',
-					'justify-content': 'center',
-					padding: '0.25rem 0.5rem',
-					'font-size': '0.75rem',
-					'font-weight': '600',
-					'border-radius': '9999px',
-					'background-color': 'rgb(229 231 235)',
-					color: 'rgb(31 41 55)'
+				// Table styles
+				'.table': {
+					'border-collapse': 'collapse',
+					'text-align': 'left',
+					width: '100%'
 				},
-				'.badge-lg': {
-					padding: '0.375rem 0.75rem',
-					'font-size': '0.875rem'
-				},
-
-				// Alert styles
-				'.alert': {
-					display: 'flex',
-					'align-items': 'center',
-					gap: '0.5rem',
-					padding: '1rem',
-					'border-radius': '0.5rem',
-					border: '1px solid transparent'
-				},
-				'.alert-error': {
-					'background-color': 'rgb(254 242 242)',
-					'border-color': 'rgb(252 165 165)',
-					color: 'rgb(153 27 27)'
+				'.table-zebra tbody tr:nth-child(even)': {
+					'background-color': 'rgb(248 250 252)'
 				}
 			});
 
@@ -125,14 +122,17 @@ export default {
 			});
 		}
 	],
-	daisyui: {
-		themes: ['light'],
-		darkTheme: 'light',
-		base: true,
-		styled: true,
-		utils: true,
-		prefix: '',
-		logs: false,
-		themeRoot: ':root'
+	theme: {
+		extend: {
+			animation: {
+				blink: 'blink 1s step-end infinite'
+			},
+			keyframes: {
+				blink: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
+				}
+			}
+		}
 	}
 };

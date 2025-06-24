@@ -18,6 +18,11 @@ const generateBuildTimestamp = () => {
 
 export default defineConfig({
 	base: '/i/',
+	build: {
+		assetsDir: 'assets',
+		outDir: 'dist',
+		sourcemap: true
+	},
 	define: {
 		// Define environment variable that will be available only at build time.
 		'import.meta.env.VITE_BUILD_TIMESTAMP': JSON.stringify(generateBuildTimestamp())
@@ -27,11 +32,6 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, './src')
 		}
-	},
-	build: {
-		assetsDir: 'assets',
-		outDir: 'dist',
-		sourcemap: true
 	},
 	server: {
 		open: true,
