@@ -1,3 +1,5 @@
+import path from 'path';
+
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -20,10 +22,10 @@ export default defineConfig({
 		// Define environment variable that will be available only at build time.
 		'import.meta.env.VITE_BUILD_TIMESTAMP': JSON.stringify(generateBuildTimestamp())
 	},
-	plugins: [tailwindcss(), react()],
+	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
-			'@': '/src'
+			'@': path.resolve(__dirname, './src')
 		}
 	},
 	build: {
