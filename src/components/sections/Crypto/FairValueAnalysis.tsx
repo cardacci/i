@@ -1,34 +1,67 @@
 import React, { useMemo, useState } from 'react';
 
-import { SectionTitle } from '@/utils';
+import { SectionTitle, useApiRequest } from '@/utils';
 
 interface CryptoMetric {
 	circulatingSupply: number;
 	currentMC: number;
 	currentPrice: number;
 	id: string;
+	image: string; // Agregamos el campo image
 	marketCapATH: number;
 	name: string;
 	priceATH: number;
 	ticker: string;
 }
 
+// Full CoinGecko response interface (unfiltered).
 interface CoinGeckoResponse {
-	ath_market_cap: number;
-	ath: number;
-	circulating_supply: number;
-	current_price: number;
 	id: string;
-	market_cap: number;
-	name: string;
 	symbol: string;
+	name: string;
+	image: string;
+	current_price: number;
+	market_cap: number;
+	market_cap_rank: number;
+	fully_diluted_valuation: number | null;
+	total_volume: number;
+	high_24h: number;
+	low_24h: number;
+	price_change_24h: number;
+	price_change_percentage_24h: number;
+	market_cap_change_24h: number;
+	market_cap_change_percentage_24h: number;
+	circulating_supply: number;
+	total_supply: number | null;
+	max_supply: number | null;
+	ath: number;
+	ath_change_percentage: number;
+	ath_date: string;
+	atl: number;
+	atl_change_percentage: number;
+	atl_date: string;
+	roi: {
+		times: number;
+		currency: string;
+		percentage: number;
+	} | null;
+	last_updated: string;
+	// Additional fields that can be included in the API.
+	ath_market_cap?: number;
+	price_change_percentage_1h_in_currency?: number;
+	price_change_percentage_24h_in_currency?: number;
+	price_change_percentage_7d_in_currency?: number;
+	price_change_percentage_14d_in_currency?: number;
+	price_change_percentage_30d_in_currency?: number;
+	price_change_percentage_200d_in_currency?: number;
+	price_change_percentage_1y_in_currency?: number;
 }
 
 const ORDER_ASC = 'asc';
 const ORDER_DESC = 'desc';
 type SortDirection = typeof ORDER_ASC | typeof ORDER_DESC;
 
-// Field constants
+// Field constants.
 const FIELDS = {
 	CIRCULATING_SUPPLY: 'circulatingSupply',
 	CURRENT_MC: 'currentMC',
@@ -48,120 +81,23 @@ const CRYPTO_TICKERS = ['avalanche-2', 'bitcoin', 'chainlink', 'ethereum', 'sola
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
 
 const FairValueAnalysis: React.FC = () => {
+	/* ===== Hooks ===== */
+	const { data: rawCryptoData, error, isLoading, request } = useApiRequest<CoinGeckoResponse[]>();
+
 	/* ===== State ===== */
-	const [cryptoMetrics, setCryptoMetrics] = useState<CryptoMetric[]>([]);
-	console.log('cryptoMetrics', cryptoMetrics);
-	const [error, setError] = useState<string>('');
-	const [isLoading, setIsLoading] = useState(false);
 	const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 	const [sortDirection, setSortDirection] = useState<SortDirection>(ORDER_DESC);
 	const [sortField, setSortField] = useState<SortField>(FIELDS.CURRENT_MC);
 
-	const fetchCryptoData = async () => {
-		setIsLoading(true);
-		setError('');
-
-		try {
-			const response = await fetch(
-				`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${CRYPTO_TICKERS.join(',')}&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=24h&market_cap_change_percentage=24h`
-			);
-
-			if (!response.ok) {
-				throw new Error('Failed to fetch crypto data');
-			}
-
-			const data: CoinGeckoResponse[] = await response.json();
-			const formattedData: CryptoMetric[] = data.map((coin) => ({
-				circulatingSupply: Math.round(coin.circulating_supply),
-				currentMC: Math.round(coin.market_cap / 1000000), // Convert to millions.
-				currentPrice: coin.current_price,
-				id: coin.id,
-				marketCapATH: coin.ath_market_cap ? Math.round(coin.ath_market_cap / 1000000) : 0,
-				name: coin.name,
-				priceATH: coin.ath,
-				ticker: coin.symbol.toUpperCase()
-			}));
-
-			setCryptoMetrics(formattedData);
-			setLastUpdated(new Date());
-		} catch (err) {
-			setError(err instanceof Error ? err.message : 'An error occurred while fetching data');
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
-	function calculateMCDelta(currentMC: number, athMC: number): number {
-		return ((currentMC - athMC) / athMC) * 100;
-	}
-
-	function calculatePotentialUpside(priceAdjustToMC: number, currentPrice: number): number {
-		return ((priceAdjustToMC - currentPrice) / currentPrice) * 100;
-	}
-
-	function calculatePriceAdjustToMC(athMC: number, circulatingSupply: number): number {
-		return (athMC * 1000000) / circulatingSupply;
-	}
-
-	function calculatePriceDelta(currentPrice: number, athPrice: number): number {
-		return ((currentPrice - athPrice) / athPrice) * 100;
-	}
-
-	function formatNumber(num: number): string {
-		return new Intl.NumberFormat('en-US').format(num);
-	}
-
-	function formatPrice(price: number): string {
-		return new Intl.NumberFormat('en-US', {
-			currency: 'USD',
-			style: 'currency'
-		}).format(price);
-	}
-
-	function getPotentialColor(potential: number): string {
-		if (potential > 20) {
-			return 'text-green-600 bg-green-100';
+	/* ===== Memos ===== */
+	// Memoized crypto metrics parsed from raw data.
+	const cryptoMetrics = useMemo(() => {
+		if (!rawCryptoData) {
+			return [];
 		}
 
-		if (potential > 0) {
-			return 'text-yellow-600 bg-yellow-100';
-		}
-
-		return 'text-red-600 bg-red-100';
-	}
-
-	const handleSort = (field: SortField) => {
-		if (sortField === field) {
-			setSortDirection(sortDirection === ORDER_ASC ? ORDER_DESC : ORDER_ASC);
-		} else {
-			setSortField(field);
-			setSortDirection(ORDER_ASC);
-		}
-	};
-
-	const getSortIcon = (field: SortField) => {
-		if (sortField !== field) {
-			return (
-				<svg className='w-4 h-4 opacity-50' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-					<path d='M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
-				</svg>
-			);
-		}
-
-		if (sortDirection === ORDER_ASC) {
-			return (
-				<svg className='w-4 h-4 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-					<path d='M5 15l7-7 7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
-				</svg>
-			);
-		}
-
-		return (
-			<svg className='w-4 h-4 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-				<path d='M19 9l-7 7-7-7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
-			</svg>
-		);
-	};
+		return parseRawDataToCryptoMetrics(rawCryptoData);
+	}, [rawCryptoData]);
 
 	const sortedData = useMemo(() => {
 		if (cryptoMetrics.length === 0) return [];
@@ -242,57 +178,181 @@ const FairValueAnalysis: React.FC = () => {
 		});
 	}, [cryptoMetrics, sortField, sortDirection]);
 
-	const SortableHeader = ({ field, children }: { field: SortField; children: React.ReactNode }) => (
-		<th className='cursor-pointer font-semibold' onClick={() => handleSort(field)}>
-			<div className='flex items-center gap-2 justify-center text-sm'>
-				{children}
-				{getSortIcon(field)}
-			</div>
-		</th>
-	);
+	function calculateMCDelta(currentMC: number, athMC: number): number {
+		if (athMC === 0) {
+			return 0;
+		}
 
-	// Empty State Component
-	const EmptyState = () => (
-		<div className='flex flex-col items-center justify-center py-16 px-8'>
-			<div className='text-center max-w-md'>
-				<div className='mb-6'>
-					<svg className='w-16 h-16 mx-auto text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-						<path
-							d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							strokeWidth={1.5}
-						/>
-					</svg>
+		return ((currentMC - athMC) / athMC) * 100;
+	}
+
+	function calculatePotentialUpside(priceAdjustToMC: number, currentPrice: number): number {
+		return ((priceAdjustToMC - currentPrice) / currentPrice) * 100;
+	}
+
+	function calculatePriceAdjustToMC(athMC: number, circulatingSupply: number): number {
+		if (circulatingSupply === 0) {
+			return 0;
+		}
+
+		return (athMC * 1000000) / circulatingSupply;
+	}
+
+	function calculatePriceDelta(currentPrice: number, athPrice: number): number {
+		return ((currentPrice - athPrice) / athPrice) * 100;
+	}
+
+	/**
+	 * Empty state component displayed when no cryptocurrency data is available.
+	 * Prompts the user to fetch data from the API.
+	 */
+	function EmptyState() {
+		return (
+			<div className='flex flex-col items-center justify-center py-16 px-8'>
+				<div className='text-center max-w-md'>
+					<div className='mb-6'>
+						<svg className='w-16 h-16 mx-auto text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+							<path
+								d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth={1.5}
+							/>
+						</svg>
+					</div>
+					<h3 className='text-xl font-semibold text-gray-900 mb-2'>No Cryptocurrency Data</h3>
+					<p className='text-gray-600 mb-6'>
+						Get started by fetching the latest cryptocurrency market data from API. We'll analyze market caps, prices, and potential upside for
+						major cryptocurrencies.
+					</p>
+					<button className='btn btn-primary' disabled={isLoading} onClick={fetchCryptoData}>
+						{isLoading ? (
+							<>
+								<span className='loading loading-spinner loading-sm'></span>
+								Fetching Data...
+							</>
+						) : (
+							<>
+								<svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+									<path
+										d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth={2}
+									/>
+								</svg>
+								Fetch Crypto Data
+							</>
+						)}
+					</button>
 				</div>
-				<h3 className='text-xl font-semibold text-gray-900 mb-2'>No Cryptocurrency Data</h3>
-				<p className='text-gray-600 mb-6'>
-					Get started by fetching the latest cryptocurrency market data from CoinGecko API. We'll analyze market caps, prices, and potential upside
-					for major cryptocurrencies.
-				</p>
-				<button className='btn btn-primary' disabled={isLoading} onClick={fetchCryptoData}>
-					{isLoading ? (
-						<>
-							<span className='loading loading-spinner loading-sm'></span>
-							Fetching Data...
-						</>
-					) : (
-						<>
-							<svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-								<path
-									d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth={2}
-								/>
-							</svg>
-							Fetch Crypto Data
-						</>
-					)}
-				</button>
 			</div>
-		</div>
-	);
+		);
+	}
+
+	async function fetchCryptoData() {
+		const result = await request('coinGeckoMarkets', {
+			ids: CRYPTO_TICKERS.join(','),
+			order: 'market_cap_desc',
+			page: 1,
+			per_page: 20,
+			price_change_percentage: '24h',
+			sparkline: false,
+			vs_currency: 'usd'
+		});
+
+		if (result) {
+			setLastUpdated(new Date());
+			console.log('Complete CoinGecko Response:', result);
+		}
+	}
+
+	function formatNumber(num: number): string {
+		return new Intl.NumberFormat('en-US').format(num);
+	}
+
+	function formatPrice(price: number): string {
+		return new Intl.NumberFormat('en-US', {
+			currency: 'USD',
+			style: 'currency'
+		}).format(price);
+	}
+
+	function getPotentialColor(potential: number): string {
+		if (potential > 20) {
+			return 'text-green-600 bg-green-100';
+		}
+
+		if (potential > 0) {
+			return 'text-yellow-600 bg-yellow-100';
+		}
+
+		return 'text-red-600 bg-red-100';
+	}
+
+	function getSortIcon(field: SortField) {
+		if (sortField !== field) {
+			return (
+				<svg className='w-4 h-4 opacity-50' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+					<path d='M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
+				</svg>
+			);
+		}
+
+		if (sortDirection === ORDER_ASC) {
+			return (
+				<svg className='w-4 h-4 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+					<path d='M5 15l7-7 7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
+				</svg>
+			);
+		}
+
+		return (
+			<svg className='w-4 h-4 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+				<path d='M19 9l-7 7-7-7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
+			</svg>
+		);
+	}
+
+	function handleSort(field: SortField) {
+		if (sortField === field) {
+			setSortDirection(sortDirection === ORDER_ASC ? ORDER_DESC : ORDER_ASC);
+		} else {
+			setSortField(field);
+			setSortDirection(ORDER_ASC);
+		}
+	}
+
+	// Function for parsing raw data to our format.
+	function parseRawDataToCryptoMetrics(rawData: CoinGeckoResponse[]): CryptoMetric[] {
+		return rawData.map((coin) => ({
+			circulatingSupply: Math.round(coin.circulating_supply),
+			currentMC: Math.round(coin.market_cap / 1000000), // Convert to millions.
+			currentPrice: coin.current_price,
+			id: coin.id,
+			image: coin.image, // Incluimos la imagen en el parsing
+			marketCapATH: coin.ath_market_cap ? Math.round(coin.ath_market_cap / 1000000) : 0,
+			name: coin.name,
+			priceATH: coin.ath,
+			ticker: coin.symbol.toUpperCase()
+		}));
+	}
+
+	/**
+	 * Sortable header component for table columns.
+	 * It handles click events to sort the table by the specified field.
+	 */
+	function SortableHeader({ field, children }: { field: SortField; children: React.ReactNode }) {
+		return (
+			<th className='cursor-pointer font-semibold' onClick={() => handleSort(field)}>
+				<div className='flex items-center gap-2 justify-center text-sm'>
+					{children}
+
+					{getSortIcon(field)}
+				</div>
+			</th>
+		);
+	}
 
 	return (
 		<div>
@@ -322,7 +382,6 @@ const FairValueAnalysis: React.FC = () => {
 							{isLoading ? (
 								<>
 									<span className='loading loading-spinner loading-xs'></span>
-									<span className='loading loading-infinity loading-xl'></span>
 									Updating...
 								</>
 							) : (
@@ -345,6 +404,18 @@ const FairValueAnalysis: React.FC = () => {
 						<table className='table table-zebra'>
 							<thead className='bg-blue-50'>
 								<tr className='h-16'>
+									<th className='text-center text-sm font-semibold w-16'>
+										<div className='flex items-center justify-center'>
+											<svg className='w-4 h-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+												<path
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+												/>
+											</svg>
+										</div>
+									</th>
 									<SortableHeader field={FIELDS.NAME}>Coin</SortableHeader>
 									<SortableHeader field={FIELDS.MARKET_CAP_ATH}>Market cap ATH (Millions)</SortableHeader>
 									<SortableHeader field={FIELDS.CURRENT_MC}>Current MC (Millions)</SortableHeader>
@@ -358,48 +429,60 @@ const FairValueAnalysis: React.FC = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{sortedData.map((crypto) => (
-									<tr className='h-16' key={crypto.ticker}>
-										<td className='py-4 align-middle'>
-											<div>
-												<div className='font-semibold text-gray-800'>{crypto.name}</div>
-												<div className='text-xs text-gray-500'>{crypto.ticker}</div>
+								{sortedData.map((crypto, index) => (
+									<tr
+										className={`cursor-pointer h-16 transition-colors ${
+											index % 2 === 0 ? 'bg-transparent hover:bg-primary/20' : 'bg-primary/5 hover:bg-primary/25'
+										}`}
+										key={crypto.ticker}
+									>
+										<td className='py-4 align-middle text-center w-16'>
+											<div className='flex justify-center'>
+												<img
+													alt={`${crypto.name} logo`}
+													className='w-10 h-10 rounded-full border-2 border-gray-100 shadow-sm'
+													onError={(e) => {
+														// Fallback en caso de que la imagen no cargue
+														const target = e.target as HTMLImageElement;
+														target.src =
+															'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMlM2LjQ4IDIyIDEyIDIyUzIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTIgMlpNMTMgMTdIMTFWMTVIMTNWMTdaTTEzIDEzSDE1VjkiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+Cjwvc3ZnPgo=';
+														target.className = 'w-10 h-10 rounded-full border-2 border-gray-200 opacity-50';
+													}}
+													src={crypto.image}
+												/>
 											</div>
 										</td>
-
-										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.marketCapATH)}</td>
-
-										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.currentMC)}</td>
-
+										<td className='py-4 align-middle'>
+											<div>
+												<div className='font-semibold text-base'>{crypto.name}</div>
+												<div className='text-sm opacity-60 font-mono'>{crypto.ticker}</div>
+											</div>
+										</td>
+										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.marketCapATH)}M</td>
+										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.currentMC)}M</td>
 										<td className='text-center py-4 align-middle'>
 											<span className={crypto.mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 												{crypto.mcDelta >= 0 ? '+' : ''}
 												{crypto.mcDelta.toFixed(1)}%
 											</span>
 										</td>
-
 										<td className='text-right font-mono py-4 align-middle'>{formatPrice(crypto.priceATH)}</td>
-
 										<td className='text-right font-mono font-semibold py-4 align-middle'>{formatPrice(crypto.currentPrice)}</td>
-
 										<td className='text-center py-4 align-middle'>
 											<span className={crypto.priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 												{crypto.priceDelta >= 0 ? '+' : ''}
 												{crypto.priceDelta.toFixed(1)}%
 											</span>
 										</td>
-
 										<td className='text-right font-mono text-primary font-semibold py-4 align-middle'>
 											{formatPrice(crypto.priceAdjustToMC)}
 										</td>
-
 										<td className='text-center py-4 align-middle'>
 											<span className={`badge badge-lg ${getPotentialColor(crypto.potentialUpside)}`}>
 												{crypto.potentialUpside >= 0 ? '+' : ''}
 												{crypto.potentialUpside.toFixed(1)}%
 											</span>
 										</td>
-
 										<td className='text-right font-mono opacity-70 py-4 align-middle'>{formatNumber(crypto.circulatingSupply)}</td>
 									</tr>
 								))}
@@ -417,7 +500,7 @@ const FairValueAnalysis: React.FC = () => {
 					<li>• Price Delta: Percentage change from ATH price to current price</li>
 					<li>• Price adjust to MC: What the price would be if market cap returned to ATH levels</li>
 					<li>• Potential upside: Percentage gain if price reaches the MC-adjusted target</li>
-					<li>• Data is fetched from CoinGecko API and is for educational purposes only</li>
+					<li>• Data is fetched from an API and is for educational purposes only</li>
 					<li>• Click on column headers to sort the table</li>
 				</ul>
 

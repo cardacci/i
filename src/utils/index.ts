@@ -4,6 +4,7 @@ export type { SocialLinkData, SocialLinksConfig } from './constants/socialNetwor
 export { TECH_CATEGORIES } from './constants/techCategories';
 export type { TechCategory } from './constants/techCategories';
 export * from './helpers/routeHelpers';
+export { useApiRequest } from './hooks/useApiRequest';
 export { useCardHover } from './hooks/useCardHover';
 export { useSocialLinks } from './hooks/useSocialLinks';
 export { default as BaseView } from '../components/common/BaseView';
