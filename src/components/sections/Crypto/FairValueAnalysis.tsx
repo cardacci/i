@@ -13,7 +13,6 @@ interface CryptoMetric {
 	name: string;
 	priceATH: number;
 	ticker: string;
-	totalSupply: number | null;
 }
 
 // Full CoinGecko response interface (unfiltered).
@@ -106,9 +105,10 @@ const FairValueAnalysis: React.FC = () => {
 		if (cryptoMetrics.length === 0) return [];
 
 		const dataWithCalculations = cryptoMetrics.map((crypto) => {
-			const mcDelta = calculateMCDelta(crypto.currentMC, crypto.marketCapATH);
-			const priceDelta = calculatePriceDelta(crypto.currentPrice, crypto.priceATH);
-			const priceAdjustToMC = calculatePriceAdjustToMC(crypto.marketCapATH, crypto.circulatingSupply);
+			const { circulatingSupply, currentMC, currentPrice, marketCapATH, priceATH } = crypto;
+			const mcDelta = calculateMCDelta(currentMC, marketCapATH);
+			const priceDelta = calculatePriceDelta(currentPrice, priceATH);
+			const priceAdjustToMC = calculatePriceAdjustToMC(marketCapATH, circulatingSupply);
 			const potentialUpside = calculatePotentialUpside(priceAdjustToMC, crypto.currentPrice);
 
 			return {
@@ -179,7 +179,7 @@ const FairValueAnalysis: React.FC = () => {
 
 			return 0;
 		});
-	}, [cryptoMetrics, sortField, sortDirection]);
+	}, [cryptoMetrics, sortDirection, sortField]);
 
 	function calculateMCDelta(currentMC: number, athMC: number): number {
 		if (athMC === 0) {
@@ -331,8 +331,8 @@ const FairValueAnalysis: React.FC = () => {
 	 */
 	function parseRawDataToCryptoMetrics(rawData: CoinGeckoResponse[]): CryptoMetric[] {
 		return rawData.map((coin) => {
-			const circulatingPercentage = coin.total_supply ? ((coin.circulating_supply / coin.total_supply) * 100).toFixed(1) + '%' : '∞';
-			const { ath, circulating_supply, current_price, id, image, market_cap, name, symbol, total_supply } = coin;
+			const { ath, circulating_supply, current_price, id, image, market_cap, max_supply, name, symbol } = coin;
+			const circulatingPercentage = max_supply ? ((circulating_supply / max_supply) * 100).toFixed(1) + '%' : '∞';
 
 			return {
 				circulatingPercentage,
@@ -344,8 +344,7 @@ const FairValueAnalysis: React.FC = () => {
 				marketCapATH: ATH_MARKET_CAP_DATA[id] || 0, // Use static ATH market cap data.
 				name: name,
 				priceATH: ath,
-				ticker: symbol.toUpperCase(),
-				totalSupply: total_supply
+				ticker: symbol.toUpperCase()
 			};
 		});
 	}
@@ -428,76 +427,93 @@ const FairValueAnalysis: React.FC = () => {
 											</svg>
 										</div>
 									</th>
-									<SortableHeader field={FIELDS.NAME}>Coin</SortableHeader>
-									<SortableHeader field={FIELDS.MARKET_CAP_ATH}>Market cap ATH (USD)</SortableHeader>
-									<SortableHeader field={FIELDS.CURRENT_MC}>Current MC (USD)</SortableHeader>
-									<SortableHeader field={FIELDS.MC_DELTA}>MC Delta</SortableHeader>
-									<SortableHeader field={FIELDS.PRICE_ATH}>Price ATH (USDT)</SortableHeader>
-									<SortableHeader field={FIELDS.CURRENT_PRICE}>Current price (USDT)</SortableHeader>
-									<SortableHeader field={FIELDS.PRICE_DELTA}>Price Delta</SortableHeader>
-									<SortableHeader field={FIELDS.PRICE_ADJUST_TO_MC}>Price adjust to MC (USDT)</SortableHeader>
-									<SortableHeader field={FIELDS.POTENTIAL_UPSIDE}>Potential upside</SortableHeader>
-									<SortableHeader field={FIELDS.CIRCULATING_SUPPLY}>Circulating %</SortableHeader>
+									<SortableHeader field={FIELDS.NAME}>Cryptocurrency</SortableHeader>
+									<SortableHeader field={FIELDS.MARKET_CAP_ATH}>ATH Market Cap</SortableHeader>
+									<SortableHeader field={FIELDS.CURRENT_MC}>Current Market Cap</SortableHeader>
+									<SortableHeader field={FIELDS.MC_DELTA}>Market Cap Change</SortableHeader>
+									<SortableHeader field={FIELDS.PRICE_ATH}>ATH Price</SortableHeader>
+									<SortableHeader field={FIELDS.CURRENT_PRICE}>Current Price</SortableHeader>
+									<SortableHeader field={FIELDS.PRICE_DELTA}>Price Change</SortableHeader>
+									<SortableHeader field={FIELDS.PRICE_ADJUST_TO_MC}>Target Price</SortableHeader>
+									<SortableHeader field={FIELDS.POTENTIAL_UPSIDE}>Potential Gain</SortableHeader>
+									<SortableHeader field={FIELDS.CIRCULATING_SUPPLY}>Supply in Circulation</SortableHeader>
 								</tr>
 							</thead>
 							<tbody>
-								{sortedData.map((crypto, index) => (
-									<tr
-										className={`cursor-pointer h-16 transition-colors ${
-											index % 2 === 0 ? 'bg-transparent hover:bg-primary/20' : 'bg-primary/5 hover:bg-primary/25'
-										}`}
-										key={crypto.ticker}
-									>
-										<td className='py-4 align-middle text-center w-16'>
-											<div className='flex justify-center'>
-												<img
-													alt={`${crypto.name} logo`}
-													className='w-10 h-10 rounded-full border-2 border-gray-100 shadow-sm'
-													onError={(e) => {
-														// Fallback en caso de que la imagen no cargue
-														const target = e.target as HTMLImageElement;
-														target.src =
-															'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMlM2LjQ4IDIyIDEyIDIyUzIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTIgMlpNMTMgMTdIMTFWMTVIMTNWMTdaTTEzIDEzSDE1VjkiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+Cjwvc3ZnPgo=';
-														target.className = 'w-10 h-10 rounded-full border-2 border-gray-200 opacity-50';
-													}}
-													src={crypto.image}
-												/>
-											</div>
-										</td>
-										<td className='py-4 align-middle'>
-											<div>
-												<div className='font-semibold text-base'>{crypto.name}</div>
-												<div className='text-sm opacity-60 font-mono'>{crypto.ticker}</div>
-											</div>
-										</td>
-										<td className='text-sm text-right font-mono py-4 align-middle'>${formatNumber(crypto.marketCapATH)}</td>
-										<td className='text-sm text-right font-mono py-4 align-middle'>${formatNumber(crypto.currentMC)}</td>
-										<td className='text-sm text-center py-4 align-middle'>
-											<span className={crypto.mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
-												{crypto.mcDelta >= 0 ? '+' : ''}
-												{crypto.mcDelta.toFixed(1)}%
-											</span>
-										</td>
-										<td className='text-sm text-right font-mono py-4 align-middle'>{formatPrice(crypto.priceATH)}</td>
-										<td className='text-sm text-right font-mono font-semibold py-4 align-middle'>{formatPrice(crypto.currentPrice)}</td>
-										<td className='text-sm text-center py-4 align-middle'>
-											<span className={crypto.priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
-												{crypto.priceDelta >= 0 ? '+' : ''}
-												{crypto.priceDelta.toFixed(1)}%
-											</span>
-										</td>
-										<td className='text-sm text-right font-mono text-primary font-semibold py-4 align-middle'>
-											{formatPrice(crypto.priceAdjustToMC)}
-										</td>
-										<td className='text-center py-4 align-middle'>
-											<span className={`badge badge-lg ${getPotentialColor(crypto.potentialUpside)}`}>
-												{crypto.potentialUpside >= 0 ? '+' : ''}
-												{crypto.potentialUpside.toFixed(1)}%
-											</span>
-										</td>
-										<td className='text-sm text-right font-mono opacity-70 py-4 align-middle'>{crypto.circulatingPercentage}</td>
-									</tr>
-								))}
+								{sortedData.map((crypto, index) => {
+									const {
+										circulatingPercentage,
+										currentMC,
+										currentPrice,
+										image,
+										marketCapATH,
+										mcDelta,
+										name,
+										priceAdjustToMC,
+										potentialUpside,
+										priceATH,
+										priceDelta,
+										ticker
+									} = crypto;
+
+									return (
+										<tr
+											className={`cursor-pointer h-16 transition-colors ${
+												index % 2 === 0 ? 'bg-transparent hover:bg-primary/20' : 'bg-primary/5 hover:bg-primary/25'
+											}`}
+											key={ticker}
+										>
+											<td className='py-4 align-middle text-center w-16 min-w-16'>
+												<div className='flex justify-center'>
+													<img
+														alt={`${name} logo`}
+														className='w-10 h-10 min-w-10 rounded-full border-2 border-gray-100 shadow-sm'
+														onError={(e) => {
+															// Fallback en caso de que la imagen no cargue
+															const target = e.target as HTMLImageElement;
+															target.src =
+																'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMlM2LjQ4IDIyIDEyIDIyUzIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTIgMlpNMTMgMTdIMTFWMTVIMTNWMTdaTTEzIDEzSDE1VjkiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+Cjwvc3ZnPgo=';
+															target.className = 'w-10 h-10 rounded-full border-2 border-gray-200 opacity-50';
+														}}
+														src={image}
+													/>
+												</div>
+											</td>
+											<td className='py-4 align-middle'>
+												<div>
+													<div className='font-semibold text-base'>{name}</div>
+													<div className='text-sm opacity-60 font-mono'>{ticker}</div>
+												</div>
+											</td>
+											<td className='text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(marketCapATH)}</td>
+											<td className='text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(currentMC)}</td>
+											<td className='text-sm text-center py-4 align-middle'>
+												<span className={mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
+													{mcDelta >= 0 ? '+' : ''}
+													{mcDelta.toFixed(1)}%
+												</span>
+											</td>
+											<td className='text-sm text-right font-mono py-4 align-middle'>{formatPrice(priceATH)}</td>
+											<td className='text-sm text-right font-mono font-semibold py-4 align-middle'>{formatPrice(currentPrice)}</td>
+											<td className='text-sm text-center py-4 align-middle'>
+												<span className={priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
+													{priceDelta >= 0 ? '+' : ''}
+													{priceDelta.toFixed(1)}%
+												</span>
+											</td>
+											<td className='text-sm text-right font-mono text-primary font-semibold py-4 align-middle'>
+												{formatPrice(priceAdjustToMC)}
+											</td>
+											<td className='text-center py-4 align-middle'>
+												<span className={`badge badge-lg ${getPotentialColor(potentialUpside)}`}>
+													{potentialUpside >= 0 ? '+' : ''}
+													{potentialUpside.toFixed(1)}%
+												</span>
+											</td>
+											<td className='px-3 text-sm text-right font-mono opacity-70 py-4 align-middle'>{circulatingPercentage}</td>
+										</tr>
+									);
+								})}
 							</tbody>
 						</table>
 					</div>
@@ -505,19 +521,66 @@ const FairValueAnalysis: React.FC = () => {
 			)}
 
 			<div className='mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg'>
-				<SectionTitle level='h4'>Methodology & Disclaimer</SectionTitle>
+				<SectionTitle level='h4'>Column Definitions</SectionTitle>
 
-				<ul className='text-sm text-gray-700 space-y-1 mb-4'>
-					<li>• MC Delta: Percentage change from ATH market cap to current market cap</li>
-					<li>• Price Delta: Percentage change from ATH price to current price</li>
-					<li>• Price adjust to MC: What the price would be if market cap returned to ATH levels</li>
-					<li>• Potential upside: Percentage gain if price reaches the MC-adjusted target</li>
-					<li>• Data is fetched from an API and is for educational purposes only</li>
-					<li>• Click on column headers to sort the table</li>
-				</ul>
+				<div className='grid md:grid-cols-2 gap-4 mb-6'>
+					<div className='space-y-2'>
+						<div className='text-sm text-gray-700 space-y-2'>
+							<div>
+								<strong>Cryptocurrency:</strong> Name and symbol of the digital asset.
+							</div>
+							<div>
+								<strong>ATH Market Cap:</strong> All-time high market capitalization (highest total value ever reached).
+							</div>
+							<div>
+								<strong>Current Market Cap:</strong> Present total market value (current price × circulating supply).
+							</div>
+							<div>
+								<strong>Market Cap Change:</strong> Percentage difference between current and ATH market cap.
+							</div>
+							<div>
+								<strong>ATH Price:</strong> All-time high price per token/coin.
+							</div>
+						</div>
+					</div>
+					<div className='space-y-2'>
+						<div className='text-sm text-gray-700 space-y-2'>
+							<div>
+								<strong>Current Price:</strong> Present market price per token/coin.
+							</div>
+							<div>
+								<strong>Price Change:</strong> Percentage difference between current and ATH price.
+							</div>
+							<div>
+								<strong>Target Price:</strong> Theoretical price if market cap returned to ATH levels.
+							</div>
+							<div>
+								<strong>Potential Gain:</strong> Percentage gain if price reaches the target price.
+							</div>
+							<div>
+								<strong>Supply in Circulation:</strong> Percentage of maximum supply currently in circulation. If 100%, it means the coin will
+								have no more inflation (no new coins will be created). ∞ indicates unlimited supply.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-				<p className='text-xs text-amber-800 font-medium'>
-					Always conduct your own research and consult with financial advisors before making investment decisions.
+			<div className='mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg'>
+				<SectionTitle level='h4'>Important Notes & Methodology</SectionTitle>
+
+				<div className='text-sm text-gray-700 space-y-1'>
+					<li>All calculations are based on historical ATH data and current market conditions.</li>
+					<li>Target prices assume the same circulating supply as current levels.</li>
+					<li>Market cap changes reflect overall market sentiment and adoption.</li>
+					<li>Price changes may differ from market cap changes due to supply variations.</li>
+					<li>Data is fetched from CoinGecko API and is for educational purposes only.</li>
+					<li>Click on column headers to sort the table by different criteria.</li>
+				</div>
+
+				<p className='text-xs text-blue-800 font-medium mt-4'>
+					⚠️ This analysis is for educational purposes only. Always conduct your own research and consult with financial advisors before making
+					investment decisions. Past performance does not guarantee future results.
 				</p>
 			</div>
 		</div>
