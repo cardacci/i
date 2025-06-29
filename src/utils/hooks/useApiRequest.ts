@@ -31,7 +31,7 @@ const apiServices: ApiServices = {
 			market_cap_change_percentage: '24h',
 			order: 'market_cap_desc',
 			page: 1,
-			per_page: 20,
+			per_page: 50,
 			price_change_percentage: '24h',
 			sparkline: false,
 			vs_currency: 'usd',

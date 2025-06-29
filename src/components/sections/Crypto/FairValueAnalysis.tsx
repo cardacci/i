@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { SectionTitle, useApiRequest } from '@/utils';
 
 interface CryptoMetric {
+	category: string;
 	circulatingPercentage: string; // Percentage or "∞".
 	circulatingSupply: number;
 	currentMC: number;
@@ -50,12 +51,26 @@ interface CoinGeckoResponse {
 	total_volume: number;
 }
 
+// Enum for cryptocurrency categories.
+enum CryptoCategory {
+	AI = 'AI',
+	CEFI = 'CeFi',
+	DEFI = 'DeFi',
+	DESCI = 'DeSci',
+	GAMING = 'Gaming',
+	LAYER_1 = 'Layer 1',
+	MEMECOIN = 'Memecoin',
+	RWA = 'RWA',
+	STORE_OF_VALUE = 'Store of Value'
+}
+
 const ORDER_ASC = 'asc';
 const ORDER_DESC = 'desc';
 type SortDirection = typeof ORDER_ASC | typeof ORDER_DESC;
 
 // Field constants.
 const FIELDS = {
+	CATEGORY: 'category',
 	CIRCULATING_SUPPLY: 'circulatingSupply',
 	CURRENT_MC: 'currentMC',
 	CURRENT_PRICE: 'currentPrice',
@@ -69,15 +84,114 @@ const FIELDS = {
 } as const;
 
 // Crypto tickers to fetch.
-const CRYPTO_TICKERS = ['avalanche-2', 'bitcoin', 'chainlink', 'ethereum', 'solana'];
+const CRYPTO_TICKERS = [
+	'aerodrome-finance',
+	'avalanche-2',
+	'based-brett',
+	'billy',
+	'binancecoin',
+	'bio-protocol',
+	'bitcoin',
+	'chainlink',
+	'clearpool',
+	'coq-inu',
+	'ethena',
+	'ethereum',
+	'goldfinch',
+	'io',
+	'joe',
+	'maga',
+	'near',
+	'nexo',
+	'paal-ai',
+	'pancakeswap-token',
+	'pepe',
+	'popcat',
+	'raydium',
+	'ref-finance',
+	'render-token',
+	'ronin',
+	'sidus',
+	'solana',
+	'sudeng',
+	'sushi',
+	'ton-fish-memecoin',
+	'vulcan-forged',
+	'wen-4'
+];
 
 // Static ATH Market Cap data (in USD).
 const ATH_MARKET_CAP_DATA: Record<string, number> = {
-	'avalanche-2': 30006000000, // AVAX ATH Market Cap: ~$30.006B
-	bitcoin: 2191000000000, // BTC ATH Market Cap: ~$2.191T
-	chainlink: 20760000000, // LINK ATH Market Cap: ~$20.76B
-	ethereum: 552214000000, // ETH ATH Market Cap: ~$552.214B
-	solana: 123295000000 // SOL ATH Market Cap: ~$123.295B
+	'aerodrome-finance': 1570000000, // Aerodrome Finance (AERO): ~$1.57B
+	'avalanche-2': 30006000000, // Avalanche (AVAX): ~$30.006B
+	'based-brett': 2109000000, // Brett (Based) (BRETT): ~$2.109B
+	billy: 101850000, // Billy (BILLY): ~$101.85M
+	binancecoin: 105925000000, // BNB (BNB): ~$105.925B
+	'bio-protocol': 1052000000, // Bio Protocol (BIO): ~$1.052B
+	bitcoin: 2191000000000, // Bitcoin (BTC): ~$2.191T
+	chainlink: 20760000000, // Chainlink (LINK): ~$20.76B
+	clearpool: 354058000, // Clearpool (CPOOL): ~$354.058M
+	'coq-inu': 422752000, // Coq Inu (COQ): ~$422.752M
+	ethena: 3796000000, // Ethena (ENA): ~$3.796B
+	ethereum: 552214000000, // Ethereum (ETH): ~$552.214B
+	goldfinch: 144702000, // Goldfinch (GFI): ~$144.702M
+	io: 538368000, // io.net (IO): ~$538.368M
+	joe: 407199000, // JOE (JOE): ~$407.199M
+	maga: 752506000, // MAGA (magamemecoin.com) (TRUMP): ~$752.506M
+	near: 11783000000, // NEAR Protocol (NEAR): ~$11.783B
+	nexo: 2179000000, // Nexo (NEXO): ~$2.179B
+	'paal-ai': 546778000, // PAAL AI (PAAL): ~$546.778M
+	'pancakeswap-token': 6620000000, // PancakeSwap (CAKE): ~$6.62B
+	pepe: 10430000000, // Pepe (PEPE): ~$10.43B
+	popcat: 1928000000, // Popcat (SOL) (POPCAT): ~$1.928B
+	raydium: 2088000000, // Raydium (RAY): ~$2.088B
+	'ref-finance': 14811000, // Ref Finance (REF): ~$14.811M
+	'render-token': 5228000000, // Render (RENDER): ~$5.228B
+	ronin: 1292000000, // Ronin (RON): ~$1.292B
+	sidus: 121234000, // SIDUS (SIDUS): ~$121.234M
+	solana: 123295000000, // Solana (SOL): ~$123.295B
+	sudeng: 277943000, // sudeng (HIPPO): ~$277.943M
+	sushi: 2586000000, // SushiSwap (SUSHI): ~$2.586B
+	'ton-fish-memecoin': 47170000, // TON FISH MEMECOIN (FISH): ~$47.17M
+	'vulcan-forged': 788667000, // Vulcan Forged (PYR): ~$788.667M
+	'wen-4': 352045000 // Wen (WEN): ~$352.045M
+};
+
+// Crypto categories for classification.
+const CRYPTO_CATEGORIES: Record<string, string> = {
+	'aerodrome-finance': CryptoCategory.DEFI,
+	'avalanche-2': CryptoCategory.LAYER_1,
+	'based-brett': CryptoCategory.MEMECOIN,
+	billy: CryptoCategory.MEMECOIN,
+	binancecoin: CryptoCategory.LAYER_1,
+	'bio-protocol': CryptoCategory.DESCI,
+	bitcoin: CryptoCategory.STORE_OF_VALUE,
+	chainlink: CryptoCategory.DEFI,
+	clearpool: CryptoCategory.RWA,
+	'coq-inu': CryptoCategory.MEMECOIN,
+	ethena: CryptoCategory.DEFI,
+	ethereum: CryptoCategory.LAYER_1,
+	goldfinch: CryptoCategory.RWA,
+	io: CryptoCategory.AI,
+	joe: CryptoCategory.DEFI,
+	maga: CryptoCategory.MEMECOIN,
+	near: CryptoCategory.LAYER_1,
+	nexo: CryptoCategory.CEFI,
+	'paal-ai': CryptoCategory.AI,
+	'pancakeswap-token': CryptoCategory.DEFI,
+	pepe: CryptoCategory.MEMECOIN,
+	popcat: CryptoCategory.MEMECOIN,
+	raydium: CryptoCategory.DEFI,
+	'ref-finance': CryptoCategory.DEFI,
+	'render-token': CryptoCategory.AI,
+	ronin: CryptoCategory.GAMING,
+	sidus: CryptoCategory.GAMING,
+	solana: CryptoCategory.LAYER_1,
+	sudeng: CryptoCategory.MEMECOIN,
+	sushi: CryptoCategory.DEFI,
+	'ton-fish-memecoin': CryptoCategory.MEMECOIN,
+	'vulcan-forged': CryptoCategory.GAMING,
+	'wen-4': CryptoCategory.MEMECOIN
 };
 
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
@@ -127,6 +241,10 @@ const FairValueAnalysis: React.FC = () => {
 				case FIELDS.NAME:
 					aValue = a.name;
 					bValue = b.name;
+					break;
+				case FIELDS.CATEGORY:
+					aValue = a.category;
+					bValue = b.category;
 					break;
 				case FIELDS.MARKET_CAP_ATH:
 					aValue = a.marketCapATH;
@@ -258,7 +376,7 @@ const FairValueAnalysis: React.FC = () => {
 			ids: CRYPTO_TICKERS.join(','),
 			order: 'market_cap_desc',
 			page: 1,
-			per_page: 20,
+			per_page: 50,
 			price_change_percentage: '24h',
 			sparkline: false,
 			vs_currency: 'usd'
@@ -266,7 +384,6 @@ const FairValueAnalysis: React.FC = () => {
 
 		if (result) {
 			setLastUpdated(new Date());
-			console.log('Complete CoinGecko Response:', result);
 		}
 	}
 
@@ -275,6 +392,35 @@ const FairValueAnalysis: React.FC = () => {
 	}
 
 	function formatPrice(price: number): string {
+		// If price is >= 1000, don't show decimals
+		if (price >= 1000) {
+			return new Intl.NumberFormat('en-US', {
+				currency: 'USD',
+				maximumFractionDigits: 0,
+				minimumFractionDigits: 0,
+				style: 'currency'
+			}).format(price);
+		}
+
+		// If price is very small (close to 0.00), show more decimal places
+		if (price > 0 && price < 0.01) {
+			// Find the first non-zero digit and show at least 2 significant digits
+			let decimals = 2;
+			let temp = price;
+			while (temp < 1 && decimals < 10) {
+				temp *= 10;
+				decimals++;
+			}
+
+			return new Intl.NumberFormat('en-US', {
+				currency: 'USD',
+				maximumFractionDigits: decimals,
+				minimumFractionDigits: decimals,
+				style: 'currency'
+			}).format(price);
+		}
+
+		// Normal formatting for prices >= 0.01 and < 1000
 		return new Intl.NumberFormat('en-US', {
 			currency: 'USD',
 			style: 'currency'
@@ -335,6 +481,7 @@ const FairValueAnalysis: React.FC = () => {
 			const circulatingPercentage = max_supply ? ((circulating_supply / max_supply) * 100).toFixed(1) + '%' : '∞';
 
 			return {
+				category: CRYPTO_CATEGORIES[id] || 'Other',
 				circulatingPercentage,
 				circulatingSupply: Math.round(circulating_supply),
 				currentMC: Math.round(market_cap), // Keep as full number to match ATH format.
@@ -437,11 +584,13 @@ const FairValueAnalysis: React.FC = () => {
 									<SortableHeader field={FIELDS.PRICE_ADJUST_TO_MC}>Target Price</SortableHeader>
 									<SortableHeader field={FIELDS.POTENTIAL_UPSIDE}>Potential Gain</SortableHeader>
 									<SortableHeader field={FIELDS.CIRCULATING_SUPPLY}>Supply in Circulation</SortableHeader>
+									<SortableHeader field={FIELDS.CATEGORY}>Category</SortableHeader>
 								</tr>
 							</thead>
 							<tbody>
 								{sortedData.map((crypto, index) => {
 									const {
+										category,
 										circulatingPercentage,
 										currentMC,
 										currentPrice,
@@ -511,6 +660,9 @@ const FairValueAnalysis: React.FC = () => {
 												</span>
 											</td>
 											<td className='px-3 text-sm text-right font-mono opacity-70 py-4 align-middle'>{circulatingPercentage}</td>
+											<td className='py-4 align-middle text-center'>
+												<span className='badge badge-outline badge-sm'>{category}</span>
+											</td>
 										</tr>
 									);
 								})}
@@ -560,6 +712,9 @@ const FairValueAnalysis: React.FC = () => {
 							<div>
 								<strong>Supply in Circulation:</strong> Percentage of maximum supply currently in circulation. If 100%, it means the coin will
 								have no more inflation (no new coins will be created). ∞ indicates unlimited supply.
+							</div>
+							<div>
+								<strong>Category:</strong> Classification of the cryptocurrency by its primary use case or sector.
 							</div>
 						</div>
 					</div>
