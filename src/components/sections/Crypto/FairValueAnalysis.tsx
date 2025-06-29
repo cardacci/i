@@ -3,58 +3,52 @@ import React, { useMemo, useState } from 'react';
 import { SectionTitle, useApiRequest } from '@/utils';
 
 interface CryptoMetric {
+	circulatingPercentage: string; // Percentage or "∞".
 	circulatingSupply: number;
 	currentMC: number;
 	currentPrice: number;
 	id: string;
-	image: string; // Agregamos el campo image
+	image: string; // We add the image field.
 	marketCapATH: number;
 	name: string;
 	priceATH: number;
 	ticker: string;
+	totalSupply: number | null;
 }
 
 // Full CoinGecko response interface (unfiltered).
 interface CoinGeckoResponse {
-	id: string;
-	symbol: string;
-	name: string;
-	image: string;
-	current_price: number;
-	market_cap: number;
-	market_cap_rank: number;
-	fully_diluted_valuation: number | null;
-	total_volume: number;
-	high_24h: number;
-	low_24h: number;
-	price_change_24h: number;
-	price_change_percentage_24h: number;
-	market_cap_change_24h: number;
-	market_cap_change_percentage_24h: number;
-	circulating_supply: number;
-	total_supply: number | null;
-	max_supply: number | null;
-	ath: number;
 	ath_change_percentage: number;
 	ath_date: string;
-	atl: number;
+	ath: number;
 	atl_change_percentage: number;
 	atl_date: string;
+	atl: number;
+	circulating_supply: number;
+	current_price: number;
+	fully_diluted_valuation: number | null;
+	high_24h: number;
+	id: string;
+	image: string;
+	last_updated: string;
+	low_24h: number;
+	market_cap_change_24h: number;
+	market_cap_change_percentage_24h: number;
+	market_cap_rank: number;
+	market_cap: number;
+	max_supply: number | null;
+	name: string;
+	price_change_24h: number;
+	price_change_percentage_24h_in_currency?: number;
+	price_change_percentage_24h: number;
 	roi: {
-		times: number;
 		currency: string;
 		percentage: number;
+		times: number;
 	} | null;
-	last_updated: string;
-	// Additional fields that can be included in the API.
-	ath_market_cap?: number;
-	price_change_percentage_1h_in_currency?: number;
-	price_change_percentage_24h_in_currency?: number;
-	price_change_percentage_7d_in_currency?: number;
-	price_change_percentage_14d_in_currency?: number;
-	price_change_percentage_30d_in_currency?: number;
-	price_change_percentage_200d_in_currency?: number;
-	price_change_percentage_1y_in_currency?: number;
+	symbol: string;
+	total_supply: number | null;
+	total_volume: number;
 }
 
 const ORDER_ASC = 'asc';
@@ -75,8 +69,17 @@ const FIELDS = {
 	PRICE_DELTA: 'priceDelta'
 } as const;
 
-// Crypto tickers to fetch
+// Crypto tickers to fetch.
 const CRYPTO_TICKERS = ['avalanche-2', 'bitcoin', 'chainlink', 'ethereum', 'solana'];
+
+// Static ATH Market Cap data (in USD).
+const ATH_MARKET_CAP_DATA: Record<string, number> = {
+	'avalanche-2': 30006000000, // AVAX ATH Market Cap: ~$30.006B
+	bitcoin: 2191000000000, // BTC ATH Market Cap: ~$2.191T
+	chainlink: 20760000000, // LINK ATH Market Cap: ~$20.76B
+	ethereum: 552214000000, // ETH ATH Market Cap: ~$552.214B
+	solana: 123295000000 // SOL ATH Market Cap: ~$123.295B
+};
 
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
 
@@ -195,7 +198,7 @@ const FairValueAnalysis: React.FC = () => {
 			return 0;
 		}
 
-		return (athMC * 1000000) / circulatingSupply;
+		return athMC / circulatingSupply;
 	}
 
 	function calculatePriceDelta(currentPrice: number, athPrice: number): number {
@@ -323,19 +326,28 @@ const FairValueAnalysis: React.FC = () => {
 		}
 	}
 
-	// Function for parsing raw data to our format.
+	/**
+	 * Function for parsing raw data to our format.
+	 */
 	function parseRawDataToCryptoMetrics(rawData: CoinGeckoResponse[]): CryptoMetric[] {
-		return rawData.map((coin) => ({
-			circulatingSupply: Math.round(coin.circulating_supply),
-			currentMC: Math.round(coin.market_cap / 1000000), // Convert to millions.
-			currentPrice: coin.current_price,
-			id: coin.id,
-			image: coin.image, // Incluimos la imagen en el parsing
-			marketCapATH: coin.ath_market_cap ? Math.round(coin.ath_market_cap / 1000000) : 0,
-			name: coin.name,
-			priceATH: coin.ath,
-			ticker: coin.symbol.toUpperCase()
-		}));
+		return rawData.map((coin) => {
+			const circulatingPercentage = coin.total_supply ? ((coin.circulating_supply / coin.total_supply) * 100).toFixed(1) + '%' : '∞';
+			const { ath, circulating_supply, current_price, id, image, market_cap, name, symbol, total_supply } = coin;
+
+			return {
+				circulatingPercentage,
+				circulatingSupply: Math.round(circulating_supply),
+				currentMC: Math.round(market_cap), // Keep as full number to match ATH format.
+				currentPrice: current_price,
+				id: id,
+				image: image, // We include the image in parsing.
+				marketCapATH: ATH_MARKET_CAP_DATA[id] || 0, // Use static ATH market cap data.
+				name: name,
+				priceATH: ath,
+				ticker: symbol.toUpperCase(),
+				totalSupply: total_supply
+			};
+		});
 	}
 
 	/**
@@ -417,15 +429,15 @@ const FairValueAnalysis: React.FC = () => {
 										</div>
 									</th>
 									<SortableHeader field={FIELDS.NAME}>Coin</SortableHeader>
-									<SortableHeader field={FIELDS.MARKET_CAP_ATH}>Market cap ATH (Millions)</SortableHeader>
-									<SortableHeader field={FIELDS.CURRENT_MC}>Current MC (Millions)</SortableHeader>
+									<SortableHeader field={FIELDS.MARKET_CAP_ATH}>Market cap ATH (USD)</SortableHeader>
+									<SortableHeader field={FIELDS.CURRENT_MC}>Current MC (USD)</SortableHeader>
 									<SortableHeader field={FIELDS.MC_DELTA}>MC Delta</SortableHeader>
 									<SortableHeader field={FIELDS.PRICE_ATH}>Price ATH (USDT)</SortableHeader>
 									<SortableHeader field={FIELDS.CURRENT_PRICE}>Current price (USDT)</SortableHeader>
 									<SortableHeader field={FIELDS.PRICE_DELTA}>Price Delta</SortableHeader>
 									<SortableHeader field={FIELDS.PRICE_ADJUST_TO_MC}>Price adjust to MC (USDT)</SortableHeader>
 									<SortableHeader field={FIELDS.POTENTIAL_UPSIDE}>Potential upside</SortableHeader>
-									<SortableHeader field={FIELDS.CIRCULATING_SUPPLY}>Circulating supply</SortableHeader>
+									<SortableHeader field={FIELDS.CIRCULATING_SUPPLY}>Circulating %</SortableHeader>
 								</tr>
 							</thead>
 							<tbody>
@@ -458,23 +470,23 @@ const FairValueAnalysis: React.FC = () => {
 												<div className='text-sm opacity-60 font-mono'>{crypto.ticker}</div>
 											</div>
 										</td>
-										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.marketCapATH)}M</td>
-										<td className='text-right font-mono py-4 align-middle'>${formatNumber(crypto.currentMC)}M</td>
-										<td className='text-center py-4 align-middle'>
+										<td className='text-sm text-right font-mono py-4 align-middle'>${formatNumber(crypto.marketCapATH)}</td>
+										<td className='text-sm text-right font-mono py-4 align-middle'>${formatNumber(crypto.currentMC)}</td>
+										<td className='text-sm text-center py-4 align-middle'>
 											<span className={crypto.mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 												{crypto.mcDelta >= 0 ? '+' : ''}
 												{crypto.mcDelta.toFixed(1)}%
 											</span>
 										</td>
-										<td className='text-right font-mono py-4 align-middle'>{formatPrice(crypto.priceATH)}</td>
-										<td className='text-right font-mono font-semibold py-4 align-middle'>{formatPrice(crypto.currentPrice)}</td>
-										<td className='text-center py-4 align-middle'>
+										<td className='text-sm text-right font-mono py-4 align-middle'>{formatPrice(crypto.priceATH)}</td>
+										<td className='text-sm text-right font-mono font-semibold py-4 align-middle'>{formatPrice(crypto.currentPrice)}</td>
+										<td className='text-sm text-center py-4 align-middle'>
 											<span className={crypto.priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 												{crypto.priceDelta >= 0 ? '+' : ''}
 												{crypto.priceDelta.toFixed(1)}%
 											</span>
 										</td>
-										<td className='text-right font-mono text-primary font-semibold py-4 align-middle'>
+										<td className='text-sm text-right font-mono text-primary font-semibold py-4 align-middle'>
 											{formatPrice(crypto.priceAdjustToMC)}
 										</td>
 										<td className='text-center py-4 align-middle'>
@@ -483,7 +495,7 @@ const FairValueAnalysis: React.FC = () => {
 												{crypto.potentialUpside.toFixed(1)}%
 											</span>
 										</td>
-										<td className='text-right font-mono opacity-70 py-4 align-middle'>{formatNumber(crypto.circulatingSupply)}</td>
+										<td className='text-sm text-right font-mono opacity-70 py-4 align-middle'>{crypto.circulatingPercentage}</td>
 									</tr>
 								))}
 							</tbody>

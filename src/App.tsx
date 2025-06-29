@@ -25,7 +25,7 @@ const Layout = () => {
 
 			<div className='pt-32 md:pt-28'>
 				<main className='grow'>
-					<div className='container mx-auto px-4 py-6 md:pl-20'>
+					<div className='container mx-auto py-6'>
 						<Outlet />
 					</div>
 				</main>
