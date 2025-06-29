@@ -1,28 +1,32 @@
 {
 	"author": "Gabriel Cardacci",
 	"dependencies": {
-		"daisyui": "^5.0.43",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-router-dom": "^7.6.2"
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
 	"devDependencies": {
+		"@eslint/js": "^9.28.0",
 		"@tailwindcss/postcss": "^4.1.8",
 		"@tailwindcss/vite": "^4.1.8",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.1",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
+		"@typescript-eslint/eslint-plugin": "^8.33.1",
+		"@typescript-eslint/parser": "^8.33.1",
 		"@vitejs/plugin-react": "^4.3.4",
-		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^9.1.0",
+		"autoprefixer": "^10.4.21",
+		"daisyui": "^5.0.43",
+		"eslint": "^9.28.0",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-import-resolver-typescript": "^4.4.3",
+		"eslint-plugin-import": "^2.31.0",
 		"eslint-plugin-react": "^7.33.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-hooks": "^5.2.0",
 		"glob": "^11.0.2",
-		"postcss": "^8.5.4",
+		"postcss": "^8.5.6",
 		"prettier": "^3.5.3",
-		"tailwindcss": "^4.1.8",
+		"tailwindcss": "^4.1.10",
 		"typescript": "^5.8.3",
 		"vite": "^6.3.5"
 	},
@@ -45,9 +49,11 @@
 		"build": "vite build && node fix-paths.js",
 		"dev": "vite",
 		"format": "prettier --write .",
-		"lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+		"format:quotes": "prettier --write . && eslint --fix .",
+		"lint": "eslint src/ --fix",
+		"lint:check": "eslint src/",
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.06.03"
+	"version": "1.06.24"
 }

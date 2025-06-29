@@ -1,6 +1,7 @@
 import React from 'react';
-import { useCardHover, TECH_CATEGORIES } from '@/utils';
+
 import type { TechCategory } from '@/utils';
+import { useCardHover, TECH_CATEGORIES, SectionTitle } from '@/utils';
 
 interface Technology {
 	category: TechCategory;
@@ -12,7 +13,7 @@ const MySkills: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { handleMouseMove, handleMouseLeave } = useCardHover(0.1);
 
-	/* ===== Constants ===== */
+	/* ===== Constants & Variables ===== */
 	const myTechnologies: Technology[] = [
 		{ category: TECH_CATEGORIES.BUILD_TOOLS, name: 'Webpack', years: 8.5 },
 		{ category: TECH_CATEGORIES.FRONTEND, name: 'Angular', years: 1.5 },
@@ -29,14 +30,14 @@ const MySkills: React.FC = () => {
 		{ category: TECH_CATEGORIES.TOOLS, name: 'Git', years: 9 },
 		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'PWA', years: 4.5 },
 		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'Web Workers', years: 2.5 },
-		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'WebSockets', years: 3.5 },
+		{ category: TECH_CATEGORIES.WEB_TECHNOLOGIES, name: 'WebSockets', years: 3.5 }
 	];
-	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years); // Sort by years of experience (descending).
 
 	const formatYears = (years: number) => {
 		if (years === 1) {
 			return '1 year';
 		}
+
 		if (years % 1 === 0) {
 			return `${years} years`;
 		}
@@ -44,38 +45,38 @@ const MySkills: React.FC = () => {
 		return `${years} years`;
 	};
 
+	const sortedTechnologies = myTechnologies.sort((a, b) => b.years - a.years);
+
 	return (
 		<div>
-			<h3 className="text-xl font-semibold mb-4 text-gray-800">Technologies I Work With</h3>
-			<p className="mb-4 text-gray-600">
-				Tools and technologies I have experience with (updated as of June 2025):
-			</p>
-			<div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+			<SectionTitle level='h3'>Technologies I Work With</SectionTitle>
+
+			<p className='mb-4 text-gray-600'>Tools and technologies I have experience with (updated as of June 2025):</p>
+
+			<div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
 				{sortedTechnologies.map((tech, index) => (
 					<div
+						className='p-3 border rounded-lg bg-blue-50 cursor-pointer transition-transform duration-200 ease-out hover:shadow-lg'
 						key={index}
-						className="p-3 border rounded-lg bg-blue-50 cursor-pointer transition-transform duration-200 ease-out hover:shadow-lg"
-						onMouseMove={handleMouseMove}
 						onMouseLeave={handleMouseLeave}
+						onMouseMove={handleMouseMove}
 					>
-						<div className="flex justify-between items-start mb-1">
-							<h4 className="font-semibold text-gray-800">{tech.name}</h4>
-							<span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
-								{formatYears(tech.years)}
-							</span>
+						<div className='flex justify-between items-start mb-1'>
+							<h4 className='font-semibold text-gray-800'>{tech.name}</h4>
+
+							<span className='text-xs text-green-600 bg-green-100 px-2 py-1 rounded'>{formatYears(tech.years)}</span>
 						</div>
-						<span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">
-							{tech.category}
-						</span>
+
+						<span className='text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block'>{tech.category}</span>
 					</div>
 				))}
 			</div>
-			<div className="mt-6">
-				<h4 className="text-lg font-semibold mb-3 text-gray-800">Current Focus</h4>
-				<p className="text-gray-600">
-					With nearly a decade of JavaScript experience, I&apos;m currently deepening my
-					TypeScript knowledge and exploring modern web development patterns, performance
-					optimizations, and advanced React techniques.
+			<div className='mt-6'>
+				<SectionTitle level='h4'>Current Focus</SectionTitle>
+
+				<p className='text-gray-600'>
+					With nearly a decade of JavaScript experience, I&apos;m currently deepening my TypeScript knowledge and exploring modern web development
+					patterns, performance optimizations, and advanced React techniques.
 				</p>
 			</div>
 		</div>

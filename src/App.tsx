@@ -1,24 +1,31 @@
 import React from 'react';
+
 import { createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Crypto from '@/components/sections/Crypto';
-import DJing from '@/components/sections/DJing/DJing';
+
 import Header from '@/components/layout/Header';
-import Home from '@/components/sections/Home';
 import SidebarNavigation from '@/components/layout/SidebarNavigation';
+import Crypto from '@/components/sections/Crypto/Crypto';
+import DJing from '@/components/sections/DJing/DJing';
+import Home from '@/components/sections/Home';
 import Resume from '@/components/sections/Resume';
 import Tech from '@/components/sections/Tech/Tech';
 import Travel from '@/components/sections/Travel';
+import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
 
-// Layout component that will be present on all pages.
+/**
+ * Layout component that will be present on all pages.
+ */
 const Layout = () => {
 	return (
-		<div className="flex flex-col min-h-screen bg-white">
+		<div className='flex flex-col min-h-screen bg-white'>
 			<Header />
+
 			<SidebarNavigation />
-			<div className="pt-32 md:pt-28">
-				<main className="grow">
-					<div className="container mx-auto px-4 py-6 md:pl-20">
+
+			<div className='pt-32 md:pt-28'>
+				<main className='grow'>
+					<div className='container mx-auto py-6'>
 						<Outlet />
 					</div>
 				</main>
@@ -27,38 +34,40 @@ const Layout = () => {
 	);
 };
 
-// Define routes.
+/**
+ * Define routes using ROUTES constants.
+ */
 const router = createHashRouter([
 	{
-		path: '/',
-		element: <Layout />,
 		children: [
 			{
-				index: true,
 				element: <Home />,
+				index: true
 			},
 			{
-				path: 'resume',
 				element: <Resume />,
+				path: ROUTES.RESUME.id
 			},
 			{
-				path: 'crypto',
 				element: <Crypto />,
+				path: `${ROUTES.CRYPTO.id}/*`
 			},
 			{
-				path: 'tech/*',
 				element: <Tech />,
+				path: `${ROUTES.TECH.id}/*`
 			},
 			{
-				path: 'djing/*',
 				element: <DJing />,
+				path: `${ROUTES.DJING.id}/*`
 			},
 			{
-				path: 'travel',
 				element: <Travel />,
-			},
+				path: ROUTES.TRAVEL.id
+			}
 		],
-	},
+		element: <Layout />,
+		path: ROUTES.HOME.path
+	}
 ]);
 
 const App: React.FC = () => {

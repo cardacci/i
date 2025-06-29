@@ -1,44 +1,38 @@
 import React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
+
 import TabView from '@/components/common/TabView';
-import ProjectTech from './ProjectTech';
+import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
+import { ROUTES } from '@/utils/constants/routes';
+
 import MySkills from './MySkills';
+import ProjectTech from './ProjectTech';
 
 const Tech: React.FC = () => {
-	/* ===== Constants ===== */
-	const tabs = [
-		{
-			id: 'skills',
-			label: 'My Skills',
-			content: <MySkills />,
-		},
-		{
-			id: 'project',
-			label: 'Project Technologies',
-			content: <ProjectTech />,
-		},
-	];
+	/* ===== Constants & Variables ===== */
+	const tabContent = {
+		SKILLS: <MySkills />,
+		// eslint-disable-next-line sort-keys
+		PROJECT: <ProjectTech />
+	};
+	const defaultTab = getFirstChildRoute(ROUTES.TECH);
+	const tabs = createTabsFromRoutes(ROUTES.TECH, tabContent);
 
 	return (
-		<section id="tech" className="py-10 max-w-5xl mx-auto">
-			<h1 className="text-3xl font-bold mb-6 text-blue-800">Technology</h1>
-
-			<div className="bg-white p-6 rounded-lg shadow-md">
-				<p className="mb-6">
-					This section is dedicated to exploring my interests in technology and software
-					development. I&apos;ll share insights about programming languages, frameworks,
-					and interesting projects I&apos;ve worked on.
+		<BaseView id='tech' title='Technology'>
+			<ContentCard>
+				<p className='mb-6'>
+					This section is dedicated to exploring my interests in technology and software development. I'll share insights about programming languages,
+					frameworks, and interesting projects I've worked on.
 				</p>
 
 				<Routes>
-					<Route path="/" element={<Navigate replace to="skills" />} />
-					<Route
-						path=":tabId"
-						element={<TabView tabs={tabs} baseUrl="/tech" defaultTab="skills" />}
-					/>
+					<Route element={<Navigate replace to={defaultTab.id} />} path='/' />
+					<Route element={<TabView baseUrl={ROUTES.TECH.path} defaultTab={defaultTab.id} tabs={tabs} />} path=':tabId' />
 				</Routes>
-			</div>
-		</section>
+			</ContentCard>
+		</BaseView>
 	);
 };
 

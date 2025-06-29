@@ -1,39 +1,36 @@
 import React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
-import UnderConstruction from '@/components/common/UnderConstruction';
+
 import TabView from '@/components/common/TabView';
+import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
+import { ROUTES } from '@/utils/constants/routes';
+
 import DjInfo from './DjInfo';
 import TrackClassifier from './TrackClassifier';
 
 const DJing: React.FC = () => {
-	/* ===== Constants ===== */
-	const tabs = [
-		{
-			id: 'info',
-			label: 'DJ Info',
-			content: <DjInfo />,
-		},
-		{
-			id: 'classifier',
-			label: 'Track Classifier',
-			content: <TrackClassifier />,
-		},
-	];
+	/* ===== Constants & Variables ===== */
+	const tabContent = {
+		INFO: <DjInfo />,
+		// eslint-disable-next-line sort-keys
+		CLASSIFIER: <TrackClassifier />
+	};
+
+	const tabs = createTabsFromRoutes(ROUTES.DJING, tabContent);
+	const defaultTab = getFirstChildRoute(ROUTES.DJING);
 
 	return (
-		<section id="djing" className="py-10 max-w-5xl mx-auto">
-			<h1 className="text-3xl font-bold mb-6 text-blue-800">DJing</h1>
+		<BaseView id='djing' title='DJing'>
+			<ContentCard>
+				<p className='mb-6'>Welcome to my DJing section. Here, I share my passion for music, playlists, and events where I've performed.</p>
 
-			<UnderConstruction />
-
-			<Routes>
-				<Route path="/" element={<Navigate replace to="info" />} />
-				<Route
-					path=":tabId"
-					element={<TabView tabs={tabs} baseUrl="/djing" defaultTab="info" />}
-				/>
-			</Routes>
-		</section>
+				<Routes>
+					<Route element={<Navigate replace to={defaultTab.id} />} path='/' />
+					<Route element={<TabView baseUrl={ROUTES.DJING.path} defaultTab={defaultTab.id} tabs={tabs} />} path=':tabId' />
+				</Routes>
+			</ContentCard>
+		</BaseView>
 	);
 };
 
