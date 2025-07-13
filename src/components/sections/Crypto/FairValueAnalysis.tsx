@@ -58,6 +58,8 @@ enum CryptoCategory {
 	DEFI = 'DeFi',
 	DESCI = 'DeSci',
 	GAMING = 'Gaming',
+	INFRASTRUCTURE = 'Infrastructure',
+	INTEROPERABILITY = 'Interoperability',
 	LAYER_1 = 'Layer 1',
 	MEMECOIN = 'Memecoin',
 	RWA = 'RWA',
@@ -86,6 +88,7 @@ const FIELDS = {
 // Crypto tickers to fetch.
 const CRYPTO_TICKERS = [
 	'aerodrome-finance',
+	'ankr',
 	'avalanche-2',
 	'based-brett',
 	'billy',
@@ -117,12 +120,14 @@ const CRYPTO_TICKERS = [
 	'sushi',
 	'ton-fish-memecoin',
 	'vulcan-forged',
-	'wen-4'
+	'wen-4',
+	'wormhole'
 ];
 
 // Static ATH Market Cap data (in USD).
 const ATH_MARKET_CAP_DATA: Record<string, number> = {
 	'aerodrome-finance': 1570000000, // Aerodrome Finance (AERO): ~$1.57B
+	ankr: 1209000000, // Ankr Network (ANKR): ~$1.209B
 	'avalanche-2': 30006000000, // Avalanche (AVAX): ~$30.006B
 	'based-brett': 2109000000, // Brett (Based) (BRETT): ~$2.109B
 	billy: 101850000, // Billy (BILLY): ~$101.85M
@@ -154,12 +159,14 @@ const ATH_MARKET_CAP_DATA: Record<string, number> = {
 	sushi: 2586000000, // SushiSwap (SUSHI): ~$2.586B
 	'ton-fish-memecoin': 47170000, // TON FISH MEMECOIN (FISH): ~$47.17M
 	'vulcan-forged': 788667000, // Vulcan Forged (PYR): ~$788.667M
-	'wen-4': 352045000 // Wen (WEN): ~$352.045M
+	'wen-4': 352045000, // Wen (WEN): ~$352.045M
+	wormhole: 2366000000 // Wormhole (W): ~$2.366B
 };
 
 // Crypto categories for classification.
 const CRYPTO_CATEGORIES: Record<string, string> = {
 	'aerodrome-finance': CryptoCategory.DEFI,
+	ankr: CryptoCategory.INFRASTRUCTURE,
 	'avalanche-2': CryptoCategory.LAYER_1,
 	'based-brett': CryptoCategory.MEMECOIN,
 	billy: CryptoCategory.MEMECOIN,
@@ -191,7 +198,8 @@ const CRYPTO_CATEGORIES: Record<string, string> = {
 	sushi: CryptoCategory.DEFI,
 	'ton-fish-memecoin': CryptoCategory.MEMECOIN,
 	'vulcan-forged': CryptoCategory.GAMING,
-	'wen-4': CryptoCategory.MEMECOIN
+	'wen-4': CryptoCategory.MEMECOIN,
+	wormhole: CryptoCategory.INTEROPERABILITY
 };
 
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
