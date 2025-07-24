@@ -119,6 +119,7 @@ const CRYPTO_TICKERS = [
 	'sudeng',
 	'sushi',
 	'ton-fish-memecoin',
+	'uniswap',
 	'vulcan-forged',
 	'wen-4',
 	'wormhole'
@@ -131,9 +132,9 @@ const ATH_MARKET_CAP_DATA: Record<string, number> = {
 	'avalanche-2': 30006000000, // Avalanche (AVAX): ~$30.006B
 	'based-brett': 2109000000, // Brett (Based) (BRETT): ~$2.109B
 	billy: 101850000, // Billy (BILLY): ~$101.85M
-	binancecoin: 105925000000, // BNB (BNB): ~$105.925B
+	binancecoin: 109505000000, // BNB (BNB): ~$109.505B
 	'bio-protocol': 1052000000, // Bio Protocol (BIO): ~$1.052B
-	bitcoin: 2191000000000, // Bitcoin (BTC): ~$2.191T
+	bitcoin: 2387000000000, // Bitcoin (BTC): ~$2.387T
 	chainlink: 20760000000, // Chainlink (LINK): ~$20.76B
 	clearpool: 354058000, // Clearpool (CPOOL): ~$354.058M
 	'coq-inu': 422752000, // Coq Inu (COQ): ~$422.752M
@@ -158,6 +159,7 @@ const ATH_MARKET_CAP_DATA: Record<string, number> = {
 	sudeng: 277943000, // sudeng (HIPPO): ~$277.943M
 	sushi: 2586000000, // SushiSwap (SUSHI): ~$2.586B
 	'ton-fish-memecoin': 47170000, // TON FISH MEMECOIN (FISH): ~$47.17M
+	uniswap: 21479000000, // Uniswap (UNI): ~$21.479B
 	'vulcan-forged': 788667000, // Vulcan Forged (PYR): ~$788.667M
 	'wen-4': 352045000, // Wen (WEN): ~$352.045M
 	wormhole: 2366000000 // Wormhole (W): ~$2.366B
@@ -197,6 +199,7 @@ const CRYPTO_CATEGORIES: Record<string, string> = {
 	sudeng: CryptoCategory.MEMECOIN,
 	sushi: CryptoCategory.DEFI,
 	'ton-fish-memecoin': CryptoCategory.MEMECOIN,
+	uniswap: CryptoCategory.DEFI,
 	'vulcan-forged': CryptoCategory.GAMING,
 	'wen-4': CryptoCategory.MEMECOIN,
 	wormhole: CryptoCategory.INTEROPERABILITY
@@ -566,9 +569,9 @@ const FairValueAnalysis: React.FC = () => {
 						</button>
 					</div>
 
-					<div className='overflow-x-auto'>
+					<div className='overflow-x-auto max-h-[70vh]'>
 						<table className='table table-zebra'>
-							<thead className='bg-blue-50'>
+							<thead className='bg-blue-50 sticky top-0 z-10'>
 								<tr className='h-16'>
 									<th className='text-center text-sm font-semibold w-16'>
 										<div className='flex items-center justify-center'>
