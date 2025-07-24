@@ -137,12 +137,6 @@ const DjInfo: React.FC = () => {
 					</li>
 				))}
 			</ul>
-
-			<SectionTitle className='mt-6' level='h3'>
-				Featured Mixes
-			</SectionTitle>
-
-			<p className='mb-4'>Coming soon! I will share some of my favorite mixes and sessions here.</p>
 		</ContentCard>
 	);
 };

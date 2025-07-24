@@ -8,12 +8,14 @@ import { ROUTES } from '@/utils/constants/routes';
 
 import FollowMyDjContent from './common/FollowMyDjContent';
 import DjInfo from './tabs/DjInfo';
+import Sets from './tabs/Sets';
 import TrackClassifier from './tabs/TrackClassifier';
 
 const DJing: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
 		INFO: <DjInfo />,
+		SETS: <Sets />,
 		// eslint-disable-next-line sort-keys
 		CLASSIFIER: <TrackClassifier />
 	};
