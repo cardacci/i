@@ -6,8 +6,8 @@ import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES } from '@/utils/constants/routes';
 
-import MySkills from './MySkills';
-import ProjectTech from './ProjectTech';
+import MySkills from './tabs/MySkills';
+import ProjectTech from './tabs/ProjectTech';
 
 const Tech: React.FC = () => {
 	/* ===== Constants & Variables ===== */
