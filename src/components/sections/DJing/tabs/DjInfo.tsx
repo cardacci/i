@@ -1,11 +1,44 @@
 import React from 'react';
 
-import { ContentCard, SectionTitle, ListWithTitle } from '@/utils';
+import { ContentCard, SectionTitle } from '@/utils';
+
+const DjEquipment = [
+	{
+		name: 'Pioneer DDJ-FLX4',
+		specs: [
+			'2-channel DJ controller',
+			'USB bus powered',
+			'Compatible with rekordbox and Serato DJ Lite',
+			'Performance Pads, Smart Fader, Smart CFX',
+			'Audio output: RCA, Headphones'
+		],
+		url: 'https://www.pioneerdj.com/en/product/controller/ddj-flx4/black/overview/'
+	},
+	{
+		name: 'Sennheiser HD 25',
+		specs: [
+			'Closed-back, on-ear DJ headphones',
+			'Impedance: 70 Ω',
+			'Frequency response: 16–22,000 Hz',
+			'Max SPL: 120 dB',
+			'Rotatable capsule for single-ear listening'
+		],
+		url: 'https://www.sennheiser.com/en-us/catalog/products/headphones/hd-25/hd-25-506909'
+	},
+	{
+		name: 'Pioneer VM-80',
+		specs: [
+			'8-inch active studio monitor',
+			'Class D amplifier, 120 W output',
+			'Frequency response: 34 Hz – 36 kHz',
+			'DSP control for room tuning',
+			'Inputs: XLR/TRS combo, RCA'
+		],
+		url: 'https://www.pioneerdj.com/en/product/monitor-speakers/vm-80/black/overview/'
+	}
+];
 
 const DjInfo: React.FC = () => {
-	/* ===== Constants & Variables ===== */
-	const equipment = ['Pioneer DJ controllers', 'Serato DJ software', 'Custom audio interfaces', 'High-quality monitoring headphones'];
-
 	return (
 		<ContentCard>
 			<p className='mb-6'>Welcome to my DJing section. Here I share my passion for music, playlists, and events where I have performed.</p>
@@ -35,7 +68,25 @@ const DjInfo: React.FC = () => {
 				listeners on an emotional and danceable journey.
 			</p>
 
-			<ListWithTitle className='mt-6' items={equipment} title='Equipment' />
+			<SectionTitle className='mt-6' level='h3'>
+				My DJ Setup
+			</SectionTitle>
+
+			<ul className='mt-4 space-y-6'>
+				{DjEquipment.map((item) => (
+					<li key={item.name}>
+						<a className='font-semibold text-blue-700 hover:underline' href={item.url} rel='noopener noreferrer' target='_blank'>
+							{item.name}
+						</a>
+
+						<ul className='list-disc list-inside ml-4 mt-1 text-sm text-gray-700'>
+							{item.specs.map((spec) => (
+								<li key={spec}>{spec}</li>
+							))}
+						</ul>
+					</li>
+				))}
+			</ul>
 
 			<SectionTitle className='mt-6' level='h3'>
 				Featured Mixes
