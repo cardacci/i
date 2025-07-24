@@ -6,9 +6,9 @@ import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES } from '@/utils/constants/routes';
 
-import DjInfo from './DjInfo';
-import FollowMyDjContent from './FollowMyDjContent';
-import TrackClassifier from './TrackClassifier';
+import FollowMyDjContent from './common/FollowMyDjContent';
+import DjInfo from './tabs/DjInfo';
+import TrackClassifier from './tabs/TrackClassifier';
 
 const DJing: React.FC = () => {
 	/* ===== Constants & Variables ===== */
