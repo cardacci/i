@@ -91,6 +91,17 @@ const Sets: React.FC = () => {
 					</div>
 				))}
 			</div>
+
+			<div className='flex justify-center mt-10'>
+				<a
+					className='inline-block px-6 py-3 bg-[#A3FFD6] text-[#18122B] font-semibold rounded-full shadow hover:bg-[#393053] hover:text-white transition-colors duration-200 text-lg text-center'
+					href='https://www.youtube.com/@CARDACCI?sub_confirmation=1'
+					rel='noopener noreferrer'
+					target='_blank'
+				>
+					Subscribe to my YouTube channel
+				</a>
+			</div>
 		</ContentCard>
 	);
 };
