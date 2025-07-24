@@ -618,7 +618,7 @@ const FairValueAnalysis: React.FC = () => {
 
 									return (
 										<tr
-											className={`cursor-pointer h-16 transition-colors ${
+											className={`h-16 transition-colors ${
 												index % 2 === 0 ? 'bg-transparent hover:bg-primary/20' : 'bg-primary/5 hover:bg-primary/25'
 											}`}
 											key={ticker}

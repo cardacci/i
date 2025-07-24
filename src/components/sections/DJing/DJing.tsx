@@ -7,6 +7,7 @@ import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from 
 import { ROUTES } from '@/utils/constants/routes';
 
 import DjInfo from './DjInfo';
+import FollowMyDjContent from './FollowMyDjContent';
 import TrackClassifier from './TrackClassifier';
 
 const DJing: React.FC = () => {
@@ -23,12 +24,12 @@ const DJing: React.FC = () => {
 	return (
 		<BaseView id='djing' title='DJing'>
 			<ContentCard>
-				<p className='mb-6'>Welcome to my DJing section. Here, I share my passion for music, playlists, and events where I've performed.</p>
-
 				<Routes>
 					<Route element={<Navigate replace to={defaultTab.id} />} path='/' />
 					<Route element={<TabView baseUrl={ROUTES.DJING.path} defaultTab={defaultTab.id} tabs={tabs} />} path=':tabId' />
 				</Routes>
+
+				<FollowMyDjContent />
 			</ContentCard>
 		</BaseView>
 	);

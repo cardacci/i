@@ -8,15 +8,31 @@ const DjInfo: React.FC = () => {
 
 	return (
 		<ContentCard>
-			<p className='mb-6'>Welcome to my DJing section. Here, I share my passion for music, playlists, and events where I&apos;ve performed.</p>
+			<p className='mb-6'>Welcome to my DJing section. Here I share my passion for music, playlists, and events where I have performed.</p>
+
+			<SectionTitle className='mt-6' level='h3'>
+				About Me as a DJ
+			</SectionTitle>
+
+			<p className='mb-4'>
+				I am a DJ passionate about <strong>progressive house</strong> and <strong>organic house</strong>, genres that allow me to create sets with
+				depth, melody, and atmosphere. I love taking the dancefloor on a progressive musical journey, with smooth transitions and an immersive sonic
+				narrative.
+			</p>
+
+			<p className='mb-4'>
+				I also enjoy experimenting and having fun mixing <strong>deep house</strong>, <strong>house</strong>, and <strong>afro house</strong>—styles
+				that bring groove, energy, and fresh rhythms to my sessions. This variety lets me adapt to different environments and audiences, always
+				maintaining my own musical identity.
+			</p>
 
 			<SectionTitle className='mt-6' level='h3'>
 				My Style
 			</SectionTitle>
 
 			<p className='mb-4'>
-				My DJ sets blend electronic music with elements of house, techno, and ambient sounds. I focus on creating flowing experiences that take
-				listeners on a journey.
+				My sets usually blend electronic music with elements of house, techno, and organic sounds. I aim to create smooth experiences that take
+				listeners on an emotional and danceable journey.
 			</p>
 
 			<ListWithTitle className='mt-6' items={equipment} title='Equipment' />
@@ -25,7 +41,7 @@ const DjInfo: React.FC = () => {
 				Featured Mixes
 			</SectionTitle>
 
-			<p className='mb-4'>Coming soon! I&apos;ll be sharing some of my favorite mixes and recording sessions.</p>
+			<p className='mb-4'>Coming soon! I will share some of my favorite mixes and sessions here.</p>
 		</ContentCard>
 	);
 };
