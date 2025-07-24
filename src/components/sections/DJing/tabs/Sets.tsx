@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ContentCard } from '@/utils';
+import { ContentCard, SectionTitle } from '@/utils';
 
 enum Genre {
 	OrganicHouse = 'Organic House',
@@ -47,7 +47,7 @@ const Sets: React.FC = () => {
 
 	return (
 		<ContentCard>
-			<h2 className='text-2xl font-bold mb-6 text-[#393053]'>My DJ Sets</h2>
+			<SectionTitle level='h2'>My DJ Sets</SectionTitle>
 
 			<div className='flex flex-wrap gap-3 mb-8 overflow-x-auto whitespace-nowrap sm:overflow-visible sm:whitespace-normal'>
 				{genreOptions.map((genre) => (

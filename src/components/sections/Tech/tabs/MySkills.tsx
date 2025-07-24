@@ -49,7 +49,7 @@ const MySkills: React.FC = () => {
 
 	return (
 		<div>
-			<SectionTitle level='h3'>Technologies I Work With</SectionTitle>
+			<SectionTitle level='h2'>Technologies I Work With</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>Tools and technologies I have experience with (updated as of June 2025):</p>
 

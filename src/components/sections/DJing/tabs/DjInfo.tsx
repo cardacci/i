@@ -76,11 +76,7 @@ const DjEquipment = [
 const DjInfo: React.FC = () => {
 	return (
 		<ContentCard>
-			<p className='mb-6'>Welcome to my DJing section. Here I share my passion for music, playlists, and events where I have performed.</p>
-
-			<SectionTitle className='mt-6' level='h3'>
-				About Me as a DJ
-			</SectionTitle>
+			<SectionTitle level='h2'>About Me as a DJ</SectionTitle>
 
 			<p className='mb-4'>
 				I am a DJ passionate about <strong>progressive house</strong> and <strong>organic house</strong>, genres that allow me to create sets with

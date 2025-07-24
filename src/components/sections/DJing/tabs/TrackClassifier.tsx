@@ -91,9 +91,12 @@ const TrackClassifier: React.FC = () => {
 
 	return (
 		<ContentCard>
-			<SectionTitle className='text-blue-800 mb-6' level='h2'>
-				DJ Track Tagging Tool
-			</SectionTitle>
+			<SectionTitle level='h2'>DJ Track Tagging Tool</SectionTitle>
+
+			<p className='mb-6'>
+				This tool helps you standardize your comments and tags for tracks you analyze, making it easier to keep a consistent rating and description
+				style across your music collection.
+			</p>
 
 			<div className='mb-8'>
 				<SectionTitle level='h3'>Set Time</SectionTitle>

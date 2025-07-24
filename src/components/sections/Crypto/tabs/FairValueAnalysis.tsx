@@ -525,7 +525,7 @@ const FairValueAnalysis: React.FC = () => {
 
 	return (
 		<div>
-			<SectionTitle level='h3'>Cryptocurrency Market Analysis</SectionTitle>
+			<SectionTitle level='h2'>Cryptocurrency Market Analysis</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
 				This analysis compares current market conditions with all-time highs (ATH) and calculates potential upside based on market cap adjustments.
