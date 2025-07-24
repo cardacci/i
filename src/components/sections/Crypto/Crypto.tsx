@@ -6,8 +6,8 @@ import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES } from '@/utils/constants/routes';
 
-import BitcoinInfo from './BitcoinInfo';
-import FairValueAnalysis from './FairValueAnalysis';
+import BitcoinInfo from './tabs/BitcoinInfo';
+import FairValueAnalysis from './tabs/FairValueAnalysis';
 
 const Crypto: React.FC = () => {
 	/* ===== Constants & Variables ===== */

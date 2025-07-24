@@ -23,7 +23,7 @@ const ProjectTech: React.FC = () => {
 
 	return (
 		<div>
-			<SectionTitle level='h3'>Project Technology Stack</SectionTitle>
+			<SectionTitle level='h2'>Project Technology Stack</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>Technologies and tools used in the development of this personal portfolio:</p>
 

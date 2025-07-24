@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { ContentCard, SectionTitle, useSocialLinks, SocialNetwork } from '@/utils';
+import { ContentCard, SectionTitle } from '@/utils';
 
 const TrackClassifier: React.FC = () => {
 	/* ===== State ===== */
@@ -8,9 +8,6 @@ const TrackClassifier: React.FC = () => {
 	const [result, setResult] = useState<string>('');
 	const [timeSelections, setTimeSelections] = useState<string[]>([]);
 	const [validationError, setValidationError] = useState<string>('');
-
-	/* ===== Hooks ===== */
-	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 
 	/* ===== Constants & Variables ===== */
 	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Groovy', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
@@ -35,10 +32,8 @@ const TrackClassifier: React.FC = () => {
 	const handleCopy = () => {
 		if (timeSelections.length === 0) {
 			setValidationError('Please select at least one Set Time option.');
-
 			return;
 		}
-
 		navigator.clipboard.writeText(result).then(
 			() => {
 				setValidationError('');
@@ -63,21 +58,17 @@ const TrackClassifier: React.FC = () => {
 	/* ===== Effects ===== */
 	useEffect(() => {
 		const orderedResults: string[] = [];
-
 		setTimeOptions.forEach((option) => {
 			if (timeSelections.includes(option)) {
 				orderedResults.push(option);
 			}
 		});
-
 		componentOptions.forEach((option) => {
 			if (componentSelections.includes(option)) {
 				orderedResults.push(option);
 			}
 		});
-
 		setResult(orderedResults.join(' / '));
-
 		if (timeSelections.length > 0) {
 			setValidationError('');
 		}
@@ -92,7 +83,6 @@ const TrackClassifier: React.FC = () => {
 				onChange={onChange}
 				type='checkbox'
 			/>
-
 			<label className='ml-2 block text-sm text-gray-700 font-medium cursor-pointer' htmlFor={id}>
 				{label}
 			</label>
@@ -101,13 +91,15 @@ const TrackClassifier: React.FC = () => {
 
 	return (
 		<ContentCard>
-			<SectionTitle className='text-blue-800 mb-6' level='h2'>
-				DJ Track Tagging Tool
-			</SectionTitle>
+			<SectionTitle level='h2'>DJ Track Tagging Tool</SectionTitle>
+
+			<p className='mb-6'>
+				This tool helps you standardize your comments and tags for tracks you analyze, making it easier to keep a consistent rating and description
+				style across your music collection.
+			</p>
 
 			<div className='mb-8'>
 				<SectionTitle level='h3'>Set Time</SectionTitle>
-
 				<div className='flex flex-wrap -m-1'>
 					{setTimeOptions.map((option) => (
 						<Checkbox checked={timeSelections.includes(option)} id={option} key={option} label={option} onChange={() => handleTimeChange(option)} />
@@ -117,7 +109,6 @@ const TrackClassifier: React.FC = () => {
 
 			<div className='mb-8'>
 				<SectionTitle level='h3'>Components</SectionTitle>
-
 				<div className='flex flex-wrap -m-1'>
 					{componentOptions.map((option) => (
 						<Checkbox
@@ -160,28 +151,6 @@ const TrackClassifier: React.FC = () => {
 				>
 					Clear
 				</button>
-			</div>
-
-			<div className='mt-12 pt-8 border-t border-gray-200'>
-				<SectionTitle level='h3'>Follow my DJ content on</SectionTitle>
-
-				<div className='flex flex-wrap items-center gap-4'>
-					{socialLinks.map((link) => (
-						<a
-							className={`flex items-center gap-2 px-4 py-2 rounded-md text-white transition-colors ${link.className}`}
-							href={link.url}
-							key={link.name}
-							rel='noopener noreferrer'
-							target='_blank'
-						>
-							{link.icon && link.icon}
-
-							{!link.icon && <span className='font-bold'>{link.name.substring(0, 2).toUpperCase()}</span>}
-
-							{link.name}
-						</a>
-					))}
-				</div>
 			</div>
 		</ContentCard>
 	);

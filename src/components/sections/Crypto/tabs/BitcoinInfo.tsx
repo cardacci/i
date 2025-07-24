@@ -5,7 +5,7 @@ import { SectionTitle } from '@/utils';
 const BitcoinInfo: React.FC = () => {
 	return (
 		<div>
-			<SectionTitle level='h3'>The History and Vision of Bitcoin</SectionTitle>
+			<SectionTitle level='h2'>The History and Vision of Bitcoin</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
 				Bitcoin was created in 2008 by an anonymous person or group known as Satoshi Nakamoto. It was introduced as a peer-to-peer electronic cash

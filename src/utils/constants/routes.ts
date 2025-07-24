@@ -61,6 +61,11 @@ export const ROUTES = {
 			path: `${BASE_ROUTES.DJING.path}/info`,
 			label: 'DJ Info'
 		},
+		SETS: {
+			id: 'sets',
+			path: `${BASE_ROUTES.DJING.path}/sets`,
+			label: 'Sets'
+		},
 		CLASSIFIER: {
 			id: 'classifier',
 			path: `${BASE_ROUTES.DJING.path}/classifier`,

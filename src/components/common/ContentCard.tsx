@@ -8,7 +8,7 @@ interface ContentCardProps {
 const ContentCard: React.FC<ContentCardProps> = (props) => {
 	const { children, className = '' } = props;
 
-	return <div className={`bg-white p-6 rounded-lg shadow-md ${className}`}>{children}</div>;
+	return <div className={`bg-white p-6 rounded-lg ${className}`}>{children}</div>;
 };
 
 export default ContentCard;
