@@ -15,7 +15,6 @@ i
 │   └── settings.json
 ├── public
 │   ├── assets
-│   │   └── data.json
 │   ├── _redirects
 │   ├── .nojekyll
 │   ├── 404.html
