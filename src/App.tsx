@@ -7,7 +7,7 @@ import SidebarNavigation from '@/components/layout/SidebarNavigation';
 import Crypto from '@/components/sections/Crypto/Crypto';
 import DJing from '@/components/sections/DJing/DJing';
 import Home from '@/components/sections/Home';
-import Resume from '@/components/sections/Resume';
+import Resume from '@/components/sections/Resume/Resume';
 import Tech from '@/components/sections/Tech/Tech';
 import Travel from '@/components/sections/Travel';
 import { ROUTES } from '@/utils/constants/routes';
@@ -46,7 +46,7 @@ const router = createHashRouter([
 			},
 			{
 				element: <Resume />,
-				path: ROUTES.RESUME.id
+				path: `${ROUTES.RESUME.id}/*`
 			},
 			{
 				element: <Crypto />,

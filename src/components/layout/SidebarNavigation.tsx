@@ -4,6 +4,20 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { ROUTES } from '@/utils/constants/routes';
 
+interface MenuItem {
+	children?: Array<{ label: string; path: string }>;
+	icon: string;
+	id: string;
+	label: string;
+	path: string;
+}
+
+interface RouteItem {
+	id: string;
+	label: string;
+	path: string;
+}
+
 const SidebarNavigation: React.FC = () => {
 	/* ===== State ===== */
 	const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +27,13 @@ const SidebarNavigation: React.FC = () => {
 
 	/* ===== Constants & Variables ===== */
 	const appVersion = import.meta.env.VITE_BUILD_TIMESTAMP;
-	const menuItems = [
+	const menuItems: MenuItem[] = [
 		{
 			...ROUTES.HOME
 		},
 		{
-			...ROUTES.RESUME
+			...ROUTES.RESUME,
+			children: getChildrenFromRoute(ROUTES.RESUME)
 		},
 		{
 			...ROUTES.CRYPTO,
@@ -37,25 +52,32 @@ const SidebarNavigation: React.FC = () => {
 		}
 	];
 
+	/* ===== Functions ===== */
 	function closeSidebar() {
 		setIsOpen(false);
 	}
 
-	function isActive(path: string) {
-		location.pathname.startsWith(path);
+	function isActive(path: string): boolean {
+		return location.pathname.startsWith(path);
 	}
 
 	function toggleSidebar() {
 		setIsOpen(!isOpen);
 	}
 
-	function getChildrenFromRoute(route: any) {
+	function getChildrenFromRoute(route: Record<string, unknown>): Array<{ label: string; path: string }> {
 		return Object.keys(route)
-			.filter((key) => typeof route[key] === 'object' && route[key].id && route[key].path && route[key].label)
-			.map((key) => ({
-				label: route[key].label,
-				path: route[key].path
-			}));
+			.filter((key) => {
+				const item = route[key] as RouteItem;
+				return typeof item === 'object' && item && item.id && item.path && item.label;
+			})
+			.map((key) => {
+				const item = route[key] as RouteItem;
+				return {
+					label: item.label,
+					path: item.path
+				};
+			});
 	}
 
 	return (
