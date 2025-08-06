@@ -111,7 +111,7 @@ const SidebarNavigation: React.FC = () => {
 				<div className='p-6 h-full flex flex-col'>
 					{/* Header */}
 					<div className='flex items-center justify-between mb-6'>
-						<h2 className='text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
+						<h2 className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
 						<button
 							aria-label='Close menu'
 							className='p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors'

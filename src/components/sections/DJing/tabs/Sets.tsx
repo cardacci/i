@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ContentCard, SectionTitle } from '@/utils';
 
 enum Genre {
+	AfroHouse = 'Afro House',
 	OrganicHouse = 'Organic House',
 	ProgressiveHouse = 'Progressive House',
 	DeepHouse = 'Deep House'
@@ -28,6 +29,11 @@ const sets = [
 		genres: [Genre.OrganicHouse, Genre.ProgressiveHouse],
 		title: 'CARDACCI x Fran Barone x SOLER #4 - Organic / Progressive House',
 		youtubeId: 'P0haMIdd_j0'
+	},
+	{
+		genres: [Genre.AfroHouse],
+		title: 'CARDACCI #5 - Afro House',
+		youtubeId: 'vUg6zylWK5s'
 	}
 ];
 
@@ -75,7 +81,7 @@ const Sets: React.FC = () => {
 							minWidth: 0
 						}}
 					>
-						<div className='flex-1 flex items-center justify-center bg-gradient-to-b from-[#635985]/40 via-[#393053]/30 to-[#A3FFD6]/20'>
+						<div className='flex-1 flex items-center justify-center bg-linear-to-b from-[#635985]/40 via-[#393053]/30 to-[#A3FFD6]/20'>
 							<iframe
 								allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 								allowFullScreen

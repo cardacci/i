@@ -55,7 +55,7 @@ const Header: React.FC = () => {
 				{/* Title with responsive margin to avoid hamburger overlap */}
 				<div className='ml-12 md:ml-16 flex-1'>
 					<h1 className='font-bold text-xl md:text-3xl transition-all duration-300'>
-						<span className='bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent'>Gabriel Cardacci</span>
+						<span className='bg-linear-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent'>Gabriel Cardacci</span>
 						<span className='block text-xs md:text-sm font-light mt-1 text-blue-200 opacity-90'>
 							Principal Frontend Engineer | Software Engineer | Investor | Crypto Enthusiast | World Explorer | DJ
 						</span>

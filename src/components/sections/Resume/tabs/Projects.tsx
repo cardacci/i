@@ -111,7 +111,7 @@ const Projects: React.FC = () => {
 				</div>
 
 				{/* Project Philosophy */}
-				<div className='bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border'>
+				<div className='bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-lg border'>
 					<h4 className='text-lg font-semibold text-gray-800 mb-3'>Project Development Philosophy</h4>
 					<p className='text-gray-700 mb-4'>
 						My approach to project development emphasizes clean architecture, user-centered design, and continuous improvement:
