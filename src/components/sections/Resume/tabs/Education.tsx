@@ -69,7 +69,7 @@ const Education: React.FC = () => {
 					<div className='space-y-4'>
 						{formalEducation.map((education, index) => (
 							<div className='flex items-start gap-3 p-6 bg-gray-50 rounded-lg border-l-4 border-blue-500' key={index}>
-								<div className='w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0'></div>
+								<div className='w-2 h-2 bg-blue-400 rounded-full mt-2 shrink-0'></div>
 								<div className='flex-1'>
 									<h5 className='text-lg font-medium text-gray-900 mb-1'>{education.title}</h5>
 									<p className='text-sm text-gray-600 mb-2'>
@@ -100,7 +100,7 @@ const Education: React.FC = () => {
 					<div className='grid md:grid-cols-2 gap-3'>
 						{certifications.map((cert, index) => (
 							<div className='flex items-start gap-3 p-3 bg-green-50 rounded-lg border border-green-200' key={index}>
-								<div className='w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0'></div>
+								<div className='w-2 h-2 bg-green-500 rounded-full mt-2 shrink-0'></div>
 								<p className='text-sm text-gray-700'>{cert}</p>
 							</div>
 						))}
@@ -116,7 +116,7 @@ const Education: React.FC = () => {
 					<div className='space-y-3'>
 						{onlineLearning.map((learning, index) => (
 							<div className='flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-200' key={index}>
-								<div className='w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0'></div>
+								<div className='w-2 h-2 bg-purple-500 rounded-full mt-2 shrink-0'></div>
 								<p className='text-sm text-gray-700'>{learning}</p>
 							</div>
 						))}
@@ -132,7 +132,7 @@ const Education: React.FC = () => {
 					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3'>
 						{relevantCoursework.map((course, index) => (
 							<div className='flex items-center gap-2 p-3 bg-orange-50 rounded-lg border border-orange-200' key={index}>
-								<div className='w-2 h-2 bg-orange-500 rounded-full flex-shrink-0'></div>
+								<div className='w-2 h-2 bg-orange-500 rounded-full shrink-0'></div>
 								<p className='text-sm text-gray-700'>{course}</p>
 							</div>
 						))}
@@ -140,7 +140,7 @@ const Education: React.FC = () => {
 				</div>
 
 				{/* Learning Philosophy Card */}
-				<div className='bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg border border-blue-200'>
+				<div className='bg-linear-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg border border-blue-200'>
 					<h4 className='text-xl text-blue-900 mb-4 flex items-center gap-2'>
 						<div className='h-2 w-2 bg-blue-600 rounded-full'></div>
 						Learning Philosophy

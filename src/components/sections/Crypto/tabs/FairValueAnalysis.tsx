@@ -570,8 +570,8 @@ const FairValueAnalysis: React.FC = () => {
 					</div>
 
 					<div className='overflow-x-auto max-h-[70vh]'>
-						<table className='table table-zebra'>
-							<thead className='bg-blue-50 sticky top-0 z-10'>
+						<table className='table'>
+							<thead className='bg-blue-50 sticky text-gray-700 top-0 z-10'>
 								<tr className='h-16'>
 									<th className='text-center text-sm font-semibold w-16'>
 										<div className='flex items-center justify-center'>
@@ -639,22 +639,24 @@ const FairValueAnalysis: React.FC = () => {
 													/>
 												</div>
 											</td>
-											<td className='py-4 align-middle'>
+											<td className='align-middle py-4 text-gray-900'>
 												<div>
 													<div className='font-semibold text-base'>{name}</div>
 													<div className='text-sm opacity-60 font-mono'>{ticker}</div>
 												</div>
 											</td>
-											<td className='text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(marketCapATH)}</td>
-											<td className='text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(currentMC)}</td>
+											<td className='text-gray-900 text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(marketCapATH)}</td>
+											<td className='text-gray-900 text-sm text-right font-mono py-4 px-3 align-middle'>${formatNumber(currentMC)}</td>
 											<td className='text-sm text-center py-4 align-middle'>
 												<span className={mcDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 													{mcDelta >= 0 ? '+' : ''}
 													{mcDelta.toFixed(1)}%
 												</span>
 											</td>
-											<td className='text-sm text-right font-mono py-4 align-middle'>{formatPrice(priceATH)}</td>
-											<td className='text-sm text-right font-mono font-semibold py-4 align-middle'>{formatPrice(currentPrice)}</td>
+											<td className='text-gray-900 text-sm text-right font-mono py-4 align-middle'>{formatPrice(priceATH)}</td>
+											<td className='text-gray-900 text-sm text-right font-mono font-semibold py-4 align-middle'>
+												{formatPrice(currentPrice)}
+											</td>
 											<td className='text-sm text-center py-4 align-middle'>
 												<span className={priceDelta >= 0 ? 'text-green-600' : 'text-red-600'}>
 													{priceDelta >= 0 ? '+' : ''}
@@ -670,8 +672,10 @@ const FairValueAnalysis: React.FC = () => {
 													{potentialUpside.toFixed(1)}%
 												</span>
 											</td>
-											<td className='px-3 text-sm text-right font-mono opacity-70 py-4 align-middle'>{circulatingPercentage}</td>
-											<td className='py-4 align-middle text-center'>
+											<td className='text-gray-900 px-3 text-sm text-right font-mono opacity-70 py-4 align-middle'>
+												{circulatingPercentage}
+											</td>
+											<td className='text-gray-900 py-4 align-middle text-center'>
 												<span className='badge badge-outline badge-sm'>{category}</span>
 											</td>
 										</tr>

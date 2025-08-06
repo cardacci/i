@@ -22,7 +22,7 @@ const Tech: React.FC = () => {
 	return (
 		<BaseView id='tech' title='Technology'>
 			<ContentCard>
-				<p className='mb-6'>
+				<p className='mb-6 text-gray-900'>
 					This section is dedicated to exploring my interests in technology and software development. I'll share insights about programming languages,
 					frameworks, and interesting projects I've worked on.
 				</p>

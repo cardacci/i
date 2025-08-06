@@ -10,7 +10,7 @@ const TrackClassifier: React.FC = () => {
 	const [validationError, setValidationError] = useState<string>('');
 
 	/* ===== Constants & Variables ===== */
-	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Groovy', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Vocal'];
+	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Groovy', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Tribute', 'Vocal'];
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	const handleClear = () => {
@@ -75,15 +75,9 @@ const TrackClassifier: React.FC = () => {
 	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
-		<div className='flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1'>
-			<input
-				checked={checked}
-				className='h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm'
-				id={id}
-				onChange={onChange}
-				type='checkbox'
-			/>
-			<label className='ml-2 block text-sm text-gray-700 font-medium cursor-pointer' htmlFor={id}>
+		<div className='cursor-pointer flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1' onClick={onChange}>
+			<input checked={checked} className='h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm' id={id} type='checkbox' />
+			<label className='ml-2 block text-sm text-gray-700 font-medium' htmlFor={id}>
 				{label}
 			</label>
 		</div>
@@ -93,7 +87,7 @@ const TrackClassifier: React.FC = () => {
 		<ContentCard>
 			<SectionTitle level='h2'>DJ Track Tagging Tool</SectionTitle>
 
-			<p className='mb-6'>
+			<p className='mb-6 text-gray-900'>
 				This tool helps you standardize your comments and tags for tracks you analyze, making it easier to keep a consistent rating and description
 				style across your music collection.
 			</p>

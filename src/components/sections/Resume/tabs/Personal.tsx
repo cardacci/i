@@ -90,7 +90,7 @@ const Personal: React.FC = () => {
 			</div>
 
 			{/* About Section */}
-			<div className='bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-gray-100'>
+			<div className='bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-gray-100'>
 				<h4 className='text-lg font-semibold text-gray-800 mb-3'>About</h4>
 				<div className='text-gray-700 leading-relaxed space-y-4'>
 					<p>
