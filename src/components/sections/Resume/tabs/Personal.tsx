@@ -92,7 +92,7 @@ const Personal: React.FC = () => {
 			{/* About Section */}
 			<div className='bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-gray-100'>
 				<h4 className='text-lg font-semibold text-gray-800 mb-3'>About</h4>
-				<div className='text-gray-700 leading-relaxed space-y-4'>
+				<div className='leading-relaxed space-y-4'>
 					<p>
 						I'm a Principal Frontend Engineer & Engineering Lead at Klio, a fintech company building innovative solutions for both personal and
 						business financial management. We've created an ecosystem of financial products and services to empower businesses and retailers.

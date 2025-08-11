@@ -692,7 +692,7 @@ const FairValueAnalysis: React.FC = () => {
 
 				<div className='grid md:grid-cols-2 gap-4 mb-6'>
 					<div className='space-y-2'>
-						<div className='text-sm text-gray-700 space-y-2'>
+						<div className='text-sm space-y-2'>
 							<div>
 								<strong>Cryptocurrency:</strong> Name and symbol of the digital asset.
 							</div>
@@ -711,7 +711,7 @@ const FairValueAnalysis: React.FC = () => {
 						</div>
 					</div>
 					<div className='space-y-2'>
-						<div className='text-sm text-gray-700 space-y-2'>
+						<div className='text-sm space-y-2'>
 							<div>
 								<strong>Current Price:</strong> Present market price per token/coin.
 							</div>
@@ -739,7 +739,7 @@ const FairValueAnalysis: React.FC = () => {
 			<div className='mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg'>
 				<SectionTitle level='h4'>Important Notes & Methodology</SectionTitle>
 
-				<div className='text-sm text-gray-700 space-y-1'>
+				<div className='text-sm space-y-1'>
 					<li>All calculations are based on historical ATH data and current market conditions.</li>
 					<li>Target prices assume the same circulating supply as current levels.</li>
 					<li>Market cap changes reflect overall market sentiment and adoption.</li>

@@ -101,7 +101,7 @@ const Education: React.FC = () => {
 						{certifications.map((cert, index) => (
 							<div className='flex items-start gap-3 p-3 bg-green-50 rounded-lg border border-green-200' key={index}>
 								<div className='w-2 h-2 bg-green-500 rounded-full mt-2 shrink-0'></div>
-								<p className='text-sm text-gray-700'>{cert}</p>
+								<p className='text-sm'>{cert}</p>
 							</div>
 						))}
 					</div>
@@ -117,7 +117,7 @@ const Education: React.FC = () => {
 						{onlineLearning.map((learning, index) => (
 							<div className='flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-200' key={index}>
 								<div className='w-2 h-2 bg-purple-500 rounded-full mt-2 shrink-0'></div>
-								<p className='text-sm text-gray-700'>{learning}</p>
+								<p className='text-sm'>{learning}</p>
 							</div>
 						))}
 					</div>
@@ -133,7 +133,7 @@ const Education: React.FC = () => {
 						{relevantCoursework.map((course, index) => (
 							<div className='flex items-center gap-2 p-3 bg-orange-50 rounded-lg border border-orange-200' key={index}>
 								<div className='w-2 h-2 bg-orange-500 rounded-full shrink-0'></div>
-								<p className='text-sm text-gray-700'>{course}</p>
+								<p className='text-sm'>{course}</p>
 							</div>
 						))}
 					</div>

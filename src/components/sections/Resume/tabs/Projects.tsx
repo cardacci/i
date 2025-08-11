@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
 				{/* Professional Project */}
 				<div className='border-l-4 border-green-500 pl-6'>
 					<h4 className='text-xl font-bold text-gray-900 mb-2'>Klio Platform - Frontend Architecture</h4>
-					<p className='text-gray-700 mb-4'>
+					<p className='mb-4'>
 						<strong>Role:</strong> Principal Frontend Engineer & Engineering Lead
 					</p>
 					<p className='text-gray-600 mb-4'>
@@ -92,8 +92,8 @@ const Projects: React.FC = () => {
 							Custom tools and workflows for AI-augmented development, including prompt templates and automation scripts.
 						</p>
 						<div className='flex flex-wrap gap-1'>
-							<span className='bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs'>AI Tools</span>
-							<span className='bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs'>Automation</span>
+							<span className='bg-gray-200 px-2 py-1 rounded text-xs'>AI Tools</span>
+							<span className='bg-gray-200 px-2 py-1 rounded text-xs'>Automation</span>
 						</div>
 					</div>
 
@@ -103,9 +103,9 @@ const Projects: React.FC = () => {
 							Reusable component library with TypeScript support, comprehensive documentation, and testing suite.
 						</p>
 						<div className='flex flex-wrap gap-1'>
-							<span className='bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs'>React</span>
-							<span className='bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs'>TypeScript</span>
-							<span className='bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs'>Storybook</span>
+							<span className='bg-gray-200 px-2 py-1 rounded text-xs'>React</span>
+							<span className='bg-gray-200 px-2 py-1 rounded text-xs'>TypeScript</span>
+							<span className='bg-gray-200 px-2 py-1 rounded text-xs'>Storybook</span>
 						</div>
 					</div>
 				</div>
@@ -113,10 +113,8 @@ const Projects: React.FC = () => {
 				{/* Project Philosophy */}
 				<div className='bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-lg border'>
 					<h4 className='text-lg font-semibold text-gray-800 mb-3'>Project Development Philosophy</h4>
-					<p className='text-gray-700 mb-4'>
-						My approach to project development emphasizes clean architecture, user-centered design, and continuous improvement:
-					</p>
-					<ul className='text-gray-700 space-y-2'>
+					<p className='mb-4'>My approach to project development emphasizes clean architecture, user-centered design, and continuous improvement:</p>
+					<ul className='space-y-2'>
 						<li>
 							• <strong>Quality First:</strong> Prioritizing code quality, testing, and maintainability
 						</li>

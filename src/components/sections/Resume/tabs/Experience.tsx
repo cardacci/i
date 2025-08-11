@@ -14,7 +14,7 @@ const Experience: React.FC = () => {
 						<h4 className='text-xl font-bold text-gray-900'>Principal Frontend Engineer & Engineering Lead</h4>
 						<span className='text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full'>2023 - Present</span>
 					</div>
-					<p className='text-lg font-medium text-gray-700 mb-3'>Klio</p>
+					<p className='text-lg font-medium mb-3'>Klio</p>
 					<ul className='text-gray-600 space-y-2'>
 						<li>• Leading frontend architecture and development for enterprise-level React applications</li>
 						<li>• Mentoring and managing a team of 5+ frontend developers</li>
@@ -32,7 +32,7 @@ const Experience: React.FC = () => {
 						<h4 className='text-xl font-bold text-gray-900'>Senior Frontend Developer</h4>
 						<span className='text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full'>2021 - 2023</span>
 					</div>
-					<p className='text-lg font-medium text-gray-700 mb-3'>Previous Company</p>
+					<p className='text-lg font-medium mb-3'>Previous Company</p>
 					<ul className='text-gray-600 space-y-2'>
 						<li>• Developed and maintained large-scale React applications with TypeScript</li>
 						<li>• Improved application performance by 60% through code optimization and lazy loading</li>
@@ -49,7 +49,7 @@ const Experience: React.FC = () => {
 						<h4 className='text-xl font-bold text-gray-900'>Frontend Developer</h4>
 						<span className='text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full'>2019 - 2021</span>
 					</div>
-					<p className='text-lg font-medium text-gray-700 mb-3'>Startup</p>
+					<p className='text-lg font-medium mb-3'>Startup</p>
 					<ul className='text-gray-600 space-y-2'>
 						<li>• Built responsive web applications from scratch using React and modern JavaScript</li>
 						<li>• Worked in an agile environment with rapid iteration and deployment cycles</li>
