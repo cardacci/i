@@ -58,7 +58,7 @@ const Skills: React.FC = () => {
 
 					{Object.entries(technicalSkills).map(([category, skills]) => (
 						<div className='mb-8' key={category}>
-							<h5 className='text-md font-semibold text-gray-700 mb-4'>{category}</h5>
+							<h5 className='text-md font-semibold mb-4'>{category}</h5>
 
 							{Object.entries(skills).map(([level, skillList]) => (
 								<div className='mb-4' key={level}>

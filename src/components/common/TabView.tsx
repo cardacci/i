@@ -37,7 +37,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 							aria-current={activeTab?.id === tab.id ? 'page' : undefined}
 							className={`
 				whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm cursor-pointer shrink-0
-				${activeTab?.id === tab.id ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+				${activeTab?.id === tab.id ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:border-gray-300'}
 				transition-colors duration-150
 			  `}
 							key={tab.id}
