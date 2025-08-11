@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 
 const Header: React.FC = () => {
 	/* ===== State ===== */
+	/* ===== State ===== */
 	const [scrolled, setScrolled] = useState(false);
 	const [typedText, setTypedText] = useState('');
 	const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useState(false);
 
+	/* ===== Constants & Variables ===== */
 	/* ===== Constants & Variables ===== */
 	const textToType = 'Welcome';
 
+	/* ===== Effects ===== */
+	// Mount
 	/* ===== Effects ===== */
 	// Mount
 	useEffect(() => {
@@ -48,6 +53,7 @@ const Header: React.FC = () => {
 	return (
 		<header
 			className={`fixed w-full top-0 z-40 transition-all duration-700 ease-in-out ${
+			className={`fixed w-full top-0 z-40 transition-all duration-700 ease-in-out ${
 				scrolled ? 'bg-blue-900 shadow-lg py-2' : 'bg-blue-800 py-4'
 			} ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}
 		>
@@ -65,7 +71,10 @@ const Header: React.FC = () => {
 				{/* Typing animation effect */}
 				<div className='hidden md:flex items-center'>
 					<span className='text-blue-200 font-mono text-lg relative pr-1'>
+				<div className='hidden md:flex items-center'>
+					<span className='text-blue-200 font-mono text-lg relative pr-1'>
 						{typedText}
+						<span className='absolute right-0 top-0 h-full w-0.5 bg-blue-200 animate-blink'></span>
 						<span className='absolute right-0 top-0 h-full w-0.5 bg-blue-200 animate-blink'></span>
 					</span>
 				</div>

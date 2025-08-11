@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { useNavigate, useParams } from 'react-router-dom';
 
 interface Tab {
@@ -16,11 +17,14 @@ interface TabViewProps {
 
 const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	/* ===== Hooks ===== */
+	/* ===== Hooks ===== */
 	const navigate = useNavigate();
 	const { tabId } = useParams<{ tabId: string }>();
 
 	/* ===== Constants & Variables ===== */
+	/* ===== Constants & Variables ===== */
 	// Find active tab or use default.
+	const activeTab = tabs.find((tab) => tab.id === tabId) || (defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);
 	const activeTab = tabs.find((tab) => tab.id === tabId) || (defaultTab ? tabs.find((tab) => tab.id === defaultTab) : tabs[0]);
 
 	const handleTabClick = (tabId: string) => {
@@ -28,6 +32,7 @@ const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	};
 
 	return (
+		<div className='w-full'>
 		<div className='w-full'>
 			{/* Tab navigation */}
 			<div className='border-b border-gray-200 mb-6'>

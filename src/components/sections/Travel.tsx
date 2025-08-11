@@ -1,13 +1,19 @@
 import React from 'react';
 
+
 import UnderConstruction from '@/components/common/UnderConstruction';
+import { BaseView, ContentCard, ListWithTitle, SectionTitle } from '@/utils';
 import { BaseView, ContentCard, ListWithTitle, SectionTitle } from '@/utils';
 
 const Travel: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const destinations = ['Barcelona, Spain', 'Tokyo, Japan', 'New York City, USA', 'Bali, Indonesia', 'Patagonia, Argentina'];
 
+	/* ===== Constants & Variables ===== */
+	const destinations = ['Barcelona, Spain', 'Tokyo, Japan', 'New York City, USA', 'Bali, Indonesia', 'Patagonia, Argentina'];
+
 	return (
+		<BaseView id='travel' title='Travel Adventures'>
 		<BaseView id='travel' title='Travel Adventures'>
 			<UnderConstruction />
 

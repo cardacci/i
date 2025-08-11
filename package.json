@@ -4,6 +4,7 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-router-dom": "^7.6.2"
+		"react-router-dom": "^7.6.2"
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
 	"devDependencies": {
@@ -12,6 +13,8 @@
 		"@tailwindcss/vite": "^4.1.11",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.1",
+		"@typescript-eslint/eslint-plugin": "^8.33.1",
+		"@typescript-eslint/parser": "^8.33.1",
 		"@typescript-eslint/eslint-plugin": "^8.33.1",
 		"@typescript-eslint/parser": "^8.33.1",
 		"@vitejs/plugin-react": "^4.3.4",
@@ -25,9 +28,13 @@
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"glob": "^11.0.2",
 		"postcss": "^8.5.6",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"glob": "^11.0.2",
+		"postcss": "^8.5.6",
 		"prettier": "^3.5.3",
 		"tailwindcss": "^4.1.11",
 		"typescript": "^5.8.3",
+		"vite": "^6.3.5"
 		"vite": "^6.3.5"
 	},
 	"homepage": "https://cardacci.github.io/i/",
@@ -52,8 +59,12 @@
 		"format:quotes": "prettier --write . && eslint --fix .",
 		"lint": "eslint src/ --fix",
 		"lint:check": "eslint src/",
+		"format:quotes": "prettier --write . && eslint --fix .",
+		"lint": "eslint src/ --fix",
+		"lint:check": "eslint src/",
 		"preview": "vite preview"
 	},
 	"type": "module",
+	"version": "1.06.24"
 	"version": "1.06.24"
 }

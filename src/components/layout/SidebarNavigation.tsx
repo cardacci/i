@@ -114,7 +114,6 @@ const SidebarNavigation: React.FC = () => {
 						<h2 className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
 
 						<button aria-label='Close menu' className='p-2 text-gray-500 hover:bg-gray-100 rounded-md transition-colors' onClick={closeSidebar}>
-
 							<svg className='h-5 w-5' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
 								<path d='M6 18L18 6M6 6l12 12' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
 							</svg>
