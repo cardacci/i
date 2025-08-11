@@ -77,6 +77,7 @@ const TrackClassifier: React.FC = () => {
 	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
 		<div className='cursor-pointer flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1' onClick={onChange}>
 			<input checked={checked} className='h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm' id={id} type='checkbox' />
+
 			<label className='ml-2 block text-sm font-medium' htmlFor={id}>
 				{label}
 			</label>
