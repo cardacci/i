@@ -42,4 +42,14 @@
 	a {
 		@apply text-blue-600 hover:text-blue-800;
 	}
+
+	/* Scrollbar hide utility for horizontal tabs */
+	.scrollbar-hide {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none; /* Chrome, Safari and Opera */
+	}
 }
