@@ -1,22 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
 import { ROUTES } from '@/utils/constants/routes';
-
-interface MenuItem {
-	children?: Array<{ label: string; path: string }>;
-	icon: string;
-	id: string;
-	label: string;
-	path: string;
-}
-
-interface RouteItem {
-	id: string;
-	label: string;
-	path: string;
-}
 
 const SidebarNavigation: React.FC = () => {
 	/* ===== State ===== */
@@ -27,13 +13,12 @@ const SidebarNavigation: React.FC = () => {
 
 	/* ===== Constants & Variables ===== */
 	const appVersion = import.meta.env.VITE_BUILD_TIMESTAMP;
-	const menuItems: MenuItem[] = [
+	const menuItems = [
 		{
 			...ROUTES.HOME
 		},
 		{
-			...ROUTES.RESUME,
-			children: getChildrenFromRoute(ROUTES.RESUME)
+			...ROUTES.RESUME
 		},
 		{
 			...ROUTES.CRYPTO,
@@ -52,36 +37,29 @@ const SidebarNavigation: React.FC = () => {
 		}
 	];
 
-	/* ===== Functions ===== */
 	function closeSidebar() {
 		setIsOpen(false);
 	}
 
-	function isActive(path: string): boolean {
-		return location.pathname.startsWith(path);
+	function isActive(path: string) {
+		location.pathname.startsWith(path);
 	}
 
 	function toggleSidebar() {
 		setIsOpen(!isOpen);
 	}
 
-	function getChildrenFromRoute(route: Record<string, unknown>): Array<{ label: string; path: string }> {
+	function getChildrenFromRoute(route: any) {
 		return Object.keys(route)
-			.filter((key) => {
-				const item = route[key] as RouteItem;
-				return typeof item === 'object' && item && item.id && item.path && item.label;
-			})
-			.map((key) => {
-				const item = route[key] as RouteItem;
-				return {
-					label: item.label,
-					path: item.path
-				};
-			});
+			.filter((key) => typeof route[key] === 'object' && route[key].id && route[key].path && route[key].label)
+			.map((key) => ({
+				label: route[key].label,
+				path: route[key].path
+			}));
 	}
 
 	return (
-		<Fragment>
+		<>
 			{/* Hamburger Button - always on the left but lower on mobile */}
 			<div className='fixed top-4 left-4 md:top-4 md:left-4 z-50'>
 				<button
@@ -111,9 +89,12 @@ const SidebarNavigation: React.FC = () => {
 				<div className='p-6 h-full flex flex-col'>
 					{/* Header */}
 					<div className='flex items-center justify-between mb-6'>
-						<h2 className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
-
-						<button aria-label='Close menu' className='p-2 text-gray-500 hover:bg-gray-100 rounded-md transition-colors' onClick={closeSidebar}>
+						<h2 className='text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
+						<button
+							aria-label='Close menu'
+							className='p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors'
+							onClick={closeSidebar}
+						>
 							<svg className='h-5 w-5' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
 								<path d='M6 18L18 6M6 6l12 12' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
 							</svg>
@@ -129,7 +110,7 @@ const SidebarNavigation: React.FC = () => {
 										<details className='group' open={isActive(item.path)}>
 											<summary
 												className={`flex items-center p-3 rounded-lg cursor-pointer list-none font-semibold transition-colors ${
-													isActive(item.path) ? 'text-blue-600 bg-blue-50' : 'hover:bg-gray-100'
+													isActive(item.path) ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-100'
 												}`}
 											>
 												<span className='mr-3'>{item.icon}</span>
@@ -164,7 +145,7 @@ const SidebarNavigation: React.FC = () => {
 									) : (
 										<Link
 											className={`flex items-center p-3 rounded-lg font-semibold transition-colors ${
-												location.pathname === item.path ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
+												location.pathname === item.path ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
 											}`}
 											onClick={closeSidebar}
 											to={item.path}
@@ -188,7 +169,7 @@ const SidebarNavigation: React.FC = () => {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 };
 

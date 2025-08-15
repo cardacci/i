@@ -78,13 +78,13 @@ const DjInfo: React.FC = () => {
 		<ContentCard>
 			<SectionTitle level='h2'>About Me as a DJ</SectionTitle>
 
-			<p className='mb-4 text-gray-900'>
+			<p className='mb-4'>
 				I am a DJ passionate about <strong>progressive house</strong> and <strong>organic house</strong>, genres that allow me to create sets with
 				depth, melody, and atmosphere. I love taking the dancefloor on a progressive musical journey, with smooth transitions and an immersive sonic
 				narrative.
 			</p>
 
-			<p className='mb-4 text-gray-900'>
+			<p className='mb-4'>
 				I also enjoy experimenting and having fun mixing <strong>deep house</strong>, <strong>house</strong>, and <strong>afro house</strong>—styles
 				that bring groove, energy, and fresh rhythms to my sessions. This variety lets me adapt to different environments and audiences, always
 				maintaining my own musical identity.
@@ -94,7 +94,7 @@ const DjInfo: React.FC = () => {
 				My Style
 			</SectionTitle>
 
-			<p className='mb-4 text-gray-900'>
+			<p className='mb-4'>
 				My sets usually blend electronic music with elements of house, techno, and organic sounds. I aim to create smooth experiences that take
 				listeners on an emotional and danceable journey.
 			</p>
@@ -106,7 +106,7 @@ const DjInfo: React.FC = () => {
 			<ul className='mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
 				{DjEquipment.map((item) => (
 					<li className='bg-white/5 border border-[#A3FFD6] flex flex-col items-center p-4 rounded-xl shadow-lg h-full' key={item.name}>
-						<div className='shrink-0 flex items-center justify-center w-32 h-32 bg-linear-to-br from-[#A3FFD6]/30 to-[#18122B]/60 rounded-lg overflow-hidden shadow-lg mb-3 group transition-transform duration-300 hover:scale-105'>
+						<div className='flex-shrink-0 flex items-center justify-center w-32 h-32 bg-gradient-to-br from-[#A3FFD6]/30 to-[#18122B]/60 rounded-lg overflow-hidden shadow-lg mb-3 group transition-transform duration-300 hover:scale-105'>
 							<img
 								alt={item.name}
 								className='object-cover w-full h-full bg-white/10 rounded-md transition-transform duration-300 group-hover:scale-125'

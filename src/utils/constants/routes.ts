@@ -75,34 +75,7 @@ export const ROUTES = {
 
 	HOME: BASE_ROUTES.HOME,
 
-	RESUME: {
-		...BASE_ROUTES.RESUME,
-		PERSONAL: {
-			id: 'personal',
-			path: `${BASE_ROUTES.RESUME.path}/personal`,
-			label: 'Personal'
-		},
-		EDUCATION: {
-			id: 'education',
-			path: `${BASE_ROUTES.RESUME.path}/education`,
-			label: 'Education'
-		},
-		EXPERIENCE: {
-			id: 'experience',
-			path: `${BASE_ROUTES.RESUME.path}/experience`,
-			label: 'Experience'
-		},
-		SKILLS: {
-			id: 'skills',
-			path: `${BASE_ROUTES.RESUME.path}/skills`,
-			label: 'Skills'
-		},
-		PROJECTS: {
-			id: 'projects',
-			path: `${BASE_ROUTES.RESUME.path}/projects`,
-			label: 'Projects'
-		}
-	},
+	RESUME: BASE_ROUTES.RESUME,
 
 	TECH: {
 		...BASE_ROUTES.TECH,
