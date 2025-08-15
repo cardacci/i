@@ -24,7 +24,7 @@ const Home: React.FC = () => {
 						and traveling.
 					</p>
 
-					<p className='text-gray-700 mb-6'>
+					<p className='mb-6'>
 						On this site, you&apos;ll find information about my professional experience, my projects in the cryptocurrency world, blockchain
 						innovations, my DJ journey and music experiences, and my adventures around the globe.
 					</p>
