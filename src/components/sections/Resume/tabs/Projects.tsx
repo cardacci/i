@@ -1,10 +1,13 @@
 import React from 'react';
 
+import UnderConstruction from '@/components/common/UnderConstruction';
 import { SectionTitle } from '@/utils';
 
 const Projects: React.FC = () => {
 	return (
 		<div>
+			<UnderConstruction />
+
 			<SectionTitle level='h3'>Projects</SectionTitle>
 
 			<div className='space-y-8'>

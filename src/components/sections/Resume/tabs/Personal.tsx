@@ -1,5 +1,6 @@
 import React from 'react';
 
+import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2025-08.pdf';
 import { SectionTitle } from '@/utils';
 import { SocialNetwork } from '@/utils/constants/socialNetworks';
 import { useSocialLinks } from '@/utils/hooks/useSocialLinks';
@@ -98,6 +99,37 @@ const Personal: React.FC = () => {
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+
+			{/* Download CV Section */}
+			<div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-8'>
+				<h4 className='text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2'>
+					<div className='w-2 h-2 bg-green-500 rounded-full'></div>
+					Download CV
+				</h4>
+
+				<div className='flex items-center justify-between'>
+					<div>
+						<p className='text-gray-600 mb-2'>Get my latest resume in PDF format</p>
+
+						<p className='text-sm text-gray-500'>Last updated: August 2025</p>
+					</div>
+					<a
+						className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
+						download='Cardacci, Gabriel - CV 2025-08.pdf'
+						href={resumePdf}
+					>
+						<svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+							<path
+								d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth={2}
+							/>
+						</svg>
+						Download CV
+					</a>
 				</div>
 			</div>
 

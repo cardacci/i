@@ -62,7 +62,7 @@ const Education: React.FC = () => {
 	const formalEducation = [
 		{
 			faculty: UNIVERSITY_FASTA_INFO.faculty,
-			grade: '7.06',
+			gpa: '7.06',
 			institution: UNIVERSITY_FASTA_INFO.name,
 			institutionLink: UNIVERSITY_FASTA_INFO.link,
 			period: '2007-2014',
@@ -70,7 +70,7 @@ const Education: React.FC = () => {
 		},
 		{
 			faculty: UNIVERSITY_FASTA_INFO.faculty,
-			grade: null,
+			gpa: null,
 			institution: UNIVERSITY_FASTA_INFO.name,
 			institutionLink: UNIVERSITY_FASTA_INFO.link,
 			period: '2007-2013',
@@ -78,7 +78,7 @@ const Education: React.FC = () => {
 		},
 		{
 			faculty: UNIVERSITY_FASTA_INFO.faculty,
-			grade: null,
+			gpa: null,
 			institution: UNIVERSITY_FASTA_INFO.name,
 			institutionLink: UNIVERSITY_FASTA_INFO.link,
 			period: '2007-2012',
@@ -151,7 +151,7 @@ const Education: React.FC = () => {
 
 	interface Education {
 		faculty: string;
-		grade?: string | null;
+		gpa?: string | null;
 		institution: string;
 		institutionLink?: string;
 		period: string;
@@ -195,16 +195,19 @@ const Education: React.FC = () => {
 						{formalEducation.map((education, index) => (
 							<div className='flex items-start gap-3 p-6 bg-gray-50 rounded-lg border-l-4 border-blue-500' key={index}>
 								<div className='w-2 h-2 bg-blue-400 rounded-full mt-2 shrink-0'></div>
+
 								<div className='flex-1'>
 									<h5 className='text-lg font-medium text-gray-900 mb-1'>{education.title}</h5>
+
 									<p className='text-sm text-gray-600 mb-2'>{getEducationDetails(education)}</p>
+
 									<div className='flex items-center gap-4 text-sm'>
 										<span className='inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-700 rounded-full'>
 											📅 {education.period}
 										</span>
-										{education.grade && (
+										{education.gpa && (
 											<span className='inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 rounded-full'>
-												🎓 Grade: {education.grade}
+												🎓 GPA: {education.gpa}
 											</span>
 										)}
 									</div>
