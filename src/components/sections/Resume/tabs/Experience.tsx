@@ -1,5 +1,12 @@
 import React from 'react';
 
+import aspenSkiingCompanyLogo from '@/assets/images/experience/aspen-skiing-company-logo.jpg';
+import intaLogo from '@/assets/images/experience/inta-logo.jpg';
+import intiveLogo from '@/assets/images/experience/intive-logo.jpg';
+import klioLogo from '@/assets/images/experience/klio-logo.jpg';
+import macmillanLearningLogo from '@/assets/images/experience/macmillan-learning-logo.jpg';
+import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
+import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
 
 interface ExperienceDescription {
@@ -9,6 +16,7 @@ interface ExperienceDescription {
 
 interface ExperienceInterface {
 	company: string;
+	companyLogo?: string;
 	current?: boolean;
 	descriptions?: ExperienceDescription[];
 	id: number;
@@ -20,6 +28,7 @@ interface ExperienceInterface {
 const EXPERIENCES: ExperienceInterface[] = [
 	{
 		company: 'Klio',
+		companyLogo: klioLogo,
 		current: true,
 		descriptions: [
 			{
@@ -47,6 +56,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Klio',
+		companyLogo: klioLogo,
 		descriptions: [
 			{
 				title: 'Led the frontend team at Klio, designing and delivering scalable, responsive web applications while actively contributing to product and business decisions. Took ownership of frontend architecture and development across multiple areas of the platform.'
@@ -90,6 +100,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Klio',
+		companyLogo: klioLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -109,6 +120,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'intive',
+		companyLogo: intiveLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -131,6 +143,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Universidad FASTA',
+		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -150,6 +163,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Macmillan Learning',
+		companyLogo: macmillanLearningLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -169,6 +183,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Quadion Technologies',
+		companyLogo: quadionTechnologiesLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -189,6 +204,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Aspen Skiing Company',
+		companyLogo: aspenSkiingCompanyLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -207,6 +223,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'INTA',
+		companyLogo: intaLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -228,6 +245,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	},
 	{
 		company: 'Universidad FASTA',
+		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{
 				bullets: [
@@ -251,21 +269,34 @@ const Experience: React.FC = () => {
 	/* ===== Functions ===== */
 	const getExperiences = () => {
 		return EXPERIENCES.map((exp) => {
-			const { company, current, descriptions, id, location, period, title } = exp;
+			const { company, companyLogo, current, descriptions, id, location, period, title } = exp;
 
 			return (
 				<div className={`border-l-4 pl-6 ${current ? 'border-blue-500' : 'border-gray-400'}`} key={id}>
-					<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-2'>
-						<h4 className='text-xl font-bold text-gray-900'>{title}</h4>
+					<div className='flex items-start gap-4 mb-4'>
+						{/* Company Logo */}
+						{companyLogo && (
+							<div className='flex-shrink-0 w-16 h-16 rounded-lg border border-gray-200 bg-white p-2 flex items-center justify-center overflow-hidden'>
+								<img alt={`${company} logo`} className='w-full h-full object-contain' src={companyLogo} />
+							</div>
+						)}
 
-						<span className={`${current ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} text-sm font-medium px-3 py-1 rounded-full`}>
-							{period}
-						</span>
-					</div>
+						<div className='flex-1'>
+							<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-2'>
+								<h4 className='text-xl font-bold text-gray-900'>{title}</h4>
 
-					<div className='mb-3'>
-						<p className='text-lg font-medium'>{company}</p>
-						<p className='text-sm text-gray-500'>{location}</p>
+								<span
+									className={`${current ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} text-sm font-medium px-3 py-1 rounded-full`}
+								>
+									{period}
+								</span>
+							</div>
+
+							<div className='mb-3'>
+								<p className='text-lg font-medium'>{company}</p>
+								<p className='text-sm text-gray-500'>{location}</p>
+							</div>
+						</div>
 					</div>
 
 					<ul className='text-gray-600 space-y-2'>

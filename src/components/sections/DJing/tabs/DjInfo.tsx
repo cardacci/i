@@ -1,10 +1,10 @@
 import React from 'react';
 
-import asusTufF15Img from '@/assets/images/DJing/asus-tuf-gaming-f15.jpg';
-import ddjFlx4Img from '@/assets/images/DJing/pioneer-ddj-flx4.webp';
-import vm80Img from '@/assets/images/DJing/pioneer-vm-80.webp';
-import sandiskCruzerGlideImg from '@/assets/images/DJing/sandisk-cruzer-glide-3.0-64gb.jpg';
-import sennheiserHd25Img from '@/assets/images/DJing/sennheiser-hd-25.jpg';
+import asusTufF15Img from '@/assets/images/djing/asus-tuf-gaming-f15.jpg';
+import ddjFlx4Img from '@/assets/images/djing/pioneer-ddj-flx4.webp';
+import vm80Img from '@/assets/images/djing/pioneer-vm-80.webp';
+import sandiskCruzerGlideImg from '@/assets/images/djing/sandisk-cruzer-glide-3.0-64gb.jpg';
+import sennheiserHd25Img from '@/assets/images/djing/sennheiser-hd-25.jpg';
 import { ContentCard, SectionTitle } from '@/utils';
 
 const DjEquipment = [
