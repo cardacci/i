@@ -1,6 +1,7 @@
 import React from 'react';
 
 import realStateCycle from '@/assets/images/economics/18-year-real-estate-cycle.png';
+import ImageWithModal from '@/components/common/ImageWithModal';
 import { SectionTitle } from '@/utils';
 
 const RealEstateCycle: React.FC = () => {
@@ -15,9 +16,7 @@ const RealEstateCycle: React.FC = () => {
 						behavior.
 					</p>
 
-					<div className='flex justify-center'>
-						<img alt='18 Year Real Estate Cycle Chart' className='max-w-full h-auto rounded-lg shadow-md' src={realStateCycle} />
-					</div>
+					<ImageWithModal alt='18 Year Real Estate Cycle Chart' src={realStateCycle} />
 				</div>
 
 				<div className='grid gap-4 md:grid-cols-2'>

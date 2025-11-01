@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
+/* ===== Types & Interfaces ===== */
+interface ApiService {
+	url: string;
+	options?: RequestInit;
+}
+
 interface ApiRequestState<T> {
 	data: T | null;
 	error: string | null;
 	isLoading: boolean;
-}
-
-interface ApiService {
-	url: string;
-	options?: RequestInit;
 }
 
 type ApiServices = {

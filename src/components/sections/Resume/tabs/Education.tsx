@@ -2,6 +2,13 @@ import React, { Fragment } from 'react';
 
 import { SectionTitle } from '@/utils';
 
+/* ===== Types & Interfaces ===== */
+interface Course {
+	associatedWith: string;
+	code?: string | null;
+	title: string;
+}
+
 const Education: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const certifications: Certification[] = [
@@ -85,11 +92,6 @@ const Education: React.FC = () => {
 			title: 'IT Technician'
 		}
 	];
-	interface Course {
-		associatedWith: string;
-		code?: string | null;
-		title: string;
-	}
 
 	const courses: Course[] = [
 		{

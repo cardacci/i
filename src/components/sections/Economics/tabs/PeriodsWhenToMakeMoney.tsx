@@ -1,6 +1,7 @@
 import React from 'react';
 
 import periodsWhenToMakeMoney from '@/assets/images/economics/periods-when-to-make-money.jpg';
+import ImageWithModal from '@/components/common/ImageWithModal';
 import { SectionTitle } from '@/utils';
 
 const MarketTiming: React.FC = () => {
@@ -14,9 +15,7 @@ const MarketTiming: React.FC = () => {
 						Understanding market timing is crucial for successful investing. Different economic phases present unique opportunities and risks.
 					</p>
 
-					<div className='flex justify-center'>
-						<img alt='Market Timing Chart' className='max-w-full h-auto rounded-lg shadow-md' src={periodsWhenToMakeMoney} />
-					</div>
+					<ImageWithModal alt='Periods When to Make Money Chart' src={periodsWhenToMakeMoney} />
 				</div>
 
 				<div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>

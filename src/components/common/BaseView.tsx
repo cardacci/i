@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* ===== Types & Interfaces ===== */
 interface BaseViewProps {
 	children: React.ReactNode;
 	id: string;

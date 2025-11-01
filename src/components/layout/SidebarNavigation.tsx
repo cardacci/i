@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { ROUTES } from '@/utils/constants/routes';
 
+/* ===== Types & Interfaces ===== */
 interface MenuItem {
 	children?: Array<{ label: string; path: string }>;
 	icon: string;

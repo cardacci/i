@@ -2,6 +2,7 @@ import React from 'react';
 
 import SectionTitle from './SectionTitle';
 
+/* ===== Types & Interfaces ===== */
 interface ListWithTitleProps {
 	className?: string;
 	items: string[];

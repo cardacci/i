@@ -2,13 +2,13 @@ import React from 'react';
 
 import { SectionTitle } from '@/utils';
 
-const Skills: React.FC = () => {
-	/* ===== Types & Interfaces ===== */
-	interface Skill {
-		featured?: boolean;
-		name: string;
-	}
+/* ===== Types & Interfaces ===== */
+interface Skill {
+	featured?: boolean;
+	name: string;
+}
 
+const Skills: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const backendSkills: Skill[] = [
 		{ name: 'Node.js' },

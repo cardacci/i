@@ -2,6 +2,7 @@ import React, { Fragment, useMemo, useState } from 'react';
 
 import { SectionTitle, useApiRequest } from '@/utils';
 
+/* ===== Types & Interfaces ===== */
 interface CryptoMetric {
 	category: string;
 	circulatingPercentage: string; // Percentage or "∞".

@@ -5,6 +5,7 @@ export enum SocialNetwork {
 	YOUTUBE = 'youtube'
 }
 
+/* ===== Types & Interfaces ===== */
 export interface SocialLinkData {
 	className: string;
 	icon?: React.ReactNode;
