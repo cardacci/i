@@ -9,59 +9,59 @@ The project is organized as follows:
 ```
 i
 ├── .github
-│   └── workflows
-│       └── deploy.yml
+│	└── workflows
+│  	└── deploy.yml
 ├── .vscode
-│   └── settings.json
+│	└── settings.json
 ├── public
-│   ├── assets
-│   ├── _redirects
-│   ├── .nojekyll
-│   ├── 404.html
-│   ├── apple-touch-icon.png
-│   ├── favicon.ico
-│   ├── favicon.svg
-│   ├── site.webmanifest
-│   ├── web-app-manifest-192x192.png
-│   └── web-app-manifest-512x512.png
+│	├── assets
+│	├── _redirects
+│	├── .nojekyll
+│	├── 404.html
+│	├── apple-touch-icon.png
+│	├── favicon.ico
+│	├── favicon.svg
+│	├── site.webmanifest
+│	├── web-app-manifest-192x192.png
+│	└── web-app-manifest-512x512.png
 ├── src
-│   ├── assets
-│   │   └── images
-│   │       └── profile.png
-│   ├── components
-│   │   ├── common
-│   │   │   ├── TabView.tsx
-│   │   │   └── UnderConstruction.tsx
-│   │   ├── layout
-│   │   │   ├── Header.tsx
-│   │   │   └── SidebarNavigation.tsx
-│   │   ├── sections
-│   │   │   ├── DJing
-│   │   │   │   ├── DjInfo.tsx
-│   │   │   │   ├── DJing.tsx
-│   │   │   │   └── TrackClassifier.tsx
-│   │   │   ├── Tech
-│   │   │   │   ├── MySkills.tsx
-│   │   │   │   ├── ProjectTech.tsx
-│   │   │   │   └── Tech.tsx
-│   │   │   ├── Crypto.tsx
-│   │   │   ├── Home.tsx
-│   │   │   ├── Resume.tsx
-│   │   │   └── Travel.tsx
-│   ├── styles
-│   │   ├── app.css
-│   │   └── tailwind.css
-│   ├── types
-│   │   └── index.ts
-│   ├── utils
-│   │   ├── constants
-│   │   │   └── techCategories.ts
-│   │   ├── hooks
-│   │   │   └── useCardHover.ts
-│   │   └── index.ts
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── vite-env.d.ts
+│	├── assets
+│	│	└── images
+│	│		└── profile.png
+│	├── components
+│	│	├── common
+│	│	│	├── TabView.tsx
+│	│	│	└── UnderConstruction.tsx
+│	│	├── layout
+│	│	│	├── Header.tsx
+│	│	│	└── SidebarNavigation.tsx
+│	│	├── sections
+│	│	│	├── DJing
+│	│	│	│	├── DjInfo.tsx
+│	│	│	│	├── DJing.tsx
+│	│	│	│	└── TrackClassifier.tsx
+│	│	│	├── Tech
+│	│	│	│	├── MySkills.tsx
+│	│	│	│	├── ProjectTech.tsx
+│	│	│	│	└── Tech.tsx
+│	│	│	├── Crypto.tsx
+│	│	│	├── Home.tsx
+│	│	│	├── Resume.tsx
+│	│	│	└── Travel.tsx
+│	├── styles
+│	│	├── app.css
+│	│	└── tailwind.css
+│	├── types
+│	│	└── index.ts
+│	├── utils
+│	│	├── constants
+│	│	│	└── techCategories.ts
+│	│	├── hooks
+│	│	│	└── useCardHover.ts
+│	│	└── index.ts
+│	├── App.tsx
+│	├── main.tsx
+│	└── vite-env.d.ts
 ├── index.html
 ├── .eslintrc.json
 ├── .gitignore
@@ -102,7 +102,6 @@ This project follows industry best practices and coding standards:
 - **Resume Section**: Professional CV with education, experience, and skills.
 - **Crypto Section**: Information and insights about cryptocurrencies and blockchain innovations.
 - **Tech Section**:
-    - **My Skills**: Interactive technology showcase with years of experience
     - **Project Technologies**: Technologies used in this portfolio
 - **DJing Section**:
     - **DJ Info**: Music experiences and equipment information
