@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES } from '@/utils/constants/routes';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
 import BitcoinInfo from './tabs/BitcoinInfo';
 import FairValueAnalysis from './tabs/FairValueAnalysis';
@@ -12,8 +12,8 @@ import FairValueAnalysis from './tabs/FairValueAnalysis';
 const Crypto: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
-		BITCOIN: <BitcoinInfo />,
-		FAIR_VALUE_ANALYSIS: <FairValueAnalysis />
+		[ROUTE_KEYS.CRYPTO.BITCOIN]: <BitcoinInfo />,
+		[ROUTE_KEYS.CRYPTO.FAIR_VALUE_ANALYSIS]: <FairValueAnalysis />
 	};
 	const defaultTab = getFirstChildRoute(ROUTES.CRYPTO);
 	const tabs = createTabsFromRoutes(ROUTES.CRYPTO, tabContent);

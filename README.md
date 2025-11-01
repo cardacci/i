@@ -134,7 +134,9 @@ The codebase is organized following modern React best practices:
 - **Crypto Section**: Information and insights about cryptocurrencies and blockchain innovations.
     - **Bitcoin History**: Detailed analysis of Bitcoin's price history and market cycles.
     - **Fair Value Analysis**: Cryptocurrency valuation methodologies and market analysis.
-- **Economics Section**: Economic analysis and market insights (under development).
+- **Economics Section**: Economic analysis and market insights.
+    - **18 Year Real Estate Cycle**: Analysis of property market cycles and timing.
+    - **Periods When to Make Money**: Market timing strategies and investment phases.
 - **Tech Section**:
     - **Project Technologies**: Technologies used in this portfolio project.
 - **DJing Section**:
@@ -244,6 +246,7 @@ The application features the following main sections:
 
 - `/` - Home page with personal introduction
 - `/resume` - Resume section with tabs for Personal, Education, Experience, Skills, and Projects
+- `/economics` - Economics section with 18 Year Real Estate Cycle and Market Timing analysis
 - `/crypto` - Cryptocurrency section with Bitcoin History and Fair Value Analysis
 - `/tech` - Technology section with Project Technologies
 - `/djing` - DJing section with DJ Info, Sets, and Track Classifier

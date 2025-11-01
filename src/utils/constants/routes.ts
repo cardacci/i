@@ -1,3 +1,30 @@
+// Route key constants for consistent usage across components
+export const ROUTE_KEYS = {
+	CRYPTO: {
+		BITCOIN: 'BITCOIN',
+		FAIR_VALUE_ANALYSIS: 'FAIR_VALUE_ANALYSIS'
+	},
+	DJING: {
+		INFO: 'INFO',
+		SETS: 'SETS',
+		CLASSIFIER: 'CLASSIFIER'
+	},
+	ECONOMICS: {
+		REAL_ESTATE_CYCLE: 'REAL_ESTATE_CYCLE',
+		PERIODS_WHEN_TO_MAKE_MONEY: 'PERIODS_WHEN_TO_MAKE_MONEY'
+	},
+	RESUME: {
+		PERSONAL: 'PERSONAL',
+		EDUCATION: 'EDUCATION',
+		EXPERIENCE: 'EXPERIENCE',
+		SKILLS: 'SKILLS',
+		PROJECTS: 'PROJECTS'
+	},
+	TECH: {
+		PROJECT: 'PROJECT'
+	}
+} as const;
+
 // Base route definitions.
 const BASE_ROUTES = {
 	HOME: {
@@ -11,6 +38,12 @@ const BASE_ROUTES = {
 		id: 'resume',
 		label: 'Resume',
 		path: '/resume'
+	},
+	ECONOMICS: {
+		icon: '📊',
+		id: 'economics',
+		label: 'Economics',
+		path: '/economics'
 	},
 	CRYPTO: {
 		icon: '🪙',
@@ -42,12 +75,12 @@ const BASE_ROUTES = {
 export const ROUTES = {
 	CRYPTO: {
 		...BASE_ROUTES.CRYPTO,
-		BITCOIN: {
+		[ROUTE_KEYS.CRYPTO.BITCOIN]: {
 			id: 'bitcoin',
 			path: `${BASE_ROUTES.CRYPTO.path}/bitcoin`,
 			label: 'Bitcoin History'
 		},
-		FAIR_VALUE_ANALYSIS: {
+		[ROUTE_KEYS.CRYPTO.FAIR_VALUE_ANALYSIS]: {
 			id: 'fair-value-analysis',
 			path: `${BASE_ROUTES.CRYPTO.path}/fair-value-analysis`,
 			label: 'Fair Value Analysis'
@@ -56,20 +89,34 @@ export const ROUTES = {
 
 	DJING: {
 		...BASE_ROUTES.DJING,
-		INFO: {
+		[ROUTE_KEYS.DJING.INFO]: {
 			id: 'info',
 			path: `${BASE_ROUTES.DJING.path}/info`,
 			label: 'DJ Info'
 		},
-		SETS: {
+		[ROUTE_KEYS.DJING.SETS]: {
 			id: 'sets',
 			path: `${BASE_ROUTES.DJING.path}/sets`,
 			label: 'Sets'
 		},
-		CLASSIFIER: {
+		[ROUTE_KEYS.DJING.CLASSIFIER]: {
 			id: 'classifier',
 			path: `${BASE_ROUTES.DJING.path}/classifier`,
 			label: 'Track Classifier'
+		}
+	},
+
+	ECONOMICS: {
+		...BASE_ROUTES.ECONOMICS,
+		[ROUTE_KEYS.ECONOMICS.REAL_ESTATE_CYCLE]: {
+			id: 'real-estate-cycle',
+			path: `${BASE_ROUTES.ECONOMICS.path}/real-estate-cycle`,
+			label: '18 Year Real Estate Cycle'
+		},
+		[ROUTE_KEYS.ECONOMICS.PERIODS_WHEN_TO_MAKE_MONEY]: {
+			id: 'periods-when-to-make-money',
+			path: `${BASE_ROUTES.ECONOMICS.path}/periods-when-to-make-money`,
+			label: 'Periods When to Make Money'
 		}
 	},
 
@@ -77,27 +124,27 @@ export const ROUTES = {
 
 	RESUME: {
 		...BASE_ROUTES.RESUME,
-		PERSONAL: {
+		[ROUTE_KEYS.RESUME.PERSONAL]: {
 			id: 'personal',
 			path: `${BASE_ROUTES.RESUME.path}/personal`,
 			label: 'Personal'
 		},
-		EDUCATION: {
+		[ROUTE_KEYS.RESUME.EDUCATION]: {
 			id: 'education',
 			path: `${BASE_ROUTES.RESUME.path}/education`,
 			label: 'Education'
 		},
-		EXPERIENCE: {
+		[ROUTE_KEYS.RESUME.EXPERIENCE]: {
 			id: 'experience',
 			path: `${BASE_ROUTES.RESUME.path}/experience`,
 			label: 'Experience'
 		},
-		SKILLS: {
+		[ROUTE_KEYS.RESUME.SKILLS]: {
 			id: 'skills',
 			path: `${BASE_ROUTES.RESUME.path}/skills`,
 			label: 'Skills'
 		},
-		PROJECTS: {
+		[ROUTE_KEYS.RESUME.PROJECTS]: {
 			id: 'projects',
 			path: `${BASE_ROUTES.RESUME.path}/projects`,
 			label: 'Projects'
@@ -106,7 +153,7 @@ export const ROUTES = {
 
 	TECH: {
 		...BASE_ROUTES.TECH,
-		PROJECT: {
+		[ROUTE_KEYS.TECH.PROJECT]: {
 			id: 'project',
 			path: `${BASE_ROUTES.TECH.path}/project`,
 			label: 'Project Technologies'

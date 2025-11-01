@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import SidebarNavigation from '@/components/layout/SidebarNavigation';
 import Crypto from '@/components/sections/Crypto/Crypto';
 import DJing from '@/components/sections/DJing/DJing';
+import Economics from '@/components/sections/Economics/Economics';
 import Home from '@/components/sections/Home';
 import Resume from '@/components/sections/Resume/Resume';
 import Tech from '@/components/sections/Tech/Tech';
@@ -47,6 +48,10 @@ const router = createHashRouter([
 			{
 				element: <Resume />,
 				path: `${ROUTES.RESUME.id}/*`
+			},
+			{
+				element: <Economics />,
+				path: `${ROUTES.ECONOMICS.id}/*`
 			},
 			{
 				element: <Crypto />,

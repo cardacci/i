@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES } from '@/utils/constants/routes';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
 import Education from './tabs/Education';
 import Experience from './tabs/Experience';
@@ -15,11 +15,11 @@ import Skills from './tabs/Skills';
 const Resume: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
-		EDUCATION: <Education />,
-		EXPERIENCE: <Experience />,
-		PERSONAL: <Personal />,
-		PROJECTS: <Projects />,
-		SKILLS: <Skills />
+		[ROUTE_KEYS.RESUME.EDUCATION]: <Education />,
+		[ROUTE_KEYS.RESUME.EXPERIENCE]: <Experience />,
+		[ROUTE_KEYS.RESUME.PERSONAL]: <Personal />,
+		[ROUTE_KEYS.RESUME.PROJECTS]: <Projects />,
+		[ROUTE_KEYS.RESUME.SKILLS]: <Skills />
 	};
 
 	const tabs = createTabsFromRoutes(ROUTES.RESUME, tabContent);
