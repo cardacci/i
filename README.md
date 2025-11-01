@@ -1,6 +1,6 @@
 # Cardacci Personal Website
 
-This personal website showcases who I am and various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, DJing experiences, and travel adventures.
+This personal website showcases who I am and various aspects of my life, including my professional experience, interests in technology and programming, cryptocurrency insights, economic analysis, DJing experiences, and travel adventures.
 
 ## Project Structure
 
@@ -10,7 +10,7 @@ The project is organized as follows:
 i
 ├── .github
 │	└── workflows
-│  	└── deploy.yml
+│	└── deploy.yml
 ├── .vscode
 │	└── settings.json
 ├── public
@@ -26,47 +26,74 @@ i
 │	└── web-app-manifest-512x512.png
 ├── src
 │	├── assets
+│	│	├── files
 │	│	└── images
+│	│		├── djing
+│	│		├── economics
+│	│		├── experience
 │	│		└── profile.png
 │	├── components
 │	│	├── common
+│	│	│	├── BaseView.tsx
+│	│	│	├── ContentCard.tsx
+│	│	│	├── ListWithTitle.tsx
+│	│	│	├── SectionTitle.tsx
 │	│	│	├── TabView.tsx
 │	│	│	└── UnderConstruction.tsx
 │	│	├── layout
 │	│	│	├── Header.tsx
 │	│	│	└── SidebarNavigation.tsx
-│	│	├── sections
-│	│	│	├── DJing
-│	│	│	│	├── DjInfo.tsx
-│	│	│	│	├── DJing.tsx
-│	│	│	│	└── TrackClassifier.tsx
-│	│	│	├── Tech
-│	│	│	│	├── MySkills.tsx
-│	│	│	│	├── ProjectTech.tsx
-│	│	│	│	└── Tech.tsx
-│	│	│	├── Crypto.tsx
-│	│	│	├── Home.tsx
-│	│	│	├── Resume.tsx
-│	│	│	└── Travel.tsx
+│	│	└── sections
+│	│		├── Crypto
+│	│		│	├── Crypto.tsx
+│	│		│	└── tabs
+│	│		│		├── BitcoinInfo.tsx
+│	│		│		└── FairValueAnalysis.tsx
+│	│		├── DJing
+│	│		│	├── common
+│	│		│	│	└── FollowMyDjContent.tsx
+│	│		│	├── DJing.tsx
+│	│		│	└── tabs
+│	│		│		├── DjInfo.tsx
+│	│		│		├── Sets.tsx
+│	│		│		└── TrackClassifier.tsx
+│	│		├── Economics
+│	│		│	└── tabs
+│	│		├── Home.tsx
+│	│		├── Resume
+│	│		│	├── Resume.tsx
+│	│		│	└── tabs
+│	│		│		├── Education.tsx
+│	│		│		├── Experience.tsx
+│	│		│		├── Personal.tsx
+│	│		│		├── Projects.tsx
+│	│		│		└── Skills.tsx
+│	│		├── Tech
+│	│		│	├── tabs
+│	│		│	│	└── ProjectTech.tsx
+│	│		│	└── Tech.tsx
+│	│		└── Travel.tsx
 │	├── styles
 │	│	├── app.css
 │	│	└── tailwind.css
-│	├── types
-│	│	└── index.ts
 │	├── utils
 │	│	├── constants
+│	│	│	├── routes.ts
+│	│	│	├── socialNetworks.ts
 │	│	│	└── techCategories.ts
+│	│	├── helpers
+│	│	│	└── routeHelpers.ts
 │	│	├── hooks
-│	│	│	└── useCardHover.ts
+│	│	│	├── useApiRequest.ts
+│	│	│	├── useCardHover.ts
+│	│	│	└── useSocialLinks.tsx
 │	│	└── index.ts
 │	├── App.tsx
 │	├── main.tsx
 │	└── vite-env.d.ts
-├── index.html
-├── .eslintrc.json
-├── .gitignore
-├── .prettierrc
+├── eslint.config.js
 ├── fix-paths.js
+├── index.html
 ├── package.json
 ├── package-lock.json
 ├── postcss.config.js
@@ -79,41 +106,49 @@ i
 ## Technologies Used
 
 - **GitHub Actions**: For automated deployment to GitHub Pages.
-- **React**: For building the user interface with functional components and hooks.
-- **React Router**: For client-side routing between different sections.
+- **React 19**: For building the user interface with functional components and hooks.
+- **React Router 7**: For client-side routing between different sections.
 - **Tailwind CSS v4**: For utility-first styling with responsive design support.
-- **TypeScript**: For type safety, better developer experience, and code reliability.
-- **Vite**: For fast development and optimized builds.
+- **TypeScript 5.8**: For type safety, better developer experience, and code reliability.
+- **Vite 6**: For fast development and optimized builds.
+- **DaisyUI**: For additional UI components and design system.
+- **ESLint 9**: For code linting with modern configuration.
+- **PostCSS**: For CSS processing and Tailwind integration.
 
-## Code Standards
+## Project Organization
 
-This project follows industry best practices and coding standards:
+The codebase is organized following modern React best practices:
 
-- **ESLint**: Configured with recommended React and TypeScript rules.
-- **Prettier**: For consistent code formatting across the codebase.
-- **Path Aliases**: Using `@/` for cleaner imports from the src directory.
-- **Component Organization**: Structured by feature and responsibility with clear separation.
-- **Modern JavaScript**: Using ES modules with proper import ordering.
-- **Organized Code Structure**: Using comment sections like `/* ===== State ===== */` for better readability.
+- **Feature-based Structure**: Components are organized by feature/section rather than by type.
+- **Shared Components**: Common reusable components are placed in the `common` folder.
+- **Layout Components**: Navigation and layout components are in the `layout` folder.
+- **Utility Functions**: Helper functions, constants, and custom hooks are centralized in `utils`.
+- **Asset Management**: Images and files are organized by feature in `assets/images` and `assets/files`.
+- **Type Safety**: Full TypeScript coverage with strict mode enabled.
+- **Route Configuration**: Centralized routing configuration with nested route support.
 
 ## Features
 
 - **Home Section**: Personal introduction with profile image and social links.
-- **Resume Section**: Professional CV with education, experience, and skills.
+- **Resume Section**: Professional CV with education, experience, skills, and projects.
 - **Crypto Section**: Information and insights about cryptocurrencies and blockchain innovations.
+    - **Bitcoin History**: Detailed analysis of Bitcoin's price history and market cycles.
+    - **Fair Value Analysis**: Cryptocurrency valuation methodologies and market analysis.
+- **Economics Section**: Economic analysis and market insights (under development).
 - **Tech Section**:
-    - **Project Technologies**: Technologies used in this portfolio
+    - **Project Technologies**: Technologies used in this portfolio project.
 - **DJing Section**:
-    - **DJ Info**: Music experiences and equipment information
-    - **Track Classifier**: Custom tool for DJ track tagging with social media links
+    - **DJ Info**: Music experiences and equipment information.
+    - **Sets**: DJ sets and performances.
+    - **Track Classifier**: Custom tool for DJ track tagging with social media links.
 - **Travel Section**: Adventures and travel experiences around the world.
 - **Modern UI/UX**:
-    - **Gradient Header**: Beautiful cyan-to-pink gradient on the main title
-    - **Blur Overlay Navigation**: Modern sidebar with backdrop blur effect
-    - **Responsive Design**: Optimized for both mobile and desktop experiences
-    - **Animated UI Elements**: Smooth transitions, typing effects, and card hover animations
-    - **Mobile-First Navigation**: Hamburger menu positioned for optimal mobile UX
-- **Tab Navigation**: URL-based tab system in Tech and DJing sections.
+    - **Gradient Header**: Beautiful cyan-to-pink gradient on the main title.
+    - **Blur Overlay Navigation**: Modern sidebar with backdrop blur effect.
+    - **Responsive Design**: Optimized for both mobile and desktop experiences.
+    - **Animated UI Elements**: Smooth transitions, typing effects, and card hover animations.
+    - **Mobile-First Navigation**: Hamburger menu positioned for optimal mobile UX.
+- **Tab Navigation**: URL-based tab system in multiple sections.
 - **Version Tracking**: Automatic versioning based on build timestamp (format: YY.MMDD.HHMM).
 
 ## UI/UX Highlights
@@ -129,7 +164,8 @@ This project follows industry best practices and coding standards:
 The project includes an automatic versioning system:
 
 - The version is generated at build time in the format `YY.MMDD.HHMM`
-    - Example: `25.0604.1745` (for June 4, 2025 at 17:45)
+    - Current version: `1.06.24` (June 2024)
+    - Example: `25.1101.1430` (for November 1, 2025 at 14:30)
 - The versioning system is configured in `vite.config.ts`
 - The version is displayed in the footer of the website
 - This approach ensures each build can be uniquely identified by when it was created
@@ -180,22 +216,37 @@ The deployment process includes:
 - `npm run build`: Build for production and run the fix-paths script
 - `npm run dev`: Start the development server
 - `npm run format`: Format code using Prettier
-- `npm run lint`: Run ESLint to check for code issues
+- `npm run format:quotes`: Format code and fix quotes using Prettier and ESLint
+- `npm run lint`: Run ESLint to check for code issues and auto-fix
+- `npm run lint:check`: Run ESLint to check for code issues without fixing
 - `npm run preview`: Preview the production build locally
 
-## Browser Compatibility
+## Dependencies
 
-This website is optimized for modern browsers:
+### Core Dependencies
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+- **React 19.1.0**: UI library for building user interfaces
+- **React DOM 19.1.0**: React rendering library for the web
+- **React Router DOM 7.6.2**: Declarative routing for React
 
-## License
+### Development Dependencies
 
-This project is licensed under the MIT License.
+- **Vite 6.3.5**: Fast build tool and development server
+- **TypeScript 5.8.3**: Typed superset of JavaScript
+- **Tailwind CSS 4.1.11**: Utility-first CSS framework
+- **ESLint 9.28.0**: Code linting tool
+- **Prettier 3.5.3**: Code formatter
+- **DaisyUI 5.0.50**: Component library for Tailwind CSS
 
-## Author
+## Available Routes
 
-Gabriel Cardacci - Principal Frontend Engineer, Software Engineer, Investor, Crypto Enthusiast, World Explorer, and DJ.
+The application features the following main sections:
+
+- `/` - Home page with personal introduction
+- `/resume` - Resume section with tabs for Personal, Education, Experience, Skills, and Projects
+- `/crypto` - Cryptocurrency section with Bitcoin History and Fair Value Analysis
+- `/tech` - Technology section with Project Technologies
+- `/djing` - DJing section with DJ Info, Sets, and Track Classifier
+- `/travel` - Travel experiences and adventures
+
+All routes support hash-based routing for GitHub Pages compatibility.

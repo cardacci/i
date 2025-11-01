@@ -6,14 +6,11 @@ import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES } from '@/utils/constants/routes';
 
-import MySkills from './tabs/MySkills';
 import ProjectTech from './tabs/ProjectTech';
 
 const Tech: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
-		SKILLS: <MySkills />,
-		// eslint-disable-next-line sort-keys
 		PROJECT: <ProjectTech />
 	};
 	const defaultTab = getFirstChildRoute(ROUTES.TECH);

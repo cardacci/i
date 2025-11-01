@@ -106,11 +106,6 @@ export const ROUTES = {
 
 	TECH: {
 		...BASE_ROUTES.TECH,
-		SKILLS: {
-			id: 'skills',
-			path: `${BASE_ROUTES.TECH.path}/skills`,
-			label: 'My Skills'
-		},
 		PROJECT: {
 			id: 'project',
 			path: `${BASE_ROUTES.TECH.path}/project`,
