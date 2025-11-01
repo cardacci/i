@@ -57,27 +57,99 @@ const SidebarNavigation: React.FC = () => {
 		setIsOpen(false);
 	}
 
-	function isActive(path: string): boolean {
-		return location.pathname.startsWith(path);
-	}
-
-	function toggleSidebar() {
-		setIsOpen(!isOpen);
-	}
-
 	function getChildrenFromRoute(route: Record<string, unknown>): Array<{ label: string; path: string }> {
 		return Object.keys(route)
 			.filter((key) => {
 				const item = route[key] as RouteItem;
+
 				return typeof item === 'object' && item && item.id && item.path && item.label;
 			})
 			.map((key) => {
 				const item = route[key] as RouteItem;
+
 				return {
 					label: item.label,
 					path: item.path
 				};
 			});
+	}
+
+	function isActive(path: string): boolean {
+		return location.pathname.startsWith(path);
+	}
+
+	function renderArrow() {
+		let contentPath;
+
+		if (isOpen) {
+			contentPath = <path d='M6 18L18 6M6 6l12 12' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />;
+		} else {
+			contentPath = <path d='M4 6h16M4 12h16M4 18h16' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />;
+		}
+
+		return (
+			<svg className='h-5 w-5 md:h-6 md:w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+				{contentPath}
+			</svg>
+		);
+	}
+
+	function renderMenuItem(item: MenuItem) {
+		const { icon, label, path } = item;
+
+		if (item.children) {
+			return (
+				<details className='group' open={isActive(path)}>
+					<summary
+						className={`flex items-center p-3 rounded-lg cursor-pointer list-none font-semibold transition-colors ${
+							isActive(path) ? 'text-blue-600 bg-blue-50' : 'hover:bg-gray-100'
+						}`}
+					>
+						<span className='mr-3'>{icon}</span>
+
+						<span className='flex-1'>{label}</span>
+
+						<svg className='w-4 h-4 transition-transform group-open:rotate-90' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+							<path d='M9 5l7 7-7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
+						</svg>
+					</summary>
+
+					<ul className='mt-2 ml-8 space-y-1'>
+						{item.children.map((child) => (
+							<li key={child.path}>
+								<Link
+									className={`block p-2 rounded-md transition-colors ${
+										location.pathname === child.path ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+									}`}
+									onClick={closeSidebar}
+									to={child.path}
+								>
+									{child.label}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</details>
+			);
+		}
+
+		return (
+			<Link
+				className={`flex items-center p-3 rounded-lg font-semibold transition-colors ${
+					location.pathname === path ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
+				}`}
+				onClick={closeSidebar}
+				to={path}
+			>
+				<span className='mr-3'>{icon}</span>
+
+				{label}
+			</Link>
+		);
+	}
+
+	function toggleSidebar() {
+		setIsOpen(!isOpen);
 	}
 
 	return (
@@ -89,13 +161,7 @@ const SidebarNavigation: React.FC = () => {
 					className='flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors cursor-pointer'
 					onClick={toggleSidebar}
 				>
-					<svg className='h-5 w-5 md:h-6 md:w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-						{isOpen ? (
-							<path d='M6 18L18 6M6 6l12 12' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-						) : (
-							<path d='M4 6h16M4 12h16M4 18h16' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-						)}
-					</svg>
+					{renderArrow()}
 				</button>
 			</div>
 
@@ -114,7 +180,6 @@ const SidebarNavigation: React.FC = () => {
 						<h2 className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>🚀 Explore</h2>
 
 						<button aria-label='Close menu' className='p-2 text-gray-500 hover:bg-gray-100 rounded-md transition-colors' onClick={closeSidebar}>
-
 							<svg className='h-5 w-5' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
 								<path d='M6 18L18 6M6 6l12 12' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
 							</svg>
@@ -125,56 +190,7 @@ const SidebarNavigation: React.FC = () => {
 					<nav className='flex-1 overflow-y-auto'>
 						<ul className='space-y-2'>
 							{menuItems.map((item) => (
-								<li key={item.id}>
-									{item.children ? (
-										<details className='group' open={isActive(item.path)}>
-											<summary
-												className={`flex items-center p-3 rounded-lg cursor-pointer list-none font-semibold transition-colors ${
-													isActive(item.path) ? 'text-blue-600 bg-blue-50' : 'hover:bg-gray-100'
-												}`}
-											>
-												<span className='mr-3'>{item.icon}</span>
-												<span className='flex-1'>{item.label}</span>
-												<svg
-													className='w-4 h-4 transition-transform group-open:rotate-90'
-													fill='none'
-													stroke='currentColor'
-													viewBox='0 0 24 24'
-												>
-													<path d='M9 5l7 7-7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
-												</svg>
-											</summary>
-											<ul className='mt-2 ml-8 space-y-1'>
-												{item.children.map((child) => (
-													<li key={child.path}>
-														<Link
-															className={`block p-2 rounded-md transition-colors ${
-																location.pathname === child.path
-																	? 'bg-blue-600 text-white'
-																	: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-															}`}
-															onClick={closeSidebar}
-															to={child.path}
-														>
-															{child.label}
-														</Link>
-													</li>
-												))}
-											</ul>
-										</details>
-									) : (
-										<Link
-											className={`flex items-center p-3 rounded-lg font-semibold transition-colors ${
-												location.pathname === item.path ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
-											}`}
-											onClick={closeSidebar}
-											to={item.path}
-										>
-											<span className='mr-3'>{item.icon}</span>
-											{item.label}
-										</Link>
-									)}
-								</li>
+								<li key={item.id}>{renderMenuItem(item)}</li>
 							))}
 						</ul>
 					</nav>
