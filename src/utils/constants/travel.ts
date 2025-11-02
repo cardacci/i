@@ -7,6 +7,7 @@ export interface VisitedPlace {
 	coordinates?: [number, number]; // [latitude, longitude]
 	country: string;
 	description?: string;
+	livedHere?: boolean;
 	year?: number;
 }
 
@@ -24,6 +25,7 @@ export const COUNTRY_INFO = {
 	GERMANY: { name: 'Germany', code: 'DE', flag: '🇩🇪' },
 	ITALY: { name: 'Italy', code: 'IT', flag: '🇮🇹' },
 	LUXEMBOURG: { name: 'Luxembourg', code: 'LU', flag: '🇱🇺' },
+	MONACO: { name: 'Monaco', code: 'MC', flag: '🇲🇨' },
 	NETHERLANDS: { name: 'Netherlands', code: 'NL', flag: '🇳🇱' },
 	PERU: { name: 'Peru', code: 'PE', flag: '🇵🇪' },
 	SLOVENIA: { name: 'Slovenia', code: 'SI', flag: '🇸🇮' },
@@ -46,6 +48,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Cafayate',
 		coordinates: [-26.07, -65.98]
+	},
+	{
+		country: 'Argentina',
+		city: 'Córdoba',
+		coordinates: [-31.4167, -64.1833]
 	},
 	{
 		country: 'Argentina',
@@ -125,7 +132,14 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Mar del Plata',
-		coordinates: [-38.01, -57.54]
+		coordinates: [-38.01, -57.54],
+		livedHere: true
+	},
+	{
+		country: 'Argentina',
+		city: 'Mar de Ajó',
+		coordinates: [-36.72, -56.68],
+		livedHere: true
 	},
 	{
 		country: 'Argentina',
@@ -240,7 +254,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Villa Elisa',
-		coordinates: [-34.17, -58.6]
+		coordinates: [-32.16, -58.4]
 	},
 	{
 		country: 'Argentina',
@@ -263,7 +277,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		coordinates: [-24.13, -65.46]
 	},
 	{
-		country: 'Argentina/Brazil',
+		country: 'Argentina',
 		city: 'Cataratas del Iguazú',
 		coordinates: [-25.57736, -54.28607]
 	},
@@ -373,6 +387,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		coordinates: [49.82, 6.13]
 	},
 	{
+		country: 'Monaco',
+		city: 'Monaco',
+		coordinates: [43.7384, 7.4246]
+	},
+	{
 		country: 'Netherlands',
 		city: 'Amsterdam',
 		coordinates: [52.37, 4.9]
@@ -435,7 +454,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'United States',
 		city: 'Aspen',
-		coordinates: [39.19, -106.82]
+		coordinates: [39.19, -106.82],
+		livedHere: true
 	},
 	{
 		country: 'United States',
