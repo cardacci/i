@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* ===== Types & Interfaces ===== */
 interface SectionTitleProps {
 	children: React.ReactNode;
 	className?: string;

@@ -2,6 +2,7 @@ import React, { Fragment, useMemo, useState } from 'react';
 
 import { SectionTitle, useApiRequest } from '@/utils';
 
+/* ===== Types & Interfaces ===== */
 interface CryptoMetric {
 	category: string;
 	circulatingPercentage: string; // Percentage or "∞".
@@ -310,6 +311,7 @@ const FairValueAnalysis: React.FC = () => {
 		});
 	}, [cryptoMetrics, sortDirection, sortField]);
 
+	/* ===== Functions ===== */
 	function calculateMCDelta(currentMC: number, athMC: number): number {
 		if (athMC === 0) {
 			return 0;
@@ -332,6 +334,31 @@ const FairValueAnalysis: React.FC = () => {
 
 	function calculatePriceDelta(currentPrice: number, athPrice: number): number {
 		return ((currentPrice - athPrice) / athPrice) * 100;
+	}
+
+	function renderFetchButton() {
+		if (isLoading) {
+			return (
+				<Fragment>
+					<span className='loading loading-spinner loading-sm'></span>
+					Fetching Data...
+				</Fragment>
+			);
+		}
+
+		return (
+			<Fragment>
+				<svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+					<path
+						d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						strokeWidth={2}
+					/>
+				</svg>
+				Fetch Crypto Data
+			</Fragment>
+		);
 	}
 
 	/**
@@ -358,24 +385,7 @@ const FairValueAnalysis: React.FC = () => {
 						major cryptocurrencies.
 					</p>
 					<button className='btn btn-primary' disabled={isLoading} onClick={fetchCryptoData}>
-						{isLoading ? (
-							<Fragment>
-								<span className='loading loading-spinner loading-sm'></span>
-								Fetching Data...
-							</Fragment>
-						) : (
-							<Fragment>
-								<svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-									<path
-										d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10'
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth={2}
-									/>
-								</svg>
-								Fetch Crypto Data
-							</Fragment>
-						)}
+						{renderFetchButton()}
 					</button>
 				</div>
 			</div>

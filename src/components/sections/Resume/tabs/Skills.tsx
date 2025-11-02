@@ -2,12 +2,30 @@ import React from 'react';
 
 import { SectionTitle } from '@/utils';
 
+/* ===== Types & Interfaces ===== */
+interface Skill {
+	featured?: boolean;
+	name: string;
+}
+
 const Skills: React.FC = () => {
 	/* ===== Constants & Variables ===== */
-	interface Skill {
-		featured?: boolean;
-		name: string;
-	}
+	const backendSkills: Skill[] = [
+		{ name: 'Node.js' },
+		{ featured: true, name: 'REST APIs' },
+		{ name: 'Web API' },
+		{ name: 'C#' },
+		{ name: 'ASP.NET MVC' },
+		{ name: 'Razor' },
+		{ name: 'NHibernate' },
+		{ name: 'LINQ' },
+		{ name: 'IIS' },
+		{ name: 'JHipster' },
+		{ name: 'PHP' },
+		{ name: 'Java' }
+	];
+
+	const databaseSkills: Skill[] = [{ name: 'Microsoft SQL Server' }, { name: 'SQLite' }, { name: 'MySQL' }];
 
 	const frontendSkills: Skill[] = [
 		{ featured: true, name: 'React' },
@@ -37,6 +55,17 @@ const Skills: React.FC = () => {
 		{ name: 'Recompose' }
 	];
 
+	const leadershipSkills: Skill[] = [
+		{ featured: true, name: 'Technical Leadership' },
+		{ featured: true, name: 'Software Architecture' },
+		{ featured: true, name: 'Team Management' },
+		{ featured: true, name: 'Hiring and Interviewing' },
+		{ featured: true, name: 'Agile Methodologies' },
+		{ featured: true, name: 'Scrum' },
+		{ name: 'Kanban' },
+		{ name: 'Product Development' }
+	];
+
 	const mobileWebSkills: Skill[] = [
 		{ featured: true, name: 'Capacitor' },
 		{ featured: true, name: 'Progressive Web Applications (PWAs)' },
@@ -49,22 +78,7 @@ const Skills: React.FC = () => {
 		{ featured: true, name: 'Google Play Console' }
 	];
 
-	const backendSkills: Skill[] = [
-		{ name: 'Node.js' },
-		{ featured: true, name: 'REST APIs' },
-		{ name: 'Web API' },
-		{ name: 'C#' },
-		{ name: 'ASP.NET MVC' },
-		{ name: 'Razor' },
-		{ name: 'NHibernate' },
-		{ name: 'LINQ' },
-		{ name: 'IIS' },
-		{ name: 'JHipster' },
-		{ name: 'PHP' },
-		{ name: 'Java' }
-	];
-
-	const databaseSkills: Skill[] = [{ name: 'Microsoft SQL Server' }, { name: 'SQLite' }, { name: 'MySQL' }];
+	const otherSkills: Skill[] = [{ name: 'Object-Oriented Programming (OOP)' }, { name: 'JSON' }, { name: 'XML' }, { name: 'English' }];
 
 	const toolsSkills: Skill[] = [
 		{ featured: true, name: 'Git' },
@@ -84,19 +98,6 @@ const Skills: React.FC = () => {
 		{ name: 'Adobe Primetime' }
 	];
 
-	const leadershipSkills: Skill[] = [
-		{ featured: true, name: 'Technical Leadership' },
-		{ featured: true, name: 'Software Architecture' },
-		{ featured: true, name: 'Team Management' },
-		{ featured: true, name: 'Hiring and Interviewing' },
-		{ featured: true, name: 'Agile Methodologies' },
-		{ featured: true, name: 'Scrum' },
-		{ name: 'Kanban' },
-		{ name: 'Product Development' }
-	];
-
-	const otherSkills: Skill[] = [{ name: 'Object-Oriented Programming (OOP)' }, { name: 'JSON' }, { name: 'XML' }, { name: 'English' }];
-
 	const skillCategories = [
 		{ color: 'blue', skills: frontendSkills, title: 'Frontend Development' },
 		{ color: 'purple', skills: mobileWebSkills, title: 'Mobile & Web Technologies' },
@@ -107,6 +108,7 @@ const Skills: React.FC = () => {
 		{ color: 'indigo', skills: otherSkills, title: 'Other Skills' }
 	];
 
+	/* ===== Functions ===== */
 	const getColorClasses = (color: string) => {
 		const colors: Record<string, { bg: string; border: string; text: string }> = {
 			blue: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-800' },

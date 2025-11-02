@@ -2,16 +2,17 @@ import React from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 
+/* ===== Types & Interfaces ===== */
 interface Tab {
+	content: React.ReactNode;
 	id: string;
 	label: string;
-	content: React.ReactNode;
 }
 
 interface TabViewProps {
-	tabs: Tab[];
 	baseUrl: string;
 	defaultTab?: string;
+	tabs: Tab[];
 }
 
 const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {

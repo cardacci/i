@@ -9,6 +9,7 @@ import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technolo
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
 
+/* ===== Types & Interfaces ===== */
 interface ExperienceDescription {
 	bullets?: string[];
 	title: string;

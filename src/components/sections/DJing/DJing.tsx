@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES } from '@/utils/constants/routes';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
 import FollowMyDjContent from './common/FollowMyDjContent';
 import DjInfo from './tabs/DjInfo';
@@ -14,10 +14,9 @@ import TrackClassifier from './tabs/TrackClassifier';
 const DJing: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
-		INFO: <DjInfo />,
-		SETS: <Sets />,
-		// eslint-disable-next-line sort-keys
-		CLASSIFIER: <TrackClassifier />
+		[ROUTE_KEYS.DJING.INFO]: <DjInfo />,
+		[ROUTE_KEYS.DJING.SETS]: <Sets />,
+		[ROUTE_KEYS.DJING.CLASSIFIER]: <TrackClassifier />
 	};
 
 	const tabs = createTabsFromRoutes(ROUTES.DJING, tabContent);

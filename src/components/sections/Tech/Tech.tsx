@@ -4,17 +4,14 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES } from '@/utils/constants/routes';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
-import MySkills from './tabs/MySkills';
 import ProjectTech from './tabs/ProjectTech';
 
 const Tech: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
-		SKILLS: <MySkills />,
-		// eslint-disable-next-line sort-keys
-		PROJECT: <ProjectTech />
+		[ROUTE_KEYS.TECH.PROJECT]: <ProjectTech />
 	};
 	const defaultTab = getFirstChildRoute(ROUTES.TECH);
 	const tabs = createTabsFromRoutes(ROUTES.TECH, tabContent);

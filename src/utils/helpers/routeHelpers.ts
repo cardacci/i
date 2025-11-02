@@ -1,19 +1,20 @@
 import { ReactNode } from 'react';
 
+/* ===== Types & Interfaces ===== */
 interface RouteObject {
 	id: string;
 	label: string;
 	path: string;
 }
 
-interface TabContent {
-	[key: string]: ReactNode;
-}
-
 interface Tab {
 	content: ReactNode;
 	id: string;
 	label: string;
+}
+
+interface TabContent {
+	[key: string]: ReactNode;
 }
 
 // Type for a route that can contain child routes.
