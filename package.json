@@ -1,8 +1,10 @@
 {
 	"author": "Gabriel Cardacci",
 	"dependencies": {
+		"leaflet": "^1.9.4",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-leaflet": "^5.0.0",
 		"react-router-dom": "^7.6.2"
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
@@ -10,6 +12,7 @@
 		"@eslint/js": "^9.28.0",
 		"@tailwindcss/postcss": "^4.1.11",
 		"@tailwindcss/vite": "^4.1.11",
+		"@types/leaflet": "^1.9.21",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.1",
 		"@typescript-eslint/eslint-plugin": "^8.33.1",
