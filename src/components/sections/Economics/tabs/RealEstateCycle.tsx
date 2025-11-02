@@ -16,7 +16,7 @@ const RealEstateCycle: React.FC = () => {
 						behavior.
 					</p>
 
-					<ImageWithModal alt='18 Year Real Estate Cycle Chart' src={realStateCycle} />
+					<ImageWithModal alt='18 Year Real Estate Cycle Chart' src={realStateCycle} title='18 Year Real Estate Cycle' />
 				</div>
 
 				<div className='grid gap-4 md:grid-cols-2'>

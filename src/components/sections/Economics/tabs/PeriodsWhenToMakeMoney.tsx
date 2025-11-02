@@ -15,7 +15,15 @@ const MarketTiming: React.FC = () => {
 						Understanding market timing is crucial for successful investing. Different economic phases present unique opportunities and risks.
 					</p>
 
-					<ImageWithModal alt='Periods When to Make Money Chart' src={periodsWhenToMakeMoney} />
+					<div className='bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4'>
+						<p className='text-amber-800 text-sm'>
+							<strong>Important Note:</strong> While this chart provides valuable insights based on historical patterns, it does not guarantee
+							future performance. However, over the years, it has proven remarkably accurate in identifying market phases and optimal investment
+							periods.
+						</p>
+					</div>
+
+					<ImageWithModal alt='Periods When to Make Money Chart' src={periodsWhenToMakeMoney} title='Periods When to Make Money' />
 				</div>
 
 				<div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
