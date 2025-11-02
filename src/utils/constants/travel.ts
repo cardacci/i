@@ -51,11 +51,6 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Cataratas del Iguazú',
-		coordinates: [-25.57736, -54.28607]
-	},
-	{
-		country: 'Argentina',
 		city: 'Choele Choel',
 		coordinates: [-39.29, -65.66]
 	},
@@ -91,16 +86,6 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Glaciar Perito Moreno',
-		coordinates: [-50.5, -73.14]
-	},
-	{
-		country: 'Argentina',
-		city: 'Glaciar Torre',
-		coordinates: [-49.33, -73.25]
-	},
-	{
-		country: 'Argentina',
 		city: 'Gualeguaychú',
 		coordinates: [-33.01, -58.53]
 	},
@@ -108,6 +93,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Humahuaca',
 		coordinates: [-23.2, -65.35]
+	},
+	{
+		country: 'Argentina',
+		city: 'Iguazu Falls',
+		coordinates: [-25.57736, -54.28607]
 	},
 	{
 		country: 'Argentina',
@@ -148,11 +138,6 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Mirador a la cercanía de las ruinas de Quilmes',
-		coordinates: [-24.62, -65.36]
-	},
-	{
-		country: 'Argentina',
 		city: 'Palermo (Buenos Aires)',
 		coordinates: [-34.58, -58.43]
 	},
@@ -160,6 +145,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Palpalá',
 		coordinates: [-24.26, -65.21]
+	},
+	{
+		country: 'Argentina',
+		city: 'Perito Moreno Glacier',
+		coordinates: [-50.5, -73.14]
 	},
 	{
 		country: 'Argentina',
@@ -193,6 +183,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
+		city: 'Quilmes Ruins',
+		coordinates: [-24.62, -65.36]
+	},
+	{
+		country: 'Argentina',
 		city: 'Río Colorado',
 		coordinates: [-38.99, -64.1]
 	},
@@ -205,11 +200,6 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Salta',
 		coordinates: [-25.25, -64.72]
-	},
-	{
-		country: 'Argentina',
-		city: 'Serranía de Hornocal',
-		coordinates: [-23.3, -65.12]
 	},
 	{
 		country: 'Argentina',
@@ -233,6 +223,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
+		city: 'Serranía de Hornocal',
+		coordinates: [-23.3, -65.12]
+	},
+	{
+		country: 'Argentina',
 		city: 'Sierra de la Ventana',
 		coordinates: [-38.14, -61.8]
 	},
@@ -250,6 +245,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Tilcara',
 		coordinates: [-23.58, -65.4]
+	},
+	{
+		country: 'Argentina',
+		city: 'Torre Glacier',
+		coordinates: [-49.33, -73.25]
 	},
 	{
 		country: 'Argentina',
@@ -298,11 +298,6 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Bolivia',
-		city: 'Cementerio de Trenes (Uyuni)',
-		coordinates: [-20.46, -66.83]
-	},
-	{
-		country: 'Bolivia',
 		city: 'Copacabana',
 		coordinates: [-16.17, -69.09]
 	},
@@ -320,6 +315,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Bolivia',
 		city: 'Salar de Uyuni',
 		coordinates: [-20.13, -67.49]
+	},
+	{
+		country: 'Bolivia',
+		city: 'Train Cemetery',
+		coordinates: [-20.46, -66.83]
 	},
 	{
 		country: 'Brazil',
@@ -343,7 +343,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Brazil',
-		city: 'Río de Janeiro',
+		city: 'Rio de Janeiro',
 		coordinates: [-22.91, -43.17]
 	},
 	{
@@ -413,7 +413,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Peru',
-		city: 'Santuario Histórico de Machu Picchu',
+		city: 'Machu Picchu',
 		coordinates: [-13.16, -72.55]
 	},
 	{
@@ -428,7 +428,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Spain',
-		city: 'Graciosa (Isla)',
+		city: 'Graciosa Island',
 		coordinates: [29.25, -13.5]
 	},
 	{
@@ -504,7 +504,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Uruguay',
-		city: 'Faro de José Ignacio',
+		city: 'José Ignacio Lighthouse',
 		coordinates: [-34.84, -54.64]
 	},
 	{
