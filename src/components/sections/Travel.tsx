@@ -35,8 +35,8 @@ const Travel: React.FC = () => {
 					<h3 className='text-xl font-semibold text-blue-800 mb-3'>Travel Philosophy</h3>
 
 					<p className='text-blue-700 mb-3'>
-						Travel is not just about visiting new places—it's about understanding different perspectives, challenging preconceptions, and growing as
-						a person.
+						Travel is not just about visiting new places, it's about understanding different perspectives, challenging preconceptions, and growing
+						as a person.
 					</p>
 
 					<ul className='space-y-2 text-blue-700'>

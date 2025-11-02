@@ -60,8 +60,8 @@ const WorldMap: React.FC<WorldMapProps> = (props) => {
 	};
 
 	return (
-		<div className={`w-full h-96 rounded-lg overflow-hidden shadow-lg ${className}`}>
-			<MapContainer center={center} className='rounded-lg' style={{ height: '100%', width: '100%' }} zoom={zoom}>
+		<div className={`w-full h-96 rounded-lg overflow-hidden shadow-lg relative ${className}`} style={{ zIndex: 1 }}>
+			<MapContainer center={center} className='rounded-lg' style={{ height: '100%', width: '100%', zIndex: 1 }} zoom={zoom}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
