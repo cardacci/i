@@ -51,8 +51,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Córdoba',
-		coordinates: [-31.4167, -64.1833]
+		city: 'Cataratas del Iguazú',
+		coordinates: [-25.57736, -54.28607]
 	},
 	{
 		country: 'Argentina',
@@ -63,6 +63,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Cipolletti',
 		coordinates: [-38.94, -68.0]
+	},
+	{
+		country: 'Argentina',
+		city: 'Córdoba',
+		coordinates: [-31.4167, -64.1833]
 	},
 	{
 		country: 'Argentina',
@@ -131,14 +136,14 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Mar del Plata',
-		coordinates: [-38.01, -57.54],
+		city: 'Mar de Ajó',
+		coordinates: [-36.72, -56.68],
 		livedHere: true
 	},
 	{
 		country: 'Argentina',
-		city: 'Mar de Ajó',
-		coordinates: [-36.72, -56.68],
+		city: 'Mar del Plata',
+		coordinates: [-38.01, -57.54],
 		livedHere: true
 	},
 	{
@@ -203,6 +208,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
+		city: 'Serranía de Hornocal',
+		coordinates: [-23.3, -65.12]
+	},
+	{
+		country: 'Argentina',
 		city: 'San Carlos de Bariloche',
 		coordinates: [-41.13, -71.31]
 	},
@@ -253,6 +263,11 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
+		city: 'Villa de Merlo',
+		coordinates: [-32.35, -64.97]
+	},
+	{
+		country: 'Argentina',
 		city: 'Villa Elisa',
 		coordinates: [-32.16, -58.4]
 	},
@@ -268,18 +283,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'Argentina',
-		city: 'Villa de Merlo',
-		coordinates: [-32.35, -64.97]
-	},
-	{
-		country: 'Argentina',
 		city: 'Yala',
 		coordinates: [-24.13, -65.46]
-	},
-	{
-		country: 'Argentina',
-		city: 'Cataratas del Iguazú',
-		coordinates: [-25.57736, -54.28607]
 	},
 	{
 		country: 'Austria',
@@ -459,7 +464,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	},
 	{
 		country: 'United States',
-		city: 'Aspen Snowmass Ski Resort',
+		city: 'Aspen Snowmass',
 		coordinates: [39.19, -106.95]
 	},
 	{
