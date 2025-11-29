@@ -1,12 +1,26 @@
 import React from 'react';
 
-import WorldMap from '@/components/common/WorldMap';
-import { BaseView } from '@/utils';
-import { VISITED_PLACES, getTotalCountriesVisited } from '@/utils/constants/travel';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
+import TabView from '@/components/common/TabView';
+import { BaseView, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
+import { ROUTE_KEYS, ROUTES } from '@/utils/constants/routes';
+import { getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants/travel';
+
+import Map from './tabs/Map';
+import Timeline from './tabs/Timeline';
 
 const Travel: React.FC = () => {
 	/* ===== Constants & Variables ===== */
 	const totalCountries = getTotalCountriesVisited();
+
+	const tabContent = {
+		[ROUTE_KEYS.TRAVEL.MAP]: <Map />,
+		[ROUTE_KEYS.TRAVEL.TIMELINE]: <Timeline />
+	};
+
+	const tabs = createTabsFromRoutes(ROUTES.TRAVEL, tabContent);
+	const defaultTab = getFirstChildRoute(ROUTES.TRAVEL);
 
 	return (
 		<BaseView id='travel' title='Travel Adventures'>
@@ -20,15 +34,11 @@ const Travel: React.FC = () => {
 						perspective and enriched my understanding of diverse cultures.
 					</p>
 
-					<div className='mb-4'>
-						<WorldMap visitedCountries={VISITED_PLACES} />
-					</div>
+					<Routes>
+						<Route element={<Navigate replace to={defaultTab.id} />} path='/' />
 
-					<div className='text-sm text-gray-500'>
-						<p>
-							💡 <em>Click on the markers to learn more about each destination</em>
-						</p>
-					</div>
+						<Route element={<TabView baseUrl={ROUTES.TRAVEL.path} defaultTab={defaultTab.id} tabs={tabs} />} path=':tabId' />
+					</Routes>
 				</div>
 
 				<div className='bg-blue-50 p-6 rounded-xl border border-blue-200'>
@@ -52,7 +62,7 @@ const Travel: React.FC = () => {
 
 						<li className='flex items-start'>
 							<span className='text-blue-500 mr-2'>📚</span>
-							Travel is the best education money can buy
+							Travel is the most enriching form of education
 						</li>
 					</ul>
 				</div>

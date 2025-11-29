@@ -53,7 +53,8 @@ const SidebarNavigation: React.FC = () => {
 			children: getChildrenFromRoute(ROUTES.DJING)
 		},
 		{
-			...ROUTES.TRAVEL
+			...ROUTES.TRAVEL,
+			children: getChildrenFromRoute(ROUTES.TRAVEL)
 		}
 	];
 

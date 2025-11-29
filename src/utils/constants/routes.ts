@@ -1,27 +1,31 @@
-// Route key constants for consistent usage across components
+// Route key constants for consistent usage across components.
 export const ROUTE_KEYS = {
 	CRYPTO: {
 		BITCOIN: 'BITCOIN',
 		FAIR_VALUE_ANALYSIS: 'FAIR_VALUE_ANALYSIS'
 	},
 	DJING: {
+		CLASSIFIER: 'CLASSIFIER',
 		INFO: 'INFO',
-		SETS: 'SETS',
-		CLASSIFIER: 'CLASSIFIER'
+		SETS: 'SETS'
 	},
 	ECONOMICS: {
-		REAL_ESTATE_CYCLE: 'REAL_ESTATE_CYCLE',
-		PERIODS_WHEN_TO_MAKE_MONEY: 'PERIODS_WHEN_TO_MAKE_MONEY'
+		PERIODS_WHEN_TO_MAKE_MONEY: 'PERIODS_WHEN_TO_MAKE_MONEY',
+		REAL_ESTATE_CYCLE: 'REAL_ESTATE_CYCLE'
 	},
 	RESUME: {
-		PERSONAL: 'PERSONAL',
 		EDUCATION: 'EDUCATION',
 		EXPERIENCE: 'EXPERIENCE',
-		SKILLS: 'SKILLS',
-		PROJECTS: 'PROJECTS'
+		PERSONAL: 'PERSONAL',
+		PROJECTS: 'PROJECTS',
+		SKILLS: 'SKILLS'
 	},
 	TECH: {
 		PROJECT: 'PROJECT'
+	},
+	TRAVEL: {
+		MAP: 'MAP',
+		TIMELINE: 'TIMELINE'
 	}
 } as const;
 
@@ -155,10 +159,22 @@ export const ROUTES = {
 		...BASE_ROUTES.TECH,
 		[ROUTE_KEYS.TECH.PROJECT]: {
 			id: 'project',
-			path: `${BASE_ROUTES.TECH.path}/project`,
-			label: 'Project Technologies'
+			label: 'Project Technologies',
+			path: `${BASE_ROUTES.TECH.path}/project`
 		}
 	},
 
-	TRAVEL: BASE_ROUTES.TRAVEL
+	TRAVEL: {
+		...BASE_ROUTES.TRAVEL,
+		[ROUTE_KEYS.TRAVEL.MAP]: {
+			id: 'map',
+			label: 'World Map',
+			path: `${BASE_ROUTES.TRAVEL.path}/map`
+		},
+		[ROUTE_KEYS.TRAVEL.TIMELINE]: {
+			id: 'timeline',
+			label: 'Timeline',
+			path: `${BASE_ROUTES.TRAVEL.path}/timeline`
+		}
+	}
 } as const;

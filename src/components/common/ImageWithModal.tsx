@@ -6,13 +6,14 @@ import { KEYBOARD_KEYS } from '@/utils/constants/keyboard';
 interface ImageWithModalProps {
 	alt: string;
 	className?: string;
+	imgStyle?: React.CSSProperties;
 	maxWidth?: string;
 	src: string;
 	title?: string;
 }
 
 const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
-	const { src, alt, className = '', maxWidth = 'max-w-xl', title } = props;
+	const { src, alt, className = '', maxWidth = 'max-w-xl', title, imgStyle } = props;
 
 	/* ===== State ===== */
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,8 +40,8 @@ const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
 
 	return (
 		<>
-			<div className='flex justify-center'>
-				<img alt={alt} className={`${baseClasses} ${className}`} onClick={() => setIsModalOpen(true)} src={src} />
+			<div className='flex justify-center h-full w-full'>
+				<img alt={alt} className={`${baseClasses} ${className}`} onClick={() => setIsModalOpen(true)} src={src} style={imgStyle} />
 			</div>
 
 			{/* Modal */}

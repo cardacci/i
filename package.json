@@ -1,11 +1,13 @@
 {
 	"author": "Gabriel Cardacci",
 	"dependencies": {
+		"@types/react-scroll": "^1.8.10",
 		"leaflet": "^1.9.4",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-leaflet": "^5.0.0",
-		"react-router-dom": "^7.6.2"
+		"react-router-dom": "^7.6.2",
+		"react-scroll": "^1.9.3"
 	},
 	"description": "A personal website showcasing my CV, interests in crypto, technology, DJing, and travel.",
 	"devDependencies": {
@@ -58,5 +60,5 @@
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.06.24"
+	"version": "1.11.29"
 }
