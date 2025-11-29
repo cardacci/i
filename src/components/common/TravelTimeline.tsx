@@ -1,5 +1,8 @@
 import React, { useMemo } from 'react';
 
+import { Link } from 'react-scroll';
+
+import ImageWithModal from '@/components/common/ImageWithModal';
 import { COUNTRY_INFO, VisitedPlace } from '@/utils/constants/travel';
 
 interface TimelineEntry {
@@ -68,8 +71,30 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 
 	return (
 		<div className='relative'>
+			{/* Year Selector (Sticky) */}
+			<div className='sticky top-32 md:top-28 z-30 bg-white/95 backdrop-blur-sm py-4 mb-8 border-b border-gray-100 overflow-x-auto shadow-sm'>
+				<div className='flex space-x-2 px-2'>
+					{timelineEntries.map((entry) => {
+						const { year } = entry;
+
+						return (
+							<Link
+								className='px-4 py-2 bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-full text-sm font-medium transition-colors cursor-pointer whitespace-nowrap'
+								duration={500}
+								key={`year-selector-${year}`}
+								offset={-100}
+								smooth
+								to={`year-${year}`}
+							>
+								{year}
+							</Link>
+						);
+					})}
+				</div>
+			</div>
+
 			{/* Timeline line */}
-			<div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500' />
+			<div className='absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500' />
 
 			{/* Timeline entries */}
 			<div className='space-y-12'>
@@ -77,7 +102,7 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 					const { places, year } = entry;
 
 					return (
-						<div className='relative pl-20' key={year}>
+						<div className='relative pl-20' id={`year-${year}`} key={year}>
 							{/* Year badge */}
 							<div className='absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white'>
 								<span className='text-white font-bold text-lg'>{year}</span>
@@ -96,11 +121,13 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 											{/* Photo placeholder or actual photo */}
 											<div className='relative h-32 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 overflow-hidden'>
 												{photos && photos.length > 0 ? (
-													<img
+													<ImageWithModal
 														alt={`${city || country}`}
 														className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300'
+														imgStyle={{ filter: 'sepia(15%) contrast(95%)' }}
+														maxWidth='w-full'
 														src={photos[0]}
-														style={{ filter: 'sepia(15%) contrast(95%)' }}
+														title={`${city || country} (${year})`}
 													/>
 												) : (
 													<div className='w-full h-full flex items-center justify-center'>
@@ -110,7 +137,7 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 
 												{/* Lived here badge */}
 												{livedHere && (
-													<div className='absolute top-2 right-2 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold shadow-md'>
+													<div className='absolute top-2 right-2 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold shadow-md pointer-events-none'>
 														🏠 Lived Here
 													</div>
 												)}
@@ -120,6 +147,7 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 											<div className='p-3'>
 												<h4 className='font-bold text-gray-800 text-base mb-1 flex items-center gap-1'>
 													<span>{getCountryFlag(country)}</span>
+
 													<span>{city || country}</span>
 												</h4>
 
