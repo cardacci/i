@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
 import Header from '@/components/layout/Header';
 import SidebarNavigation from '@/components/layout/SidebarNavigation';
@@ -10,7 +10,7 @@ import Economics from '@/components/sections/Economics/Economics';
 import Home from '@/components/sections/Home';
 import Resume from '@/components/sections/Resume/Resume';
 import Tech from '@/components/sections/Tech/Tech';
-import Travel from '@/components/sections/Travel';
+import Travel from '@/components/sections/Travel/Travel';
 import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
 
@@ -67,7 +67,7 @@ const router = createHashRouter([
 			},
 			{
 				element: <Travel />,
-				path: ROUTES.TRAVEL.id
+				path: `${ROUTES.TRAVEL.id}/*`
 			}
 		],
 		element: <Layout />,

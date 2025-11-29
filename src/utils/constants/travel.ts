@@ -1,3 +1,11 @@
+import bruges2025 from '@/assets/images/travel/2025/2025-bruges.jpg';
+import interlaken2025 from '@/assets/images/travel/2025/2025-interlaken.jpg';
+import lauterbrunnen2025 from '@/assets/images/travel/2025/2025-lauterbrunnen.jpg';
+import london2025 from '@/assets/images/travel/2025/2025-london.jpg';
+import luxembourg2025 from '@/assets/images/travel/2025/2025-luxembourg.jpg';
+import salzburg2025 from '@/assets/images/travel/2025/2025-salzburg.jpg';
+import venice2025 from '@/assets/images/travel/2025/2025-venice.jpg';
+
 /**
  * Travel destinations data for the interactive world map
  * Coordinates represent approximate center points of each destination
@@ -8,7 +16,9 @@ export interface VisitedPlace {
 	country: string;
 	description?: string;
 	livedHere?: boolean;
-	year?: number;
+	photos?: string[]; // URLs or paths to photos from this place
+	year?: number; // Deprecated: use years instead
+	years?: number | number[]; // Year(s) when this place was visited
 }
 
 /**
@@ -42,12 +52,14 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Achiras',
-		coordinates: [-33.18, -64.99]
+		coordinates: [-33.18, -64.99],
+		years: 2008
 	},
 	{
 		country: 'Argentina',
 		city: 'Cafayate',
-		coordinates: [-26.07, -65.98]
+		coordinates: [-26.07, -65.98],
+		years: [2004, 2015]
 	},
 	{
 		country: 'Argentina',
@@ -72,12 +84,14 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'El Calafate',
-		coordinates: [-50.34, -72.26]
+		coordinates: [-50.34, -72.26],
+		years: 2024
 	},
 	{
 		country: 'Argentina',
 		city: 'El Chaltén',
-		coordinates: [-49.33, -72.89]
+		coordinates: [-49.33, -72.89],
+		years: 2024
 	},
 	{
 		country: 'Argentina',
@@ -97,7 +111,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Iguazu Falls',
-		coordinates: [-25.57736, -54.28607]
+		coordinates: [-25.57736, -54.28607],
+		years: 2004
 	},
 	{
 		country: 'Argentina',
@@ -117,7 +132,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Laguna de los Tres',
-		coordinates: [-49.28, -72.99]
+		coordinates: [-49.28, -72.99],
+		years: 2024
 	},
 	{
 		country: 'Argentina',
@@ -144,12 +160,14 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Palpalá',
-		coordinates: [-24.26, -65.21]
+		coordinates: [-24.26, -65.21],
+		years: 2022
 	},
 	{
 		country: 'Argentina',
 		city: 'Perito Moreno Glacier',
-		coordinates: [-50.5, -73.14]
+		coordinates: [-50.5, -73.14],
+		years: 2024
 	},
 	{
 		country: 'Argentina',
@@ -159,7 +177,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Puerto Blest',
-		coordinates: [-41.03, -71.82]
+		coordinates: [-41.03, -71.82],
+		years: 2022
 	},
 	{
 		country: 'Argentina',
@@ -169,7 +188,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Puerto Pirámides',
-		coordinates: [-42.57, -64.28]
+		coordinates: [-42.57, -64.28],
+		years: 2012
 	},
 	{
 		country: 'Argentina',
@@ -224,7 +244,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Serranía de Hornocal',
-		coordinates: [-23.3, -65.12]
+		coordinates: [-23.3, -65.12],
+		years: 2022
 	},
 	{
 		country: 'Argentina',
@@ -249,7 +270,8 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Torre Glacier',
-		coordinates: [-49.33, -73.25]
+		coordinates: [-49.33, -73.25],
+		years: 2024
 	},
 	{
 		country: 'Argentina',
@@ -284,72 +306,88 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'Argentina',
 		city: 'Yala',
-		coordinates: [-24.13, -65.46]
+		coordinates: [-24.13, -65.46],
+		years: 2022
 	},
 	{
 		country: 'Austria',
 		city: 'Salzburg',
-		coordinates: [47.8, 13.04]
+		coordinates: [47.8, 13.04],
+		photos: [salzburg2025],
+		years: 2025
 	},
 	{
 		country: 'Belgium',
 		city: 'Bruges',
-		coordinates: [51.21, 3.23]
+		coordinates: [51.21, 3.23],
+		photos: [bruges2025],
+		years: 2025
 	},
 	{
 		country: 'Bolivia',
 		city: 'Copacabana',
-		coordinates: [-16.17, -69.09]
+		coordinates: [-16.17, -69.09],
+		years: 2015
 	},
 	{
 		country: 'Bolivia',
 		city: 'Coroico',
-		coordinates: [-16.19, -67.73]
+		coordinates: [-16.19, -67.73],
+		years: 2015
 	},
 	{
 		country: 'Bolivia',
 		city: 'Isla del Sol',
-		coordinates: [-16.02, -69.18]
+		coordinates: [-16.02, -69.18],
+		years: 2015
 	},
 	{
 		country: 'Bolivia',
 		city: 'Salar de Uyuni',
-		coordinates: [-20.13, -67.49]
+		coordinates: [-20.13, -67.49],
+		years: 2015
 	},
 	{
 		country: 'Bolivia',
 		city: 'Train Cemetery',
-		coordinates: [-20.46, -66.83]
+		coordinates: [-20.46, -66.83],
+		years: 2015
 	},
 	{
 		country: 'Brazil',
 		city: 'Armação dos Búzios',
-		coordinates: [-22.76, -41.88]
+		coordinates: [-22.76, -41.88],
+		years: [2019, 2022]
 	},
 	{
 		country: 'Brazil',
 		city: 'Arraial do Cabo',
-		coordinates: [-22.97, -42.03]
+		coordinates: [-22.97, -42.03],
+		years: [2019, 2022]
 	},
 	{
 		country: 'Brazil',
 		city: 'Belo Horizonte',
-		coordinates: [-19.92, -43.94]
+		coordinates: [-19.92, -43.94],
+		years: 2019
 	},
 	{
 		country: 'Brazil',
 		city: 'Morro de São Paulo',
-		coordinates: [-13.38, -38.91]
+		coordinates: [-13.38, -38.91],
+		years: 2019
 	},
 	{
 		country: 'Brazil',
 		city: 'Rio de Janeiro',
-		coordinates: [-22.91, -43.17]
+		coordinates: [-22.91, -43.17],
+		years: [2019, 2022]
 	},
 	{
 		country: 'Brazil',
 		city: 'Salvador',
-		coordinates: [-12.98, -38.5]
+		coordinates: [-12.98, -38.5],
+		years: 2019
 	},
 	{
 		country: 'Chile',
@@ -364,168 +402,206 @@ export const VISITED_PLACES: VisitedPlace[] = [
 	{
 		country: 'France',
 		city: 'Nice',
-		coordinates: [43.71, 7.26]
+		coordinates: [43.71, 7.26],
+		years: 2025
 	},
 	{
 		country: 'Germany',
 		city: 'Munich',
-		coordinates: [48.14, 11.58]
+		coordinates: [48.14, 11.58],
+		years: 2025
 	},
 	{
 		country: 'Italy',
 		city: 'Genoa',
-		coordinates: [44.41, 8.93]
+		coordinates: [44.41, 8.93],
+		years: 2025
 	},
 	{
 		country: 'Italy',
 		city: 'Venice',
-		coordinates: [45.44, 12.32]
+		coordinates: [45.44, 12.32],
+		photos: [venice2025],
+		years: 2025
 	},
 	{
 		country: 'Italy',
 		city: 'Verona',
-		coordinates: [45.44, 10.99]
+		coordinates: [45.44, 10.99],
+		years: 2025
 	},
 	{
 		country: 'Luxembourg',
 		city: 'Luxembourg (City)',
-		coordinates: [49.82, 6.13]
+		coordinates: [49.82, 6.13],
+		photos: [luxembourg2025],
+		years: 2025
 	},
 	{
 		country: 'Monaco',
 		city: 'Monaco',
-		coordinates: [43.7384, 7.4246]
+		coordinates: [43.7384, 7.4246],
+		years: 2025
 	},
 	{
 		country: 'Netherlands',
 		city: 'Amsterdam',
-		coordinates: [52.37, 4.9]
+		coordinates: [52.37, 4.9],
+		years: 2025
 	},
 	{
 		country: 'Peru',
 		city: 'Aguas Calientes',
-		coordinates: [-13.15458, -72.52484]
+		coordinates: [-13.15458, -72.52484],
+		years: 2015
 	},
 	{
 		country: 'Peru',
 		city: 'Cusco',
-		coordinates: [-13.53, -71.97]
+		coordinates: [-13.53, -71.97],
+		years: 2015
 	},
 	{
 		country: 'Peru',
 		city: 'Machu Picchu',
-		coordinates: [-13.16, -72.55]
+		coordinates: [-13.16, -72.55],
+		years: 2015
 	},
 	{
 		country: 'Slovenia',
 		city: 'Ljubljana',
-		coordinates: [46.06, 14.51]
+		coordinates: [46.06, 14.51],
+		years: 2025
 	},
 	{
 		country: 'Spain',
 		city: 'Barcelona',
-		coordinates: [41.39, 2.17]
+		coordinates: [41.39, 2.17],
+		years: 2025
 	},
 	{
 		country: 'Spain',
 		city: 'Graciosa Island',
-		coordinates: [29.25, -13.5]
+		coordinates: [29.25, -13.5],
+		years: 2025
 	},
 	{
 		country: 'Spain',
 		city: 'Ibiza',
-		coordinates: [38.91, 1.42]
+		coordinates: [38.91, 1.42],
+		years: 2025
 	},
 	{
 		country: 'Spain',
 		city: 'Lanzarote',
-		coordinates: [29.05, -13.59]
+		coordinates: [29.05, -13.59],
+		years: 2025
 	},
 	{
 		country: 'Switzerland',
 		city: 'Interlaken',
-		coordinates: [46.69, 7.86]
+		coordinates: [46.69, 7.86],
+		photos: [interlaken2025],
+		years: 2025
 	},
 	{
 		country: 'Switzerland',
 		city: 'Lauterbrunnen',
-		coordinates: [46.59, 7.91]
+		coordinates: [46.59, 7.91],
+		photos: [lauterbrunnen2025],
+		years: 2025
 	},
 	{
 		country: 'United Kingdom',
 		city: 'London',
-		coordinates: [51.51, -0.13]
+		coordinates: [51.51, -0.13],
+		photos: [london2025],
+		years: 2025
 	},
 	{
 		country: 'United States',
 		city: 'Aspen',
 		coordinates: [39.19, -106.82],
-		livedHere: true
+		livedHere: true,
+		years: [2013, 2014]
 	},
 	{
 		country: 'United States',
 		city: 'Aspen Snowmass',
-		coordinates: [39.19, -106.95]
+		coordinates: [39.19, -106.95],
+		years: [2013, 2014]
 	},
 	{
 		country: 'United States',
 		city: 'Denver',
-		coordinates: [39.74, -104.99]
+		coordinates: [39.74, -104.99],
+		years: 2013
 	},
 	{
 		country: 'United States',
 		city: 'Glenwood Springs',
-		coordinates: [39.55, -107.32]
+		coordinates: [39.55, -107.32],
+		years: 2013
 	},
 	{
 		country: 'United States',
 		city: 'Grand Canyon National Park',
-		coordinates: [36.27, -112.35]
+		coordinates: [36.27, -112.35],
+		years: 2014
 	},
 	{
 		country: 'United States',
 		city: 'Hoover Dam',
-		coordinates: [36.02, -114.74]
+		coordinates: [36.02, -114.74],
+		years: 2014
 	},
 	{
 		country: 'United States',
 		city: 'Las Vegas',
-		coordinates: [36.17, -115.14]
+		coordinates: [36.17, -115.14],
+		years: 2014
 	},
 	{
 		country: 'United States',
 		city: 'Miami Beach',
-		coordinates: [25.79, -80.13]
+		coordinates: [25.79, -80.13],
+		years: 2014
 	},
 	{
 		country: 'Uruguay',
 		city: 'Casapueblo Hotel',
-		coordinates: [-34.91, -55.04]
+		coordinates: [-34.91, -55.04],
+		years: 2021
 	},
 	{
 		country: 'Uruguay',
 		city: 'José Ignacio Lighthouse',
-		coordinates: [-34.84, -54.64]
+		coordinates: [-34.84, -54.64],
+		years: [2021, 2023]
 	},
 	{
 		country: 'Uruguay',
 		city: 'La Juanita',
-		coordinates: [-34.84, -54.66]
+		coordinates: [-34.84, -54.66],
+		years: 2023
 	},
 	{
 		country: 'Uruguay',
 		city: 'La Paloma',
-		coordinates: [-34.66, -54.17]
+		coordinates: [-34.66, -54.17],
+		years: 2023
 	},
 	{
 		country: 'Uruguay',
 		city: 'La Pedrera',
-		coordinates: [-34.59, -54.13]
+		coordinates: [-34.59, -54.13],
+		years: 2023
 	},
 	{
 		country: 'Uruguay',
 		city: 'Punta del Este',
-		coordinates: [-34.94, -54.94]
+		coordinates: [-34.94, -54.94],
+		years: [2021, 2023]
 	}
 ];
 

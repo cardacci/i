@@ -83,7 +83,22 @@ const WorldMap: React.FC<WorldMapProps> = (props) => {
 
 									{country.livedHere && <p className='text-xs text-yellow-700 font-medium mt-1'>Lived here</p>}
 
-									{country.year && <p className='text-xs text-gray-500 mt-1'>Visited in {country.year}</p>}
+									{/* Display years - prioritize 'years' over deprecated 'year' */}
+									{(() => {
+										const yearsData = country.years || country.year;
+
+										if (yearsData) {
+											const yearsList = Array.isArray(yearsData) ? yearsData : [yearsData];
+
+											if (yearsList.length === 1) {
+												return <p className='text-xs text-blue-600 font-medium mt-1'>📅 {yearsList[0]}</p>;
+											} else {
+												return <p className='text-xs text-blue-600 font-medium mt-1'>📅 {yearsList.join(', ')}</p>;
+											}
+										}
+
+										return null;
+									})()}
 
 									{country.description && <p className='text-sm text-gray-700 mt-2'>{country.description}</p>}
 								</div>
