@@ -1,6 +1,6 @@
 import React from 'react';
 
-import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2025-08.pdf';
+import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2025-12.pdf';
 import { SectionTitle } from '@/utils';
 import { SocialNetwork } from '@/utils/constants/socialNetworks';
 import { useSocialLinks } from '@/utils/hooks/useSocialLinks';
@@ -18,7 +18,7 @@ const Personal: React.FC = () => {
 			<div className='bg-white p-8 rounded-xl shadow-lg border border-gray-100 mb-8'>
 				<div className='mb-6'>
 					<h4 className='text-xl font-bold text-gray-900 mb-2'>Gabriel Cardacci</h4>
-					<p className='font-medium mb-6'>Principal Frontend Engineer & Engineering Lead @ Klio | React Ecosystem | AI-Augmented Development</p>
+					<p className='font-medium mb-6'>Principal Frontend Engineer & Engineering Lead @ Klio | React Ecosystem</p>
 
 					<div className='grid md:grid-cols-2 gap-4'>
 						<div className='space-y-3'>
@@ -84,7 +84,7 @@ const Personal: React.FC = () => {
 								<div>
 									<span className='text-sm font-medium text-gray-600'>Languages</span>
 
-									<div className='font-medium text-gray-800'>Spanish (Native), English (Professional)</div>
+									<div className='font-medium text-gray-800'>Spanish (Native), English (Professional working proficiency)</div>
 								</div>
 							</div>
 
@@ -113,11 +113,11 @@ const Personal: React.FC = () => {
 					<div>
 						<p className='text-gray-600 mb-2'>Get my latest resume in PDF format</p>
 
-						<p className='text-sm text-gray-500'>Last updated: August 2025</p>
+						<p className='text-sm text-gray-500'>Last updated: December 2025</p>
 					</div>
 					<a
 						className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
-						download='Cardacci, Gabriel - CV 2025-08.pdf'
+						download='Cardacci, Gabriel - CV 2025-12.pdf'
 						href={resumePdf}
 					>
 						<svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -139,29 +139,18 @@ const Personal: React.FC = () => {
 
 				<div className='leading-relaxed space-y-4'>
 					<p>
-						I'm a Principal Frontend Engineer & Engineering Lead at Klio, a fintech company building innovative solutions for both personal and
-						business financial management. We've created an ecosystem of financial products and services to empower businesses and retailers.
+						Product-minded Principal Frontend Engineer with 10+ years of experience building and scaling web, PWA, and hybrid mobile applications.
 					</p>
 
 					<p>
-						With over 10 years of experience in software development, I specialize in frontend engineering—designing and building scalable,
-						high-performance, and user-focused applications. I've led multiple projects end-to-end, owning architecture, tooling, performance, and
-						long-term maintainability.
-					</p>
-
-					<p>
-						My core stack includes JavaScript, React, Redux (Toolkit & Saga), TypeScript, Webpack, Vite, Stylus, WebSockets, PWAs, Web Workers, and
-						Capacitor for mobile, among others. I also leverage AI tools daily to boost productivity, code quality, and technical decision-making.
-					</p>
-
-					<p>
-						Beyond coding, I collaborate closely with backend, QA, product, and sales teams to align engineering with business strategy. I lead
-						hiring processes, mentor engineers of all levels, and help shape product planning and release cycles.
+						I combine hands-on expertise in React, Redux, and TypeScript with leadership in architecture, delivery, and hiring. Known for
+						translating business goals into high-impact solutions, improving performance and reliability, and enabling teams to ship faster with
+						confidence.
 					</p>
 
 					<p>I hold dual citizenship (Argentina 🇦🇷 & Lithuania 🇱🇹), allowing me to live and work internationally.</p>
 
-					<p>Let's connect and explore new opportunities!</p>
+					<p>You can reach me at gabrielcardacci@gmail.com for relevant opportunities.</p>
 				</div>
 			</div>
 		</div>
