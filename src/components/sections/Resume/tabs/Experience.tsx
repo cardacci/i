@@ -7,7 +7,7 @@ import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
-import type { SkillName } from '@/utils/constants/skills';
+import { Skills } from '@/utils/constants/skills';
 
 /* ===== Types & Interfaces ===== */
 interface ExperienceDescription {
@@ -23,7 +23,7 @@ interface ExperienceInterface {
 	id: number;
 	location: string;
 	period: string;
-	skills?: SkillName[];
+	skills?: Skills[];
 	title: string;
 }
 
@@ -41,16 +41,16 @@ const EXPERIENCES: ExperienceInterface[] = [
 		location: 'Argentina',
 		period: 'Oct 2020 - Present',
 		skills: [
-			'Frontend Architecture',
-			'Software Architecture',
-			'Technical Leadership',
-			'Team Management',
-			'Hiring and Interviewing',
-			'React',
-			'TypeScript',
-			'Progressive Web Applications (PWAs)',
-			'Mentoring',
-			'Capacitor'
+			Skills.FRONTEND_ARCHITECTURE,
+			Skills.SOFTWARE_ARCHITECTURE,
+			Skills.TECHNICAL_LEADERSHIP,
+			Skills.TEAM_MANAGEMENT,
+			Skills.HIRING_AND_INTERVIEWING,
+			Skills.REACT,
+			Skills.TYPESCRIPT,
+			Skills.PROGRESSIVE_WEB_APPS,
+			Skills.MENTORING,
+			Skills.CAPACITOR
 		],
 		title: 'Principal Frontend Engineer & Engineering Lead'
 	},
@@ -66,15 +66,15 @@ const EXPERIENCES: ExperienceInterface[] = [
 		location: 'Argentina',
 		period: 'Nov 2017 - Oct 2020',
 		skills: [
-			'Frontend Architecture',
-			'Software Architecture',
-			'Technical Leadership',
-			'React',
-			'Progressive Web Applications (PWAs)',
-			'Performance Optimization',
-			'WebSockets',
-			'Mentoring',
-			'Redux-Saga'
+			Skills.FRONTEND_ARCHITECTURE,
+			Skills.SOFTWARE_ARCHITECTURE,
+			Skills.TECHNICAL_LEADERSHIP,
+			Skills.REACT,
+			Skills.PROGRESSIVE_WEB_APPS,
+			Skills.PERFORMANCE_OPTIMIZATION,
+			Skills.WEBSOCKETS,
+			Skills.MENTORING,
+			Skills.REDUX_SAGA
 		],
 		title: 'Senior Frontend Engineer & Engineering Lead'
 	},
@@ -89,7 +89,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 7,
 		location: 'Argentina',
 		period: 'Jun 2017 - Nov 2017',
-		skills: ['React', 'JavaScript', 'Redux', 'REST APIs', 'HTML + CSS', 'Product Development'],
+		skills: [Skills.REACT, Skills.JAVASCRIPT, Skills.REDUX, Skills.REST_APIS, Skills.HTML_CSS, Skills.PRODUCT_DEVELOPMENT],
 		title: 'Frontend Engineer & Founding Team Member'
 	},
 	{
@@ -103,7 +103,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 6,
 		location: 'Argentina',
 		period: 'May 2016 - Jun 2017',
-		skills: ['React', 'JavaScript', 'Redux', 'HTML + CSS', 'Git', 'Docker', 'C#'],
+		skills: [Skills.REACT, Skills.JAVASCRIPT, Skills.REDUX, Skills.HTML_CSS, Skills.GIT, Skills.DOCKER, Skills.CSHARP],
 		title: 'Software Developer Engineer'
 	},
 	{
@@ -130,7 +130,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 4,
 		location: 'Argentina',
 		period: 'Aug 2015 - May 2016',
-		skills: ['JavaScript', 'REST APIs', 'HTML + CSS', 'Git', 'C#', 'ASP.NET MVC', 'Microsoft SQL Server'],
+		skills: [Skills.JAVASCRIPT, Skills.REST_APIS, Skills.HTML_CSS, Skills.GIT, Skills.CSHARP, Skills.ASP_NET_MVC, Skills.MICROSOFT_SQL_SERVER],
 		title: 'Full Stack Developer'
 	},
 	{
@@ -144,7 +144,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 3,
 		location: 'United States',
 		period: 'Dec 2013 - Mar 2014',
-		skills: ['English'],
+		skills: [Skills.ENGLISH],
 		title: 'Busser'
 	},
 	{

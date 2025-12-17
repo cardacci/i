@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { SectionTitle } from '@/utils';
-import type { SkillName } from '@/utils/constants/skills';
+import { Skills } from '@/utils/constants/skills';
 
 const Education: React.FC = () => {
 	/* ===== Constants & Variables ===== */
@@ -12,7 +12,7 @@ const Education: React.FC = () => {
 			link: 'https://cert.efset.org/en/dNbDi7',
 			month: 'Jan',
 			name: 'EF SET English Certificate 60/100 (B2 Upper Intermediate)',
-			skills: ['English'],
+			skills: [Skills.ENGLISH],
 			year: 2025
 		},
 		{
@@ -21,7 +21,7 @@ const Education: React.FC = () => {
 			link: 'https://www.linkedin.com/learning/certificates/316ac7b4101a097cadadf52f2f136db4d739b15ec66ac7836e0d35af922b82d7?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BdexGuszmRhO4rsv57%2Bceqw%3D%3D',
 			month: 'May',
 			name: 'TypeScript Essential Training',
-			skills: ['TypeScript'],
+			skills: [Skills.TYPESCRIPT],
 			year: 2024
 		},
 		{
@@ -30,7 +30,7 @@ const Education: React.FC = () => {
 			link: 'https://frontendmasters.com/courses/complete-react-v9/',
 			month: 'Jun',
 			name: 'Complete Intro to React, v2 (feat. Router v4 and Redux)',
-			skills: ['React', 'Redux'],
+			skills: [Skills.REACT, Skills.REDUX],
 			year: 2017
 		}
 	];
@@ -56,7 +56,7 @@ const Education: React.FC = () => {
 		link?: string;
 		month: string;
 		name: string;
-		skills?: SkillName[];
+		skills?: Skills[];
 		year: number;
 	}
 
