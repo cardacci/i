@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { SectionTitle } from '@/utils';
 import { Skills } from '@/utils/constants/skills';
 
-const Education: React.FC = () => {
+const Education: FC = () => {
 	/* ===== Constants & Variables ===== */
 	const certifications: Certification[] = [
 		{
@@ -69,7 +69,7 @@ const Education: React.FC = () => {
 	}
 
 	/* ===== Functions ===== */
-	function getEducationDetails(education: Education): React.ReactNode {
+	function getEducationDetails(education: Education): ReactNode {
 		let educationName;
 
 		if (education.institutionLink) {
@@ -83,9 +83,9 @@ const Education: React.FC = () => {
 		}
 
 		return (
-			<Fragment>
+			<>
 				{educationName} - {education.faculty}
-			</Fragment>
+			</>
 		);
 	}
 
@@ -148,7 +148,7 @@ const Education: React.FC = () => {
 									<p className='text-xs text-gray-600 mb-1'>{cert.institution}</p>
 
 									<p className='text-xs text-gray-500 mb-2'>
-										{cert.month} {cert.year} {cert.id ? <Fragment>&bull; {cert.id}</Fragment> : null}
+										{cert.month} {cert.year} {cert.id ? <>&bull; {cert.id}</> : null}
 									</p>
 
 									{cert.skills && cert.skills.length > 0 && (

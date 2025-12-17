@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2025-12.pdf';
 import { SectionTitle } from '@/utils';
@@ -9,6 +9,20 @@ const Personal: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { getSocialLink } = useSocialLinks();
 	const linkedinLink = getSocialLink(SocialNetwork.LINKEDIN);
+
+	function getItem(label: string, description: ReactNode | string) {
+		return (
+			<div className='flex items-center gap-3'>
+				<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+
+				<div>
+					<span className='text-sm font-medium text-gray-600'>{label}</span>
+
+					<div className='font-medium text-gray-800'>{description}</div>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div>
@@ -22,81 +36,33 @@ const Personal: React.FC = () => {
 
 					<div className='grid md:grid-cols-2 gap-4'>
 						<div className='space-y-3'>
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+							{getItem(
+								'Email',
+								<a className='text-blue-600 hover:text-blue-800 font-medium' href='mailto:gabrielcardacci@gmail.com'>
+									gabrielcardacci@gmail.com
+								</a>
+							)}
 
-								<div>
-									<span className='text-sm font-medium text-gray-600'>Email</span>
+							{getItem('Location', 'Argentina')}
 
-									<div>
-										<a className='text-blue-600 hover:text-blue-800 font-medium' href='mailto:gabrielcardacci@gmail.com'>
-											gabrielcardacci@gmail.com
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
-
-								<div>
-									<span className='text-sm font-medium text-gray-600'>Phone</span>
-
-									<div className='font-medium text-gray-800'>+549 2257 547467</div>
-								</div>
-							</div>
-
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
-
-								<div>
-									<span className='text-sm font-medium text-gray-600'>Location</span>
-
-									<div className='font-medium text-gray-800'>Argentina</div>
-								</div>
-							</div>
+							{getItem('Citizenship', 'Argentina 🇦🇷 & Lithuania 🇱🇹')}
 						</div>
 
 						<div className='space-y-3'>
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+							{getItem(
+								'LinkedIn',
+								<a
+									className='text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1'
+									href={linkedinLink.url}
+									rel='noopener noreferrer'
+									target='_blank'
+								>
+									{linkedinLink.icon}
+									linkedin.com/in/cardacci
+								</a>
+							)}
 
-								<div>
-									<span className='text-sm font-medium text-gray-600'>LinkedIn</span>
-
-									<div>
-										<a
-											className='text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1'
-											href={linkedinLink.url}
-											rel='noopener noreferrer'
-											target='_blank'
-										>
-											{linkedinLink.icon}
-											linkedin.com/in/cardacci
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
-
-								<div>
-									<span className='text-sm font-medium text-gray-600'>Languages</span>
-
-									<div className='font-medium text-gray-800'>Spanish (Native), English (Professional working proficiency)</div>
-								</div>
-							</div>
-
-							<div className='flex items-center gap-3'>
-								<div className='w-2 h-2 bg-blue-500 rounded-full'></div>
-
-								<div>
-									<span className='text-sm font-medium text-gray-600'>Citizenship</span>
-
-									<div className='font-medium text-gray-800'>Argentina 🇦🇷 & Lithuania 🇱🇹</div>
-								</div>
-							</div>
+							{getItem('Languages', 'Spanish (Native), English (Professional working proficiency)')}
 						</div>
 					</div>
 				</div>

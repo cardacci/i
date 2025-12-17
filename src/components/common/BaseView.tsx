@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC, ReactNode } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface BaseViewProps {
-	children: React.ReactNode;
+	children: ReactNode;
 	id: string;
 	title: string;
 }
 
-const BaseView: React.FC<BaseViewProps> = (props) => {
+const BaseView: FC<BaseViewProps> = (props) => {
 	const { children, id, title } = props;
 
 	return (

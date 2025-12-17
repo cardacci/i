@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC, ReactNode } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface SectionTitleProps {
-	children: React.ReactNode;
+	children: ReactNode;
 	className?: string;
 	level?: 'h2' | 'h3' | 'h4';
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = (props) => {
+const SectionTitle: FC<SectionTitleProps> = (props) => {
 	const { children, className = '', level = 'h3' } = props;
 
 	/* ===== Constants & Variables ===== */
