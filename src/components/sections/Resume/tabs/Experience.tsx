@@ -177,68 +177,114 @@ const EXPERIENCES: ExperienceInterface[] = [
 const Experience: React.FC = () => {
 	/* ===== Functions ===== */
 	const getExperiences = () => {
-		return EXPERIENCES.map((exp) => {
-			const { company, companyLogo, current, descriptions, id, location, period, skills, title } = exp;
+		// Group consecutive experiences by company
+		const groupedExperiences: ExperienceInterface[][] = [];
+		let currentGroup: ExperienceInterface[] = [];
+
+		EXPERIENCES.forEach((exp, index) => {
+			if (index === 0) {
+				currentGroup.push(exp);
+			} else {
+				const prevExp = EXPERIENCES[index - 1];
+
+				if (exp.company === prevExp.company) {
+					currentGroup.push(exp);
+				} else {
+					groupedExperiences.push(currentGroup);
+					currentGroup = [exp];
+				}
+			}
+		});
+
+		// Push the last group.
+		if (currentGroup.length > 0) {
+			groupedExperiences.push(currentGroup);
+		}
+
+		return groupedExperiences.map((group, groupIndex) => {
+			const isGroupCurrent = group.some((exp) => exp.current);
+			const firstExp = group[0];
 
 			return (
-				<div className={`border-l-4 pl-6 ${current ? 'border-blue-500' : 'border-gray-400'}`} key={id}>
+				<div className={`border-l-4 pl-6 ${isGroupCurrent ? 'border-blue-500' : 'border-gray-400'}`} key={`group-${groupIndex}`}>
+					{/* Company Header - shown once per company */}
 					<div className='flex items-start gap-4 mb-4'>
 						{/* Company Logo */}
-						{companyLogo && (
+						{firstExp.companyLogo && (
 							<div className='flex-shrink-0 w-16 h-16 rounded-lg border border-gray-200 bg-white p-2 flex items-center justify-center overflow-hidden'>
-								<img alt={`${company} logo`} className='w-full h-full object-contain' src={companyLogo} />
+								<img alt={`${firstExp.company} logo`} className='w-full h-full object-contain' src={firstExp.companyLogo} />
 							</div>
 						)}
 
 						<div className='flex-1'>
-							<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-1'>
-								<h4 className='text-xl font-bold text-gray-900'>{title}</h4>
+							<h4 className='text-xl font-bold text-gray-900 mb-1'>{firstExp.company}</h4>
 
-								<span
-									className={`${current ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} text-sm font-medium px-3 py-1 rounded-full`}
-								>
-									{period}
-								</span>
-							</div>
-
-							<div className='mb-2'>
-								<span className='block text-lg font-medium'>{company}</span>
-								<span className='block text-sm text-gray-500'>{location}</span>
-							</div>
+							<p className='text-sm text-gray-500'>{firstExp.location}</p>
 						</div>
 					</div>
 
-					<ul className='text-gray-600 space-y-2'>
-						{descriptions?.map((d, index) => {
-							const { bullets, title } = d;
+					{/* Positions within the company */}
+					<div className='space-y-6'>
+						{group.map((exp, expIndex) => {
+							const { current, descriptions, id, period, skills, title } = exp;
+							const isLastInGroup = expIndex === group.length - 1;
 
 							return (
-								<li key={index}>
-									{title}
+								<div className='relative' key={id}>
+									{/* Connector line for positions after the first */}
+									{expIndex > 0 && <div className='absolute left-0 -top-3 w-px h-3 bg-gray-300' style={{ marginLeft: '-1.5rem' }}></div>}
 
-									{bullets && (
-										<ul className='list-disc list-inside ml-4'>
-											{bullets.map((bullet, bulletIndex) => (
-												<li key={bulletIndex}>{bullet}</li>
-											))}
+									{/* Position content */}
+									<div className={`${!isLastInGroup ? 'pb-0' : ''}`}>
+										<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-1'>
+											<h5 className='text-lg font-semibold text-gray-900'>{title}</h5>
+
+											<span
+												className={`${current ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} text-sm font-medium px-3 py-1 rounded-full`}
+											>
+												{period}
+											</span>
+										</div>
+
+										<ul className='text-gray-600 space-y-2 mb-2'>
+											{descriptions?.map((d, index) => {
+												const { bullets, title } = d;
+
+												return (
+													<li key={index}>
+														{title}
+
+														{bullets && (
+															<ul className='list-disc list-inside ml-4'>
+																{bullets.map((bullet, bulletIndex) => (
+																	<li key={bulletIndex}>{bullet}</li>
+																))}
+															</ul>
+														)}
+													</li>
+												);
+											})}
 										</ul>
-									)}
-								</li>
+
+										{skills && skills.length > 0 && (
+											<div className='mt-3'>
+												<div className='flex flex-wrap gap-1.5'>
+													{skills.map((skill, skillIndex) => (
+														<span
+															className='inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs'
+															key={skillIndex}
+														>
+															{skill}
+														</span>
+													))}
+												</div>
+											</div>
+										)}
+									</div>
+								</div>
 							);
 						})}
-					</ul>
-
-					{skills && skills.length > 0 && (
-						<div className='mt-3'>
-							<div className='flex flex-wrap gap-1.5'>
-								{skills.map((skill, skillIndex) => (
-									<span className='inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs' key={skillIndex}>
-										{skill}
-									</span>
-								))}
-							</div>
-						</div>
-					)}
+					</div>
 				</div>
 			);
 		});
@@ -246,7 +292,7 @@ const Experience: React.FC = () => {
 
 	return (
 		<div>
-			<SectionTitle level='h3'>Professional Experience</SectionTitle>
+			<SectionTitle level='h3'>Experience</SectionTitle>
 
 			<div className='space-y-8'>{getExperiences()}</div>
 		</div>
