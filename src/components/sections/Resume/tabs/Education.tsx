@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { SectionTitle } from '@/utils';
+import type { SkillName } from '@/utils/constants/skills';
 
 const Education: React.FC = () => {
 	/* ===== Constants & Variables ===== */
@@ -55,7 +56,7 @@ const Education: React.FC = () => {
 		link?: string;
 		month: string;
 		name: string;
-		skills?: string[];
+		skills?: SkillName[];
 		year: number;
 	}
 

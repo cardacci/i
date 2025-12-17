@@ -1,57 +1,9 @@
 import React from 'react';
 
 import { SectionTitle } from '@/utils';
-
-/* ===== Types & Interfaces ===== */
-interface Skill {
-	featured?: boolean;
-	name: string;
-}
+import { SKILL_CATEGORIES } from '@/utils/constants/skills';
 
 const Skills: React.FC = () => {
-	/* ===== Constants & Variables ===== */
-	const architectureLeadershipSkills: Skill[] = [
-		{ name: 'Frontend Architecture' },
-		{ name: 'Software Architecture' },
-		{ name: 'Technical Leadership' },
-		{ name: 'Team Management' },
-		{ name: 'Hiring and Interviewing' },
-		{ name: 'Mentoring' },
-		{ name: 'Product Development' }
-	];
-
-	const frontendSkills: Skill[] = [
-		{ name: 'React' },
-		{ name: 'TypeScript' },
-		{ name: 'JavaScript' },
-		{ name: 'Redux' },
-		{ name: 'Redux-Saga' },
-		{ name: 'HTML + CSS' },
-		{ name: 'Performance Optimization' }
-	];
-
-	const backendSkills: Skill[] = [{ name: 'REST APIs' }, { name: 'C#' }, { name: 'ASP.NET MVC' }, { name: 'Microsoft SQL Server' }];
-
-	const mobileWebSkills: Skill[] = [
-		{ name: 'Progressive Web Applications (PWAs)' },
-		{ name: 'Capacitor' },
-		{ name: 'WebSockets' },
-		{ name: 'Service Workers' }
-	];
-
-	const toolsSkills: Skill[] = [{ name: 'Git' }, { name: 'Docker' }];
-
-	const languagesSkills: Skill[] = [{ name: 'English' }, { name: 'Spanish' }];
-
-	const skillCategories = [
-		{ color: 'red', skills: architectureLeadershipSkills, title: 'Architecture & Leadership' },
-		{ color: 'blue', skills: frontendSkills, title: 'Frontend Development' },
-		{ color: 'purple', skills: mobileWebSkills, title: 'Mobile & Web Technologies' },
-		{ color: 'green', skills: backendSkills, title: 'Backend Development' },
-		{ color: 'gray', skills: toolsSkills, title: 'Tools & DevOps' },
-		{ color: 'indigo', skills: languagesSkills, title: 'Languages' }
-	];
-
 	/* ===== Functions ===== */
 	const getColorClasses = (color: string) => {
 		const colors: Record<string, { bg: string; border: string; text: string }> = {
@@ -72,7 +24,7 @@ const Skills: React.FC = () => {
 			<SectionTitle level='h3'>Skills</SectionTitle>
 
 			<div className='space-y-6'>
-				{skillCategories.map((category) => {
+				{SKILL_CATEGORIES.map((category) => {
 					const colorClasses = getColorClasses(category.color);
 
 					return (

@@ -7,6 +7,7 @@ import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
+import type { SkillName } from '@/utils/constants/skills';
 
 /* ===== Types & Interfaces ===== */
 interface ExperienceDescription {
@@ -22,7 +23,7 @@ interface ExperienceInterface {
 	id: number;
 	location: string;
 	period: string;
-	skills?: string[];
+	skills?: SkillName[];
 	title: string;
 }
 
