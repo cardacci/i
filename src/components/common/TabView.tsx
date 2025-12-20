@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC, ReactNode } from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 
 /* ===== Types & Interfaces ===== */
 interface Tab {
-	content: React.ReactNode;
+	content: ReactNode;
 	id: string;
 	label: string;
 }
@@ -15,7 +15,7 @@ interface TabViewProps {
 	tabs: Tab[];
 }
 
-const TabView: React.FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
+const TabView: FC<TabViewProps> = ({ tabs, baseUrl, defaultTab }) => {
 	/* ===== Hooks ===== */
 	const navigate = useNavigate();
 	const { tabId } = useParams<{ tabId: string }>();

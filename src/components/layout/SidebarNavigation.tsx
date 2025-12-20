@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
@@ -159,7 +159,7 @@ const SidebarNavigation: React.FC = () => {
 	}
 
 	return (
-		<Fragment>
+		<>
 			{/* Hamburger Button - always on the left but lower on mobile */}
 			<div className='fixed top-4 left-4 md:top-4 md:left-4 z-50'>
 				<button
@@ -211,7 +211,7 @@ const SidebarNavigation: React.FC = () => {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 };
 
