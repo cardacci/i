@@ -57,8 +57,8 @@ export const ARCHITECTURE_LEADERSHIP_SKILLS: Skill[] = [
 	{ name: Skills.TECHNICAL_LEADERSHIP },
 	{ name: Skills.TEAM_MANAGEMENT },
 	{ name: Skills.HIRING_AND_INTERVIEWING },
-	{ name: Skills.MENTORING },
-	{ name: Skills.PRODUCT_DEVELOPMENT }
+	{ name: Skills.PRODUCT_DEVELOPMENT },
+	{ name: Skills.MENTORING }
 ];
 
 export const FRONTEND_SKILLS: Skill[] = [
@@ -66,9 +66,9 @@ export const FRONTEND_SKILLS: Skill[] = [
 	{ name: Skills.TYPESCRIPT },
 	{ name: Skills.JAVASCRIPT },
 	{ name: Skills.REDUX },
-	{ name: Skills.REDUX_SAGA },
+	{ name: Skills.PERFORMANCE_OPTIMIZATION },
 	{ name: Skills.HTML_CSS },
-	{ name: Skills.PERFORMANCE_OPTIMIZATION }
+	{ name: Skills.REDUX_SAGA }
 ];
 
 export const BACKEND_SKILLS: Skill[] = [
@@ -80,9 +80,9 @@ export const BACKEND_SKILLS: Skill[] = [
 
 export const MOBILE_WEB_SKILLS: Skill[] = [
 	{ name: Skills.PROGRESSIVE_WEB_APPS },
-	{ name: Skills.CAPACITOR },
 	{ name: Skills.WEBSOCKETS },
-	{ name: Skills.SERVICE_WORKERS }
+	{ name: Skills.SERVICE_WORKERS },
+	{ name: Skills.CAPACITOR }
 ];
 
 export const TOOLS_SKILLS: Skill[] = [{ name: Skills.GIT }, { name: Skills.DOCKER }];

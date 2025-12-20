@@ -25,24 +25,27 @@ const Skills: React.FC = () => {
 
 			<div className='space-y-6'>
 				{SKILL_CATEGORIES.map((category) => {
-					const colorClasses = getColorClasses(category.color);
+					const { color, skills, title } = category;
+					const colorClasses = getColorClasses(color);
+					const { bg, border, text } = colorClasses;
 
 					return (
-						<div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100' key={category.title}>
-							<h4 className='text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2'>
-								<div className={`h-2 w-2 ${colorClasses.bg} rounded-full`}></div>
-								{category.title}
-							</h4>
+						<div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100' key={title}>
+							<h4 className='text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2'>{title}</h4>
 
 							<div className='flex flex-wrap gap-2'>
-								{category.skills.map((skill) => (
-									<span
-										className={`inline-flex items-center ${colorClasses.bg} ${colorClasses.text} px-3 py-1.5 rounded-md text-sm border ${colorClasses.border} font-medium`}
-										key={skill.name}
-									>
-										{skill.name}
-									</span>
-								))}
+								{skills.map((skill) => {
+									const { name } = skill;
+
+									return (
+										<span
+											className={`inline-flex items-center ${bg} ${text} px-3 py-1.5 rounded-md text-sm border ${border} font-medium`}
+											key={name}
+										>
+											{name}
+										</span>
+									);
+								})}
 							</div>
 						</div>
 					);

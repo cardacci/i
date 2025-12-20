@@ -62,7 +62,7 @@ const Personal: React.FC = () => {
 								</a>
 							)}
 
-							{getItem('Languages', 'Spanish (Native), English (Professional working proficiency)')}
+							{getItem('Languages', 'English (Professional working proficiency) · Spanish (Native)')}
 						</div>
 					</div>
 				</div>
@@ -70,10 +70,7 @@ const Personal: React.FC = () => {
 
 			{/* Download CV Section */}
 			<div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-8'>
-				<h4 className='text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2'>
-					<div className='w-2 h-2 bg-green-500 rounded-full'></div>
-					Download CV
-				</h4>
+				<h4 className='text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2'>Download CV</h4>
 
 				<div className='flex items-center justify-between'>
 					<div>
