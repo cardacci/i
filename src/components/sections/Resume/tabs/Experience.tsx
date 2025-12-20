@@ -108,7 +108,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Software Developer Engineer'
 	},
 	{
-		company: Companies.UNIVERSIDAD_FASTA,
+		company: Companies.FASTA_UNIVERSITY,
 		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{
@@ -162,7 +162,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Network Administrator & Technical Support'
 	},
 	{
-		company: Companies.UNIVERSIDAD_FASTA,
+		company: Companies.FASTA_UNIVERSITY,
 		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{

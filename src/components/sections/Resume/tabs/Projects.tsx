@@ -58,7 +58,7 @@ const PROJECTS: ProjectInterface[] = [
 		title: 'Expenses Tracking App'
 	},
 	{
-		company: Companies.UNIVERSIDAD_FASTA,
+		company: Companies.FASTA_UNIVERSITY,
 		description:
 			'Final engineering thesis focused on mobile forensics, developing custom methods for extracting physical and logical data from Android devices.',
 		period: 'Aug 2014 - Apr 2017',
@@ -118,14 +118,14 @@ const Projects: React.FC = () => {
 	/* ===== Functions ===== */
 	const getCompanyLogo = (company: Companies) => {
 		switch (company) {
+			case Companies.FASTA_UNIVERSITY:
+				return universidadFastaLogo;
 			case Companies.INTIVE:
 				return intiveLogo;
 			case Companies.KLIO:
 				return klioLogo;
 			case Companies.QUADION_TECHNOLOGIES:
 				return quadionTechnologiesLogo;
-			case Companies.UNIVERSIDAD_FASTA:
-				return universidadFastaLogo;
 			default:
 				return undefined;
 		}
