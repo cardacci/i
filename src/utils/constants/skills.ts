@@ -11,6 +11,8 @@ export enum Skills {
 
 	// Frontend.
 	REACT = 'React',
+	ANGULAR_JS = 'AngularJS',
+	EXT_JS = 'Ext JS',
 	TYPESCRIPT = 'TypeScript',
 	JAVASCRIPT = 'JavaScript',
 	REDUX = 'Redux',
@@ -29,6 +31,7 @@ export enum Skills {
 	CAPACITOR = 'Capacitor',
 	WEBSOCKETS = 'WebSockets',
 	SERVICE_WORKERS = 'Service Workers',
+	ADOBE_PRIMETIME = 'Adobe Primetime',
 
 	// Tools.
 	GIT = 'Git',

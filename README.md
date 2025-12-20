@@ -10,93 +10,52 @@ The project is organized as follows:
 i
 ├── .github
 │	└── workflows
-│	└── deploy.yml
 ├── .vscode
 │	└── settings.json
 ├── public
 │	├── assets
-│	├── _redirects
-│	├── .nojekyll
-│	├── 404.html
-│	├── apple-touch-icon.png
-│	├── favicon.ico
-│	├── favicon.svg
-│	├── site.webmanifest
-│	├── web-app-manifest-192x192.png
-│	└── web-app-manifest-512x512.png
+│	└── ...
 ├── src
 │	├── assets
-│	│	├── files
 │	│	└── images
-│	│		├── djing
-│	│		├── economics
-│	│		├── experience
-│	│		└── profile.png
 │	├── components
 │	│	├── common
 │	│	│	├── BaseView.tsx
 │	│	│	├── ContentCard.tsx
-│	│	│	├── ListWithTitle.tsx
-│	│	│	├── SectionTitle.tsx
-│	│	│	├── TabView.tsx
-│	│	│	└── UnderConstruction.tsx
+│	│	│	└── ...
 │	│	├── layout
 │	│	│	├── Header.tsx
 │	│	│	└── SidebarNavigation.tsx
 │	│	└── sections
 │	│		├── Crypto
-│	│		│	├── Crypto.tsx
-│	│		│	└── tabs
-│	│		│		├── BitcoinInfo.tsx
-│	│		│		└── FairValueAnalysis.tsx
 │	│		├── DJing
-│	│		│	├── common
-│	│		│	│	└── FollowMyDjContent.tsx
-│	│		│	├── DJing.tsx
-│	│		│	└── tabs
-│	│		│		├── DjInfo.tsx
-│	│		│		├── Sets.tsx
-│	│		│		└── TrackClassifier.tsx
 │	│		├── Economics
-│	│		│	└── tabs
-│	│		├── Home.tsx
 │	│		├── Resume
-│	│		│	├── Resume.tsx
-│	│		│	└── tabs
-│	│		│		├── Education.tsx
-│	│		│		├── Experience.tsx
-│	│		│		├── Personal.tsx
-│	│		│		├── Projects.tsx
-│	│		│		└── Skills.tsx
-│	│		├── Tech
 │	│		│	├── tabs
-│	│		│	│	└── ProjectTech.tsx
-│	│		│	└── Tech.tsx
-│	│		└── Travel.tsx
+│	│		│	│	├── Experience.tsx
+│	│		│	│	├── Projects.tsx
+│	│		│	│	└── ...
+│	│		│	└── Resume.tsx
+│	│		├── Tech
+│	│		├── Travel
+│	│		└── Home.tsx
 │	├── styles
 │	│	├── app.css
 │	│	└── tailwind.css
 │	├── utils
 │	│	├── constants
-│	│	│	├── routes.ts
-│	│	│	├── socialNetworks.ts
-│	│	│	└── techCategories.ts
+│	│	│	├── companies.ts
+│	│	│	├── skills.ts
+│	│	│	└── ...
 │	│	├── helpers
-│	│	│	└── routeHelpers.ts
 │	│	├── hooks
-│	│	│	├── useApiRequest.ts
-│	│	│	├── useCardHover.ts
-│	│	│	└── useSocialLinks.tsx
 │	│	└── index.ts
 │	├── App.tsx
 │	├── main.tsx
 │	└── vite-env.d.ts
 ├── eslint.config.js
-├── fix-paths.js
 ├── index.html
 ├── package.json
-├── package-lock.json
-├── postcss.config.js
 ├── README.md
 ├── tailwind.config.js
 ├── tsconfig.json

@@ -7,6 +7,7 @@ import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
+import { Companies } from '@/utils/constants/companies';
 import { Skills } from '@/utils/constants/skills';
 
 /* ===== Types & Interfaces ===== */
@@ -16,7 +17,7 @@ interface ExperienceDescription {
 }
 
 interface ExperienceInterface {
-	company: string;
+	company: Companies;
 	companyLogo?: string;
 	current?: boolean;
 	descriptions?: ExperienceDescription[];
@@ -29,7 +30,7 @@ interface ExperienceInterface {
 
 const EXPERIENCES: ExperienceInterface[] = [
 	{
-		company: 'Klio',
+		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		current: true,
 		descriptions: [
@@ -55,7 +56,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Principal Frontend Engineer & Engineering Lead'
 	},
 	{
-		company: 'Klio',
+		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		descriptions: [
 			{
@@ -79,11 +80,11 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Senior Frontend Engineer & Engineering Lead'
 	},
 	{
-		company: 'Klio',
+		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		descriptions: [
 			{
-				title: 'Joined Klio at its earliest stage as part of the founding team, building the first frontend architecture and core product features while collaborating closely with backend and product to shape the initial platform.'
+				title: 'Joined klio at its earliest stage as part of the founding team, building the first frontend architecture and core product features while collaborating closely with backend and product to shape the initial platform.'
 			}
 		],
 		id: 7,
@@ -93,7 +94,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Frontend Engineer & Founding Team Member'
 	},
 	{
-		company: 'intive',
+		company: Companies.INTIVE,
 		companyLogo: intiveLogo,
 		descriptions: [
 			{
@@ -107,7 +108,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Software Developer Engineer'
 	},
 	{
-		company: 'Universidad FASTA',
+		company: Companies.UNIVERSIDAD_FASTA,
 		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{
@@ -120,7 +121,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Computer Forensics Researcher'
 	},
 	{
-		company: 'Quadion Technologies',
+		company: Companies.QUADION_TECHNOLOGIES,
 		companyLogo: quadionTechnologiesLogo,
 		descriptions: [
 			{
@@ -134,7 +135,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Full Stack Developer'
 	},
 	{
-		company: 'Aspen Skiing Company',
+		company: Companies.ASPEN_SKIING_COMPANY,
 		companyLogo: aspenSkiingCompanyLogo,
 		descriptions: [
 			{
@@ -148,7 +149,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Busser'
 	},
 	{
-		company: 'INTA',
+		company: Companies.INTA,
 		companyLogo: intaLogo,
 		descriptions: [
 			{
@@ -161,7 +162,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 		title: 'Network Administrator & Technical Support'
 	},
 	{
-		company: 'Universidad FASTA',
+		company: Companies.UNIVERSIDAD_FASTA,
 		companyLogo: universidadFastaLogo,
 		descriptions: [
 			{

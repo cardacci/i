@@ -32,7 +32,7 @@ const Personal: React.FC = () => {
 			<div className='bg-white p-8 rounded-xl shadow-lg border border-gray-100 mb-8'>
 				<div className='mb-6'>
 					<h4 className='text-xl font-bold text-gray-900 mb-2'>Gabriel Cardacci</h4>
-					<p className='font-medium mb-6'>Principal Frontend Engineer & Engineering Lead @ Klio | React Ecosystem</p>
+					<p className='font-medium mb-6'>Principal Frontend Engineer & Engineering Lead @ klio | React Ecosystem</p>
 
 					<div className='grid md:grid-cols-2 gap-4'>
 						<div className='space-y-3'>
