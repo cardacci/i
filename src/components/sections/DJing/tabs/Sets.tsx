@@ -34,6 +34,11 @@ const sets = [
 		genres: [Genre.AfroHouse],
 		title: 'CARDACCI #5 - Afro House',
 		youtubeId: 'vUg6zylWK5s'
+	},
+	{
+		genres: [Genre.DeepHouse],
+		title: 'CARDACCI #6 - Deep House',
+		youtubeId: 'bc3Vh8DAKi0'
 	}
 ];
 
