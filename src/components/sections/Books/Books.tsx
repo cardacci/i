@@ -10,7 +10,7 @@ const BookCard: FC<{ book: Book }> = (props) => {
 	return (
 		<div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300'>
 			<div className='aspect-w-2 aspect-h-3 bg-gray-200'>
-				<img alt={`${title} cover`} className='w-full h-full object-cover' src={coverPath} />
+				<img alt={`${title} cover`} className='w-full h-full object-cover' decoding='async' loading='lazy' src={coverPath} />
 			</div>
 
 			<div className='p-4'>
@@ -36,7 +36,7 @@ const Books: FC = () => {
 				development.
 			</p>
 
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3'>
 				{books.map((book, index) => (
 					<BookCard book={book} key={index} />
 				))}
