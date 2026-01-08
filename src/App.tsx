@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
 import { Header, SidebarNavigation } from '@/components/layout';
-import { Crypto, DJing, Economics, Home, Resume, Tech, Travel } from '@/components/sections';
+import { Books, Crypto, DJing, Economics, Home, Resume, Tech, Travel } from '@/components/sections';
 import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
 
@@ -37,6 +37,10 @@ const router = createHashRouter([
 			{
 				element: <Home />,
 				index: true
+			},
+			{
+				element: <Books />,
+				path: `${ROUTES.BOOKS.id}/*`
 			},
 			{
 				element: <Resume />,

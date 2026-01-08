@@ -1,3 +1,4 @@
+export { default as Books } from './Books/Books';
 export { default as Crypto } from './Crypto/Crypto';
 export { default as DJing } from './DJing/DJing';
 export { default as Economics } from './Economics/Economics';

@@ -31,6 +31,30 @@ export const ROUTE_KEYS = {
 
 // Base route definitions.
 const BASE_ROUTES = {
+	BOOKS: {
+		icon: '📚',
+		id: 'books',
+		label: 'Books',
+		path: '/books'
+	},
+	CRYPTO: {
+		icon: '🪙',
+		id: 'crypto',
+		label: 'Crypto',
+		path: '/crypto'
+	},
+	DJING: {
+		icon: '🎧',
+		id: 'djing',
+		label: 'DJing',
+		path: '/djing'
+	},
+	ECONOMICS: {
+		icon: '📊',
+		id: 'economics',
+		label: 'Economics',
+		path: '/economics'
+	},
 	HOME: {
 		icon: '🏠',
 		id: 'home',
@@ -43,29 +67,11 @@ const BASE_ROUTES = {
 		label: 'Resume',
 		path: '/resume'
 	},
-	ECONOMICS: {
-		icon: '📊',
-		id: 'economics',
-		label: 'Economics',
-		path: '/economics'
-	},
-	CRYPTO: {
-		icon: '🪙',
-		id: 'crypto',
-		label: 'Crypto',
-		path: '/crypto'
-	},
 	TECH: {
 		icon: '💻',
 		id: 'tech',
 		label: 'Technology',
 		path: '/tech'
-	},
-	DJING: {
-		icon: '🎧',
-		id: 'djing',
-		label: 'DJing',
-		path: '/djing'
 	},
 	TRAVEL: {
 		icon: '✈️',
@@ -77,6 +83,10 @@ const BASE_ROUTES = {
 
 // Complete route structure with nested routes.
 export const ROUTES = {
+	BOOKS: {
+		...BASE_ROUTES.BOOKS
+	},
+
 	CRYPTO: {
 		...BASE_ROUTES.CRYPTO,
 		[ROUTE_KEYS.CRYPTO.BITCOIN]: {

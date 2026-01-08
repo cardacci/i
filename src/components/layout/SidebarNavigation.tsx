@@ -37,16 +37,11 @@ const SidebarNavigation: React.FC = () => {
 			children: getChildrenFromRoute(ROUTES.RESUME)
 		},
 		{
-			...ROUTES.ECONOMICS,
-			children: getChildrenFromRoute(ROUTES.ECONOMICS)
-		},
-		{
 			...ROUTES.CRYPTO,
 			children: getChildrenFromRoute(ROUTES.CRYPTO)
 		},
 		{
-			...ROUTES.TECH,
-			children: getChildrenFromRoute(ROUTES.TECH)
+			...ROUTES.BOOKS
 		},
 		{
 			...ROUTES.DJING,
@@ -55,6 +50,14 @@ const SidebarNavigation: React.FC = () => {
 		{
 			...ROUTES.TRAVEL,
 			children: getChildrenFromRoute(ROUTES.TRAVEL)
+		},
+		{
+			...ROUTES.ECONOMICS,
+			children: getChildrenFromRoute(ROUTES.ECONOMICS)
+		},
+		{
+			...ROUTES.TECH,
+			children: getChildrenFromRoute(ROUTES.TECH)
 		}
 	];
 
