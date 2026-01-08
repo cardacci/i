@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { SectionTitle, useSocialLinks, SocialNetwork } from '@/utils';
+import { SectionTitle } from '@/components/common';
+import { SocialNetwork } from '@/utils/constants/socialNetworks';
+import { useSocialLinks } from '@/utils/hooks';
 
 const FollowMyDjContent: React.FC = () => {
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);

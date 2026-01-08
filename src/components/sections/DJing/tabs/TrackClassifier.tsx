@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { ContentCard, SectionTitle } from '@/utils';
+import { ContentCard, SectionTitle } from '@/components/common';
 
 const TrackClassifier: React.FC = () => {
 	/* ===== State ===== */

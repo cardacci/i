@@ -1,14 +1,16 @@
 import React from 'react';
 
 import profileImage from '@/assets/images/profile.png';
-import { BaseView, useSocialLinks, SocialNetwork } from '@/utils';
+import { BaseView } from '@/components/common';
+import { SocialNetwork } from '@/utils/constants';
+import { useSocialLinks } from '@/utils/hooks';
 
 const Home: React.FC = () => {
 	/* ===== Hooks ===== */
 	const { socialLinks } = useSocialLinks([SocialNetwork.GITHUB, SocialNetwork.INSTAGRAM, SocialNetwork.LINKEDIN, SocialNetwork.YOUTUBE]);
 
 	return (
-		<BaseView id='home' title='Welcome to My Personal Website'>
+		<BaseView id='home'>
 			<div className='flex flex-col md:flex-row items-center gap-8'>
 				<div className='md:w-1/3 flex justify-center'>
 					<img
@@ -19,17 +21,14 @@ const Home: React.FC = () => {
 				</div>
 
 				<div className='md:w-2/3 text-center md:text-left'>
-					<p className='text-lg mb-4'>
-						Hello, I&apos;m <span className='font-semibold'>Gabriel Cardacci</span>, passionate about technology, programming, cryptocurrency, DJing
-						and traveling.
-					</p>
+					<p className='text-lg mb-4'>Passionate about technology, software development, and building high-quality digital products.</p>
 
 					<p className='mb-6'>
-						On this site, you&apos;ll find information about my professional experience, my projects in the cryptocurrency world, blockchain
-						innovations, my DJ journey and music experiences, and my adventures around the globe.
+						Here you&apos;ll find a selection of professional work, side projects, explorations in crypto and blockchain, my journey as a DJ, and
+						experiences shaped by travel, curiosity, and constant learning.
 					</p>
 
-					<p className='text-gray-800 font-medium'>Explore and connect with me!</p>
+					<p className='text-gray-800'>Feel free to explore and connect.</p>
 
 					<div className='mt-6 flex flex-wrap gap-4 justify-center md:justify-start'>
 						{socialLinks.map((link) => (

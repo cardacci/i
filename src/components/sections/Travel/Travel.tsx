@@ -2,10 +2,9 @@ import React from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import TabView from '@/components/common/TabView';
-import { BaseView, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTE_KEYS, ROUTES } from '@/utils/constants/routes';
-import { getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants/travel';
+import { BaseView, TabView } from '@/components/common';
+import { ROUTE_KEYS, ROUTES, getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants';
+import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 
 import Map from './tabs/Map';
 import Timeline from './tabs/Timeline';

@@ -12,6 +12,8 @@ const Header: React.FC = () => {
 	/* ===== Effects ===== */
 	// Mount
 	useEffect(() => {
+		let currentIndex = 0;
+
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 20);
 		};
@@ -28,7 +30,6 @@ const Header: React.FC = () => {
 		setTypedText('');
 
 		// Typing effect with fixed timing.
-		let currentIndex = 0;
 		const typeWriter = setInterval(() => {
 			if (currentIndex < textToType.length) {
 				setTypedText(textToType.substring(0, currentIndex + 1));

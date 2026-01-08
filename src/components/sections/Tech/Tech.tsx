@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import TabView from '@/components/common/TabView';
-import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
+import { BaseView, ContentCard, TabView } from '@/components/common';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants';
+import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 
 import ProjectTech from './tabs/ProjectTech';
 

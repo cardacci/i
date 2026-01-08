@@ -2,15 +2,8 @@ import React from 'react';
 
 import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
-import Header from '@/components/layout/Header';
-import SidebarNavigation from '@/components/layout/SidebarNavigation';
-import Crypto from '@/components/sections/Crypto/Crypto';
-import DJing from '@/components/sections/DJing/DJing';
-import Economics from '@/components/sections/Economics/Economics';
-import Home from '@/components/sections/Home';
-import Resume from '@/components/sections/Resume/Resume';
-import Tech from '@/components/sections/Tech/Tech';
-import Travel from '@/components/sections/Travel/Travel';
+import { Header, SidebarNavigation } from '@/components/layout';
+import { Crypto, DJing, Economics, Home, Resume, Tech, Travel } from '@/components/sections';
 import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
 
