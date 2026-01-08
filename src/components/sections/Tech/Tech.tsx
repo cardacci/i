@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import TabView from '@/components/common/TabView';
 import { BaseView, ContentCard, createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
+import { ROUTES, ROUTE_KEYS } from '@/utils/constants';
 
 import ProjectTech from './tabs/ProjectTech';
 

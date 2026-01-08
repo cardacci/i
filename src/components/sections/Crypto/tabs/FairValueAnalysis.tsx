@@ -1,6 +1,7 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { SectionTitle, useApiRequest } from '@/utils';
+import { SectionTitle } from '@/utils';
+import { useApiRequest } from '@/utils/hooks';
 
 /* ===== Types & Interfaces ===== */
 interface CryptoMetric {

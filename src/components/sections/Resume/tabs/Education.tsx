@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import { SectionTitle } from '@/utils';
-import { Skills } from '@/utils/constants/skills';
+import { Skills } from '@/utils/constants';
 
 const Education: FC = () => {
 	/* ===== Constants & Variables ===== */

@@ -5,8 +5,7 @@ import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
 import { SectionTitle } from '@/utils';
-import { Companies } from '@/utils/constants/companies';
-import { Skills } from '@/utils/constants/skills';
+import { Companies, Skills } from '@/utils/constants';
 
 /* ===== Types & Interfaces ===== */
 interface ProjectInterface {

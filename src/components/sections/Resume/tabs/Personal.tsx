@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 
 import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2025-12.pdf';
 import { SectionTitle } from '@/utils';
-import { SocialNetwork } from '@/utils/constants/socialNetworks';
-import { useSocialLinks } from '@/utils/hooks/useSocialLinks';
+import { SocialNetwork } from '@/utils/constants';
+import { useSocialLinks } from '@/utils/hooks';
 
 const Personal: React.FC = () => {
 	/* ===== Hooks ===== */

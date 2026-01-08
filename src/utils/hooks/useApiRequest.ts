@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface ApiService {
-	url: string;
 	options?: RequestInit;
+	url: string;
 }
 
 interface ApiRequestState<T> {

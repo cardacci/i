@@ -1,7 +1,9 @@
 import React from 'react';
 
 import profileImage from '@/assets/images/profile.png';
-import { BaseView, useSocialLinks, SocialNetwork } from '@/utils';
+import { BaseView } from '@/utils';
+import { SocialNetwork } from '@/utils/constants';
+import { useSocialLinks } from '@/utils/hooks';
 
 const Home: React.FC = () => {
 	/* ===== Hooks ===== */
