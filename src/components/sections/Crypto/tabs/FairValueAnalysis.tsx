@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { SectionTitle } from '@/components';
+import { SectionTitle } from '@/components/common';
 import { useApiRequest } from '@/utils/hooks';
 
 /* ===== Types & Interfaces ===== */

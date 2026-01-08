@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionTitle } from '@/components';
+import { SectionTitle } from '@/components/common';
 
 const BitcoinInfo: React.FC = () => {
 	return (

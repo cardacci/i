@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TravelTimeline } from '@/components';
+import { TravelTimeline } from '@/components/common';
 import { VISITED_PLACES } from '@/utils/constants';
 
 const Timeline: React.FC = () => {

@@ -5,7 +5,7 @@ import ddjFlx4Img from '@/assets/images/djing/pioneer-ddj-flx4.webp';
 import vm80Img from '@/assets/images/djing/pioneer-vm-80.webp';
 import sandiskCruzerGlideImg from '@/assets/images/djing/sandisk-cruzer-glide-3.0-64gb.jpg';
 import sennheiserHd25Img from '@/assets/images/djing/sennheiser-hd-25.jpg';
-import { ContentCard, SectionTitle } from '@/components';
+import { ContentCard, SectionTitle } from '@/components/common';
 
 const DjEquipment = [
 	{

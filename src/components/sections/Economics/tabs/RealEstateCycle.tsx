@@ -1,7 +1,7 @@
 import React from 'react';
 
 import realStateCycle from '@/assets/images/economics/18-year-real-estate-cycle.png';
-import { ImageWithModal, SectionTitle } from '@/components';
+import { ImageWithModal, SectionTitle } from '@/components/common';
 
 const RealEstateCycle: React.FC = () => {
 	return (

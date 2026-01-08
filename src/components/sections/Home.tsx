@@ -1,7 +1,7 @@
 import React from 'react';
 
 import profileImage from '@/assets/images/profile.png';
-import { BaseView } from '@/components';
+import { BaseView } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
 
