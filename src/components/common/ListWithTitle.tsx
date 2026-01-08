@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionTitle from './SectionTitle';
+import { SectionTitle } from '@/utils/components';
 
 /* ===== Types & Interfaces ===== */
 interface ListWithTitleProps {

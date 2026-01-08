@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { SectionTitle } from '@/utils';
+import { SectionTitle } from '@/utils/components';
 import { Skills } from '@/utils/constants';
 
 const Education: FC = () => {

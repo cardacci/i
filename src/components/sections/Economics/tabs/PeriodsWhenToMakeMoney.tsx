@@ -2,7 +2,7 @@ import React from 'react';
 
 import periodsWhenToMakeMoney from '@/assets/images/economics/periods-when-to-make-money.jpg';
 import ImageWithModal from '@/components/common/ImageWithModal';
-import { SectionTitle } from '@/utils';
+import { SectionTitle } from '@/utils/components';
 
 const MarketTiming: React.FC = () => {
 	return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionTitle } from '@/utils';
+import { SectionTitle } from '@/utils/components';
 import { useCardHover } from '@/utils/hooks';
 
 const ProjectTech: React.FC = () => {
