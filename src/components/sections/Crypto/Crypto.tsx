@@ -3,8 +3,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { BaseView, ContentCard, TabView } from '@/components/common';
-import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
+import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 
 import BitcoinInfo from './tabs/BitcoinInfo';
 import FairValueAnalysis from './tabs/FairValueAnalysis';

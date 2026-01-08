@@ -3,8 +3,8 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { BaseView, TabView } from '@/components/common';
-import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTE_KEYS, ROUTES, getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants';
+import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 
 import Map from './tabs/Map';
 import Timeline from './tabs/Timeline';

@@ -3,8 +3,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { BaseView, TabView } from '@/components/common';
-import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
+import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 
 import PeriodsWhenToMakeMoney from './tabs/PeriodsWhenToMakeMoney';
 import RealEstateCycle from './tabs/RealEstateCycle';
