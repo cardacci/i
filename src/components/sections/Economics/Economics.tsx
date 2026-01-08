@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
+import { BaseView, TabView } from '@/components';
 import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { BaseView, TabView } from '@/utils/components';
 import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
 import PeriodsWhenToMakeMoney from './tabs/PeriodsWhenToMakeMoney';

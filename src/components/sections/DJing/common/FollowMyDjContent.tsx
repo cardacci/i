@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionTitle } from '@/utils/components';
+import { SectionTitle } from '@/components';
 import { SocialNetwork } from '@/utils/constants/socialNetworks';
 import { useSocialLinks } from '@/utils/hooks';
 

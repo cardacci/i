@@ -4,7 +4,7 @@ import intiveLogo from '@/assets/images/experience/intive-logo.jpg';
 import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
 import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-logo.jpg';
-import { SectionTitle } from '@/utils/components';
+import { SectionTitle } from '@/components';
 import { Companies, Skills } from '@/utils/constants';
 
 /* ===== Types & Interfaces ===== */

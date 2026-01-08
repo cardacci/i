@@ -2,9 +2,8 @@ import React from 'react';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import TabView from '@/components/common/TabView';
+import { BaseView, ContentCard, TabView } from '@/components';
 import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
-import { BaseView, ContentCard } from '@/utils/components';
 import { ROUTES, ROUTE_KEYS } from '@/utils/constants/routes';
 
 import FollowMyDjContent from './common/FollowMyDjContent';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionTitle } from '@/utils/components';
+import { SectionTitle } from '@/components';
 import { SKILL_CATEGORIES } from '@/utils/constants';
 
 const Skills: React.FC = () => {

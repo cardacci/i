@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WorldMap from '@/components/common/WorldMap';
+import { WorldMap } from '@/components';
 import { VISITED_PLACES } from '@/utils/constants';
 
 const Map: React.FC = () => {

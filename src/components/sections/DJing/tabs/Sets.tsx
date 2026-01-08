@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ContentCard, SectionTitle } from '@/utils/components';
+import { ContentCard, SectionTitle } from '@/components';
 import { Genre, SETS } from '@/utils/constants';
 
 const genreOptions = Object.values(Genre);
