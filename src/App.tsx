@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
-import Header from '@/components/layout/Header';
-import SidebarNavigation from '@/components/layout/SidebarNavigation';
+import { Header, SidebarNavigation } from '@/components/layout';
 import Crypto from '@/components/sections/Crypto/Crypto';
 import DJing from '@/components/sections/DJing/DJing';
 import Economics from '@/components/sections/Economics/Economics';

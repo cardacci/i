@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { BaseView } from '@/components';
-import TabView from '@/components/common/TabView';
+import { BaseView, TabView } from '@/components';
 import { createTabsFromRoutes, getFirstChildRoute } from '@/utils';
 import { ROUTE_KEYS, ROUTES, getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants';
 
