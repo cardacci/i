@@ -21,6 +21,13 @@ export default defineConfig({
 	build: {
 		assetsDir: 'assets',
 		outDir: 'dist',
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					vendor: ['react', 'react-dom', 'react-router-dom']
+				}
+			}
+		},
 		sourcemap: true
 	},
 	define: {
