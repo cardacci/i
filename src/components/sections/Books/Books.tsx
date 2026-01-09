@@ -16,11 +16,15 @@ const BookCard: FC<{ book: Book }> = (props) => {
 			<div className='p-4'>
 				<h3 className='font-semibold text-lg mb-2 line-clamp-2'>{title}</h3>
 
-				<p className='text-gray-600 mb-1'>by {author}</p>
+				<p className='text-gray-600 mb-1'>by {author.join(' and ')}</p>
 
 				<p className='text-sm text-gray-500 mb-2'>{year}</p>
 
-				<span className='inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-2'>{genre}</span>
+				{genre.map((g, index) => (
+					<span className='inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-2 mr-1' key={index}>
+						{g}
+					</span>
+				))}
 			</div>
 		</div>
 	);
@@ -32,8 +36,7 @@ const Books: FC = () => {
 			<SectionTitle level='h2'>Books I've Read</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				A collection of books that have influenced my thinking and career. I enjoy reading about technology, business, economics, and personal
-				development.
+				A collection of books that have influenced my thinking and career. I enjoy reading about technology, economics, and personal development.
 			</p>
 
 			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3'>
