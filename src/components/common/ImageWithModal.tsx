@@ -75,7 +75,7 @@ const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
 
 	return (
 		<>
-			<div className='flex justify-center h-full w-full'>
+			<div className='flex justify-center items-center h-full w-full'>
 				<img alt={alt} className={`${baseClasses} ${className}`} onClick={() => setIsModalOpen(true)} src={src} style={imgStyle} />
 			</div>
 

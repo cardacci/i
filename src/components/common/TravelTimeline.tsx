@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 
 import { Link } from 'react-scroll';
 
-import ImageWithModal from '@/components/common/ImageWithModal';
+import { LazyImage } from '@/components/common';
 import { COUNTRY_INFO, VisitedPlace } from '@/utils/constants/travel';
 
 interface TimelineEntry {
@@ -13,83 +13,6 @@ interface TimelineEntry {
 interface TravelTimelineProps {
 	places: VisitedPlace[];
 }
-
-/**
- * Lazy Image Component with Intersection Observer.
- * Only loads images when they're about to become visible.
- */
-interface LazyImageProps {
-	alt: string;
-	className?: string;
-	imgStyle?: React.CSSProperties;
-	maxWidth?: string;
-	photos?: string[];
-	src: string;
-	title?: string;
-}
-
-const LazyImage: React.FC<LazyImageProps> = (props) => {
-	const { alt, className, imgStyle, maxWidth, photos, src, title } = props;
-
-	/* ===== State ===== */
-	const [isLoaded, setIsLoaded] = useState(false);
-	const [isVisible, setIsVisible] = useState(false);
-
-	/* ===== Refs ===== */
-	const imgRef = useRef<HTMLDivElement>(null);
-
-	/* ===== Effects ===== */
-	// Mount
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setIsVisible(true);
-						observer.disconnect();
-					}
-				});
-			},
-			{
-				rootMargin: '100px' // Start loading 100px before the image enters viewport.
-			}
-		);
-
-		if (imgRef.current) {
-			observer.observe(imgRef.current);
-		}
-
-		return () => {
-			observer.disconnect();
-		};
-	}, []);
-
-	return (
-		<div className='w-full h-full' ref={imgRef}>
-			{isVisible ? (
-				<>
-					{/* Loading placeholder with smooth transition */}
-					{!isLoaded && (
-						<div className='w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 animate-pulse'>
-							<span className='text-3xl opacity-30'>📸</span>
-						</div>
-					)}
-
-					<div className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}>
-						<ImageWithModal alt={alt} className={className} imgStyle={imgStyle} maxWidth={maxWidth} photos={photos} src={src} title={title} />
-					</div>
-
-					{/* Hidden image to detect load completion with native lazy loading */}
-					<img alt='' className='hidden' loading='lazy' onLoad={() => setIsLoaded(true)} src={src} />
-				</>
-			) : (
-				<div className='w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100'>
-					<span className='text-3xl opacity-30'>📸</span>
-				</div>
-			)}
-		</div>
-	);
-};
 
 const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 	const { places } = props;
@@ -200,7 +123,7 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 												{photos && photos.length > 0 ? (
 													<LazyImage
 														alt={`${city || country}`}
-														className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300'
+														className='w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300'
 														imgStyle={{ filter: 'sepia(15%) contrast(95%)' }}
 														maxWidth='w-full'
 														photos={photos}
