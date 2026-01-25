@@ -126,6 +126,7 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 														className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300'
 														imgStyle={{ filter: 'sepia(15%) contrast(95%)' }}
 														maxWidth='w-full'
+														photos={photos}
 														src={photos[0]}
 														title={`${city || country} (${year})`}
 													/>

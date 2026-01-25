@@ -1,10 +1,12 @@
-import bruges2025 from '@/assets/images/travel/2025/2025-bruges.jpg';
-import interlaken2025 from '@/assets/images/travel/2025/2025-interlaken.jpg';
-import lauterbrunnen2025 from '@/assets/images/travel/2025/2025-lauterbrunnen.jpg';
-import london2025 from '@/assets/images/travel/2025/2025-london.jpg';
-import luxembourg2025 from '@/assets/images/travel/2025/2025-luxembourg.jpg';
-import salzburg2025 from '@/assets/images/travel/2025/2025-salzburg.jpg';
-import venice2025 from '@/assets/images/travel/2025/2025-venice.jpg';
+import bruges2025 from '@/assets/images/travel/2025/bruges.jpg';
+import interlaken2025 from '@/assets/images/travel/2025/interlaken.jpg';
+import lauterbrunnen2025 from '@/assets/images/travel/2025/lauterbrunnen.jpg';
+import london2025 from '@/assets/images/travel/2025/london.jpg';
+import luxembourg2025 from '@/assets/images/travel/2025/luxembourg.jpg';
+import nice2025_1 from '@/assets/images/travel/2025/nice-1.jpg';
+import nice2025_2 from '@/assets/images/travel/2025/nice-2.png';
+import salzburg2025 from '@/assets/images/travel/2025/salzburg.jpg';
+import venice2025 from '@/assets/images/travel/2025/venice.jpg';
 
 /**
  * Travel destinations data for the interactive world map
@@ -403,6 +405,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'France',
 		city: 'Nice',
 		coordinates: [43.71, 7.26],
+		photos: [nice2025_1, nice2025_2],
 		years: 2025
 	},
 	{
