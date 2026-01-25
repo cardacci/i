@@ -1,6 +1,7 @@
 export { default as BaseView } from './BaseView';
 export { default as ContentCard } from './ContentCard';
 export { default as ImageWithModal } from './ImageWithModal';
+export { default as LazyImage } from './LazyImage';
 export { default as ListWithTitle } from './ListWithTitle';
 export { default as SectionTitle } from './SectionTitle';
 export { default as TabView } from './TabView';

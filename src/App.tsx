@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
 import { Header, SidebarNavigation } from '@/components/layout';
-import { Crypto, DJing, Economics, Home, Resume, Tech, Travel } from '@/components/sections';
+import { Home } from '@/components/sections';
 import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
+
+const Books = lazy(() => import('@/components/sections/Books/Books'));
+const Crypto = lazy(() => import('@/components/sections/Crypto/Crypto'));
+const DJing = lazy(() => import('@/components/sections/DJing/DJing'));
+const Economics = lazy(() => import('@/components/sections/Economics/Economics'));
+const Resume = lazy(() => import('@/components/sections/Resume/Resume'));
+const Tech = lazy(() => import('@/components/sections/Tech/Tech'));
+const Travel = lazy(() => import('@/components/sections/Travel/Travel'));
 
 /**
  * Layout component that will be present on all pages.
@@ -20,7 +28,9 @@ const Layout = () => {
 			<div className='pt-32 md:pt-28'>
 				<main className='grow'>
 					<div className='container mx-auto py-6'>
-						<Outlet />
+						<Suspense fallback={<div className='text-center py-10'>Loading...</div>}>
+							<Outlet />
+						</Suspense>
 					</div>
 				</main>
 			</div>
@@ -37,6 +47,10 @@ const router = createHashRouter([
 			{
 				element: <Home />,
 				index: true
+			},
+			{
+				element: <Books />,
+				path: `${ROUTES.BOOKS.id}/*`
 			},
 			{
 				element: <Resume />,
