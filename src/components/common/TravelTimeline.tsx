@@ -17,15 +17,6 @@ interface TravelTimelineProps {
 const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 	const { places } = props;
 
-	/* ===== Helper Functions ===== */
-	const getCountryFlag = (countryName: string): string => {
-		const countryKey = Object.keys(COUNTRY_INFO).find((key) => COUNTRY_INFO[key as keyof typeof COUNTRY_INFO].name === countryName) as
-			| keyof typeof COUNTRY_INFO
-			| undefined;
-
-		return countryKey ? COUNTRY_INFO[countryKey].flag : '';
-	};
-
 	/* ===== Memos ===== */
 	const timelineEntries = useMemo(() => {
 		const entriesMap = new Map<number, VisitedPlace[]>();
@@ -60,6 +51,35 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 
 		return entries;
 	}, [places]);
+
+	/* ===== Functions ===== */
+	const getCountryFlag = (countryName: string): string => {
+		const countryKey = Object.keys(COUNTRY_INFO).find((key) => COUNTRY_INFO[key as keyof typeof COUNTRY_INFO].name === countryName) as
+			| keyof typeof COUNTRY_INFO
+			| undefined;
+
+		return countryKey ? COUNTRY_INFO[countryKey].flag : '';
+	};
+
+	/**
+	 * Get photos for a specific year from a place.
+	 * Handles both simple array format and year-keyed object format.
+	 */
+	const getPhotosForYear = (place: VisitedPlace, year: number): string[] | undefined => {
+		const { photos } = place;
+
+		if (!photos) {
+			return undefined;
+		}
+
+		// If photos is an array, return it directly (single year or all years)
+		if (Array.isArray(photos)) {
+			return photos;
+		}
+
+		// If photos is an object, get photos for the specific year
+		return photos[year];
+	};
 
 	if (timelineEntries.length === 0) {
 		return (
@@ -111,7 +131,8 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 							{/* Places grid - 4 columns on desktop */}
 							<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
 								{places.map((p, idx) => {
-									const { city, country, description, livedHere, photos } = p;
+									const { city, country, description, livedHere } = p;
+									const yearPhotos = getPhotosForYear(p, year);
 
 									return (
 										<div
@@ -120,14 +141,14 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 										>
 											{/* Photo placeholder or actual photo */}
 											<div className='relative h-32 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 overflow-hidden'>
-												{photos && photos.length > 0 ? (
+												{yearPhotos && yearPhotos.length > 0 ? (
 													<LazyImage
 														alt={`${city || country}`}
 														className='w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300'
 														imgStyle={{ filter: 'sepia(15%) contrast(95%)' }}
 														maxWidth='w-full'
-														photos={photos}
-														src={photos[0]}
+														photos={yearPhotos}
+														src={yearPhotos[0]}
 														title={`${city || country} (${year})`}
 													/>
 												) : (
@@ -157,8 +178,8 @@ const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
 												{description && <p className='text-xs text-gray-600 line-clamp-2'>{description}</p>}
 
 												{/* Photo count indicator */}
-												{photos && photos.length > 1 && (
-													<div className='mt-2 text-xs text-blue-600 font-medium'>📷 {photos.length} photos</div>
+												{yearPhotos && yearPhotos.length > 1 && (
+													<div className='mt-2 text-xs text-blue-600 font-medium'>📷 {yearPhotos.length} photos</div>
 												)}
 											</div>
 										</div>

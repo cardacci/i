@@ -1,3 +1,14 @@
+import puertoPiramides2012 from '@/assets/images/travel/2012/puertopiramides.jpg';
+import aspen2014_1 from '@/assets/images/travel/2014/aspen-1.jpg';
+import aspen2014_2 from '@/assets/images/travel/2014/aspen-2.png';
+import aspensnowmass2014 from '@/assets/images/travel/2014/aspensnowmass.jpg';
+import grandcanyonnationalpark2014 from '@/assets/images/travel/2014/grandcanyonnationalpark.png';
+import lasvegas2014 from '@/assets/images/travel/2014/lasvegas.jpg';
+import machupicchu2015 from '@/assets/images/travel/2015/machupicchu.jpg';
+import morrodesaopaulo2019_1 from '@/assets/images/travel/2019/morrodesaopaulo-1.png';
+import morrodesaopaulo2019_2 from '@/assets/images/travel/2019/morrodesaopaulo-2.png';
+import salvador2019_1 from '@/assets/images/travel/2019/salvador-1.png';
+import salvador2019_2 from '@/assets/images/travel/2019/salvador-2.png';
 import bruges2025 from '@/assets/images/travel/2025/bruges.jpg';
 import interlaken2025 from '@/assets/images/travel/2025/interlaken.jpg';
 import lauterbrunnen2025 from '@/assets/images/travel/2025/lauterbrunnen.jpg';
@@ -18,7 +29,7 @@ export interface VisitedPlace {
 	country: string;
 	description?: string;
 	livedHere?: boolean;
-	photos?: string[]; // URLs or paths to photos from this place
+	photos?: string[] | Record<number, string[]>; // Simple array for single year, or object mapping year to photos for multiple years
 	year?: number; // Deprecated: use years instead
 	years?: number | number[]; // Year(s) when this place was visited
 }
@@ -191,6 +202,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Argentina',
 		city: 'Puerto Pirámides',
 		coordinates: [-42.57, -64.28],
+		photos: [puertoPiramides2012],
 		years: 2012
 	},
 	{
@@ -377,6 +389,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Brazil',
 		city: 'Morro de São Paulo',
 		coordinates: [-13.38, -38.91],
+		photos: [morrodesaopaulo2019_1, morrodesaopaulo2019_2],
 		years: 2019
 	},
 	{
@@ -389,6 +402,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Brazil',
 		city: 'Salvador',
 		coordinates: [-12.98, -38.5],
+		photos: [salvador2019_1, salvador2019_2],
 		years: 2019
 	},
 	{
@@ -468,6 +482,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'Peru',
 		city: 'Machu Picchu',
 		coordinates: [-13.16, -72.55],
+		photos: [machupicchu2015],
 		years: 2015
 	},
 	{
@@ -526,12 +541,18 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		city: 'Aspen',
 		coordinates: [39.19, -106.82],
 		livedHere: true,
+		photos: {
+			2014: [aspen2014_1, aspen2014_2]
+		},
 		years: [2013, 2014]
 	},
 	{
 		country: 'United States',
 		city: 'Aspen Snowmass',
 		coordinates: [39.19, -106.95],
+		photos: {
+			2014: [aspensnowmass2014]
+		},
 		years: [2013, 2014]
 	},
 	{
@@ -550,6 +571,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'United States',
 		city: 'Grand Canyon National Park',
 		coordinates: [36.27, -112.35],
+		photos: [grandcanyonnationalpark2014],
 		years: 2014
 	},
 	{
@@ -562,6 +584,7 @@ export const VISITED_PLACES: VisitedPlace[] = [
 		country: 'United States',
 		city: 'Las Vegas',
 		coordinates: [36.17, -115.14],
+		photos: [lasvegas2014],
 		years: 2014
 	},
 	{
