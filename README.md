@@ -64,14 +64,20 @@ i
 
 ## Technologies Used
 
-- **GitHub Actions**: For automated deployment to GitHub Pages.
+### Core Technologies
+
+- **JavaScript/TypeScript 5.8**: Type-safe development with modern JavaScript features and static type definitions.
 - **React 19**: For building the user interface with functional components and hooks.
 - **React Router 7**: For client-side routing between different sections.
 - **Tailwind CSS v4**: For utility-first styling with responsive design support.
-- **TypeScript 5.8**: For type safety, better developer experience, and code reliability.
-- **Vite 6**: For fast development and optimized builds.
+- **Vite 6**: Fast build tool and development server with optimized production builds.
+
+### Development Tools & CI/CD
+
+- **GitHub Actions**: Automated CI/CD pipeline for continuous deployment to GitHub Pages.
+- **ESLint 9**: Code linting with modern configuration for maintaining code quality.
+- **Prettier 3.5**: Automated code formatting for consistent style across the project.
 - **DaisyUI**: For additional UI components and design system.
-- **ESLint 9**: For code linting with modern configuration.
 - **PostCSS**: For CSS processing and Tailwind integration.
 
 ## Project Organization
