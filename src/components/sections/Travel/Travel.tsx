@@ -24,13 +24,14 @@ const Travel: React.FC = () => {
 	return (
 		<BaseView id='travel' title='Travel Adventures'>
 			<div className='space-y-6'>
-				<div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100'>
-					<h2 className='text-2xl font-bold text-gray-800 mb-4'>Places I've Visited</h2>
+				<div className='bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100'>
+					<h2 className='text-2xl font-bold text-slate-800 mb-4'>Places I've Visited</h2>
 
-					<p className='text-gray-600 mb-6'>
-						I've had the privilege of exploring <strong>{totalCountries} unique countries</strong> and visiting{' '}
-						<strong>{VISITED_PLACES.length} amazing destinations</strong> across different continents. Each destination has left its mark on my
-						perspective and enriched my understanding of diverse cultures.
+					<p className='text-slate-600 mb-8 text-lg leading-relaxed'>
+						I've had the privilege of exploring <strong className='text-slate-800'>{totalCountries} unique countries</strong>{' '}
+						and visiting <strong className='text-slate-800'>{VISITED_PLACES.length} amazing destinations</strong> across
+						different continents. Each destination has left its mark on my perspective and enriched my understanding of diverse
+						cultures.
 					</p>
 
 					<Routes>
@@ -40,28 +41,28 @@ const Travel: React.FC = () => {
 					</Routes>
 				</div>
 
-				<div className='bg-blue-50 p-6 rounded-xl border border-blue-200'>
-					<h3 className='text-xl font-semibold text-blue-800 mb-3'>Travel Philosophy</h3>
+				<div className='bg-gradient-to-br from-blue-50 to-violet-50 p-6 md:p-8 rounded-2xl border border-blue-100/50'>
+					<h3 className='text-xl font-semibold text-slate-800 mb-4'>Travel Philosophy</h3>
 
-					<p className='text-blue-700 mb-3'>
-						Travel is not just about visiting new places, it's about understanding different perspectives, challenging preconceptions, and growing
-						as a person.
+					<p className='text-slate-600 mb-4 leading-relaxed'>
+						Travel is not just about visiting new places, it's about understanding different perspectives, challenging
+						preconceptions, and growing as a person.
 					</p>
 
-					<ul className='space-y-2 text-blue-700'>
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>🌍</span>
-							Every culture has something valuable to teach
+					<ul className='space-y-3 text-slate-600'>
+						<li className='flex items-start gap-3'>
+							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>🌍</span>
+							<span className='pt-1'>Every culture has something valuable to teach</span>
 						</li>
 
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>🤝</span>
-							Human connections transcend borders and languages
+						<li className='flex items-start gap-3'>
+							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>🤝</span>
+							<span className='pt-1'>Human connections transcend borders and languages</span>
 						</li>
 
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>📚</span>
-							Travel is the most enriching form of education
+						<li className='flex items-start gap-3'>
+							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>📚</span>
+							<span className='pt-1'>Travel is the most enriching form of education</span>
 						</li>
 					</ul>
 				</div>

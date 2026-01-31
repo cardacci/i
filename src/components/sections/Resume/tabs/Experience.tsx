@@ -130,7 +130,15 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 4,
 		location: 'Argentina',
 		period: 'Aug 2015 - May 2016',
-		skills: [Skills.JAVASCRIPT, Skills.REST_APIS, Skills.HTML_CSS, Skills.GIT, Skills.CSHARP, Skills.ASP_NET_MVC, Skills.MICROSOFT_SQL_SERVER],
+		skills: [
+			Skills.JAVASCRIPT,
+			Skills.REST_APIS,
+			Skills.HTML_CSS,
+			Skills.GIT,
+			Skills.CSHARP,
+			Skills.ASP_NET_MVC,
+			Skills.MICROSOFT_SQL_SERVER
+		],
 		title: 'Full Stack Developer'
 	},
 	{
@@ -207,47 +215,81 @@ const Experience: React.FC = () => {
 			const firstExp = group[0];
 
 			return (
-				<div className={`border-l-4 pl-6 ${isGroupCurrent ? 'border-blue-500' : 'border-gray-400'}`} key={`group-${groupIndex}`}>
+				<div
+					className={`relative pl-8 border-l-4 ${isGroupCurrent ? 'border-blue-500' : 'border-slate-300'} transition-all duration-300 hover:border-blue-400`}
+					key={`group-${groupIndex}`}
+				>
+					{/* Decorative dot */}
+					<div
+						className={`absolute left-0 top-0 w-4 h-4 -translate-x-[10px] rounded-full border-4 ${
+							isGroupCurrent ? 'border-blue-500 bg-white' : 'border-slate-300 bg-white'
+						}`}
+					/>
+
 					{/* Company Header - shown once per company */}
-					<div className='flex items-start gap-4 mb-4'>
+					<div className='flex items-start gap-4 mb-6'>
 						{/* Company Logo */}
 						{firstExp.companyLogo && (
-							<div className='flex-shrink-0 w-16 h-16 rounded-lg border border-gray-200 bg-white p-2 flex items-center justify-center overflow-hidden'>
+							<div className='flex-shrink-0 w-16 h-16 rounded-xl border border-slate-200 bg-white p-2 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300'>
 								<img alt={`${firstExp.company} logo`} className='w-full h-full object-contain' src={firstExp.companyLogo} />
 							</div>
 						)}
 
 						<div className='flex-1'>
-							<h4 className='text-xl font-bold text-gray-900 mb-1'>{firstExp.company}</h4>
+							<h4 className='text-xl font-bold text-slate-800 mb-1'>{firstExp.company}</h4>
 
-							<p className='text-sm text-gray-500'>{firstExp.location}</p>
+							<p className='text-sm text-slate-500 flex items-center gap-1'>
+								<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+									<path
+										d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth={2}
+									/>
+									<path
+										d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth={2}
+									/>
+								</svg>
+								{firstExp.location}
+							</p>
 						</div>
 					</div>
 
 					{/* Positions within the company */}
-					<div className='space-y-6'>
+					<div className='space-y-8'>
 						{group.map((exp, expIndex) => {
 							const { current, descriptions, id, period, skills, title } = exp;
 							const isLastInGroup = expIndex === group.length - 1;
 
 							return (
-								<div className='relative' key={id}>
+								<div className='relative group' key={id}>
 									{/* Connector line for positions after the first */}
-									{expIndex > 0 && <div className='absolute left-0 -top-3 w-px h-3 bg-gray-300' style={{ marginLeft: '-1.5rem' }}></div>}
+									{expIndex > 0 && (
+										<div className='absolute left-0 -top-4 w-px h-4 bg-slate-200' style={{ marginLeft: '-2rem' }}></div>
+									)}
 
 									{/* Position content */}
-									<div className={`${!isLastInGroup ? 'pb-0' : ''}`}>
-										<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-1'>
-											<h5 className='text-lg font-semibold text-gray-900'>{title}</h5>
+									<div
+										className={`${!isLastInGroup ? 'pb-0' : ''} bg-slate-50/50 rounded-xl p-4 -ml-2 transition-all duration-300 hover:bg-slate-100/50`}
+									>
+										<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-3'>
+											<h5 className='text-lg font-semibold text-slate-800'>{title}</h5>
 
 											<span
-												className={`${current ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} text-sm font-medium px-3 py-1 rounded-full`}
+												className={`${
+													current
+														? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-sm shadow-blue-500/25'
+														: 'bg-slate-200/80 text-slate-600'
+												} text-sm font-medium px-4 py-1.5 rounded-full mt-2 md:mt-0`}
 											>
 												{period}
 											</span>
 										</div>
 
-										<ul className='text-gray-600 space-y-2 mb-2'>
+										<ul className='text-slate-600 space-y-2 mb-3 leading-relaxed'>
 											{descriptions?.map((d, index) => {
 												const { bullets, title } = d;
 
@@ -256,7 +298,7 @@ const Experience: React.FC = () => {
 														{title}
 
 														{bullets && (
-															<ul className='list-disc list-inside ml-4'>
+															<ul className='list-disc list-inside ml-4 mt-2 text-slate-500'>
 																{bullets.map((bullet, bulletIndex) => (
 																	<li key={bulletIndex}>{bullet}</li>
 																))}
@@ -268,11 +310,11 @@ const Experience: React.FC = () => {
 										</ul>
 
 										{skills && skills.length > 0 && (
-											<div className='mt-3'>
-												<div className='flex flex-wrap gap-1.5'>
+											<div className='mt-4'>
+												<div className='flex flex-wrap gap-2'>
 													{skills.map((skill, skillIndex) => (
 														<span
-															className='inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs'
+															className='inline-flex items-center px-2.5 py-1 bg-white text-slate-600 rounded-lg text-xs font-medium border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors duration-200'
 															key={skillIndex}
 														>
 															{skill}
@@ -295,7 +337,7 @@ const Experience: React.FC = () => {
 		<div>
 			<SectionTitle level='h3'>Experience</SectionTitle>
 
-			<div className='space-y-8'>{getExperiences()}</div>
+			<div className='space-y-10'>{getExperiences()}</div>
 		</div>
 	);
 };

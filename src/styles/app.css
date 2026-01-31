@@ -2,5 +2,5 @@
 @plugin 'daisyui';
 
 body {
-	@apply text-gray-700;
+	@apply text-slate-700 antialiased;
 }

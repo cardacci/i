@@ -11,29 +11,39 @@ const Home: React.FC = () => {
 
 	return (
 		<BaseView id='home'>
-			<div className='flex flex-col md:flex-row items-center gap-8'>
+			<div className='flex flex-col md:flex-row items-center gap-10 md:gap-12'>
+				{/* Profile Image */}
 				<div className='md:w-1/3 flex justify-center'>
-					<img
-						alt='Gabriel Cardacci'
-						className='rounded-full w-64 h-64 object-cover shadow-2xl border-4 border-white ring-4 ring-blue-500/20 hover:ring-blue-500/40 transition-all duration-300 hover:scale-105'
-						src={profileImage}
-					/>
+					<div className='relative group'>
+						{/* Decorative rings */}
+						<div className='absolute -inset-4 bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-full opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500' />
+						<div className='absolute -inset-1 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-300' />
+						<img
+							alt='Gabriel Cardacci'
+							className='relative rounded-full w-56 h-56 md:w-64 md:h-64 object-cover shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-105'
+							src={profileImage}
+						/>
+					</div>
 				</div>
 
+				{/* Content */}
 				<div className='md:w-2/3 text-center md:text-left'>
-					<p className='text-lg mb-4'>Passionate about technology, software development, and building high-quality digital products.</p>
-
-					<p className='mb-6'>
-						Here you&apos;ll find a selection of professional work, side projects, explorations in crypto and blockchain, my journey as a DJ, and
-						experiences shaped by travel, curiosity, and constant learning.
+					<p className='text-lg md:text-xl text-slate-700 mb-5 leading-relaxed'>
+						Passionate about technology, software development, and building high-quality digital products.
 					</p>
 
-					<p className='text-gray-800'>Feel free to explore and connect.</p>
+					<p className='text-slate-600 mb-6 leading-relaxed'>
+						Here you&apos;ll find a selection of professional work, side projects, explorations in crypto and blockchain, my
+						journey as a DJ, and experiences shaped by travel, curiosity, and constant learning.
+					</p>
 
-					<div className='mt-6 flex flex-wrap gap-4 justify-center md:justify-start'>
+					<p className='text-slate-700 font-medium mb-8'>Feel free to explore and connect.</p>
+
+					{/* Social Links */}
+					<div className='flex flex-wrap gap-3 justify-center md:justify-start'>
 						{socialLinks.map((link) => (
 							<a
-								className={`flex items-center gap-2 px-4 py-2 rounded-md text-white transition-colors ${link.className}`}
+								className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 ${link.className}`}
 								href={link.url}
 								key={link.name}
 								rel='noopener noreferrer'
