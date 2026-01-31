@@ -21,9 +21,9 @@ const Crypto: React.FC = () => {
 	return (
 		<BaseView id='crypto' title='Cryptocurrency Insights'>
 			<ContentCard>
-				<p className='mb-6 text-gray-900'>
-					Welcome to the cryptocurrency section of my personal website. Here, you will find information and insights about various cryptocurrencies,
-					market analysis, and fair value calculations.
+				<p className='mb-8 text-slate-700 text-lg leading-relaxed'>
+					Welcome to the cryptocurrency section of my personal website. Here, you will find information and insights about various
+					cryptocurrencies, market analysis, and fair value calculations.
 				</p>
 
 				<Routes>

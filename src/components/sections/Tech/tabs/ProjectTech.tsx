@@ -9,17 +9,19 @@ const ProjectTech: React.FC = () => {
 
 	/* ===== Constants & Variables ===== */
 	const projectTechnologies = [
-		{ description: 'Tailwind CSS component library', name: 'daisyUI' },
-		{ description: 'Linting utility for JavaScript/TypeScript', name: 'ESLint' },
-		{ description: 'Version control system for tracking changes', name: 'Git' },
-		{ description: 'Static site hosting platform for deployment', name: 'GitHub Pages' },
-		{ description: 'Tool for transforming CSS with JavaScript', name: 'PostCSS' },
-		{ description: 'Code formatter for consistent code style', name: 'Prettier' },
-		{ description: 'Library for building user interfaces', name: 'React' },
+		{ description: 'Automated CI/CD pipeline for continuous deployment', name: 'GitHub Actions' },
+		{ description: 'Programming language for web development', name: 'JavaScript' },
+		{ description: 'JavaScript with static type definitions for type-safe development', name: 'TypeScript' },
+		{ description: 'Library for building user interfaces with components', name: 'React' },
 		{ description: 'Declarative routing for React applications', name: 'React Router Dom' },
-		{ description: 'Utility-first CSS framework', name: 'Tailwind CSS' },
-		{ description: 'JavaScript with static type definitions', name: 'TypeScript' },
-		{ description: 'Fast build tool and development server', name: 'Vite' }
+		{ description: 'Utility-first CSS framework for rapid UI development', name: 'Tailwind CSS' },
+		{ description: 'Tailwind CSS component library for enhanced UI components', name: 'daisyUI' },
+		{ description: 'Fast build tool and development server with HMR', name: 'Vite' },
+		{ description: 'Code linting utility for maintaining code quality', name: 'ESLint' },
+		{ description: 'Code formatter for consistent code style', name: 'Prettier' },
+		{ description: 'Tool for transforming CSS with JavaScript plugins', name: 'PostCSS' },
+		{ description: 'Version control system for tracking changes', name: 'Git' },
+		{ description: 'Static site hosting platform for deployment', name: 'GitHub Pages' }
 	];
 
 	return (
@@ -50,19 +52,31 @@ const ProjectTech: React.FC = () => {
 
 				<ul className='text-sm text-gray-600 space-y-1'>
 					<li>
-						• <strong>Build System:</strong> Vite for fast development and optimized production builds
+						• <strong>Language:</strong> TypeScript 5.8 with JavaScript for type-safe development
 					</li>
 
 					<li>
-						• <strong>Code Quality:</strong> ESLint + Prettier for consistent code formatting
+						• <strong>Framework:</strong> React 19 with React Router for component-based architecture
 					</li>
 
 					<li>
-						• <strong>Styling:</strong> Tailwind CSS with daisyUI for component-based styling
+						• <strong>Build System:</strong> Vite 6 for fast development and optimized production builds
 					</li>
 
 					<li>
-						• <strong>Deployment:</strong> GitHub Pages with automated build process
+						• <strong>Code Quality:</strong> ESLint 9 + Prettier for linting and consistent code formatting
+					</li>
+
+					<li>
+						• <strong>Styling:</strong> Tailwind CSS v4 with daisyUI for component-based styling
+					</li>
+
+					<li>
+						• <strong>CI/CD:</strong> GitHub Actions for automated continuous deployment
+					</li>
+
+					<li>
+						• <strong>Deployment:</strong> GitHub Pages with automated build and deployment pipeline
 					</li>
 				</ul>
 			</div>

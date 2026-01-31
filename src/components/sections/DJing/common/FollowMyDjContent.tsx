@@ -7,15 +7,17 @@ import { useSocialLinks } from '@/utils/hooks';
 const FollowMyDjContent: React.FC = () => {
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 	return (
-		<div className='mt-12 pt-8 border-t border-gray-200 flex flex-col items-center'>
+		<div className='mt-12 pt-8 border-t border-[#A3FFD6]/20 flex flex-col items-center'>
 			<SectionTitle className='text-center' level='h3'>
-				Follow my DJ content on
+				<span className='text-white flex items-center gap-2 justify-center'>
+					<span className='text-xl'>📡</span> Follow my DJ content on
+				</span>
 			</SectionTitle>
 
 			<div className='flex flex-wrap items-center gap-4 justify-center'>
 				{socialLinks.map((link) => (
 					<a
-						className={`flex items-center gap-2 px-4 py-2 rounded-md text-white transition-colors ${link.className}`}
+						className='flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-semibold rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 hover:scale-105 transition-all duration-300'
 						href={link.url}
 						key={link.name}
 						rel='noopener noreferrer'

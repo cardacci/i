@@ -28,9 +28,9 @@ const Resume: React.FC = () => {
 	return (
 		<BaseView id='resume' title='Resume'>
 			<ContentCard>
-				<p className='mb-6 text-gray-900'>
-					Welcome to my professional resume. Here you'll find detailed information about my background, experience, and skills as a Principal Frontend
-					Engineer with expertise in React ecosystem and AI-augmented development.
+				<p className='mb-8 text-slate-700 text-lg leading-relaxed'>
+					Welcome to my professional resume. Here you'll find detailed information about my background, experience, and skills as
+					a Principal Frontend Engineer with expertise in React ecosystem and AI-augmented development.
 				</p>
 
 				<Routes>

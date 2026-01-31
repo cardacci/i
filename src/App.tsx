@@ -20,15 +20,24 @@ const Travel = lazy(() => import('@/components/sections/Travel/Travel'));
  */
 const Layout = () => {
 	return (
-		<div className='flex flex-col min-h-screen bg-white'>
+		<div className='flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30'>
 			<Header />
 
 			<SidebarNavigation />
 
 			<div className='pt-32 md:pt-28'>
 				<main className='grow'>
-					<div className='container mx-auto py-6'>
-						<Suspense fallback={<div className='text-center py-10'>Loading...</div>}>
+					<div className='container mx-auto py-8 px-4 sm:px-6'>
+						<Suspense
+							fallback={
+								<div className='flex items-center justify-center py-20'>
+									<div className='flex flex-col items-center gap-4'>
+										<div className='w-10 h-10 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin' />
+										<p className='text-slate-500 font-medium'>Loading...</p>
+									</div>
+								</div>
+							}
+						>
 							<Outlet />
 						</Suspense>
 					</div>

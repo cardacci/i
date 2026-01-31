@@ -48,27 +48,39 @@ const Header: React.FC = () => {
 
 	return (
 		<header
-			className={`fixed w-full top-0 z-40 transition-all duration-700 ease-in-out ${
-				scrolled ? 'bg-blue-900 shadow-lg py-2' : 'bg-blue-800 py-4'
+			className={`fixed w-full top-0 z-40 transition-all duration-500 ease-out ${
+				scrolled
+					? 'py-2 bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-slate-900/95 backdrop-blur-lg shadow-lg shadow-blue-900/20'
+					: 'py-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900'
 			} ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}
 		>
-			<div className='container mx-auto px-4 flex items-center justify-between'>
+			{/* Subtle animated gradient overlay */}
+			<div className='absolute inset-0 bg-gradient-to-r from-blue-600/10 via-violet-600/10 to-blue-600/10 opacity-50' />
+
+			{/* Decorative line at bottom */}
+			<div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent' />
+
+			<div className='container mx-auto px-4 flex items-center justify-between relative'>
 				{/* Title with responsive margin to avoid hamburger overlap */}
 				<div className='ml-12 md:ml-16 flex-1'>
 					<h1 className='font-bold text-xl md:text-3xl transition-all duration-300'>
-						<span className='bg-linear-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent'>Gabriel Cardacci</span>
-						<span className='block text-xs md:text-sm font-light mt-1 text-blue-200 opacity-90'>
-							Principal Frontend Engineer | Software Engineer | Investor | Crypto Enthusiast | World Explorer | DJ
+						<span className='bg-gradient-to-r from-cyan-300 via-blue-200 to-violet-300 bg-clip-text text-transparent drop-shadow-sm'>
+							Gabriel Cardacci
+						</span>
+						<span className='block text-xs md:text-sm font-light mt-1.5 text-blue-200/80 tracking-wide'>
+							Principal Frontend Engineer • Software Engineer • Investor • Crypto Enthusiast • World Explorer • DJ
 						</span>
 					</h1>
 				</div>
 
 				{/* Typing animation effect */}
 				<div className='hidden md:flex items-center'>
-					<span className='text-blue-200 font-mono text-lg relative pr-1'>
-						{typedText}
-						<span className='absolute right-0 top-0 h-full w-0.5 bg-blue-200 animate-blink'></span>
-					</span>
+					<div className='px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm'>
+						<span className='text-blue-200/90 font-mono text-base relative pr-1 tracking-wider'>
+							{typedText}
+							<span className='absolute right-0 top-0 h-full w-0.5 bg-cyan-400 animate-pulse rounded-full'></span>
+						</span>
+					</div>
 				</div>
 			</div>
 		</header>
