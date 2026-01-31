@@ -288,4 +288,57 @@
 			transform: scale(1);
 		}
 	}
+
+	/* ===== DJing Section Specific Animations ===== */
+
+	/* Sound bar equalizer animation */
+	.animate-soundbar {
+		animation: soundbar 1.2s ease-in-out infinite;
+	}
+
+	@keyframes soundbar {
+		0%,
+		100% {
+			transform: scaleY(0.3);
+		}
+		50% {
+			transform: scaleY(1);
+		}
+	}
+
+	/* Vinyl spinning animation */
+	.animate-spin-slow {
+		animation: spin 8s linear infinite;
+	}
+
+	/* Pulse glow for DJ elements */
+	.animate-pulse-glow {
+		animation: pulse-glow 2s ease-in-out infinite;
+	}
+
+	@keyframes pulse-glow {
+		0%,
+		100% {
+			box-shadow: 0 0 20px rgba(163, 255, 214, 0.3);
+		}
+		50% {
+			box-shadow: 0 0 40px rgba(163, 255, 214, 0.6);
+		}
+	}
+
+	/* Neon text effect for DJ section */
+	.text-neon-mint {
+		text-shadow:
+			0 0 10px rgba(163, 255, 214, 0.8),
+			0 0 20px rgba(163, 255, 214, 0.5),
+			0 0 30px rgba(163, 255, 214, 0.3);
+	}
+
+	/* Glass card for dark themes */
+	.glass-dark {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(163, 255, 214, 0.2);
+	}
 }

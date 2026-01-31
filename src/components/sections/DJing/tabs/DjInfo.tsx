@@ -5,7 +5,7 @@ import ddjFlx4Img from '@/assets/images/djing/pioneer-ddj-flx4.webp';
 import vm80Img from '@/assets/images/djing/pioneer-vm-80.webp';
 import sandiskCruzerGlideImg from '@/assets/images/djing/sandisk-cruzer-glide-3.0-64gb.jpg';
 import sennheiserHd25Img from '@/assets/images/djing/sennheiser-hd-25.jpg';
-import { ContentCard, SectionTitle } from '@/components/common';
+import { SectionTitle } from '@/components/common';
 
 const DjEquipment = [
 	{
@@ -75,65 +75,104 @@ const DjEquipment = [
 
 const DjInfo: React.FC = () => {
 	return (
-		<ContentCard>
-			<SectionTitle level='h2'>About Me as a DJ</SectionTitle>
+		<div className='space-y-8'>
+			{/* About Section */}
+			<div className='bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
+				<SectionTitle level='h2'>
+					<span className='text-[#A3FFD6]'>About Me</span>
+					<span className='text-white'> as a DJ</span>
+				</SectionTitle>
 
-			<p className='mb-4 text-gray-900'>
-				I am a DJ passionate about <strong>progressive house</strong> and <strong>organic house</strong>, genres that allow me to create sets with
-				depth, melody, and atmosphere. I love taking the dancefloor on a progressive musical journey, with smooth transitions and an immersive sonic
-				narrative.
-			</p>
+				<p className='mb-4 text-gray-200 leading-relaxed'>
+					I am a DJ passionate about <strong className='text-[#A3FFD6]'>progressive house</strong> and{' '}
+					<strong className='text-[#A3FFD6]'>organic house</strong>, genres that allow me to create sets with depth, melody, and
+					atmosphere. I love taking the dancefloor on a progressive musical journey, with smooth transitions and an immersive
+					sonic narrative.
+				</p>
 
-			<p className='mb-4 text-gray-900'>
-				I also enjoy experimenting and having fun mixing <strong>deep house</strong>, <strong>house</strong>, and <strong>afro house</strong>—styles
-				that bring groove, energy, and fresh rhythms to my sessions. This variety lets me adapt to different environments and audiences, always
-				maintaining my own musical identity.
-			</p>
+				<p className='mb-4 text-gray-200 leading-relaxed'>
+					I also enjoy experimenting and having fun mixing <strong className='text-[#A3FFD6]'>deep house</strong>,{' '}
+					<strong className='text-[#A3FFD6]'>house</strong>, and <strong className='text-[#A3FFD6]'>afro house</strong>—styles
+					that bring groove, energy, and fresh rhythms to my sessions. This variety lets me adapt to different environments and
+					audiences, always maintaining my own musical identity.
+				</p>
+			</div>
 
-			<SectionTitle className='mt-6' level='h3'>
-				My Style
-			</SectionTitle>
+			{/* Style Section */}
+			<div className='bg-gradient-to-r from-[#A3FFD6]/10 to-purple-500/10 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
+				<SectionTitle level='h3'>
+					<span className='text-white flex items-center gap-2'>
+						<span className='text-2xl'>🎧</span> My Style
+					</span>
+				</SectionTitle>
 
-			<p className='mb-4 text-gray-900'>
-				My sets usually blend electronic music with elements of house, techno, and organic sounds. I aim to create smooth experiences that take
-				listeners on an emotional and danceable journey.
-			</p>
+				<p className='text-gray-200 leading-relaxed'>
+					My sets usually blend electronic music with elements of house, techno, and organic sounds. I aim to create smooth
+					experiences that take listeners on an emotional and danceable journey.
+				</p>
 
-			<SectionTitle className='mt-6' level='h3'>
-				My DJ Setup
-			</SectionTitle>
-
-			<ul className='mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-				{DjEquipment.map((item) => (
-					<li className='bg-white/5 border border-[#A3FFD6] flex flex-col items-center p-4 rounded-xl shadow-lg h-full' key={item.name}>
-						<div className='shrink-0 flex items-center justify-center w-32 h-32 bg-linear-to-br from-[#A3FFD6]/30 to-[#18122B]/60 rounded-lg overflow-hidden shadow-lg mb-3 group transition-transform duration-300 hover:scale-105'>
-							<img
-								alt={item.name}
-								className='object-cover w-full h-full bg-white/10 rounded-md transition-transform duration-300 group-hover:scale-125'
-								src={item.image}
-							/>
-						</div>
-
-						<a
-							className='font-semibold hover:underline text-lg text-gray-900 text-center'
-							href={item.url}
-							rel='noopener noreferrer'
-							target='_blank'
+				{/* Genre tags */}
+				<div className='flex flex-wrap gap-2 mt-4'>
+					{['Progressive House', 'Organic House', 'Deep House', 'Afro House', 'Melodic Techno'].map((genre) => (
+						<span
+							className='px-3 py-1 bg-[#A3FFD6]/20 text-[#A3FFD6] rounded-full text-sm font-medium border border-[#A3FFD6]/30'
+							key={genre}
 						>
-							{item.name}
-						</a>
+							{genre}
+						</span>
+					))}
+				</div>
+			</div>
 
-						<ul className='list-disc list-inside mt-2 text-sm text-gray-800 text-left w-full pl-4'>
-							{item.specs.map((spec) => (
-								<li className='marker:text-[#393053]' key={spec}>
-									{spec}
-								</li>
-							))}
-						</ul>
-					</li>
-				))}
-			</ul>
-		</ContentCard>
+			{/* Equipment Section */}
+			<div>
+				<SectionTitle level='h3'>
+					<span className='text-white flex items-center gap-2'>
+						<span className='text-2xl'>🎛️</span> My DJ Setup
+					</span>
+				</SectionTitle>
+
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
+					{DjEquipment.map((item) => (
+						<div
+							className='group bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm rounded-xl p-5 border border-[#A3FFD6]/20 hover:border-[#A3FFD6]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#A3FFD6]/10 hover:-translate-y-1'
+							key={item.name}
+						>
+							{/* Equipment Image */}
+							<div className='relative w-full h-32 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a]'>
+								<img
+									alt={item.name}
+									className='w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-110'
+									src={item.image}
+								/>
+								{/* Glow effect on hover */}
+								<div className='absolute inset-0 bg-[#A3FFD6]/0 group-hover:bg-[#A3FFD6]/5 transition-colors duration-300 rounded-lg' />
+							</div>
+
+							{/* Equipment Name */}
+							<a
+								className='block font-semibold text-lg text-white hover:text-[#A3FFD6] transition-colors text-center mb-3'
+								href={item.url}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								{item.name}
+							</a>
+
+							{/* Specs */}
+							<ul className='space-y-1.5 text-sm text-gray-300'>
+								{item.specs.map((spec) => (
+									<li className='flex items-start gap-2' key={spec}>
+										<span className='text-[#A3FFD6] mt-0.5'>•</span>
+										<span>{spec}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
 	);
 };
 

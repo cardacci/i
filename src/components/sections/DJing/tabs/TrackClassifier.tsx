@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { ContentCard, SectionTitle } from '@/components/common';
+import { SectionTitle } from '@/components/common';
 
 const TrackClassifier: React.FC = () => {
 	/* ===== State ===== */
@@ -10,7 +10,20 @@ const TrackClassifier: React.FC = () => {
 	const [validationError, setValidationError] = useState<string>('');
 
 	/* ===== Constants & Variables ===== */
-	const componentOptions = ['Acid', 'Dark', 'Ethereal', 'Funky', 'Groovy', 'Light', 'Melodic', 'Oriental', 'Soft', 'Tribal', 'Tribute', 'Vocal'];
+	const componentOptions = [
+		'Acid',
+		'Dark',
+		'Ethereal',
+		'Funky',
+		'Groovy',
+		'Light',
+		'Melodic',
+		'Oriental',
+		'Soft',
+		'Tribal',
+		'Tribute',
+		'Vocal'
+	];
 	const setTimeOptions = ['Intro', 'Intro-Outro', 'Warm-up', 'Build-up', 'Peak-time', 'Outro'];
 
 	const handleClear = () => {
@@ -75,41 +88,65 @@ const TrackClassifier: React.FC = () => {
 	}, [componentOptions, componentSelections, setTimeOptions, timeSelections]);
 
 	const Checkbox = ({ id, label, checked, onChange }: { id: string; label: string; checked: boolean; onChange: () => void }) => (
-		<div className='cursor-pointer flex items-center bg-white rounded-lg shadow-xs border border-gray-200 px-4 py-2 m-1' onClick={onChange}>
+		<div
+			className={`cursor-pointer flex items-center rounded-lg border px-4 py-2 m-1 transition-all duration-200 ${
+				checked
+					? 'bg-[#A3FFD6]/20 border-[#A3FFD6] shadow-md shadow-[#A3FFD6]/20'
+					: 'bg-white/5 border-white/20 hover:border-[#A3FFD6]/50 hover:bg-white/10'
+			}`}
+			onClick={onChange}
+		>
 			<input
 				checked={checked}
-				className='h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm cursor-default'
+				className='h-5 w-5 text-[#A3FFD6] focus:ring-[#A3FFD6] border-gray-500 rounded-sm cursor-default accent-[#A3FFD6]'
 				id={id}
 				onChange={onChange}
 				type='checkbox'
 			/>
 
-			<label className='ml-2 block text-sm font-medium cursor-pointer select-none' htmlFor={id}>
+			<label
+				className={`ml-2 block text-sm font-medium cursor-pointer select-none ${checked ? 'text-[#A3FFD6]' : 'text-gray-300'}`}
+				htmlFor={id}
+			>
 				{label}
 			</label>
 		</div>
 	);
 
 	return (
-		<ContentCard>
-			<SectionTitle level='h2'>DJ Track Tagging Tool</SectionTitle>
+		<div className='bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
+			<SectionTitle level='h2'>
+				<span className='text-white flex items-center gap-2'>
+					<span className='text-2xl'>🏷️</span> DJ Track Tagging Tool
+				</span>
+			</SectionTitle>
 
-			<p className='mb-6 text-gray-900'>
-				This tool helps you standardize your comments and tags for tracks you analyze, making it easier to keep a consistent rating and description
-				style across your music collection.
+			<p className='mb-6 text-gray-300'>
+				This tool helps you standardize your comments and tags for tracks you analyze, making it easier to keep a consistent rating
+				and description style across your music collection.
 			</p>
 
 			<div className='mb-8'>
-				<SectionTitle level='h3'>Set Time</SectionTitle>
+				<SectionTitle level='h3'>
+					<span className='text-white/90'>Set Time</span>
+				</SectionTitle>
 				<div className='flex flex-wrap -m-1'>
 					{setTimeOptions.map((option) => (
-						<Checkbox checked={timeSelections.includes(option)} id={option} key={option} label={option} onChange={() => handleTimeChange(option)} />
+						<Checkbox
+							checked={timeSelections.includes(option)}
+							id={option}
+							key={option}
+							label={option}
+							onChange={() => handleTimeChange(option)}
+						/>
 					))}
 				</div>
 			</div>
 
 			<div className='mb-8'>
-				<SectionTitle level='h3'>Components</SectionTitle>
+				<SectionTitle level='h3'>
+					<span className='text-white/90'>Components</span>
+				</SectionTitle>
 				<div className='flex flex-wrap -m-1'>
 					{componentOptions.map((option) => (
 						<Checkbox
@@ -123,11 +160,15 @@ const TrackClassifier: React.FC = () => {
 				</div>
 			</div>
 
-			{validationError && <div className='mb-4 p-3 border border-red-300 bg-red-50 text-red-700 rounded-md'>{validationError}</div>}
+			{validationError && (
+				<div className='mb-4 p-3 border border-red-400/50 bg-red-500/20 text-red-300 rounded-lg backdrop-blur-sm'>
+					{validationError}
+				</div>
+			)}
 
 			<div className='mb-6'>
 				<textarea
-					className='w-full p-3 border border-gray-300 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 bg-gray-50'
+					className='w-full p-4 bg-[#0f0f1a] border border-[#A3FFD6]/30 rounded-lg shadow-inner focus:ring-[#A3FFD6] focus:border-[#A3FFD6] text-white placeholder-gray-500'
 					id='result'
 					placeholder='Selected tags will appear here...'
 					readOnly
@@ -138,22 +179,24 @@ const TrackClassifier: React.FC = () => {
 
 			<div className='flex justify-end space-x-4'>
 				<button
-					className={`px-6 py-2 ${
-						timeSelections.length > 0 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-400 cursor-not-allowed'
-					} text-white rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150`}
+					className={`px-6 py-2.5 rounded-full font-semibold transition-all duration-300 ${
+						timeSelections.length > 0
+							? 'bg-gradient-to-r from-[#A3FFD6] to-[#7de8b8] text-[#0f0f1a] hover:shadow-lg hover:shadow-[#A3FFD6]/30 hover:scale-105'
+							: 'bg-gray-700 text-gray-400 cursor-not-allowed'
+					}`}
 					onClick={handleCopy}
 				>
-					Copy
+					Copy Tags
 				</button>
 
 				<button
-					className='px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150'
+					className='px-6 py-2.5 bg-white/10 text-gray-300 rounded-full font-semibold border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300'
 					onClick={handleClear}
 				>
 					Clear
 				</button>
 			</div>
-		</ContentCard>
+		</div>
 	);
 };
 
