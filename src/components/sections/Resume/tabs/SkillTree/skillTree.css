@@ -1,99 +1,198 @@
-/* ===== React Flow Base Styles ===== */
-.react-flow__renderer {
-	background: transparent !important;
-}
-
-/* ===== Controls ===== */
-.react-flow__controls {
-	border-radius: 8px;
-	border: 1px solid #e2e8f0;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	overflow: hidden;
-}
-
-.react-flow__controls-button {
-	background: white !important;
-	border-bottom: 1px solid #e2e8f0 !important;
-	border: none !important;
-	height: 32px !important;
-	padding: 8px !important;
-	transition: background 0.2s ease;
-	width: 32px !important;
-}
-
-.react-flow__controls-button:last-child {
-	border-bottom: none !important;
-}
-
-.react-flow__controls-button:hover {
-	background: #f1f5f9 !important;
-}
-
-.react-flow__controls-button svg {
-	fill: #475569;
-}
-
-/* ===== Minimap ===== */
-.react-flow__minimap {
-	background: rgba(255, 255, 255, 0.9) !important;
-	border-radius: 8px !important;
-	border: 1px solid #e2e8f0 !important;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* ===== Edges ===== */
-.react-flow__edge-path {
-	stroke-linecap: round;
-}
-
-.react-flow__edge.animated path {
-	animation: dashdraw 0.5s linear infinite;
-	stroke-dasharray: 5;
-}
-
-@keyframes dashdraw {
-	from {
-		stroke-dashoffset: 10;
-	}
-	to {
-		stroke-dashoffset: 0;
-	}
-}
-
-/* ===== Attribution (hide) ===== */
-.react-flow__attribution {
-	display: none;
-}
-
 /* ===== Skill Tree Container ===== */
-.skill-tree-container {
+.skill-tree-scroll {
 	background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
 	border-radius: 16px;
 	border: 1px solid #e2e8f0;
 	box-shadow:
 		0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	height: 600px;
-	overflow: hidden;
+	padding: 2rem 1.5rem;
 	width: 100%;
+}
+
+/* ===== Section Connector (dashed line between sections) ===== */
+.section-connector {
+	background: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 6px, transparent 6px, transparent 12px);
+	flex-shrink: 0;
+	height: 40px;
+	margin: 0 auto;
+	width: 3px;
+}
+
+/* ===== Each section wraps a tree and can scroll horizontally ===== */
+.skill-tree-section {
+	overflow-x: auto;
+	padding: 4px 0;
+}
+
+/* ===== The tree structure ===== */
+.skill-tree {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	min-width: fit-content;
+}
+
+/* ===== Tree Node ===== */
+.skill-tree .tree-node {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ===== Node Cards ===== */
+.node-card {
+	align-items: center;
+	border-radius: 10px;
+	border: 2px solid;
+	cursor: default;
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	text-align: center;
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+	white-space: nowrap;
+}
+
+.node-category {
+	border-radius: 12px;
+	border-width: 2.5px;
+	min-width: 200px;
+	padding: 14px 28px;
+}
+
+.node-skill {
+	min-width: 130px;
+	padding: 12px 22px;
+}
+
+.node-card:hover {
+	transform: scale(1.06);
+	z-index: 10;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ORG-CHART TREE CONNECTORS
+   ═══════════════════════════════════════════════════════════ */
+
+/* ===== Tree Children (ul) ===== */
+.skill-tree ul.tree-children {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding-top: 22px;
+	position: relative;
+}
+
+/* Vertical connector from parent card down to the horizontal bar */
+.skill-tree ul.tree-children::before {
+	background-color: #94a3b8;
+	content: '';
+	height: 22px;
+	left: 50%;
+	position: absolute;
+	top: 0;
+	transform: translateX(-50%);
+	width: 2px;
+}
+
+/* ===== Tree Children Items (li) ===== */
+.skill-tree li {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: 22px 10px 0;
+	position: relative;
+}
+
+/* Both pseudo-elements: horizontal connector bars */
+.skill-tree li::before,
+.skill-tree li::after {
+	border-top: 2px solid #94a3b8;
+	content: '';
+	height: 22px;
+	position: absolute;
+	top: 0;
+	width: 50%;
+}
+
+/* Left half */
+.skill-tree li::before {
+	right: 50%;
+}
+
+/* Right half + vertical drop at center */
+.skill-tree li::after {
+	border-left: 2px solid #94a3b8;
+	left: 50%;
+}
+
+/* First child: no left horizontal extension, round the corner */
+.skill-tree li:first-child::before {
+	border: none;
+}
+
+.skill-tree li:first-child::after {
+	border-radius: 6px 0 0 0;
+}
+
+/* Last child: no right extension, add right border for drop + round corner */
+.skill-tree li:last-child::after {
+	border: none;
+}
+
+.skill-tree li:last-child::before {
+	border-radius: 0 6px 0 0;
+	border-right: 2px solid #94a3b8;
+}
+
+/* Only child: no horizontal bars at all, just the vertical from ul::before */
+.skill-tree li:only-child::before,
+.skill-tree li:only-child::after {
+	display: none;
+}
+
+.skill-tree li:only-child {
+	padding-top: 0;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-	.skill-tree-container {
-		height: 500px;
+	.node-category {
+		padding: 12px 20px;
+		min-width: 160px;
 	}
 
-	.react-flow__minimap {
-		display: none;
+	.node-skill {
+		padding: 10px 16px;
+		min-width: 110px;
+	}
+
+	.skill-tree-scroll {
+		padding: 1.5rem 1rem;
 	}
 }
 
 @media (max-width: 480px) {
-	.skill-tree-container {
-		height: 400px;
+	.node-category {
+		padding: 10px 16px;
+		min-width: 140px;
+		font-size: 0.875rem;
+	}
+
+	.node-skill {
+		padding: 8px 14px;
+		min-width: 100px;
+	}
+
+	.section-connector {
+		height: 30px;
+	}
+
+	.skill-tree-scroll {
+		padding: 1rem 0.75rem;
 	}
 }

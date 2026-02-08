@@ -11,7 +11,7 @@ const Skills: React.FC = () => {
 
 			<div className='mt-4'>
 				<p className='text-gray-600 mb-4 text-sm'>
-					Explore my skill tree - zoom, pan, and interact with the nodes to see how my skills connect.
+					Explore my skill tree! Scroll through the sections to see how my skills connect.
 				</p>
 
 				<SkillTree />

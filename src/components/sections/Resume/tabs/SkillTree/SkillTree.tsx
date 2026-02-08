@@ -1,61 +1,69 @@
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
 
-import { Background, BackgroundVariant, Controls, MiniMap, ReactFlow, useEdgesState, useNodesState, type Node } from '@xyflow/react';
-import '@xyflow/react/dist/style.css';
+import {
+	CATEGORY_COLORS,
+	skillSections,
+	type SkillCategoryKey,
+	type SkillTreeNode as SkillTreeNodeType
+} from '@/utils/constants/skillTreeData';
 
-import { CATEGORY_COLORS, defaultEdgeOptions, initialEdges, initialNodes } from '@/utils/constants/skillTreeData';
-
-import SkillNode from './SkillNode';
 import './skillTree.css';
 
-const SkillTree: React.FC = () => {
-	const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-	const [nodes, , onNodesChange] = useNodesState(initialNodes);
+/* ===== Recursive Tree Node Component ===== */
+interface TreeNodeProps {
+	category: SkillCategoryKey;
+	node: SkillTreeNodeType;
+}
 
-	/* ===== Custom Node Types ===== */
-	const nodeTypes = useMemo(
-		() => ({
-			skillNode: SkillNode
-		}),
-		[]
-	);
-
-	/* ===== Minimap Node Color ===== */
-	const getMinimapNodeColor = useCallback((node: Node) => {
-		const category = (node.data as { category?: string })?.category;
-
-		if (category && category in CATEGORY_COLORS) {
-			return CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS].bg;
-		}
-
-		return '#94a3b8';
-	}, []);
+const TreeNode: React.FC<TreeNodeProps> = ({ category, node }) => {
+	const colors = CATEGORY_COLORS[category];
+	const hasChildren = node.children && node.children.length > 0;
 
 	return (
-		<div className='skill-tree-container'>
-			<ReactFlow
-				attributionPosition='bottom-left'
-				defaultEdgeOptions={defaultEdgeOptions}
-				edges={edges}
-				fitView
-				fitViewOptions={{
-					maxZoom: 1.2,
-					padding: 0.2
+		<div className='tree-node'>
+			{/* Node Card */}
+			<div
+				className={`node-card ${node.isCategory ? 'node-category' : 'node-skill'}`}
+				style={{
+					background: `linear-gradient(135deg, ${colors.bg}${node.isCategory ? 'dd' : 'cc'}, ${colors.bg}${node.isCategory ? '' : 'ee'})`,
+					borderColor: colors.border,
+					boxShadow: `0 ${node.isCategory ? '4px 14px' : '2px 10px'} ${colors.glow}`
 				}}
-				maxZoom={2}
-				minZoom={0.3}
-				nodes={nodes}
-				nodeTypes={nodeTypes}
-				onEdgesChange={onEdgesChange}
-				onNodesChange={onNodesChange}
-				proOptions={{ hideAttribution: true }}
 			>
-				<Background color='#cbd5e1' gap={20} size={1} variant={BackgroundVariant.Dots} />
+				{node.icon && <node.icon className='text-white' size={node.isCategory ? 22 : 18} />}
 
-				<Controls position='bottom-right' showInteractive={false} />
+				<span className={`text-white ${node.isCategory ? 'font-bold text-lg' : 'font-semibold text-sm'}`}>{node.label}</span>
+			</div>
 
-				<MiniMap maskColor='rgba(0, 0, 0, 0.1)' nodeColor={getMinimapNodeColor} pannable position='top-right' zoomable />
-			</ReactFlow>
+			{/* Children */}
+			{hasChildren && (
+				<ul className='tree-children'>
+					{node.children!.map((child) => (
+						<li key={child.label}>
+							<TreeNode category={category} node={child} />
+						</li>
+					))}
+				</ul>
+			)}
+		</div>
+	);
+};
+
+/* ===== Skill Tree Component ===== */
+const SkillTree: React.FC = () => {
+	return (
+		<div className='skill-tree-scroll'>
+			{skillSections.map((section, index) => (
+				<React.Fragment key={section.tree.label}>
+					{index > 0 && <div className='section-connector' />}
+
+					<div className='skill-tree-section'>
+						<div className='skill-tree'>
+							<TreeNode category={section.category} node={section.tree} />
+						</div>
+					</div>
+				</React.Fragment>
+			))}
 		</div>
 	);
 };
