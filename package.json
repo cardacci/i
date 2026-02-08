@@ -2,9 +2,11 @@
 	"author": "Gabriel Cardacci",
 	"dependencies": {
 		"@types/react-scroll": "^1.8.10",
+		"@xyflow/react": "^12.10.0",
 		"leaflet": "^1.9.4",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-icons": "^5.5.0",
 		"react-leaflet": "^5.0.0",
 		"react-router-dom": "^7.6.2",
 		"react-scroll": "^1.9.3"
@@ -60,5 +62,5 @@
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "1.11.29"
+	"version": "2.02.07"
 }
