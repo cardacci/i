@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Route, Routes } from 'react-router-dom';
 
 import { BaseView, TabView } from '@/components/common';
@@ -9,7 +7,7 @@ import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 import PeriodsWhenToMakeMoney from './tabs/PeriodsWhenToMakeMoney';
 import RealEstateCycle from './tabs/RealEstateCycle';
 
-const Economics: React.FC = () => {
+const Economics = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
 		[ROUTE_KEYS.ECONOMICS.PERIODS_WHEN_TO_MAKE_MONEY]: <PeriodsWhenToMakeMoney />,

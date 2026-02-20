@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { BaseView, ContentCard, TabView } from '@/components/common';
@@ -9,7 +7,7 @@ import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 import BitcoinInfo from './tabs/BitcoinInfo';
 import FairValueAnalysis from './tabs/FairValueAnalysis';
 
-const Crypto: React.FC = () => {
+const Crypto = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
 		[ROUTE_KEYS.CRYPTO.BITCOIN]: <BitcoinInfo />,

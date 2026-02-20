@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants/socialNetworks';
 import { useSocialLinks } from '@/utils/hooks';
 
-const FollowMyDjContent: React.FC = () => {
+const FollowMyDjContent = () => {
 	const { socialLinks } = useSocialLinks([SocialNetwork.YOUTUBE]);
 	return (
 		<div className='mt-12 pt-8 border-t border-[#A3FFD6]/20 flex flex-col items-center'>

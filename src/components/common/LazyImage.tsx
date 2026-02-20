@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 
 import ImageWithModal from '@/components/common/ImageWithModal';
 
@@ -9,14 +9,14 @@ import ImageWithModal from '@/components/common/ImageWithModal';
 interface LazyImageProps {
 	alt: string;
 	className?: string;
-	imgStyle?: React.CSSProperties;
+	imgStyle?: CSSProperties;
 	maxWidth?: string;
 	photos?: string[];
 	src: string;
 	title?: string;
 }
 
-const LazyImage: React.FC<LazyImageProps> = (props) => {
+const LazyImage = (props: LazyImageProps) => {
 	const { alt, className, imgStyle, maxWidth, photos, src, title } = props;
 
 	/* ===== State ===== */

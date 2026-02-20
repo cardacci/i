@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import L from 'leaflet';
@@ -42,7 +40,7 @@ interface WorldMapProps {
 	visitedCountries: VisitedPlace[];
 }
 
-const WorldMap: React.FC<WorldMapProps> = (props) => {
+const WorldMap = (props: WorldMapProps) => {
 	const { className = '', visitedCountries } = props;
 
 	/* ===== Constants & Enums ===== */

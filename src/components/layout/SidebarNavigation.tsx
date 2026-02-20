@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ interface RouteItem {
 	path: string;
 }
 
-const SidebarNavigation: React.FC = () => {
+const SidebarNavigation = () => {
 	/* ===== State ===== */
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -219,9 +219,7 @@ const SidebarNavigation: React.FC = () => {
 						</svg>
 					</summary>
 
-					<ul className='mt-2 ml-8 space-y-1'>
-						{renderChildren(item.children)}
-					</ul>
+					<ul className='mt-2 ml-8 space-y-1'>{renderChildren(item.children)}</ul>
 				</details>
 			);
 		}

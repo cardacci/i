@@ -1,9 +1,7 @@
-import React from 'react';
-
 import realStateCycle from '@/assets/images/economics/18-year-real-estate-cycle.png';
 import { ImageWithModal, SectionTitle } from '@/components/common';
 
-const RealEstateCycle: React.FC = () => {
+const RealEstateCycle = () => {
 	return (
 		<div>
 			<SectionTitle level='h2'>18 Year Real Estate Cycle</SectionTitle>

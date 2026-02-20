@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface ContentCardProps {
@@ -6,7 +6,7 @@ interface ContentCardProps {
 	className?: string;
 }
 
-const ContentCard: FC<ContentCardProps> = (props) => {
+const ContentCard = (props: ContentCardProps) => {
 	const { children, className = '' } = props;
 
 	return (

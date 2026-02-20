@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { Link } from 'react-scroll';
 
@@ -14,7 +14,7 @@ interface TravelTimelineProps {
 	places: VisitedPlace[];
 }
 
-const TravelTimeline: React.FC<TravelTimelineProps> = (props) => {
+const TravelTimeline = (props: TravelTimelineProps) => {
 	const { places } = props;
 
 	/* ===== Memos ===== */

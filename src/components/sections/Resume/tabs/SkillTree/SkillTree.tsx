@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import {
 	CATEGORY_COLORS,
@@ -15,7 +15,7 @@ interface TreeNodeProps {
 	node: SkillTreeNodeType;
 }
 
-const TreeNode: React.FC<TreeNodeProps> = ({ category, node }) => {
+const TreeNode = ({ category, node }: TreeNodeProps) => {
 	const colors = CATEGORY_COLORS[category];
 	const hasChildren = node.children && node.children.length > 0;
 
@@ -50,11 +50,11 @@ const TreeNode: React.FC<TreeNodeProps> = ({ category, node }) => {
 };
 
 /* ===== Skill Tree Component ===== */
-const SkillTree: React.FC = () => {
+const SkillTree = () => {
 	return (
 		<div className='skill-tree-scroll'>
 			{skillSections.map((section, index) => (
-				<React.Fragment key={section.tree.label}>
+				<Fragment key={section.tree.label}>
 					{index > 0 && <div className='section-connector' />}
 
 					<div className='skill-tree-section'>
@@ -62,7 +62,7 @@ const SkillTree: React.FC = () => {
 							<TreeNode category={section.category} node={section.tree} />
 						</div>
 					</div>
-				</React.Fragment>
+				</Fragment>
 			))}
 		</div>
 	);

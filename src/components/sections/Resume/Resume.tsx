@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { BaseView, ContentCard, TabView } from '@/components/common';
@@ -12,7 +10,7 @@ import Personal from './tabs/Personal';
 import Projects from './tabs/Projects';
 import Skills from './tabs/Skills';
 
-const Resume: React.FC = () => {
+const Resume = () => {
 	/* ===== Constants & Variables ===== */
 	const tabContent = {
 		[ROUTE_KEYS.RESUME.EDUCATION]: <Education />,

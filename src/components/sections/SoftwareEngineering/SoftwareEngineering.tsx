@@ -1,6 +1,4 @@
 /* ===== Imports ===== */
-import React from 'react';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { BaseView, ContentCard } from '@/components/common';
@@ -10,7 +8,7 @@ import Frontend from './tabs/Frontend';
 import ProjectTech from './tabs/ProjectTech';
 
 /* ===== Component Function ===== */
-const SoftwareEngineering: React.FC = () => {
+const SoftwareEngineering = () => {
 	/* ===== JSX Return ===== */
 	return (
 		<BaseView id='software-engineering' title='Software Engineering'>

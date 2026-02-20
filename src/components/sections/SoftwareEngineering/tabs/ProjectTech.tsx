@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 import { useCardHover } from '@/utils/hooks';
 
-const ProjectTech: React.FC = () => {
+const ProjectTech = () => {
 	/* ===== Hooks ===== */
 	const { handleMouseMove, handleMouseLeave } = useCardHover(0.08);
 

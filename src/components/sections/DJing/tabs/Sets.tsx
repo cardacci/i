@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { Genre, SETS } from '@/utils/constants';
 
 const genreOptions = Object.values(Genre);
 
-const Sets: React.FC = () => {
+const Sets = () => {
 	/* ===== State ===== */
 	const [selectedGenres, setSelectedGenres] = useState<Genre[]>([]);
 

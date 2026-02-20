@@ -1,10 +1,8 @@
 /* ===== Imports ===== */
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 
 /* ===== Component Function ===== */
-const Backend: React.FC = () => {
+const Backend = () => {
 	/* ===== JSX Return ===== */
 	return (
 		<div>

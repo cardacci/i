@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { CSSProperties, MouseEvent, useState, useEffect } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -8,14 +8,14 @@ import { KEYBOARD_KEYS } from '@/utils/constants/keyboard';
 interface ImageWithModalProps {
 	alt: string;
 	className?: string;
-	imgStyle?: React.CSSProperties;
+	imgStyle?: CSSProperties;
 	maxWidth?: string;
 	photos?: string[]; // Array of photo URLs for multiple images.
 	src: string; // First photo to display (thumbnail).
 	title?: string;
 }
 
-const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
+const ImageWithModal = (props: ImageWithModalProps) => {
 	const { src, alt, className = '', maxWidth = 'max-w-xl', title, imgStyle, photos } = props;
 
 	/* ===== State ===== */
@@ -29,7 +29,7 @@ const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
 	const hasMultiplePhotos = allPhotos.length > 1;
 
 	/* ===== Functions ===== */
-	const handleNext = (event: React.MouseEvent | KeyboardEvent) => {
+	const handleNext = (event: KeyboardEvent | MouseEvent) => {
 		event.stopPropagation();
 		const nextIndex = (currentPhotoIndex + 1) % allPhotos.length;
 		setCurrentPhotoIndex(nextIndex);
@@ -37,7 +37,7 @@ const ImageWithModal: React.FC<ImageWithModalProps> = (props) => {
 		setLoadedImages((prev) => new Set(prev).add(nextIndex));
 	};
 
-	const handlePrevious = (event: React.MouseEvent | KeyboardEvent) => {
+	const handlePrevious = (event: KeyboardEvent | MouseEvent) => {
 		event.stopPropagation();
 		const prevIndex = currentPhotoIndex === 0 ? allPhotos.length - 1 : currentPhotoIndex - 1;
 		setCurrentPhotoIndex(prevIndex);

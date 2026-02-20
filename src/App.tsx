@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
@@ -91,7 +91,7 @@ const router = createHashRouter([
 	}
 ]);
 
-const App: React.FC = () => {
+const App = () => {
 	return <RouterProvider router={router} />;
 };
 

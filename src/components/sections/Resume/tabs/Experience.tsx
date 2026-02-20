@@ -1,5 +1,3 @@
-import React from 'react';
-
 import aspenSkiingCompanyLogo from '@/assets/images/experience/aspen-skiing-company-logo.jpg';
 import intaLogo from '@/assets/images/experience/inta-logo.jpg';
 import intiveLogo from '@/assets/images/experience/intive-logo.jpg';
@@ -183,7 +181,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 	}
 ];
 
-const Experience: React.FC = () => {
+const Experience = () => {
 	/* ===== Functions ===== */
 	const getExperiences = () => {
 		// Group consecutive experiences by company

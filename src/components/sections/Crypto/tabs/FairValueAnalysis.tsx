@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { useApiRequest } from '@/utils/hooks';
@@ -209,7 +209,7 @@ const CRYPTO_CATEGORIES: Record<string, string> = {
 
 type SortField = keyof CryptoMetric | 'mcDelta' | 'priceDelta' | 'priceAdjustToMC' | 'potentialUpside';
 
-const FairValueAnalysis: FC = () => {
+const FairValueAnalysis = () => {
 	/* ===== Hooks ===== */
 	const { data: rawCryptoData, error, isLoading, request } = useApiRequest<CoinGeckoResponse[]>();
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SocialNetwork, SocialLinksConfig } from '../constants/socialNetworks';
 
 import type { SocialLinkData } from '../constants/socialNetworks';

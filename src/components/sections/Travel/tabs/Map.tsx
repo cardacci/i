@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { WorldMap } from '@/components/common';
 import { VISITED_PLACES } from '@/utils/constants';
 
-const Map: React.FC = () => {
+const Map = () => {
 	return (
 		<div>
 			<WorldMap visitedCountries={VISITED_PLACES} />

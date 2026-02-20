@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { SectionTitle } from '@/components/common';
 import { Skills } from '@/utils/constants';
 
-const Education: FC = () => {
+const Education = () => {
 	/* ===== Constants & Variables ===== */
 	const certifications: Certification[] = [
 		{

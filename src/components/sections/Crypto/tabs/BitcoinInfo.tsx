@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 
-const BitcoinInfo: React.FC = () => {
+const BitcoinInfo = () => {
 	return (
 		<div>
 			<SectionTitle level='h2'>The History and Vision of Bitcoin</SectionTitle>

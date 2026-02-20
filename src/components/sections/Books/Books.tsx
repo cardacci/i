@@ -1,9 +1,7 @@
-import { FC } from 'react';
-
 import { ContentCard, SectionTitle } from '@/components/common';
 import { books, Book } from '@/utils/constants';
 
-const BookCard: FC<{ book: Book }> = (props) => {
+const BookCard = (props: { book: Book }) => {
 	const { book } = props;
 	const { author, coverPath, genre, title, year } = book;
 
@@ -43,7 +41,7 @@ const BookCard: FC<{ book: Book }> = (props) => {
 	);
 };
 
-const Books: FC = () => {
+const Books = () => {
 	return (
 		<ContentCard>
 			<SectionTitle level='h2'>Books I've Read</SectionTitle>

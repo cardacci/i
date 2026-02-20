@@ -1,5 +1,3 @@
-import React from 'react';
-
 import asusTufF15Img from '@/assets/images/djing/asus-tuf-gaming-f15.jpg';
 import ddjFlx4Img from '@/assets/images/djing/pioneer-ddj-flx4.webp';
 import vm80Img from '@/assets/images/djing/pioneer-vm-80.webp';
@@ -73,7 +71,7 @@ const DjEquipment = [
 	}
 ];
 
-const DjInfo: React.FC = () => {
+const DjInfo = () => {
 	return (
 		<div className='space-y-8'>
 			{/* About Section */}

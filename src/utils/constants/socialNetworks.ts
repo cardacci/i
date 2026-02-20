@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export enum SocialNetwork {
 	GITHUB = 'github',
 	INSTAGRAM = 'instagram',
@@ -8,7 +10,7 @@ export enum SocialNetwork {
 /* ===== Types & Interfaces ===== */
 export interface SocialLinkData {
 	className: string;
-	icon?: React.ReactNode;
+	icon?: ReactNode;
 	name: string;
 	url: string;
 }

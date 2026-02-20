@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface SectionTitleProps {
@@ -7,7 +7,7 @@ interface SectionTitleProps {
 	level?: 'h2' | 'h3' | 'h4';
 }
 
-const SectionTitle: FC<SectionTitleProps> = (props) => {
+const SectionTitle = (props: SectionTitleProps) => {
 	const { children, className = '', level = 'h3' } = props;
 
 	/* ===== Constants & Variables ===== */

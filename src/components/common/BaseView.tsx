@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 /* ===== Types & Interfaces ===== */
 interface BaseViewProps {
@@ -7,7 +7,7 @@ interface BaseViewProps {
 	title?: string;
 }
 
-const BaseView: FC<BaseViewProps> = (props) => {
+const BaseView = (props: BaseViewProps) => {
 	const { children, id, title } = props;
 
 	return (

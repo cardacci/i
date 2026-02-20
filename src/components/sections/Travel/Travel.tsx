@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { BaseView, TabView } from '@/components/common';
@@ -9,7 +7,7 @@ import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
 import Map from './tabs/Map';
 import Timeline from './tabs/Timeline';
 
-const Travel: React.FC = () => {
+const Travel = () => {
 	/* ===== Constants & Variables ===== */
 	const totalCountries = getTotalCountriesVisited();
 

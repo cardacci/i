@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 
 import { SkillTree } from './SkillTree';
 
-const Skills: React.FC = () => {
+const Skills = () => {
 	return (
 		<div>
 			<SectionTitle level='h3'>Skills</SectionTitle>

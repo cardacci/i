@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { SectionTitle } from '@/components/common';
 
-const TrackClassifier: React.FC = () => {
+const TrackClassifier = () => {
 	/* ===== State ===== */
 	const [componentSelections, setComponentSelections] = useState<string[]>([]);
 	const [result, setResult] = useState<string>('');

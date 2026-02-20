@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SectionTitle } from '@/components/common';
 
 /* ===== Types & Interfaces ===== */
@@ -10,7 +8,7 @@ interface ListWithTitleProps {
 	title: string;
 }
 
-const ListWithTitle: React.FC<ListWithTitleProps> = (props) => {
+const ListWithTitle = (props: ListWithTitleProps) => {
 	const { className = '', items, ordered = false, title } = props;
 
 	/* ===== Constants & Variables ===== */

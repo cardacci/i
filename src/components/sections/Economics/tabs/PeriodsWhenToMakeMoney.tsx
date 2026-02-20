@@ -1,9 +1,7 @@
-import React from 'react';
-
 import periodsWhenToMakeMoney from '@/assets/images/economics/periods-when-to-make-money.jpg';
 import { ImageWithModal, SectionTitle } from '@/components/common';
 
-const MarketTiming: React.FC = () => {
+const MarketTiming = () => {
 	return (
 		<div>
 			<SectionTitle level='h2'>Periods When to Make Money</SectionTitle>

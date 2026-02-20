@@ -1,11 +1,9 @@
-import React from 'react';
-
 import profileImage from '@/assets/images/profile.png';
 import { BaseView } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
 
-const Home: React.FC = () => {
+const Home = () => {
 	/* ===== Hooks ===== */
 	const { socialLinks } = useSocialLinks([SocialNetwork.GITHUB, SocialNetwork.INSTAGRAM, SocialNetwork.LINKEDIN, SocialNetwork.YOUTUBE]);
 

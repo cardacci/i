@@ -1,5 +1,3 @@
-import React from 'react';
-
 import intiveLogo from '@/assets/images/experience/intive-logo.jpg';
 import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
@@ -113,7 +111,7 @@ const PROJECTS: ProjectInterface[] = [
 	}
 ];
 
-const Projects: React.FC = () => {
+const Projects = () => {
 	/* ===== Functions ===== */
 	const getCompanyLogo = (company: Companies) => {
 		switch (company) {

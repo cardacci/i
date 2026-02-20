@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Header: React.FC = () => {
+const Header = () => {
 	/* ===== State ===== */
 	const [scrolled, setScrolled] = useState(false);
 	const [typedText, setTypedText] = useState('');
