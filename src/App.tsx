@@ -12,7 +12,7 @@ const Crypto = lazy(() => import('@/components/sections/Crypto/Crypto'));
 const DJing = lazy(() => import('@/components/sections/DJing/DJing'));
 const Economics = lazy(() => import('@/components/sections/Economics/Economics'));
 const Resume = lazy(() => import('@/components/sections/Resume/Resume'));
-const Tech = lazy(() => import('@/components/sections/Tech/Tech'));
+const SoftwareEngineering = lazy(() => import('@/components/sections/SoftwareEngineering/SoftwareEngineering'));
 const Travel = lazy(() => import('@/components/sections/Travel/Travel'));
 
 /**
@@ -74,8 +74,8 @@ const router = createHashRouter([
 				path: `${ROUTES.CRYPTO.id}/*`
 			},
 			{
-				element: <Tech />,
-				path: `${ROUTES.TECH.id}/*`
+				element: <SoftwareEngineering />,
+				path: `${ROUTES.SOFTWARE_ENGINEERING.id}/*`
 			},
 			{
 				element: <DJing />,

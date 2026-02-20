@@ -20,7 +20,9 @@ export const ROUTE_KEYS = {
 		PROJECTS: 'PROJECTS',
 		SKILLS: 'SKILLS'
 	},
-	TECH: {
+	SOFTWARE_ENGINEERING: {
+		BACKEND: 'BACKEND',
+		FRONTEND: 'FRONTEND',
 		PROJECT: 'PROJECT'
 	},
 	TRAVEL: {
@@ -67,11 +69,11 @@ const BASE_ROUTES = {
 		label: 'Resume',
 		path: '/resume'
 	},
-	TECH: {
+	SOFTWARE_ENGINEERING: {
 		icon: '💻',
-		id: 'tech',
-		label: 'Technology',
-		path: '/tech'
+		id: 'software-engineering',
+		label: 'Software Engineering',
+		path: '/software-engineering'
 	},
 	TRAVEL: {
 		icon: '✈️',
@@ -165,12 +167,24 @@ export const ROUTES = {
 		}
 	},
 
-	TECH: {
-		...BASE_ROUTES.TECH,
-		[ROUTE_KEYS.TECH.PROJECT]: {
+	SOFTWARE_ENGINEERING: {
+		...BASE_ROUTES.SOFTWARE_ENGINEERING,
+		[ROUTE_KEYS.SOFTWARE_ENGINEERING.BACKEND]: {
+			group: 'System Design',
+			id: 'backend',
+			label: 'Backend',
+			path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/backend`
+		},
+		[ROUTE_KEYS.SOFTWARE_ENGINEERING.FRONTEND]: {
+			group: 'System Design',
+			id: 'frontend',
+			label: 'Frontend',
+			path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend`
+		},
+		[ROUTE_KEYS.SOFTWARE_ENGINEERING.PROJECT]: {
 			id: 'project',
 			label: 'Project Technologies',
-			path: `${BASE_ROUTES.TECH.path}/project`
+			path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/project`
 		}
 	},
 

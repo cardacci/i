@@ -6,7 +6,7 @@ import { ROUTES } from '@/utils/constants/routes';
 
 /* ===== Types & Interfaces ===== */
 interface MenuItem {
-	children?: Array<{ label: string; path: string }>;
+	children?: Array<{ group?: string; label: string; path: string }>;
 	icon: string;
 	id: string;
 	label: string;
@@ -14,6 +14,7 @@ interface MenuItem {
 }
 
 interface RouteItem {
+	group?: string;
 	id: string;
 	label: string;
 	path: string;
@@ -56,8 +57,8 @@ const SidebarNavigation: React.FC = () => {
 			children: getChildrenFromRoute(ROUTES.ECONOMICS)
 		},
 		{
-			...ROUTES.TECH,
-			children: getChildrenFromRoute(ROUTES.TECH)
+			...ROUTES.SOFTWARE_ENGINEERING,
+			children: getChildrenFromRoute(ROUTES.SOFTWARE_ENGINEERING)
 		}
 	];
 
@@ -66,7 +67,7 @@ const SidebarNavigation: React.FC = () => {
 		setIsOpen(false);
 	}
 
-	function getChildrenFromRoute(route: Record<string, unknown>): Array<{ label: string; path: string }> {
+	function getChildrenFromRoute(route: Record<string, unknown>): Array<{ group?: string; label: string; path: string }> {
 		return Object.keys(route)
 			.filter((key) => {
 				const item = route[key] as RouteItem;
@@ -77,6 +78,7 @@ const SidebarNavigation: React.FC = () => {
 				const item = route[key] as RouteItem;
 
 				return {
+					...(item.group && { group: item.group }),
 					label: item.label,
 					path: item.path
 				};
@@ -85,6 +87,87 @@ const SidebarNavigation: React.FC = () => {
 
 	function isActive(path: string): boolean {
 		return location.pathname.startsWith(path);
+	}
+
+	function renderChildren(children: Array<{ group?: string; label: string; path: string }>) {
+		const grouped = children.filter((child) => child.group);
+		const ungrouped = children.filter((child) => !child.group);
+
+		const groupNames: string[] = [];
+
+		grouped.forEach((child) => {
+			if (child.group && !groupNames.includes(child.group)) {
+				groupNames.push(child.group);
+			}
+		});
+
+		return (
+			<>
+				{ungrouped.map((child) => (
+					<li key={child.path}>
+						<Link
+							className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
+								location.pathname === child.path
+									? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
+									: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:pl-4'
+							}`}
+							onClick={closeSidebar}
+							to={child.path}
+						>
+							{child.label}
+						</Link>
+					</li>
+				))}
+
+				{groupNames.map((groupName) => {
+					const groupChildren = grouped.filter((child) => child.group === groupName);
+					const isGroupActive = groupChildren.some((child) => location.pathname === child.path);
+
+					return (
+						<li key={groupName}>
+							<details className='group/nested' open={isGroupActive}>
+								<summary
+									className={`flex items-center px-3 py-2 rounded-lg text-sm cursor-pointer list-none font-medium transition-all duration-200 ${
+										isGroupActive
+											? 'text-blue-600 bg-blue-50/50'
+											: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+									}`}
+								>
+									<span className='flex-1'>{groupName}</span>
+
+									<svg
+										className='w-3 h-3 text-gray-400 transition-transform duration-200 group-open/nested:rotate-90'
+										fill='none'
+										stroke='currentColor'
+										viewBox='0 0 24 24'
+									>
+										<path d='M9 5l7 7-7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} />
+									</svg>
+								</summary>
+
+								<ul className='mt-1 ml-4 space-y-1'>
+									{groupChildren.map((child) => (
+										<li key={child.path}>
+											<Link
+												className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
+													location.pathname === child.path
+														? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
+														: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:pl-4'
+												}`}
+												onClick={closeSidebar}
+												to={child.path}
+											>
+												{child.label}
+											</Link>
+										</li>
+									))}
+								</ul>
+							</details>
+						</li>
+					);
+				})}
+			</>
+		);
 	}
 
 	function renderArrow() {
@@ -137,21 +220,7 @@ const SidebarNavigation: React.FC = () => {
 					</summary>
 
 					<ul className='mt-2 ml-8 space-y-1'>
-						{item.children.map((child) => (
-							<li key={child.path}>
-								<Link
-									className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
-										location.pathname === child.path
-											? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
-											: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:pl-4'
-									}`}
-									onClick={closeSidebar}
-									to={child.path}
-								>
-									{child.label}
-								</Link>
-							</li>
-						))}
+						{renderChildren(item.children)}
 					</ul>
 				</details>
 			);
