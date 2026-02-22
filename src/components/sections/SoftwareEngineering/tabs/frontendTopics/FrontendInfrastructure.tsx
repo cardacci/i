@@ -10,9 +10,9 @@ const FrontendInfrastructure = () => {
 
 			<p className='mb-6 text-gray-600'>
 				Frontend infrastructure is everything that supports the development, testing, building, and deployment of frontend
-				applications. It is the invisible machinery that determines how fast your team ships, how confidently they deploy, and
-				how quickly they detect and recover from issues in production. A mature frontend infrastructure scales the team, not
-				just the application.
+				applications. It is the invisible machinery that determines how fast your team ships, how confidently they deploy, and how
+				quickly they detect and recover from issues in production. A mature frontend infrastructure scales the team, not just the
+				application.
 			</p>
 
 			{/* ===== Build Systems & Bundlers ===== */}
@@ -32,9 +32,7 @@ const FrontendInfrastructure = () => {
 					<tbody>
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Vite</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Very fast (native ES modules in dev, esbuild/Rollup in prod)
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Very fast (native ES modules in dev, esbuild/Rollup in prod)</td>
 							<td className='px-4 py-3 text-gray-600'>Minimal — sensible defaults</td>
 							<td className='px-4 py-3 text-gray-600'>Applications (React, Vue, Svelte)</td>
 						</tr>
@@ -80,8 +78,8 @@ const FrontendInfrastructure = () => {
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
 					<strong>Note:</strong> The bundler ecosystem is converging on Rust/Go-based tools for speed. Vite dominates the
-					application space with its instant dev server and broad framework support. For new projects, Vite is the default
-					choice unless you have specific requirements that demand another tool.
+					application space with its instant dev server and broad framework support. For new projects, Vite is the default choice
+					unless you have specific requirements that demand another tool.
 				</p>
 			</div>
 
@@ -97,8 +95,8 @@ const FrontendInfrastructure = () => {
 							<p className='font-medium'>Nx</p>
 
 							<p>
-								Full-featured build system with computation caching, dependency graph visualization, and code
-								generators. Supports remote caching for CI speedups. Opinionated but powerful.
+								Full-featured build system with computation caching, dependency graph visualization, and code generators.
+								Supports remote caching for CI speedups. Opinionated but powerful.
 							</p>
 						</div>
 
@@ -106,8 +104,8 @@ const FrontendInfrastructure = () => {
 							<p className='font-medium'>Turborepo</p>
 
 							<p>
-								Lightweight task runner focused on speed. Remote caching via Vercel. Simpler than Nx, integrates
-								with any package manager.
+								Lightweight task runner focused on speed. Remote caching via Vercel. Simpler than Nx, integrates with any
+								package manager.
 							</p>
 						</div>
 
@@ -116,11 +114,9 @@ const FrontendInfrastructure = () => {
 
 							<p>
 								Minimal approach — symlinked{' '}
-								<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>
-									node_modules
-								</code>
-								, workspace protocol for cross-package dependencies. No task orchestration (pair with Turborepo or
-								Nx for that).
+								<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>node_modules</code>,
+								workspace protocol for cross-package dependencies. No task orchestration (pair with Turborepo or Nx for
+								that).
 							</p>
 						</div>
 					</div>
@@ -183,8 +179,8 @@ const FrontendInfrastructure = () => {
 						</div>
 
 						<p className='text-xs text-green-600'>
-							<strong>Advice:</strong> Start simple (pnpm workspaces) and add orchestration (Turborepo/Nx) when CI
-							times become painful.
+							<strong>Advice:</strong> Start simple (pnpm workspaces) and add orchestration (Turborepo/Nx) when CI times
+							become painful.
 						</p>
 					</div>
 				</div>
@@ -255,8 +251,8 @@ const FrontendInfrastructure = () => {
 						<p className='font-medium text-gray-800'>Parallelism</p>
 
 						<p>
-							Run lint, type checking, and unit tests in parallel jobs — they don't depend on each other. Build
-							only after they pass. This structure ensures fast feedback while maintaining correctness.
+							Run lint, type checking, and unit tests in parallel jobs — they don't depend on each other. Build only after
+							they pass. This structure ensures fast feedback while maintaining correctness.
 						</p>
 					</div>
 
@@ -264,12 +260,9 @@ const FrontendInfrastructure = () => {
 						<p className='font-medium text-gray-800'>Caching</p>
 
 						<p>
-							Cache{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>
-								node_modules
-							</code>{' '}
-							(keyed on lockfile hash) and build artifacts between runs. This can cut CI time by 50-70%. Most CI
-							providers (GitHub Actions, GitLab CI) have native caching support.
+							Cache <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>node_modules</code>{' '}
+							(keyed on lockfile hash) and build artifacts between runs. This can cut CI time by 50-70%. Most CI providers
+							(GitHub Actions, GitLab CI) have native caching support.
 						</p>
 					</div>
 
@@ -277,8 +270,8 @@ const FrontendInfrastructure = () => {
 						<p className='font-medium text-gray-800'>Preview Deployments</p>
 
 						<p>
-							Deploy every PR to a unique URL for visual review. Vercel and Netlify do this automatically. This
-							replaces screenshots in code review and lets reviewers interact with the actual application.
+							Deploy every PR to a unique URL for visual review. Vercel and Netlify do this automatically. This replaces
+							screenshots in code review and lets reviewers interact with the actual application.
 						</p>
 					</div>
 
@@ -286,9 +279,8 @@ const FrontendInfrastructure = () => {
 						<p className='font-medium text-gray-800'>Pipeline Budget</p>
 
 						<p>
-							Keep total CI time under 10 minutes. Beyond that, developers context-switch and stop watching the
-							pipeline. If it's too slow, split the test suite, add remote caching, or parallelize more
-							aggressively.
+							Keep total CI time under 10 minutes. Beyond that, developers context-switch and stop watching the pipeline. If
+							it's too slow, split the test suite, add remote caching, or parallelize more aggressively.
 						</p>
 					</div>
 				</div>
@@ -298,10 +290,10 @@ const FrontendInfrastructure = () => {
 			<SectionTitle level='h4'>Testing Strategies</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				The Testing Trophy (Kent C. Dodds model) challenges the traditional testing pyramid by emphasizing integration tests
-				over unit tests. The reasoning: integration tests exercise real component behavior — user interactions, DOM output,
-				and composition — giving the highest confidence per line of test code. Unit tests remain valuable for complex pure
-				logic, while E2E tests cover critical user paths through the full stack.
+				The Testing Trophy (Kent C. Dodds model) challenges the traditional testing pyramid by emphasizing integration tests over
+				unit tests. The reasoning: integration tests exercise real component behavior — user interactions, DOM output, and
+				composition — giving the highest confidence per line of test code. Unit tests remain valuable for complex pure logic, while
+				E2E tests cover critical user paths through the full stack.
 			</p>
 
 			<div className='mb-4 overflow-x-auto'>
@@ -338,9 +330,7 @@ const FrontendInfrastructure = () => {
 							<td className='px-4 py-3 text-gray-600'>React Testing Library, Vitest</td>
 							<td className='px-4 py-3 text-gray-600'>Moderate (~100ms per test)</td>
 							<td className='px-4 py-3 text-gray-600'>High</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Component behavior, user interactions, DOM output
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Component behavior, user interactions, DOM output</td>
 						</tr>
 
 						<tr>
@@ -348,9 +338,7 @@ const FrontendInfrastructure = () => {
 							<td className='px-4 py-3 text-gray-600'>Playwright, Cypress</td>
 							<td className='px-4 py-3 text-gray-600'>Slow (~seconds per test)</td>
 							<td className='px-4 py-3 text-gray-600'>Very High</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Full user flows through the real application
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Full user flows through the real application</td>
 						</tr>
 					</tbody>
 				</table>
@@ -358,9 +346,9 @@ const FrontendInfrastructure = () => {
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Recommended ratio:</strong> Heavy on integration tests (they give the best confidence per effort),
-					moderate unit tests for complex logic, and a thin E2E layer covering critical user paths (login, checkout, core
-					workflow). Avoid testing implementation details — test behavior.
+					<strong>Recommended ratio:</strong> Heavy on integration tests (they give the best confidence per effort), moderate unit
+					tests for complex logic, and a thin E2E layer covering critical user paths (login, checkout, core workflow). Avoid
+					testing implementation details — test behavior.
 				</p>
 			</div>
 
@@ -370,9 +358,10 @@ const FrontendInfrastructure = () => {
 			<div className='mb-4 rounded-lg border border-gray-200 bg-white p-5 shadow-sm'>
 				<div className='mb-4 rounded-md bg-slate-50 p-3'>
 					<pre className='text-xs text-slate-700'>
-{`// Custom hook wrapping a feature flag provider
+						{`// Custom hook wrapping a feature flag provider
 const useFeatureFlag = (flag: string): boolean => {
   const { flags } = useContext(FeatureFlagContext);
+
   return flags[flag] ?? false;
 };
 
@@ -386,8 +375,8 @@ const Checkout = () => {
 				</div>
 
 				<p className='mb-3 text-sm text-gray-600'>
-					Feature flags decouple deployment from release. You can merge and deploy code that isn't active yet, then
-					gradually roll it out by percentage, user segment, or geography. This enables:
+					Feature flags decouple deployment from release. You can merge and deploy code that isn't active yet, then gradually roll
+					it out by percentage, user segment, or geography. This enables:
 				</p>
 
 				<ul className='mb-3 space-y-1 text-sm text-gray-600'>
@@ -419,9 +408,9 @@ const Checkout = () => {
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Warning:</strong> Feature flags are tech debt if not cleaned up. Every flag adds a conditional code path
-					that must be maintained and tested. Establish a policy: remove flags within 2 weeks of full rollout. Track stale
-					flags in your backlog.
+					<strong>Warning:</strong> Feature flags are tech debt if not cleaned up. Every flag adds a conditional code path that
+					must be maintained and tested. Establish a policy: remove flags within 2 weeks of full rollout. Track stale flags in
+					your backlog.
 				</p>
 			</div>
 
@@ -433,9 +422,9 @@ const Checkout = () => {
 					<h5 className='mb-2 font-semibold text-green-800'>Error Tracking</h5>
 
 					<p className='mb-3 text-sm text-green-700'>
-						Captures runtime exceptions with full stack traces, user context, and breadcrumbs (recent user actions).
-						Source maps in production enable readable stack traces. Set up alerting for error spikes to catch regressions
-						immediately after deploys.
+						Captures runtime exceptions with full stack traces, user context, and breadcrumbs (recent user actions). Source maps
+						in production enable readable stack traces. Set up alerting for error spikes to catch regressions immediately after
+						deploys.
 					</p>
 
 					<p className='text-xs text-green-600'>
@@ -447,9 +436,8 @@ const Checkout = () => {
 					<h5 className='mb-2 font-semibold text-blue-800'>Performance Monitoring</h5>
 
 					<p className='mb-3 text-sm text-blue-700'>
-						Tracks Core Web Vitals (LCP, INP, CLS) per deploy to catch regressions. Lighthouse CI runs in the pipeline
-						and fails the build if metrics degrade. Real User Monitoring (RUM) measures actual user experience, not
-						synthetic benchmarks.
+						Tracks Core Web Vitals (LCP, INP, CLS) per deploy to catch regressions. Lighthouse CI runs in the pipeline and fails
+						the build if metrics degrade. Real User Monitoring (RUM) measures actual user experience, not synthetic benchmarks.
 					</p>
 
 					<p className='text-xs text-blue-600'>
@@ -461,9 +449,9 @@ const Checkout = () => {
 					<h5 className='mb-2 font-semibold text-purple-800'>User Analytics</h5>
 
 					<p className='mb-3 text-sm text-purple-700'>
-						Session replay shows exactly what users see and do — clicks, scrolls, navigation. Heatmaps reveal
-						interaction patterns. Funnel analysis identifies drop-off points. Helps prioritize performance and UX
-						improvements where they matter most.
+						Session replay shows exactly what users see and do — clicks, scrolls, navigation. Heatmaps reveal interaction
+						patterns. Funnel analysis identifies drop-off points. Helps prioritize performance and UX improvements where they
+						matter most.
 					</p>
 
 					<p className='text-xs text-purple-600'>
@@ -484,8 +472,8 @@ const Checkout = () => {
 							<p className='font-medium'>Module Federation (webpack 5 / Vite)</p>
 
 							<p>
-								Load remote modules at runtime. Shared dependencies are deduped. Most popular approach for
-								production micro-frontend architectures.
+								Load remote modules at runtime. Shared dependencies are deduped. Most popular approach for production
+								micro-frontend architectures.
 							</p>
 						</div>
 
@@ -493,8 +481,8 @@ const Checkout = () => {
 							<p className='font-medium'>iframe Isolation</p>
 
 							<p>
-								Each micro-frontend runs in its own iframe. Complete isolation but poor UX — no shared routing,
-								styling, or seamless interaction between parts.
+								Each micro-frontend runs in its own iframe. Complete isolation but poor UX — no shared routing, styling, or
+								seamless interaction between parts.
 							</p>
 						</div>
 
@@ -502,8 +490,8 @@ const Checkout = () => {
 							<p className='font-medium'>Web Components</p>
 
 							<p>
-								Framework-agnostic custom elements. Good encapsulation but limited interop with React's rendering
-								model and state management.
+								Framework-agnostic custom elements. Good encapsulation but limited interop with React's rendering model and
+								state management.
 							</p>
 						</div>
 
@@ -526,8 +514,8 @@ const Checkout = () => {
 							<p className='font-medium'>Team Autonomy</p>
 
 							<p>
-								Independent deploy cycles and tech choices per team. Each team can ship features without
-								coordinating releases with other teams.
+								Independent deploy cycles and tech choices per team. Each team can ship features without coordinating
+								releases with other teams.
 							</p>
 						</div>
 
@@ -535,8 +523,8 @@ const Checkout = () => {
 							<p className='font-medium'>vs. UX Consistency</p>
 
 							<p>
-								Design system fragmentation and inconsistent interactions across boundaries. Maintaining a unified
-								look and feel requires strict governance.
+								Design system fragmentation and inconsistent interactions across boundaries. Maintaining a unified look and
+								feel requires strict governance.
 							</p>
 						</div>
 
@@ -544,8 +532,8 @@ const Checkout = () => {
 							<p className='font-medium'>vs. Bundle Duplication</p>
 
 							<p>
-								Shared React, shared design system, and shared utilities potentially loaded multiple times,
-								inflating the total bundle size.
+								Shared React, shared design system, and shared utilities potentially loaded multiple times, inflating the
+								total bundle size.
 							</p>
 						</div>
 
@@ -553,8 +541,8 @@ const Checkout = () => {
 							<p className='font-medium'>vs. Runtime Complexity</p>
 
 							<p>
-								Version conflicts, shared state challenges, and debugging across boundaries add significant
-								operational overhead.
+								Version conflicts, shared state challenges, and debugging across boundaries add significant operational
+								overhead.
 							</p>
 						</div>
 					</div>
@@ -566,9 +554,8 @@ const Checkout = () => {
 
 				<p className='text-sm text-red-700'>
 					<strong>Anti-pattern:</strong> Micro-frontends add significant architectural overhead. They are a solution to
-					organizational scaling (multiple teams needing to deploy independently), not technical scaling. If a single team
-					can own the entire frontend, a well-structured monolith with good module boundaries is simpler, faster, and
-					easier to maintain.
+					organizational scaling (multiple teams needing to deploy independently), not technical scaling. If a single team can own
+					the entire frontend, a well-structured monolith with good module boundaries is simpler, faster, and easier to maintain.
 				</p>
 			</div>
 

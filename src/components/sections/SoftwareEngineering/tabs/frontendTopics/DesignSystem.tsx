@@ -9,10 +9,10 @@ const DesignSystem = () => {
 			<SectionTitle level='h3'>Design Systems</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				A design system is a collection of reusable components, guided by clear standards, that can be assembled to build any
-				number of applications. It is the single source of truth for UI: tokens define the visual language, components implement
-				it, and documentation teaches it. A mature design system accelerates development, ensures consistency, and bridges the
-				gap between design and engineering.
+				A design system is a collection of reusable components, guided by clear standards, that can be assembled to build any number
+				of applications. It is the single source of truth for UI: tokens define the visual language, components implement it, and
+				documentation teaches it. A mature design system accelerates development, ensures consistency, and bridges the gap between
+				design and engineering.
 			</p>
 
 			{/* ===== Design Tokens ===== */}
@@ -20,7 +20,7 @@ const DesignSystem = () => {
 
 			<div className='mb-4 rounded-md bg-slate-50 p-3'>
 				<pre className='text-xs text-slate-700'>
-{`/* Primitive Tokens — raw values */
+					{`/* Primitive Tokens — raw values */
 :root {
   --color-blue-500: #3b82f6;
   --color-blue-600: #2563eb;
@@ -49,9 +49,9 @@ const DesignSystem = () => {
 					<h5 className='mb-2 font-semibold text-blue-800'>Primitive Tokens</h5>
 
 					<p className='text-sm text-blue-700'>
-						The raw values of the system: specific colors, spacing scales, font sizes, border radii. They have no semantic
-						meaning — <code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>blue-500</code> is
-						just a color. These form the complete palette from which everything is drawn.
+						The raw values of the system: specific colors, spacing scales, font sizes, border radius. They have no semantic
+						meaning — <code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>blue-500</code> is just
+						a color. These form the complete palette from which everything is drawn.
 					</p>
 				</div>
 
@@ -75,7 +75,7 @@ const DesignSystem = () => {
 			<div className='mb-4 rounded-lg border border-gray-200 bg-white p-5 shadow-sm'>
 				<div className='rounded-md bg-slate-50 p-3'>
 					<pre className='text-xs text-slate-700'>
-{`// Theme switching with CSS custom properties
+						{`// Theme switching with CSS custom properties
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
@@ -98,18 +98,17 @@ const ThemeProvider = ({ children }) => {
 				</div>
 
 				<p className='mt-4 text-sm text-gray-600'>
-					The <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>data-theme</code> attribute
-					swaps the semantic token mapping. All components automatically adopt the new theme because they reference semantic
-					variables. No JS runtime cost for theming — it's pure CSS.
+					The <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>data-theme</code> attribute swaps
+					the semantic token mapping. All components automatically adopt the new theme because they reference semantic variables.
+					No JS runtime cost for theming — it's pure CSS.
 				</p>
 			</div>
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
 					<strong>Performance note:</strong> CSS custom properties are the most performant approach to theming. CSS-in-JS
-					solutions (styled-components, Emotion) recalculate styles in JavaScript at runtime, which can cause performance
-					issues in large applications with frequent theme switches. Prefer CSS custom properties for production design
-					systems.
+					solutions (styled-components, Emotion) recalculate styles in JavaScript at runtime, which can cause performance issues
+					in large applications with frequent theme switches. Prefer CSS custom properties for production design systems.
 				</p>
 			</div>
 
@@ -121,22 +120,21 @@ const ThemeProvider = ({ children }) => {
 					<h5 className='mb-2 font-semibold text-purple-800'>Variants & Sizes</h5>
 
 					<p className='mb-3 text-sm text-purple-700'>
-						Use a <code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>variant</code> prop
-						for visual variations (primary, secondary, ghost, destructive) and a{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>size</code> prop for
-						dimensions (sm, md, lg). This replaces boolean prop explosion ({' '}
+						Use a <code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>variant</code> prop for
+						visual variations (primary, secondary, ghost, destructive) and a{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>size</code> prop for dimensions
+						(sm, md, lg). This replaces boolean prop explosion ({' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>isPrimary</code>,{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>isSecondary</code>,{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>isLarge</code>). Use
-						TypeScript union types to enforce valid combinations.
+						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>isLarge</code>). Use TypeScript
+						union types to enforce valid combinations.
 					</p>
 
 					<div className='rounded-md bg-purple-100/50 p-3'>
 						<pre className='text-xs text-purple-900'>
-{`interface ButtonProps {
+							{`interface ButtonProps {
   size?: 'lg' | 'md' | 'sm';
-  variant?: 'destructive' | 'ghost'
-    | 'primary' | 'secondary';
+  variant?: 'destructive' | 'ghost' | 'primary' | 'secondary';
 }
 
 // Usage
@@ -152,8 +150,7 @@ const ThemeProvider = ({ children }) => {
 
 					<p className='mb-3 text-sm text-orange-700'>
 						Accept <code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>children</code> and
-						named slots ({' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>startIcon</code>,{' '}
+						named slots ( <code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>startIcon</code>,{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>endIcon</code>,{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>prefix</code>,{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-orange-100 px-1 text-xs'>suffix</code>) for flexible
@@ -162,7 +159,7 @@ const ThemeProvider = ({ children }) => {
 
 					<div className='rounded-md bg-orange-100/50 p-3'>
 						<pre className='text-xs text-orange-900'>
-{`<Button
+							{`<Button
   startIcon={<SaveIcon />}
   variant="primary"
 >
@@ -190,13 +187,9 @@ const ThemeProvider = ({ children }) => {
 						<span className='mt-0.5 text-red-500'>&#10007;</span>
 
 						<p className='text-sm text-gray-700'>
-							Using{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>
-								{'<div onClick>'}
-							</code>{' '}
-							instead of{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>{'<button>'}</code> — no
-							keyboard support, no screen reader role.
+							Using <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>{'<div onClick>'}</code>{' '}
+							instead of <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>{'<button>'}</code>{' '}
+							— no keyboard support, no screen reader role.
 						</p>
 					</div>
 
@@ -204,34 +197,27 @@ const ThemeProvider = ({ children }) => {
 						<span className='mt-0.5 text-red-500'>&#10007;</span>
 
 						<p className='text-sm text-gray-700'>
-							Missing{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>alt</code> text on images
-							— invisible to screen readers.
+							Missing <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>alt</code> text on
+							images — invisible to screen readers.
 						</p>
 					</div>
 
 					<div className='flex items-start gap-3 rounded-lg border border-red-100 bg-red-50/50 p-4'>
 						<span className='mt-0.5 text-red-500'>&#10007;</span>
 
-						<p className='text-sm text-gray-700'>
-							Color as the only indicator (red text for errors without an icon or label).
-						</p>
+						<p className='text-sm text-gray-700'>Color as the only indicator (red text for errors without an icon or label).</p>
 					</div>
 
 					<div className='flex items-start gap-3 rounded-lg border border-red-100 bg-red-50/50 p-4'>
 						<span className='mt-0.5 text-red-500'>&#10007;</span>
 
-						<p className='text-sm text-gray-700'>
-							Removing focus outlines without providing a visible alternative.
-						</p>
+						<p className='text-sm text-gray-700'>Removing focus outlines without providing a visible alternative.</p>
 					</div>
 
 					<div className='flex items-start gap-3 rounded-lg border border-red-100 bg-red-50/50 p-4'>
 						<span className='mt-0.5 text-red-500'>&#10007;</span>
 
-						<p className='text-sm text-gray-700'>
-							Auto-playing media without user consent or pause controls.
-						</p>
+						<p className='text-sm text-gray-700'>Auto-playing media without user consent or pause controls.</p>
 					</div>
 				</div>
 
@@ -246,8 +232,8 @@ const ThemeProvider = ({ children }) => {
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<button>'}</code>,{' '}
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<nav>'}</code>,{' '}
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<main>'}</code>,{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<form>'}</code>) —
-							they provide roles for free.
+							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<form>'}</code>) — they
+							provide roles for free.
 						</p>
 					</div>
 
@@ -273,9 +259,7 @@ const ThemeProvider = ({ children }) => {
 					<div className='flex items-start gap-3 rounded-lg border border-green-100 bg-green-50/50 p-4'>
 						<span className='mt-0.5 text-green-500'>&#10003;</span>
 
-						<p className='text-sm text-gray-700'>
-							Maintain WCAG AA color contrast: 4.5:1 for normal text, 3:1 for large text.
-						</p>
+						<p className='text-sm text-gray-700'>Maintain WCAG AA color contrast: 4.5:1 for normal text, 3:1 for large text.</p>
 					</div>
 
 					<div className='flex items-start gap-3 rounded-lg border border-green-100 bg-green-50/50 p-4'>
@@ -317,25 +301,17 @@ const ThemeProvider = ({ children }) => {
 						<tr className='border-b border-gray-100 bg-gray-50/50'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Container queries</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Components respond to their container's size, not the viewport
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Components respond to their container's size, not the viewport</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Reusable components that appear in different-width contexts
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Reusable components that appear in different-width contexts</td>
 						</tr>
 
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Fluid typography (clamp())</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Font size scales smoothly between a minimum and maximum
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Font size scales smoothly between a minimum and maximum</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Headings and body text that adapt without breakpoint jumps
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Headings and body text that adapt without breakpoint jumps</td>
 						</tr>
 
 						<tr>
@@ -353,7 +329,7 @@ const ThemeProvider = ({ children }) => {
 
 			<div className='mb-6 rounded-md bg-slate-50 p-3'>
 				<pre className='text-xs text-slate-700'>
-{`/* Fluid typography — no breakpoints needed */
+					{`/* Fluid typography — no breakpoints needed */
 h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
 /* Responsive grid — columns adjust automatically */
@@ -384,13 +360,9 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Utility-first</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Compose styles from utility classes in markup
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Compose styles from utility classes in markup</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Global utilities, unique per combination
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Global utilities, unique per combination</td>
 
 							<td className='px-4 py-3 text-gray-600'>Zero (build-time purge)</td>
 							<td className='px-4 py-3 text-gray-500'>Tailwind CSS, UnoCSS</td>
@@ -399,12 +371,11 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 						<tr className='border-b border-gray-100 bg-gray-50/50'>
 							<td className='px-4 py-3 font-medium text-gray-800'>CSS Modules</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Locally scoped class names via build-time hashing
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Locally scoped class names via build-time hashing</td>
 
 							<td className='px-4 py-3 text-gray-600'>
-								File-scoped (<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>.module.css</code>)
+								File-scoped (
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>.module.css</code>)
 							</td>
 
 							<td className='px-4 py-3 text-gray-600'>Zero (build-time)</td>
@@ -414,13 +385,9 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>CSS-in-JS</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Styles colocated with components in JavaScript
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Styles colocated with components in JavaScript</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Component-scoped at runtime
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Component-scoped at runtime</td>
 
 							<td className='px-4 py-3 text-gray-600'>Runtime cost (style injection)</td>
 							<td className='px-4 py-3 text-gray-500'>styled-components, Emotion</td>
@@ -445,12 +412,13 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
 							<td className='px-4 py-3 text-gray-600'>
 								Naming convention for plain CSS ({' '}
-								<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>block__element--modifier</code>)
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>
+									block__element--modifier
+								</code>
+								)
 							</td>
 
-							<td className='px-4 py-3 text-gray-600'>
-								Convention-based (manual discipline)
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Convention-based (manual discipline)</td>
 
 							<td className='px-4 py-3 text-gray-600'>Zero</td>
 							<td className='px-4 py-3 text-gray-500'>Any plain CSS project</td>
@@ -461,10 +429,9 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Choosing a CSS approach:</strong> There is no universally best CSS approach. Tailwind excels for rapid
-					iteration and small teams. CSS Modules provide clean scoping in component-based architectures. CSS-in-JS offers
-					dynamic styling but at a runtime cost. Choose based on your team's workflow, performance requirements, and personal
-					preference.
+					<strong>Choosing a CSS approach:</strong> There is no universally best CSS approach. Tailwind excels for rapid iteration
+					and small teams. CSS Modules provide clean scoping in component-based architectures. CSS-in-JS offers dynamic styling
+					but at a runtime cost. Choose based on your team's workflow, performance requirements, and personal preference.
 				</p>
 			</div>
 

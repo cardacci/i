@@ -74,17 +74,15 @@ const PerformanceOptimization = () => {
 			</div>
 
 			<p className='mb-6 text-gray-600'>
-				The critical rendering path is the sequence of steps the browser takes to convert HTML, CSS, and JavaScript into pixels
-				on screen. Render-blocking CSS and parser-blocking JavaScript delay first paint. Every resource the browser encounters
-				before it can render must be downloaded, parsed, and executed or applied. Optimization strategies include: inline
-				critical CSS so the browser doesn't wait for an external stylesheet, use{' '}
+				The critical rendering path is the sequence of steps the browser takes to convert HTML, CSS, and JavaScript into pixels on
+				screen. Render-blocking CSS and parser-blocking JavaScript delay first paint. Every resource the browser encounters before
+				it can render must be downloaded, parsed, and executed or applied. Optimization strategies include: inline critical CSS so
+				the browser doesn't wait for an external stylesheet, use{' '}
 				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>async</code> or{' '}
-				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>defer</code> on script tags to
-				prevent parser blocking, preload key resources with{' '}
-				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>
-					{'<link rel="preload">'}
-				</code>
-				, and minimize the total number of render-blocking resources in the document head.
+				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>defer</code> on script tags to prevent
+				parser blocking, preload key resources with{' '}
+				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<link rel="preload">'}</code>, and
+				minimize the total number of render-blocking resources in the document head.
 			</p>
 
 			{/* ===== Bundle Size & Tree Shaking ===== */}
@@ -96,19 +94,12 @@ const PerformanceOptimization = () => {
 
 					<p className='text-sm text-blue-700'>
 						Large bundles directly hurt load time. Use{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>
-							webpack-bundle-analyzer
-						</code>{' '}
-						or{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>
-							rollup-plugin-visualizer
-						</code>{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>webpack-bundle-analyzer</code> or{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>rollup-plugin-visualizer</code>{' '}
 						to identify heavy dependencies. Common offenders include: moment.js (~300 kB — replace with date-fns or dayjs),
 						lodash (import individual functions like{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>
-							lodash/debounce
-						</code>{' '}
-						instead of the entire library), and large icon packs (import only the icons you actually use).
+						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>lodash/debounce</code> instead of
+						the entire library), and large icon packs (import only the icons you actually use).
 					</p>
 				</div>
 
@@ -118,19 +109,13 @@ const PerformanceOptimization = () => {
 					<p className='text-sm text-green-700'>
 						Tree shaking eliminates unused exports from the final bundle. It only works with ES modules (
 						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>import</code>/
-						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>export</code>), not
-						CommonJS (
-						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>require</code>). Barrel
-						files (
-						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>index.ts</code> that
-						re-export everything) can defeat tree shaking if the bundler can't prove exports are side-effect-free. Mark
-						packages as{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>
-							"sideEffects": false
-						</code>{' '}
-						in{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>package.json</code> to
-						enable aggressive dead-code elimination.
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>export</code>), not CommonJS (
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>require</code>). Barrel files (
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>index.ts</code> that re-export
+						everything) can defeat tree shaking if the bundler can't prove exports are side-effect-free. Mark packages as{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>"sideEffects": false</code> in{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>package.json</code> to enable
+						aggressive dead-code elimination.
 					</p>
 				</div>
 			</div>
@@ -141,9 +126,7 @@ const PerformanceOptimization = () => {
 			<div className='mb-6 space-y-4'>
 				<div className='rounded-lg border border-gray-200 bg-white p-5 shadow-sm'>
 					<div className='mb-3 flex items-center gap-2'>
-						<span className='rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800'>
-							Route-based
-						</span>
+						<span className='rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800'>Route-based</span>
 						<h5 className='font-semibold text-gray-800'>Split by Route</h5>
 					</div>
 
@@ -152,31 +135,26 @@ const PerformanceOptimization = () => {
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>
 							React.lazy(() =&gt; import('./Dashboard'))
 						</code>{' '}
-						with{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>
-							{'<Suspense>'}
-						</code>
-						. The initial bundle only contains the shell and the current route — everything else is fetched on demand. This
-						strategy is covered in detail in the Routing tab.
+						with <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<Suspense>'}</code>. The
+						initial bundle only contains the shell and the current route — everything else is fetched on demand. This strategy
+						is covered in detail in the Routing tab.
 					</p>
 				</div>
 
 				<div className='rounded-lg border border-gray-200 bg-white p-5 shadow-sm'>
 					<div className='mb-3 flex items-center gap-2'>
-						<span className='rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800'>
-							Component-based
-						</span>
+						<span className='rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800'>Component-based</span>
 						<h5 className='font-semibold text-gray-800'>Split by Component</h5>
 					</div>
 
 					<p className='mb-3 text-sm text-gray-600'>
-						Split heavy components that aren't needed on initial load — rich text editors, chart libraries, modals with
-						complex content. Load them on user interaction such as a button click or tab switch.
+						Split heavy components that aren't needed on initial load — rich text editors, chart libraries, modals with complex
+						content. Load them on user interaction such as a button click or tab switch.
 					</p>
 
 					<div className='rounded-md bg-slate-50 p-3'>
 						<pre className='text-xs text-slate-700'>
-{`const RichEditor = lazy(() => import('./RichEditor'));
+							{`const RichEditor = lazy(() => import('./RichEditor'));
 
 // Only loaded when user clicks "Edit"
 {isEditing && (
@@ -190,18 +168,16 @@ const PerformanceOptimization = () => {
 
 				<div className='rounded-lg border border-gray-200 bg-white p-5 shadow-sm'>
 					<div className='mb-3 flex items-center gap-2'>
-						<span className='rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800'>
-							Library-based
-						</span>
+						<span className='rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800'>Library-based</span>
 						<h5 className='font-semibold text-gray-800'>Split by Library</h5>
 					</div>
 
 					<p className='text-sm text-gray-600'>
-						Move large dependencies into separate chunks. Bundlers like Vite and webpack can be configured to split vendor
-						code automatically. Use dynamic{' '}
-						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>import()</code> for
-						libraries only needed in specific flows — for example, loading a PDF renderer only when the user opens a
-						document preview, or loading a charting library only on the analytics page.
+						Move large dependencies into separate chunks. Bundlers like Vite and webpack can be configured to split vendor code
+						automatically. Use dynamic{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>import()</code> for libraries
+						only needed in specific flows — for example, loading a PDF renderer only when the user opens a document preview, or
+						loading a charting library only on the analytics page.
 					</p>
 				</div>
 			</div>
@@ -210,14 +186,14 @@ const PerformanceOptimization = () => {
 			<SectionTitle level='h4'>Virtualization for Large Lists</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				Rendering 10,000 DOM nodes destroys performance — layout, paint, and memory all suffer. Virtualization renders only
-				the visible items plus a small overscan buffer. As the user scrolls, items are recycled: rows leaving the viewport are
-				removed from the DOM, and new rows entering it are created in their place.
+				Rendering 10,000 DOM nodes destroys performance — layout, paint, and memory all suffer. Virtualization renders only the
+				visible items plus a small overscan buffer. As the user scrolls, items are recycled: rows leaving the viewport are removed
+				from the DOM, and new rows entering it are created in their place.
 			</p>
 
 			<div className='mb-4 rounded-md bg-slate-50 p-3'>
 				<pre className='text-xs text-slate-700'>
-{`// Using TanStack Virtual
+					{`// Using TanStack Virtual
 const virtualizer = useVirtualizer({
   count: items.length,
   estimateSize: () => 50,
@@ -248,10 +224,9 @@ return (
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Trade-offs:</strong> Virtualization has real costs. Native browser search (Ctrl+F) won't find off-screen
-					items, screen readers may have difficulty with dynamic content, and print layouts break. Consider whether your use
-					case truly needs 10,000+ items visible — often, better filtering, pagination, or search makes virtualization
-					unnecessary.
+					<strong>Trade-offs:</strong> Virtualization has real costs. Native browser search (Ctrl+F) won't find off-screen items,
+					screen readers may have difficulty with dynamic content, and print layouts break. Consider whether your use case truly
+					needs 10,000+ items visible — often, better filtering, pagination, or search makes virtualization unnecessary.
 				</p>
 			</div>
 
@@ -272,12 +247,8 @@ return (
 					<tbody>
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>React.memo</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Component output — skips re-render if props are shallowly equal
-							</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Child components with expensive render, receiving stable props
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Component output — skips re-render if props are shallowly equal</td>
+							<td className='px-4 py-3 text-gray-600'>Child components with expensive render, receiving stable props</td>
 							<td className='px-4 py-3 text-gray-600'>
 								Wrapping components that receive new objects/arrays/functions every render (the memo never fires)
 							</td>
@@ -311,8 +282,8 @@ return (
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
 					<strong>React team's advice:</strong> Don't memoize by default. Profile first using React DevTools Profiler. If a
-					component re-renders frequently and each render is expensive, then memoize. The cost of comparison and memory is
-					not free — memoization is an optimization with its own overhead.
+					component re-renders frequently and each render is expensive, then memoize. The cost of comparison and memory is not
+					free — memoization is an optimization with its own overhead.
 				</p>
 			</div>
 
@@ -367,14 +338,16 @@ return (
 
 					<div className='rounded-md bg-slate-50 p-3'>
 						<pre className='text-xs text-slate-700'>
-{`// worker.js
+							{`// worker.js
 self.onmessage = ({ data }) => {
   const result = heavyComputation(data);
+
   self.postMessage(result);
 };
 
 // main thread
 const worker = new Worker('./worker.js');
+
 worker.postMessage(largeDataset);
 worker.onmessage = ({ data }) => {
   setResult(data);
@@ -383,8 +356,8 @@ worker.onmessage = ({ data }) => {
 					</div>
 
 					<p className='mt-3 text-xs text-teal-600'>
-						<strong>Tip:</strong> The Comlink library provides a more ergonomic RPC-style API over postMessage, letting you
-						call worker functions as if they were local async functions.
+						<strong>Tip:</strong> The Comlink library provides a more ergonomic RPC-style API over postMessage, letting you call
+						worker functions as if they were local async functions.
 					</p>
 				</div>
 			</div>
@@ -407,9 +380,7 @@ worker.onmessage = ({ data }) => {
 							<td className='px-4 py-3 font-medium text-gray-800'>Modern formats (WebP/AVIF)</td>
 							<td className='px-4 py-3 text-gray-600'>25-50% smaller than JPEG/PNG</td>
 							<td className='px-4 py-3 text-gray-600'>
-								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>
-									{'<picture>'}
-								</code>{' '}
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>{'<picture>'}</code>{' '}
 								element with format fallbacks, or CDN auto-conversion
 							</td>
 						</tr>
@@ -419,11 +390,8 @@ worker.onmessage = ({ data }) => {
 							<td className='px-4 py-3 text-gray-600'>Serve right size for viewport</td>
 							<td className='px-4 py-3 text-gray-600'>
 								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>srcset</code> and{' '}
-								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>sizes</code>{' '}
-								attributes;{' '}
-								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>
-									{'<Image>'}
-								</code>{' '}
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>sizes</code> attributes;{' '}
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>{'<Image>'}</code>{' '}
 								component in Next.js
 							</td>
 						</tr>
@@ -433,9 +401,7 @@ worker.onmessage = ({ data }) => {
 							<td className='px-4 py-3 text-gray-600'>Defer off-screen images</td>
 							<td className='px-4 py-3 text-gray-600'>
 								Native{' '}
-								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>
-									loading="lazy"
-								</code>{' '}
+								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>loading="lazy"</code>{' '}
 								attribute — zero JavaScript needed
 							</td>
 						</tr>
@@ -443,17 +409,13 @@ worker.onmessage = ({ data }) => {
 						<tr className='border-b border-gray-100 bg-gray-50/50'>
 							<td className='px-4 py-3 font-medium text-gray-800'>CDN optimization</td>
 							<td className='px-4 py-3 text-gray-600'>On-the-fly resize, crop, format conversion</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Cloudinary, imgix, Vercel Image Optimization
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Cloudinary, imgix, Vercel Image Optimization</td>
 						</tr>
 
 						<tr>
 							<td className='px-4 py-3 font-medium text-gray-800'>Blur-up placeholders</td>
 							<td className='px-4 py-3 text-gray-600'>Show blurred tiny image while full image loads</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Base64-encoded 10px thumbnail as placeholder, sharp for generation
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Base64-encoded 10px thumbnail as placeholder, sharp for generation</td>
 						</tr>
 					</tbody>
 				</table>
@@ -469,13 +431,11 @@ worker.onmessage = ({ data }) => {
 					<p className='mb-2 text-xs font-medium text-green-600'>Largest Contentful Paint</p>
 
 					<p className='mb-3 text-sm text-green-700'>
-						Measures how quickly the main content loads. This is the time it takes for the largest visible element (hero
-						image, heading block, or video) to appear.
+						Measures how quickly the main content loads. This is the time it takes for the largest visible element (hero image,
+						heading block, or video) to appear.
 					</p>
 
-					<p className='mb-2 text-sm font-semibold text-green-800'>
-						Target: {'<'} 2.5s
-					</p>
+					<p className='mb-2 text-sm font-semibold text-green-800'>Target: {'<'} 2.5s</p>
 
 					<ul className='space-y-1 text-xs text-green-700'>
 						<li className='flex items-start'>
@@ -506,13 +466,11 @@ worker.onmessage = ({ data }) => {
 					<p className='mb-2 text-xs font-medium text-blue-600'>Interaction to Next Paint</p>
 
 					<p className='mb-3 text-sm text-blue-700'>
-						Measures responsiveness to user input (replaces FID). INP considers all interactions during the page lifecycle
-						and reports the worst latency, giving a more complete picture of interactivity.
+						Measures responsiveness to user input (replaces FID). INP considers all interactions during the page lifecycle and
+						reports the worst latency, giving a more complete picture of interactivity.
 					</p>
 
-					<p className='mb-2 text-sm font-semibold text-blue-800'>
-						Target: {'<'} 200ms
-					</p>
+					<p className='mb-2 text-sm font-semibold text-blue-800'>Target: {'<'} 200ms</p>
 
 					<ul className='space-y-1 text-xs text-blue-700'>
 						<li className='flex items-start'>
@@ -547,9 +505,7 @@ worker.onmessage = ({ data }) => {
 						unexpectedly during its entire lifespan.
 					</p>
 
-					<p className='mb-2 text-sm font-semibold text-orange-800'>
-						Target: {'<'} 0.1
-					</p>
+					<p className='mb-2 text-sm font-semibold text-orange-800'>Target: {'<'} 0.1</p>
 
 					<ul className='space-y-1 text-xs text-orange-700'>
 						<li className='flex items-start'>

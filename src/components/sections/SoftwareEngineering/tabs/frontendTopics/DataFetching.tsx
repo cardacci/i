@@ -30,7 +30,7 @@ const DataFetching = () => {
 
 					<div className='mt-3 rounded-md bg-blue-100/50 p-3'>
 						<pre className='text-xs text-blue-800'>
-{`// Two requests for one view
+							{`// Two requests for one view
 const user = await fetch('/api/users/1');
 const posts = await fetch('/api/users/1/posts');`}
 						</pre>
@@ -52,7 +52,7 @@ const posts = await fetch('/api/users/1/posts');`}
 
 					<div className='mt-3 rounded-md bg-green-100/50 p-3'>
 						<pre className='text-xs text-green-800'>
-{`// One request, exact fields
+							{`// One request, exact fields
 const { data } = useQuery(gql\`
   query { user(id: 1) {
     name
@@ -130,11 +130,12 @@ const { data } = useQuery(gql\`
 				</div>
 
 				<p className='mt-4 text-sm text-gray-600'>
-					Every data request follows a state machine. Libraries like TanStack Query model this explicitly with
-					flags: <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isLoading</code> (first
-					fetch, no data yet), <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isFetching</code> (any
-					fetch including background), <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isStale</code> (data
-					exists but may be outdated), <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isError</code> (last
+					Every data request follows a state machine. Libraries like TanStack Query model this explicitly with flags:{' '}
+					<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isLoading</code> (first fetch, no
+					data yet), <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isFetching</code> (any
+					fetch including background),{' '}
+					<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isStale</code> (data exists but may
+					be outdated), <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>isError</code> (last
 					fetch failed), and <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>data</code> (the
 					cached result). Understanding this lifecycle is critical for building UIs that feel responsive and reliable.
 				</p>
@@ -180,9 +181,7 @@ const { data } = useQuery(gql\`
 
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Network-Only</td>
-							<td className='px-4 py-3 text-gray-600'>
-								Always fetches from the network; never uses cache.
-							</td>
+							<td className='px-4 py-3 text-gray-600'>Always fetches from the network; never uses cache.</td>
 							<td className='px-4 py-3 text-gray-600'>Real-time data, financial tickers</td>
 							<td className='px-4 py-3 text-gray-500'>N/A (always fresh)</td>
 						</tr>
@@ -217,14 +216,17 @@ const { data } = useQuery(gql\`
 
 				<div className='mb-4 rounded-md bg-slate-50 p-3'>
 					<pre className='text-xs text-slate-700'>
-{`const mutation = useMutation({
+						{`const mutation = useMutation({
   mutationFn: updateTodo,
   onMutate: async (newTodo) => {
     await queryClient.cancelQueries({ queryKey: ['todos'] });
+
     const previous = queryClient.getQueryData(['todos']);
+
     queryClient.setQueryData(['todos'], (old) =>
       old.map((t) => (t.id === newTodo.id ? { ...t, ...newTodo } : t))
     );
+
     return { previous };
   },
   onError: (err, newTodo, context) => {
@@ -244,13 +246,13 @@ const { data } = useQuery(gql\`
 					</p>
 
 					<p className='text-sm text-gray-600'>
-						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>onError</code> rolls back to
-						the previous state if the server rejects the mutation.
+						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>onError</code> rolls back to the
+						previous state if the server rejects the mutation.
 					</p>
 
 					<p className='text-sm text-gray-600'>
-						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>onSettled</code> invalidates
-						the query to ensure eventual consistency with the server, regardless of success or failure.
+						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>onSettled</code> invalidates the
+						query to ensure eventual consistency with the server, regardless of success or failure.
 					</p>
 				</div>
 			</div>
@@ -282,9 +284,10 @@ const { data } = useQuery(gql\`
 					<h5 className='mb-2 font-semibold text-green-800'>Cursor-Based</h5>
 
 					<p className='text-sm text-green-700'>
-						Uses <code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>?after=abc123&limit=20</code> where
-						the cursor is an opaque token (often an encoded timestamp or ID). Stable under insertions and deletions. Scales to
-						millions of records. Used by Twitter, GitHub, and Slack APIs.
+						Uses{' '}
+						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>?after=abc123&limit=20</code>{' '}
+						where the cursor is an opaque token (often an encoded timestamp or ID). Stable under insertions and deletions.
+						Scales to millions of records. Used by Twitter, GitHub, and Slack APIs.
 					</p>
 
 					<p className='mt-2 text-xs text-green-600'>
@@ -296,10 +299,10 @@ const { data } = useQuery(gql\`
 					<h5 className='mb-2 font-semibold text-purple-800'>Infinite Scroll</h5>
 
 					<p className='text-sm text-purple-700'>
-						Loads the next page when the user scrolls near the bottom. Uses IntersectionObserver or a sentinel element.
-						TanStack Query's <code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>useInfiniteQuery</code> manages
-						page caching. Great for feeds and timelines. Caution: provide a "Back to top" button and consider memory limits
-						for very long sessions.
+						Loads the next page when the user scrolls near the bottom. Uses IntersectionObserver or a sentinel element. TanStack
+						Query's <code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>useInfiniteQuery</code>{' '}
+						manages page caching. Great for feeds and timelines. Caution: provide a "Back to top" button and consider memory
+						limits for very long sessions.
 					</p>
 
 					<p className='mt-2 text-xs text-purple-600'>
@@ -381,7 +384,7 @@ const { data } = useQuery(gql\`
 
 					<div className='rounded-md bg-slate-50 p-3'>
 						<pre className='text-xs text-slate-700'>
-{`const ws = new WebSocket('wss://api.example.com/ws');
+							{`const ws = new WebSocket('wss://api.example.com/ws');
 
 ws.onopen = () => {
   ws.send(JSON.stringify({ type: 'subscribe', channel: 'prices' }));
@@ -389,6 +392,7 @@ ws.onopen = () => {
 
 ws.onmessage = (event) => {
   const data = JSON.parse(event.data);
+
   updateUI(data);
 };
 
@@ -405,10 +409,11 @@ ws.onclose = () => {
 
 					<div className='rounded-md bg-slate-50 p-3'>
 						<pre className='text-xs text-slate-700'>
-{`const source = new EventSource('/api/notifications');
+							{`const source = new EventSource('/api/notifications');
 
 source.onmessage = (event) => {
   const notification = JSON.parse(event.data);
+
   addNotification(notification);
 };
 
@@ -479,11 +484,13 @@ return () => source.close();`}
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Note:</strong> TanStack Query retries failed queries 3 times by default with exponential backoff.
-					Configure <code className='inline-block translate-y-[-1px] rounded bg-amber-100 px-1 text-xs'>retry: false</code> for
-					mutations
-					and <code className='inline-block translate-y-[-1px] rounded bg-amber-100 px-1 text-xs'>retry: 3, retryDelay: (attempt) =&gt; Math.min(1000 * 2 ** attempt, 30000)</code> for
-					queries to match your error recovery strategy.
+					<strong>Note:</strong> TanStack Query retries failed queries 3 times by default with exponential backoff. Configure{' '}
+					<code className='inline-block translate-y-[-1px] rounded bg-amber-100 px-1 text-xs'>retry: false</code> for mutations
+					and{' '}
+					<code className='inline-block translate-y-[-1px] rounded bg-amber-100 px-1 text-xs'>
+						retry: 3, retryDelay: (attempt) =&gt; Math.min(1000 * 2 ** attempt, 30000)
+					</code>{' '}
+					for queries to match your error recovery strategy.
 				</p>
 			</div>
 
