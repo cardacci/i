@@ -3,6 +3,7 @@ export { default as DataFetching } from './DataFetching';
 export { default as DesignSystem } from './DesignSystem';
 export { default as FrontendInfrastructure } from './FrontendInfrastructure';
 export { default as PerformanceOptimization } from './PerformanceOptimization';
+export { default as RealWorldExamples } from './RealWorldExamples';
 export { default as RenderingPatterns } from './RenderingPatterns';
 export { default as RoutingAndNavigation } from './RoutingAndNavigation';
 export { default as StateManagement } from './StateManagement';

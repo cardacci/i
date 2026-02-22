@@ -11,6 +11,7 @@ import {
 	DesignSystem,
 	FrontendInfrastructure,
 	PerformanceOptimization,
+	RealWorldExamples,
 	RenderingPatterns,
 	RoutingAndNavigation,
 	StateManagement
@@ -28,7 +29,8 @@ const Frontend = () => {
 		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.RENDERING_PATTERNS]: <RenderingPatterns />,
 		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.PERFORMANCE_OPTIMIZATION]: <PerformanceOptimization />,
 		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.DESIGN_SYSTEM]: <DesignSystem />,
-		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.FRONTEND_INFRASTRUCTURE]: <FrontendInfrastructure />
+		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.FRONTEND_INFRASTRUCTURE]: <FrontendInfrastructure />,
+		[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.REAL_WORLD_EXAMPLES]: <RealWorldExamples />
 	};
 	const tabs = createTabsFromRoutes(FRONTEND_TOPICS, tabContent);
 

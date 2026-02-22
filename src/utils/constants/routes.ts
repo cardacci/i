@@ -31,6 +31,7 @@ export const ROUTE_KEYS = {
 		DESIGN_SYSTEM: 'DESIGN_SYSTEM',
 		FRONTEND_INFRASTRUCTURE: 'FRONTEND_INFRASTRUCTURE',
 		PERFORMANCE_OPTIMIZATION: 'PERFORMANCE_OPTIMIZATION',
+		REAL_WORLD_EXAMPLES: 'REAL_WORLD_EXAMPLES',
 		RENDERING_PATTERNS: 'RENDERING_PATTERNS',
 		ROUTING_AND_NAVIGATION: 'ROUTING_AND_NAVIGATION',
 		STATE_MANAGEMENT: 'STATE_MANAGEMENT'
@@ -137,6 +138,11 @@ export const FRONTEND_TOPICS = {
 		id: 'frontend-infrastructure',
 		label: 'Infrastructure',
 		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/frontend-infrastructure`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.REAL_WORLD_EXAMPLES]: {
+		id: 'real-world-examples',
+		label: 'Real-World Examples',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/real-world-examples`
 	}
 } as const;
 
