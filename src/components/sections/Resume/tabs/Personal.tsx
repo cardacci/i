@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2026-01.pdf';
+import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2026-02-17.pdf';
 import { SectionTitle } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
@@ -78,11 +78,11 @@ const Personal = () => {
 					<div>
 						<p className='text-gray-600 mb-2'>Get my latest resume in PDF format</p>
 
-						<p className='text-sm text-gray-500'>Last updated: January 2026</p>
+						<p className='text-sm text-gray-500'>Last updated: February 2026</p>
 					</div>
 					<a
 						className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
-						download='Cardacci, Gabriel - CV 2026-01.pdf'
+						download='Cardacci, Gabriel - CV 2026-02-17.pdf'
 						href={resumePdf}
 					>
 						<svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -104,19 +104,24 @@ const Personal = () => {
 
 				<div className='leading-relaxed space-y-4'>
 					<p>
-						Product-minded Principal Frontend Engineer with 10+ years of experience building and scaling web, PWA, and hybrid
-						mobile applications.
+						Product-minded Principal Frontend Engineer with 10+ years of experience building and scaling web platforms used by
+						50,000+ users and powering over 20 million financial transactions.
 					</p>
 
 					<p>
-						I combine hands-on expertise in React, Redux, and TypeScript with leadership in architecture, delivery, and hiring.
-						Known for translating business goals into high-impact solutions, improving performance and reliability, and enabling
-						teams to ship faster with confidence.
+						I combine hands-on frontend expertise with strong ownership in frontend architecture, system design, and delivery.
+						I've scaled products from early-stage MVPs to production-grade platforms, driving performance, reliability, and
+						long-term maintainability.
 					</p>
 
-					<p>I hold dual citizenship (Argentina 🇦🇷 & Lithuania 🇱🇹), allowing me to live and work internationally.</p>
+					<p>
+						I work closely with product and backend teams, contribute to hiring, mentor engineers, and establish standards that
+						enable teams to ship faster with confidence.
+					</p>
 
-					<p>You can reach me at gabrielcardacci@gmail.com for relevant opportunities.</p>
+					<p>Dual citizenship (Argentina 🇦🇷 & Lithuania 🇱🇹) - open to international and remote roles.</p>
+
+					<p>Always open to connecting, feel free to reach out.</p>
 				</div>
 			</div>
 		</div>
