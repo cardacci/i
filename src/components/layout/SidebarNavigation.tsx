@@ -107,7 +107,7 @@ const SidebarNavigation = () => {
 					<li key={child.path}>
 						<Link
 							className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
-								location.pathname === child.path
+								location.pathname === child.path || location.pathname.startsWith(child.path + '/')
 									? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
 									: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:pl-4'
 							}`}
@@ -121,7 +121,9 @@ const SidebarNavigation = () => {
 
 				{groupNames.map((groupName) => {
 					const groupChildren = grouped.filter((child) => child.group === groupName);
-					const isGroupActive = groupChildren.some((child) => location.pathname === child.path);
+					const isGroupActive = groupChildren.some(
+						(child) => location.pathname === child.path || location.pathname.startsWith(child.path + '/')
+					);
 
 					return (
 						<li key={groupName}>
@@ -150,7 +152,7 @@ const SidebarNavigation = () => {
 										<li key={child.path}>
 											<Link
 												className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
-													location.pathname === child.path
+													location.pathname === child.path || location.pathname.startsWith(child.path + '/')
 														? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
 														: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:pl-4'
 												}`}

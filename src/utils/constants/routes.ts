@@ -25,6 +25,16 @@ export const ROUTE_KEYS = {
 		FRONTEND: 'FRONTEND',
 		PROJECT: 'PROJECT'
 	},
+	SOFTWARE_ENGINEERING_FRONTEND: {
+		COMPONENT_ARCHITECTURE: 'COMPONENT_ARCHITECTURE',
+		DATA_FETCHING: 'DATA_FETCHING',
+		DESIGN_SYSTEM: 'DESIGN_SYSTEM',
+		FRONTEND_INFRASTRUCTURE: 'FRONTEND_INFRASTRUCTURE',
+		PERFORMANCE_OPTIMIZATION: 'PERFORMANCE_OPTIMIZATION',
+		RENDERING_PATTERNS: 'RENDERING_PATTERNS',
+		ROUTING_AND_NAVIGATION: 'ROUTING_AND_NAVIGATION',
+		STATE_MANAGEMENT: 'STATE_MANAGEMENT'
+	},
 	TRAVEL: {
 		MAP: 'MAP',
 		TIMELINE: 'TIMELINE'
@@ -80,6 +90,53 @@ const BASE_ROUTES = {
 		id: 'travel',
 		label: 'Travel',
 		path: '/travel'
+	}
+} as const;
+
+// Frontend System Design topic routes (ordered basic → advanced for tab display).
+export const FRONTEND_TOPICS = {
+	id: 'frontend',
+	label: 'Frontend System Design',
+	path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend`,
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.COMPONENT_ARCHITECTURE]: {
+		id: 'component-architecture',
+		label: 'Component Architecture',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/component-architecture`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.STATE_MANAGEMENT]: {
+		id: 'state-management',
+		label: 'State Management',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/state-management`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.ROUTING_AND_NAVIGATION]: {
+		id: 'routing-and-navigation',
+		label: 'Routing & Navigation',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/routing-and-navigation`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.DATA_FETCHING]: {
+		id: 'data-fetching',
+		label: 'Data Fetching',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/data-fetching`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.RENDERING_PATTERNS]: {
+		id: 'rendering-patterns',
+		label: 'Rendering Patterns',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/rendering-patterns`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.PERFORMANCE_OPTIMIZATION]: {
+		id: 'performance-optimization',
+		label: 'Performance',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/performance-optimization`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.DESIGN_SYSTEM]: {
+		id: 'design-system',
+		label: 'Design Systems',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/design-system`
+	},
+	[ROUTE_KEYS.SOFTWARE_ENGINEERING_FRONTEND.FRONTEND_INFRASTRUCTURE]: {
+		id: 'frontend-infrastructure',
+		label: 'Infrastructure',
+		path: `${BASE_ROUTES.SOFTWARE_ENGINEERING.path}/frontend/frontend-infrastructure`
 	}
 } as const;
 

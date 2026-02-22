@@ -19,7 +19,7 @@ interface TabContent {
 
 // Type for a route that can contain child routes.
 type RouteParent = {
-	icon: string;
+	icon?: string;
 	id: string;
 	label: string;
 	path: string;
