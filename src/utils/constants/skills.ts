@@ -10,15 +10,18 @@ export enum Skills {
 	PRODUCT_DEVELOPMENT = 'Product Development',
 
 	// Frontend.
-	REACT = 'React',
 	ANGULAR_JS = 'AngularJS',
+	CODE_SPLITTING = 'Code Splitting',
+	DESIGN_SYSTEMS = 'Design Systems',
 	EXT_JS = 'Ext JS',
-	TYPESCRIPT = 'TypeScript',
+	HTML_CSS = 'HTML + CSS',
 	JAVASCRIPT = 'JavaScript',
+	MEMOIZATION = 'Memoization',
+	PERFORMANCE_OPTIMIZATION = 'Performance Optimization',
+	REACT = 'React',
 	REDUX = 'Redux',
 	REDUX_SAGA = 'Redux-Saga',
-	HTML_CSS = 'HTML + CSS',
-	PERFORMANCE_OPTIMIZATION = 'Performance Optimization',
+	TYPESCRIPT = 'TypeScript',
 
 	// Backend.
 	REST_APIS = 'REST APIs',
@@ -27,11 +30,12 @@ export enum Skills {
 	MICROSOFT_SQL_SERVER = 'Microsoft SQL Server',
 
 	// Mobile & Web.
-	PROGRESSIVE_WEB_APPS = 'Progressive Web Applications (PWAs)',
-	CAPACITOR = 'Capacitor',
-	WEBSOCKETS = 'WebSockets',
-	SERVICE_WORKERS = 'Service Workers',
 	ADOBE_PRIMETIME = 'Adobe Primetime',
+	CAPACITOR = 'Capacitor',
+	PROGRESSIVE_WEB_APPS = 'Progressive Web Applications (PWAs)',
+	SERVER_SENT_EVENTS = 'Server-Sent Events (SSE)',
+	SERVICE_WORKERS = 'Service Workers',
+	WEBSOCKETS = 'WebSockets',
 
 	// Tools.
 	GIT = 'Git',
@@ -65,13 +69,16 @@ export const ARCHITECTURE_LEADERSHIP_SKILLS: Skill[] = [
 ];
 
 export const FRONTEND_SKILLS: Skill[] = [
-	{ name: Skills.REACT },
-	{ name: Skills.TYPESCRIPT },
-	{ name: Skills.JAVASCRIPT },
-	{ name: Skills.REDUX },
-	{ name: Skills.PERFORMANCE_OPTIMIZATION },
+	{ name: Skills.CODE_SPLITTING },
+	{ name: Skills.DESIGN_SYSTEMS },
 	{ name: Skills.HTML_CSS },
-	{ name: Skills.REDUX_SAGA }
+	{ name: Skills.JAVASCRIPT },
+	{ name: Skills.MEMOIZATION },
+	{ name: Skills.PERFORMANCE_OPTIMIZATION },
+	{ name: Skills.REACT },
+	{ name: Skills.REDUX },
+	{ name: Skills.REDUX_SAGA },
+	{ name: Skills.TYPESCRIPT }
 ];
 
 export const BACKEND_SKILLS: Skill[] = [
@@ -82,10 +89,11 @@ export const BACKEND_SKILLS: Skill[] = [
 ];
 
 export const MOBILE_WEB_SKILLS: Skill[] = [
+	{ name: Skills.CAPACITOR },
 	{ name: Skills.PROGRESSIVE_WEB_APPS },
-	{ name: Skills.WEBSOCKETS },
+	{ name: Skills.SERVER_SENT_EVENTS },
 	{ name: Skills.SERVICE_WORKERS },
-	{ name: Skills.CAPACITOR }
+	{ name: Skills.WEBSOCKETS }
 ];
 
 export const TOOLS_SKILLS: Skill[] = [{ name: Skills.GIT }, { name: Skills.DOCKER }];

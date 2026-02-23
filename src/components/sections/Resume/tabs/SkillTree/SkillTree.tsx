@@ -2,8 +2,8 @@ import { Fragment } from 'react';
 
 import {
 	CATEGORY_COLORS,
+	type SkillCategory,
 	skillSections,
-	type SkillCategoryKey,
 	type SkillTreeNode as SkillTreeNodeType
 } from '@/utils/constants/skillTreeData';
 
@@ -11,7 +11,7 @@ import './skillTree.css';
 
 /* ===== Recursive Tree Node Component ===== */
 interface TreeNodeProps {
-	category: SkillCategoryKey;
+	category: SkillCategory;
 	node: SkillTreeNodeType;
 }
 

@@ -2,12 +2,20 @@ import type { IconType } from 'react-icons';
 
 import { BiData } from 'react-icons/bi';
 import {
+	HiOutlineAcademicCap,
+	HiOutlineArchiveBox,
 	HiOutlineBolt,
+	HiOutlineBriefcase,
 	HiOutlineCodeBracket,
 	HiOutlineCog6Tooth,
 	HiOutlineCpuChip,
+	HiOutlineCube,
 	HiOutlineGlobeAlt,
+	HiOutlinePaintBrush,
+	HiOutlinePuzzlePiece,
 	HiOutlineRocketLaunch,
+	HiOutlineShieldCheck,
+	HiOutlineSignal,
 	HiOutlineUserGroup,
 	HiOutlineUserPlus
 } from 'react-icons/hi2';
@@ -32,11 +40,21 @@ import {
 	SiVite,
 	SiWebpack
 } from 'react-icons/si';
-import { TbApi, TbBrandReactNative, TbGitBranch, TbRobot, TbSparkles } from 'react-icons/tb';
+import {
+	TbApi,
+	TbBrain,
+	TbBrandReactNative,
+	TbBroadcast,
+	TbGitBranch,
+	TbPackage,
+	TbRobot,
+	TbSparkles,
+	TbTimeline
+} from 'react-icons/tb';
 import { VscAzure, VscAzureDevops } from 'react-icons/vsc';
 
 /* ===== Constants & Enums ===== */
-enum SkillCategory {
+export enum SkillCategory {
 	AI = 'ai',
 	Architecture = 'architecture',
 	Backend = 'backend',
@@ -77,11 +95,11 @@ export interface SkillTreeSection {
 export const skillSections: SkillTreeSection[] = [
 	// ══════════════════════════════════════════════════════════════
 	// SECTION 1: FRONTEND (tree with parent-child connections)
-	// Frontend → HTML, CSS, JavaScript
+	// Frontend → CSS, Design Systems, HTML, JavaScript, Performance
 	// CSS → Stylus, Tailwind CSS
-	// JavaScript → TypeScript, React
-	// React → Performance, Redux
-	// Redux → Redux-Saga
+	// JavaScript → React, TypeScript
+	// React → Redux → Redux-Saga
+	// Performance → Code Splitting, Memoization, Web Workers
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Frontend,
@@ -89,7 +107,6 @@ export const skillSections: SkillTreeSection[] = [
 			isCategory: true,
 			label: '⚛️ Frontend',
 			children: [
-				{ icon: SiHtml5, label: 'HTML' },
 				{
 					icon: SiCss3,
 					label: 'CSS',
@@ -98,27 +115,33 @@ export const skillSections: SkillTreeSection[] = [
 						{ icon: SiTailwindcss, label: 'Tailwind CSS' }
 					]
 				},
+				{ icon: HiOutlinePaintBrush, label: 'Design Systems' },
+				{ icon: SiHtml5, label: 'HTML' },
 				{
 					icon: SiJavascript,
 					label: 'JavaScript',
 					children: [
-						{ icon: SiTypescript, label: 'TypeScript' },
 						{
 							icon: SiReact,
 							label: 'React',
 							children: [
 								{
-									icon: MdOutlineSpeed,
-									label: 'Performance',
-									children: [{ icon: HiOutlineBolt, label: 'Web Workers' }]
-								},
-								{
 									icon: SiRedux,
 									label: 'Redux',
-									children: [{ icon: SiRedux, label: 'Redux-Saga' }]
+									children: [{ icon: TbTimeline, label: 'Redux-Saga' }]
 								}
 							]
-						}
+						},
+						{ icon: SiTypescript, label: 'TypeScript' }
+					]
+				},
+				{
+					icon: MdOutlineSpeed,
+					label: 'Performance',
+					children: [
+						{ icon: HiOutlinePuzzlePiece, label: 'Code Splitting' },
+						{ icon: TbBrain, label: 'Memoization' },
+						{ icon: HiOutlineBolt, label: 'Web Workers' }
 					]
 				}
 			]
@@ -127,7 +150,8 @@ export const skillSections: SkillTreeSection[] = [
 
 	// ══════════════════════════════════════════════════════════════
 	// SECTION 2: MOBILE & WEB
-	// PWAs → Service Workers
+	// PWAs → Service Workers → Workbox
+	// Real-Time → SSE, WebSockets
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Mobile,
@@ -135,6 +159,7 @@ export const skillSections: SkillTreeSection[] = [
 			isCategory: true,
 			label: '📱 Mobile & Web',
 			children: [
+				{ icon: TbBrandReactNative, label: 'Capacitor' },
 				{
 					icon: HiOutlineGlobeAlt,
 					label: 'PWAs',
@@ -142,19 +167,24 @@ export const skillSections: SkillTreeSection[] = [
 						{
 							icon: HiOutlineCog6Tooth,
 							label: 'Service Workers',
-							children: [{ icon: HiOutlineCog6Tooth, label: 'Workbox' }]
+							children: [{ icon: HiOutlineArchiveBox, label: 'Workbox' }]
 						}
 					]
 				},
-				{ icon: TbBrandReactNative, label: 'Capacitor' },
-				{ icon: HiOutlineCpuChip, label: 'WebSockets' }
+				{
+					icon: HiOutlineSignal,
+					label: 'Real-Time',
+					children: [
+						{ icon: TbBroadcast, label: 'SSE' },
+						{ icon: HiOutlineCpuChip, label: 'WebSockets' }
+					]
+				}
 			]
 		}
 	},
 
 	// ══════════════════════════════════════════════════════════════
 	// SECTION 3: BACKEND
-	// ASP.NET MVC → SQL Server
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Backend,
@@ -162,13 +192,10 @@ export const skillSections: SkillTreeSection[] = [
 			isCategory: true,
 			label: '🔮 Backend',
 			children: [
+				{ icon: HiOutlineCodeBracket, label: 'ASP.NET MVC' },
 				{ icon: SiSharp, label: 'C#' },
-				{
-					icon: HiOutlineCodeBracket,
-					label: 'ASP.NET MVC',
-					children: [{ icon: BiData, label: 'SQL Server' }]
-				},
-				{ icon: TbApi, label: 'REST APIs' }
+				{ icon: TbApi, label: 'REST APIs' },
+				{ icon: BiData, label: 'SQL Server' }
 			]
 		}
 	},
@@ -183,8 +210,8 @@ export const skillSections: SkillTreeSection[] = [
 			isCategory: true,
 			label: 'CI/CD',
 			children: [
-				{ icon: SiGithubactions, label: 'GitHub Actions' },
-				{ icon: VscAzure, label: 'Azure Pipelines' }
+				{ icon: VscAzure, label: 'Azure Pipelines' },
+				{ icon: SiGithubactions, label: 'GitHub Actions' }
 			]
 		}
 	},
@@ -215,11 +242,11 @@ export const skillSections: SkillTreeSection[] = [
 			label: '🎯 Architecture & Leadership',
 			children: [
 				{ icon: HiOutlineRocketLaunch, label: 'Frontend Arch' },
-				{ icon: HiOutlineRocketLaunch, label: 'Software Arch' },
+				{ icon: HiOutlineUserPlus, label: 'Hiring & Interviewing' },
 				{ icon: HiOutlineUserGroup, label: 'Leadership' },
-				{ icon: HiOutlineUserGroup, label: 'Team Management' },
-				{ icon: HiOutlineUserGroup, label: 'Mentoring' },
-				{ icon: HiOutlineUserPlus, label: 'Hiring & Interviewing' }
+				{ icon: HiOutlineAcademicCap, label: 'Mentoring' },
+				{ icon: HiOutlineCube, label: 'Software Arch' },
+				{ icon: HiOutlineBriefcase, label: 'Team Management' }
 			]
 		}
 	},
@@ -249,11 +276,23 @@ export const skillSections: SkillTreeSection[] = [
 			isCategory: true,
 			label: '🛠️ Tools',
 			children: [
+				{
+					icon: TbPackage,
+					label: 'Bundlers',
+					children: [
+						{ icon: SiVite, label: 'Vite' },
+						{ icon: SiWebpack, label: 'Webpack' }
+					]
+				},
 				{ icon: SiDocker, label: 'Docker' },
-				{ icon: SiVite, label: 'Vite' },
-				{ icon: SiWebpack, label: 'Webpack' },
-				{ icon: SiEslint, label: 'ESLint' },
-				{ icon: SiPrettier, label: 'Prettier' }
+				{
+					icon: HiOutlineShieldCheck,
+					label: 'Linting & Formatting',
+					children: [
+						{ icon: SiEslint, label: 'ESLint' },
+						{ icon: SiPrettier, label: 'Prettier' }
+					]
+				}
 			]
 		}
 	},
