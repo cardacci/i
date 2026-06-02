@@ -1,4 +1,6 @@
 /* ===== Imports ===== */
+import { LuAtom, LuBoxes, LuComponent, LuLayoutTemplate, LuMonitorSmartphone } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 
 /* ===== Component Function ===== */
@@ -225,7 +227,9 @@ const ComponentArchitecture = () => {
 			<div className='mb-6 overflow-x-auto'>
 				<div className='flex min-w-[700px] gap-2'>
 					<div className='flex-1 rounded-lg border-2 border-blue-300 bg-blue-50 p-3 text-center'>
-						<div className='mb-1 text-2xl'>⚛️</div>
+						<div className='mb-1.5 flex justify-center'>
+							<LuAtom className='w-7 h-7 text-blue-600' />
+						</div>
 						<h5 className='text-sm font-bold text-blue-800'>Atoms</h5>
 						<p className='mt-1 text-xs text-blue-600'>Button, Input, Label, Icon, Badge</p>
 						<p className='mt-1 text-xs text-blue-500'>Smallest indivisible UI elements</p>
@@ -234,7 +238,9 @@ const ComponentArchitecture = () => {
 					<div className='flex items-center text-gray-300'>→</div>
 
 					<div className='flex-1 rounded-lg border-2 border-teal-300 bg-teal-50 p-3 text-center'>
-						<div className='mb-1 text-2xl'>🧬</div>
+						<div className='mb-1.5 flex justify-center'>
+							<LuComponent className='w-7 h-7 text-teal-600' />
+						</div>
 						<h5 className='text-sm font-bold text-teal-800'>Molecules</h5>
 						<p className='mt-1 text-xs text-teal-600'>SearchBar, FormField, NavItem, Card</p>
 						<p className='mt-1 text-xs text-teal-500'>Groups of atoms functioning as a unit</p>
@@ -243,7 +249,9 @@ const ComponentArchitecture = () => {
 					<div className='flex items-center text-gray-300'>→</div>
 
 					<div className='flex-1 rounded-lg border-2 border-green-300 bg-green-50 p-3 text-center'>
-						<div className='mb-1 text-2xl'>🦠</div>
+						<div className='mb-1.5 flex justify-center'>
+							<LuBoxes className='w-7 h-7 text-green-600' />
+						</div>
 						<h5 className='text-sm font-bold text-green-800'>Organisms</h5>
 						<p className='mt-1 text-xs text-green-600'>Header, Sidebar, ProductCard, Form</p>
 						<p className='mt-1 text-xs text-green-500'>Complex sections of the interface</p>
@@ -252,7 +260,9 @@ const ComponentArchitecture = () => {
 					<div className='flex items-center text-gray-300'>→</div>
 
 					<div className='flex-1 rounded-lg border-2 border-orange-300 bg-orange-50 p-3 text-center'>
-						<div className='mb-1 text-2xl'>📄</div>
+						<div className='mb-1.5 flex justify-center'>
+							<LuLayoutTemplate className='w-7 h-7 text-orange-600' />
+						</div>
 						<h5 className='text-sm font-bold text-orange-800'>Templates</h5>
 						<p className='mt-1 text-xs text-orange-600'>PageLayout, DashboardLayout</p>
 						<p className='mt-1 text-xs text-orange-500'>Page structure with placeholder content</p>
@@ -261,7 +271,9 @@ const ComponentArchitecture = () => {
 					<div className='flex items-center text-gray-300'>→</div>
 
 					<div className='flex-1 rounded-lg border-2 border-red-300 bg-red-50 p-3 text-center'>
-						<div className='mb-1 text-2xl'>📱</div>
+						<div className='mb-1.5 flex justify-center'>
+							<LuMonitorSmartphone className='w-7 h-7 text-red-600' />
+						</div>
 						<h5 className='text-sm font-bold text-red-800'>Pages</h5>
 						<p className='mt-1 text-xs text-red-600'>HomePage, CheckoutPage</p>
 						<p className='mt-1 text-xs text-red-500'>Templates filled with real data</p>

@@ -1,8 +1,25 @@
 import { useState } from 'react';
 
+import type { IconType } from 'react-icons';
 import { Link, useLocation } from 'react-router-dom';
 
+import { LuBitcoin, LuBookOpen, LuCode, LuDisc3, LuFileText, LuHouse, LuPlane, LuTrendingUp } from 'react-icons/lu';
+
 import { ROUTES } from '@/utils/constants/routes';
+
+/* ===== Constants ===== */
+// Maps each top-level route id to a consistent Lucide icon (SVG), replacing the
+// previous emoji icons for a cleaner, more professional look.
+const NAV_ICONS: Record<string, IconType> = {
+	books: LuBookOpen,
+	crypto: LuBitcoin,
+	djing: LuDisc3,
+	economics: LuTrendingUp,
+	home: LuHouse,
+	resume: LuFileText,
+	'software-engineering': LuCode,
+	travel: LuPlane
+};
 
 /* ===== Types & Interfaces ===== */
 interface MenuItem {
@@ -194,8 +211,34 @@ const SidebarNavigation = () => {
 		);
 	}
 
+	function renderIcon(id: string, active: boolean, onDark = false) {
+		const Icon = NAV_ICONS[id];
+
+		if (!Icon) {
+			return null;
+		}
+
+		let chipClasses;
+
+		if (active && onDark) {
+			chipClasses = 'bg-white/20 text-white';
+		} else if (active) {
+			chipClasses = 'bg-blue-100 text-blue-600';
+		} else {
+			chipClasses = 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600';
+		}
+
+		return (
+			<span
+				className={`mr-3 flex items-center justify-center w-8 h-8 rounded-lg shrink-0 transition-all duration-200 ${chipClasses}`}
+			>
+				<Icon className='w-4 h-4' />
+			</span>
+		);
+	}
+
 	function renderMenuItem(item: MenuItem) {
-		const { icon, label, path } = item;
+		const { id, label, path } = item;
 
 		if (item.children) {
 			return (
@@ -207,7 +250,7 @@ const SidebarNavigation = () => {
 								: 'hover:bg-gray-50 text-gray-700 hover:text-gray-900'
 						}`}
 					>
-						<span className='mr-3 text-lg'>{icon}</span>
+						{renderIcon(id, isActive(path))}
 
 						<span className='flex-1'>{label}</span>
 
@@ -228,7 +271,7 @@ const SidebarNavigation = () => {
 
 		return (
 			<Link
-				className={`flex items-center p-3 rounded-xl font-medium transition-all duration-200 ${
+				className={`group flex items-center p-3 rounded-xl font-medium transition-all duration-200 ${
 					location.pathname === path
 						? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md shadow-blue-500/25'
 						: 'hover:bg-gray-50 text-gray-700 hover:text-gray-900'
@@ -236,7 +279,7 @@ const SidebarNavigation = () => {
 				onClick={closeSidebar}
 				to={path}
 			>
-				<span className='mr-3 text-lg'>{icon}</span>
+				{renderIcon(id, location.pathname === path, true)}
 
 				{label}
 			</Link>
@@ -282,9 +325,9 @@ const SidebarNavigation = () => {
 					<div className='flex items-center justify-between mb-8'>
 						<div>
 							<h2 className='text-2xl font-bold bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-clip-text text-transparent'>
-								🚀 Explore
+								Explore
 							</h2>
-							<p className='text-xs text-gray-400 mt-1'>Navigate through sections</p>
+							<p className='text-xs text-gray-400 mt-0.5'>Navigate through sections</p>
 						</div>
 
 						<button

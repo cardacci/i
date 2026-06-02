@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { LuCalendar } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 import { Skills } from '@/utils/constants';
 
@@ -112,8 +114,9 @@ const Education = () => {
 									<p className='text-sm text-gray-600 mb-2'>{getEducationDetails(education)}</p>
 
 									<div className='flex items-center gap-4 text-sm'>
-										<span className='inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-700 rounded-full'>
-											📅 {education.period}
+										<span className='inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full'>
+											<LuCalendar className='w-3.5 h-3.5' />
+											{education.period}
 										</span>
 									</div>
 								</div>
@@ -134,8 +137,8 @@ const Education = () => {
 							<div className='flex items-start gap-3 p-3 bg-green-50 rounded-lg border border-green-200' key={cert.id || index}>
 								<div className='w-2 h-2 bg-green-500 rounded-full mt-2 shrink-0'></div>
 
-								<div className='flex-1'>
-									<p className='text-sm font-medium mb-1'>
+								<div className='flex-1 min-w-0'>
+									<p className='text-sm font-medium mb-1 break-words'>
 										{cert.link ? (
 											<a className='hover:underline text-blue-700' href={cert.link} rel='noopener noreferrer' target='_blank'>
 												{cert.name}
@@ -147,7 +150,7 @@ const Education = () => {
 
 									<p className='text-xs text-gray-600 mb-1'>{cert.institution}</p>
 
-									<p className='text-xs text-gray-500 mb-2'>
+									<p className='text-xs text-gray-500 mb-2 break-words [overflow-wrap:anywhere]'>
 										{cert.month} {cert.year} {cert.id ? <>&bull; {cert.id}</> : null}
 									</p>
 

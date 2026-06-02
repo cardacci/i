@@ -1,3 +1,5 @@
+import { LuHeadphones, LuSlidersHorizontal } from 'react-icons/lu';
+
 import asusTufF15Img from '@/assets/images/djing/asus-tuf-gaming-f15.jpg';
 import ddjFlx4Img from '@/assets/images/djing/pioneer-ddj-flx4.webp';
 import vm80Img from '@/assets/images/djing/pioneer-vm-80.webp';
@@ -99,8 +101,9 @@ const DjInfo = () => {
 			{/* Style Section */}
 			<div className='bg-gradient-to-r from-[#A3FFD6]/10 to-purple-500/10 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
 				<SectionTitle level='h3'>
-					<span className='text-white flex items-center gap-2'>
-						<span className='text-2xl'>🎧</span> My Style
+					<span className='text-white inline-flex items-center gap-2.5'>
+						<LuHeadphones className='w-6 h-6 text-[#A3FFD6]' />
+						My Style
 					</span>
 				</SectionTitle>
 
@@ -125,8 +128,9 @@ const DjInfo = () => {
 			{/* Equipment Section */}
 			<div>
 				<SectionTitle level='h3'>
-					<span className='text-white flex items-center gap-2'>
-						<span className='text-2xl'>🎛️</span> My DJ Setup
+					<span className='text-white inline-flex items-center gap-2.5'>
+						<LuSlidersHorizontal className='w-6 h-6 text-[#A3FFD6]' />
+						My DJ Setup
 					</span>
 				</SectionTitle>
 

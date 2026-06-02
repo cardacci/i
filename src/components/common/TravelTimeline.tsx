@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 
 import { Link } from 'react-scroll';
 
+import { LuCamera, LuHouse, LuMapPin } from 'react-icons/lu';
+
 import { LazyImage } from '@/components/common';
 import { COUNTRY_INFO, VisitedPlace } from '@/utils/constants/travel';
 
@@ -153,14 +155,15 @@ const TravelTimeline = (props: TravelTimelineProps) => {
 													/>
 												) : (
 													<div className='w-full h-full flex items-center justify-center'>
-														<span className='text-5xl opacity-50'>📍</span>
+														<LuMapPin className='w-12 h-12 text-slate-300' />
 													</div>
 												)}
 
 												{/* Lived here badge */}
 												{livedHere && (
-													<div className='absolute top-2 right-2 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold shadow-md pointer-events-none'>
-														🏠 Lived Here
+													<div className='absolute top-2 right-2 flex items-center gap-1 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold shadow-md pointer-events-none'>
+														<LuHouse className='w-3 h-3' />
+														Lived Here
 													</div>
 												)}
 											</div>
@@ -179,7 +182,10 @@ const TravelTimeline = (props: TravelTimelineProps) => {
 
 												{/* Photo count indicator */}
 												{yearPhotos && yearPhotos.length > 1 && (
-													<div className='mt-2 text-xs text-blue-600 font-medium'>📷 {yearPhotos.length} photos</div>
+													<div className='mt-2 flex items-center gap-1 text-xs text-blue-600 font-medium'>
+														<LuCamera className='w-3.5 h-3.5' />
+														{yearPhotos.length} photos
+													</div>
 												)}
 											</div>
 										</div>

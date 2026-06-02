@@ -1,3 +1,5 @@
+import { LuLightbulb, LuRefreshCw, LuChartColumn, LuTarget, LuTrendingDown, LuTrendingUp } from 'react-icons/lu';
+
 import periodsWhenToMakeMoney from '@/assets/images/economics/periods-when-to-make-money.jpg';
 import { ImageWithModal, SectionTitle } from '@/components/common';
 
@@ -75,7 +77,10 @@ const MarketTiming = () => {
 					<h3 className='text-xl font-semibold text-gray-800 mb-3'>Investment Strategies by Market Phase</h3>
 					<div className='grid gap-4 md:grid-cols-2'>
 						<div>
-							<h4 className='font-semibold text-gray-700 mb-2'>📈 Bull Market Strategies</h4>
+							<h4 className='font-semibold text-gray-700 mb-2 flex items-center gap-2'>
+								<LuTrendingUp className='w-4 h-4 text-green-600' />
+								Bull Market Strategies
+							</h4>
 
 							<ul className='space-y-1 text-sm text-gray-600'>
 								<li>• Growth stocks and ETFs</li>
@@ -88,7 +93,10 @@ const MarketTiming = () => {
 							</ul>
 						</div>
 						<div>
-							<h4 className='font-semibold text-gray-700 mb-2'>📉 Bear Market Strategies</h4>
+							<h4 className='font-semibold text-gray-700 mb-2 flex items-center gap-2'>
+								<LuTrendingDown className='w-4 h-4 text-red-600' />
+								Bear Market Strategies
+							</h4>
 
 							<ul className='space-y-1 text-sm text-gray-600'>
 								<li>• Defensive stocks</li>
@@ -107,20 +115,20 @@ const MarketTiming = () => {
 					<h3 className='text-xl font-semibold text-blue-800 mb-3'>Key Principles</h3>
 
 					<ul className='space-y-2 text-blue-700'>
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>💡</span>
+						<li className='flex items-start gap-2'>
+							<LuLightbulb className='w-4 h-4 mt-0.5 shrink-0 text-blue-500' />
 							Time in the market beats timing the market for most investors
 						</li>
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>📊</span>
+						<li className='flex items-start gap-2'>
+							<LuChartColumn className='w-4 h-4 mt-0.5 shrink-0 text-blue-500' />
 							Asset allocation is more important than market timing
 						</li>
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>🎯</span>
+						<li className='flex items-start gap-2'>
+							<LuTarget className='w-4 h-4 mt-0.5 shrink-0 text-blue-500' />
 							Focus on risk management and position sizing
 						</li>
-						<li className='flex items-start'>
-							<span className='text-blue-500 mr-2'>🔄</span>
+						<li className='flex items-start gap-2'>
+							<LuRefreshCw className='w-4 h-4 mt-0.5 shrink-0 text-blue-500' />
 							Rebalance regularly and avoid emotional decisions
 						</li>
 					</ul>

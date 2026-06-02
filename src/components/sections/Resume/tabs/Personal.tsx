@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2026-05-31.pdf';
+import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2026-06.pdf';
 import { SectionTitle } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
@@ -78,11 +78,11 @@ const Personal = () => {
 					<div>
 						<p className='text-gray-600 mb-2'>Get my latest resume in PDF format</p>
 
-						<p className='text-sm text-gray-500'>Last updated: May 2026</p>
+						<p className='text-sm text-gray-500'>Last updated: June 2026</p>
 					</div>
 					<a
 						className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
-						download='Cardacci, Gabriel - CV 2026-05-31.pdf'
+						download='Cardacci, Gabriel - CV 2026-06.pdf'
 						href={resumePdf}
 					>
 						<svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>

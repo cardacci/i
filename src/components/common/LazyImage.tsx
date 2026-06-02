@@ -1,5 +1,7 @@
 import { CSSProperties, useEffect, useRef, useState } from 'react';
 
+import { LuImage } from 'react-icons/lu';
+
 import ImageWithModal from '@/components/common/ImageWithModal';
 
 /**
@@ -90,7 +92,7 @@ const LazyImage = (props: LazyImageProps) => {
 					{/* Loading placeholder with smooth transition */}
 					{!isLoaded && (
 						<div className='absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 animate-pulse'>
-							<span className='text-3xl opacity-30'>📸</span>
+							<LuImage className='w-8 h-8 text-slate-400/50' />
 						</div>
 					)}
 

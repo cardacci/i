@@ -1,6 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import L from 'leaflet';
+import { LuCalendar, LuHouse } from 'react-icons/lu';
 
 // Import leaflet CSS
 import 'leaflet/dist/leaflet.css';
@@ -28,7 +29,7 @@ const defaultIcon = L.icon({
 
 const homeIcon = L.divIcon({
 	className: 'custom-home-marker',
-	html: '<div style="background-color: #DAA520; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid white; display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 16px; transform: rotate(45deg);">🏠</span></div>',
+	html: '<div style="background-color: #DAA520; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid white; display: flex; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(45deg);"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>',
 	iconAnchor: [15, 30],
 	iconSize: [30, 30],
 	popupAnchor: [0, -30]
@@ -74,7 +75,7 @@ const WorldMap = (props: WorldMapProps) => {
 									<h3 className='font-semibold text-lg text-gray-800 flex items-center justify-center gap-2'>
 										<span>{getCountryFlag(country.country)}</span>
 										<span>{country.country}</span>
-										{country.livedHere && <span className='text-yellow-600'>🏠</span>}
+										{country.livedHere && <LuHouse className='w-4 h-4 text-yellow-600' />}
 									</h3>
 
 									{country.city && <p className='text-sm text-gray-600'>{country.city}</p>}
@@ -89,9 +90,19 @@ const WorldMap = (props: WorldMapProps) => {
 											const yearsList = Array.isArray(yearsData) ? yearsData : [yearsData];
 
 											if (yearsList.length === 1) {
-												return <p className='text-xs text-blue-600 font-medium mt-1'>📅 {yearsList[0]}</p>;
+												return (
+													<p className='text-xs text-blue-600 font-medium mt-1 flex items-center justify-center gap-1'>
+														<LuCalendar className='w-3.5 h-3.5' />
+														{yearsList[0]}
+													</p>
+												);
 											} else {
-												return <p className='text-xs text-blue-600 font-medium mt-1'>📅 {yearsList.join(', ')}</p>;
+												return (
+													<p className='text-xs text-blue-600 font-medium mt-1 flex items-center justify-center gap-1'>
+														<LuCalendar className='w-3.5 h-3.5' />
+														{yearsList.join(', ')}
+													</p>
+												);
 											}
 										}
 

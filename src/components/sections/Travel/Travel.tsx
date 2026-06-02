@@ -1,5 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { LuGlobe, LuGraduationCap, LuHandshake } from 'react-icons/lu';
+
 import { BaseView, TabView } from '@/components/common';
 import { ROUTE_KEYS, ROUTES, getTotalCountriesVisited, VISITED_PLACES } from '@/utils/constants';
 import { createTabsFromRoutes, getFirstChildRoute } from '@/utils/helpers';
@@ -49,18 +51,24 @@ const Travel = () => {
 
 					<ul className='space-y-3 text-slate-600'>
 						<li className='flex items-start gap-3'>
-							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>🌍</span>
-							<span className='pt-1'>Every culture has something valuable to teach</span>
+							<span className='flex-shrink-0 w-9 h-9 bg-white rounded-xl shadow-sm ring-1 ring-blue-100 flex items-center justify-center text-blue-600'>
+								<LuGlobe className='w-5 h-5' />
+							</span>
+							<span className='pt-1.5'>Every culture has something valuable to teach</span>
 						</li>
 
 						<li className='flex items-start gap-3'>
-							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>🤝</span>
-							<span className='pt-1'>Human connections transcend borders and languages</span>
+							<span className='flex-shrink-0 w-9 h-9 bg-white rounded-xl shadow-sm ring-1 ring-violet-100 flex items-center justify-center text-violet-600'>
+								<LuHandshake className='w-5 h-5' />
+							</span>
+							<span className='pt-1.5'>Human connections transcend borders and languages</span>
 						</li>
 
 						<li className='flex items-start gap-3'>
-							<span className='flex-shrink-0 w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center'>📚</span>
-							<span className='pt-1'>Travel is the most enriching form of education</span>
+							<span className='flex-shrink-0 w-9 h-9 bg-white rounded-xl shadow-sm ring-1 ring-blue-100 flex items-center justify-center text-blue-600'>
+								<LuGraduationCap className='w-5 h-5' />
+							</span>
+							<span className='pt-1.5'>Travel is the most enriching form of education</span>
 						</li>
 					</ul>
 				</div>
