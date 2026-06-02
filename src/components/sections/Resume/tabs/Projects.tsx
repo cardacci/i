@@ -90,7 +90,7 @@ const PROJECTS: ProjectInterface[] = [
 		company: Companies.INTIVE,
 		description: 'Internal web application built at intive to manage employee lunch preferences, contributing to both admin and end-user experiences.',
 		period: 'Jun 2016 - Jul 2016',
-		skills: [Skills.ANGULAR_JS],
+		skills: [Skills.ANGULAR],
 		title: 'Lunchify'
 	},
 	{
@@ -106,7 +106,7 @@ const PROJECTS: ProjectInterface[] = [
 		company: Companies.QUADION_TECHNOLOGIES,
 		description: 'Built and delivered a full-stack ticketing and analytics platform supporting real-time sales across multiple locations.',
 		period: 'Dec 2015 - Apr 2016',
-		skills: [Skills.HTML_CSS, Skills.JAVASCRIPT, Skills.MICROSOFT_SQL_SERVER, Skills.REST_APIS, Skills.ANGULAR_JS, Skills.ASP_NET_MVC, Skills.CSHARP],
+		skills: [Skills.HTML_CSS, Skills.JAVASCRIPT, Skills.MICROSOFT_SQL_SERVER, Skills.REST_APIS, Skills.ANGULAR, Skills.ASP_NET_MVC, Skills.CSHARP],
 		title: 'Cine Colombia'
 	}
 ];
