@@ -2,32 +2,36 @@
 export enum Skills {
 	// Architecture & Leadership.
 	FRONTEND_ARCHITECTURE = 'Frontend Architecture',
-	SOFTWARE_ARCHITECTURE = 'Software Architecture',
-	TECHNICAL_LEADERSHIP = 'Technical Leadership',
-	TEAM_MANAGEMENT = 'Team Management',
 	HIRING_AND_INTERVIEWING = 'Hiring and Interviewing',
 	MENTORING = 'Mentoring',
 	PRODUCT_DEVELOPMENT = 'Product Development',
+	SOFTWARE_ARCHITECTURE = 'Software Architecture',
+	TEAM_MANAGEMENT = 'Team Management',
+	TECHNICAL_LEADERSHIP = 'Technical Leadership',
 
 	// Frontend.
-	ANGULAR_JS = 'AngularJS',
+	ANGULAR = 'Angular',
 	CODE_SPLITTING = 'Code Splitting',
 	DESIGN_SYSTEMS = 'Design Systems',
 	EXT_JS = 'Ext JS',
+	GRAPHQL = 'GraphQL',
 	HTML_CSS = 'HTML + CSS',
 	JAVASCRIPT = 'JavaScript',
 	MEMOIZATION = 'Memoization',
 	PERFORMANCE_OPTIMIZATION = 'Performance Optimization',
 	REACT = 'React',
+	REACT_NATIVE = 'React Native',
 	REDUX = 'Redux',
 	REDUX_SAGA = 'Redux-Saga',
+	STORYBOOK = 'Storybook',
 	TYPESCRIPT = 'TypeScript',
+	ZUSTAND = 'Zustand',
 
 	// Backend.
-	REST_APIS = 'REST APIs',
-	CSHARP = 'C#',
 	ASP_NET_MVC = 'ASP.NET MVC',
+	CSHARP = 'C#',
 	MICROSOFT_SQL_SERVER = 'Microsoft SQL Server',
+	REST_APIS = 'REST APIs',
 
 	// Mobile & Web.
 	ADOBE_PRIMETIME = 'Adobe Primetime',
@@ -38,8 +42,12 @@ export enum Skills {
 	WEBSOCKETS = 'WebSockets',
 
 	// Tools.
-	GIT = 'Git',
+	CI_CD = 'CI/CD',
 	DOCKER = 'Docker',
+	GIT = 'Git',
+	GITHUB_ACTIONS = 'GitHub Actions',
+	STYLUS = 'Stylus',
+	WEBPACK = 'Webpack',
 
 	// Languages.
 	ENGLISH = 'English',
