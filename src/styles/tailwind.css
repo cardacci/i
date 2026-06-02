@@ -2,6 +2,16 @@
 
 @config '../../tailwind.config.js';
 
+/* ===== Typography tokens =====
+   Distinctive pairing loaded in index.html: Sora (display) + Manrope (body) +
+   JetBrains Mono (code/typing accents). Registering them in @theme exposes the
+   font-display / font-sans / font-mono utilities and sets the default body font. */
+@theme {
+	--font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-display: 'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+}
+
 /* ===== Modern Design System Variables ===== */
 :root {
 	color-scheme: light;
@@ -79,8 +89,68 @@
 
 	/* Better font rendering */
 	body {
+		font-family: var(--font-sans);
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Visible keyboard focus for accessibility (was previously missing).
+	   Only shows for keyboard users, never on mouse click. */
+	:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+		border-radius: var(--radius-sm);
+	}
+
+	/* Branded text selection — a small premium detail. */
+	::selection {
+		background: rgba(99, 102, 241, 0.2);
+		color: var(--color-text-primary);
+	}
+
+	/* Refined custom scrollbar (subtle, on-brand). */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(180deg, rgba(148, 163, 184, 0.5), rgba(148, 163, 184, 0.35));
+		border: 2px solid transparent;
+		background-clip: padding-box;
+		border-radius: 9999px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(180deg, var(--color-primary-400), var(--color-accent-400));
+		background-clip: padding-box;
+	}
+}
+
+/* Respect users who prefer reduced motion: neutralize the looping/entrance
+   animations and instant-scroll instead of smooth. Critical for accessibility
+   and avoids motion sickness without changing the visual design for everyone else. */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
 
@@ -88,12 +158,15 @@
 @layer components {
 	h1 {
 		@apply font-bold mb-4 text-3xl tracking-tight;
+		font-family: var(--font-display);
 	}
 	h2 {
 		@apply font-bold mb-3 text-2xl tracking-tight;
+		font-family: var(--font-display);
 	}
 	h3 {
 		@apply font-semibold mb-2 text-xl;
+		font-family: var(--font-display);
 	}
 	p {
 		@apply mb-4 leading-relaxed;

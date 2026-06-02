@@ -11,7 +11,7 @@ const ContentCard = (props: ContentCardProps) => {
 
 	return (
 		<div
-			className={`bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 transition-all duration-300 hover:shadow-xl ${className}`}
+			className={`bg-white/80 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 transition-all duration-300 hover:shadow-xl hover:shadow-slate-300/40 hover:border-slate-200/80 ${className}`}
 		>
 			{children}
 		</div>

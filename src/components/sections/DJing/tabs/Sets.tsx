@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { LuMusic } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 import { Genre, SETS } from '@/utils/constants';
 
@@ -21,8 +23,9 @@ const Sets = () => {
 		<div className='space-y-8'>
 			<div className='bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
 				<SectionTitle level='h2'>
-					<span className='text-white flex items-center gap-2'>
-						<span className='text-2xl'>🎵</span> My DJ Sets
+					<span className='text-white inline-flex items-center gap-2.5'>
+						<LuMusic className='w-6 h-6 text-[#A3FFD6]' />
+						My DJ Sets
 					</span>
 				</SectionTitle>
 

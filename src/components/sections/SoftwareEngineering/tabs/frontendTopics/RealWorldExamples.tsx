@@ -1,4 +1,6 @@
 /* ===== Imports ===== */
+import { LuAudioLines, LuFileText, LuLayoutDashboard, LuMessagesSquare, LuNotebook, LuPenTool, LuShoppingBag } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 
 /* ===== Component Function ===== */
@@ -17,7 +19,9 @@ const RealWorldExamples = () => {
 			{/* ===== Twitter/X Feed ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>💬</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-sky-50 text-sky-600 ring-1 ring-sky-100 shrink-0'>
+						<LuMessagesSquare className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Twitter/X Feed</h5>
 						<p className='text-sm text-gray-500'>Real-time social feed with infinite scroll, optimistic interactions, and complex state</p>
@@ -68,7 +72,9 @@ const RealWorldExamples = () => {
 			{/* ===== Spotify Web Player ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>🎵</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-green-50 text-green-600 ring-1 ring-green-100 shrink-0'>
+						<LuAudioLines className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Spotify Web Player</h5>
 						<p className='text-sm text-gray-500'>Music streaming with persistent playback, offline support, and cross-device sync</p>
@@ -119,7 +125,9 @@ const RealWorldExamples = () => {
 			{/* ===== Google Docs ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>📝</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50 text-blue-600 ring-1 ring-blue-100 shrink-0'>
+						<LuFileText className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Google Docs</h5>
 						<p className='text-sm text-gray-500'>Real-time collaborative document editor with conflict resolution and presence</p>
@@ -170,7 +178,9 @@ const RealWorldExamples = () => {
 			{/* ===== Figma ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>🎨</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-purple-50 text-purple-600 ring-1 ring-purple-100 shrink-0'>
+						<LuPenTool className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Figma</h5>
 						<p className='text-sm text-gray-500'>Browser-based design tool with canvas rendering, real-time collaboration, and plugin system</p>
@@ -221,7 +231,9 @@ const RealWorldExamples = () => {
 			{/* ===== Notion ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>📓</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100 text-slate-700 ring-1 ring-slate-200 shrink-0'>
+						<LuNotebook className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Notion</h5>
 						<p className='text-sm text-gray-500'>Block-based workspace combining docs, databases, wikis, and project management</p>
@@ -272,7 +284,9 @@ const RealWorldExamples = () => {
 			{/* ===== Vercel Dashboard ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>▲</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-gray-900 text-white ring-1 ring-gray-700 shrink-0'>
+						<LuLayoutDashboard className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Vercel Dashboard</h5>
 						<p className='text-sm text-gray-500'>Developer platform dashboard with real-time deployment logs, analytics, and team management</p>
@@ -322,7 +336,9 @@ const RealWorldExamples = () => {
 			{/* ===== Shopify Storefront ===== */}
 			<div className='mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-3 flex items-center gap-3'>
-					<span className='text-2xl'>🛒</span>
+					<span className='flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100 shrink-0'>
+						<LuShoppingBag className='w-5 h-5' />
+					</span>
 					<div>
 						<h5 className='font-semibold text-gray-800'>Shopify Storefront</h5>
 						<p className='text-sm text-gray-500'>E-commerce platform serving millions of storefronts with custom themes and checkout</p>

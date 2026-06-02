@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import { LuTags } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 
 const TrackClassifier = () => {
@@ -116,8 +118,9 @@ const TrackClassifier = () => {
 	return (
 		<div className='bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#A3FFD6]/20'>
 			<SectionTitle level='h2'>
-				<span className='text-white flex items-center gap-2'>
-					<span className='text-2xl'>🏷️</span> DJ Track Tagging Tool
+				<span className='text-white inline-flex items-center gap-2.5'>
+					<LuTags className='w-6 h-6 text-[#A3FFD6]' />
+					DJ Track Tagging Tool
 				</span>
 			</SectionTitle>
 

@@ -1,5 +1,7 @@
 import { ReactNode, useMemo, useState } from 'react';
 
+import { LuTriangleAlert } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 import { useApiRequest } from '@/utils/hooks';
 
@@ -750,18 +752,21 @@ const FairValueAnalysis = () => {
 			<div className='mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg'>
 				<SectionTitle level='h4'>Important Notes & Methodology</SectionTitle>
 
-				<div className='text-sm space-y-1'>
+				<ul className='text-sm space-y-1.5 list-disc pl-5 marker:text-blue-400 text-gray-700'>
 					<li>All calculations are based on historical ATH data and current market conditions.</li>
 					<li>Target prices assume the same circulating supply as current levels.</li>
 					<li>Market cap changes reflect overall market sentiment and adoption.</li>
 					<li>Price changes may differ from market cap changes due to supply variations.</li>
 					<li>Data is fetched from CoinGecko API and is for educational purposes only.</li>
 					<li>Click on column headers to sort the table by different criteria.</li>
-				</div>
+				</ul>
 
-				<p className='text-xs text-blue-800 font-medium mt-4'>
-					⚠️ This analysis is for educational purposes only. Always conduct your own research and consult with financial advisors before making
-					investment decisions. Past performance does not guarantee future results.
+				<p className='text-xs text-blue-800 font-medium mt-4 flex items-start gap-2'>
+					<LuTriangleAlert className='w-4 h-4 mt-0.5 shrink-0 text-amber-500' />
+					<span>
+						This analysis is for educational purposes only. Always conduct your own research and consult with financial advisors before
+						making investment decisions. Past performance does not guarantee future results.
+					</span>
 				</p>
 			</div>
 		</div>

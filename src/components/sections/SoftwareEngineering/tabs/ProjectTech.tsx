@@ -1,10 +1,6 @@
 import { SectionTitle } from '@/components/common';
-import { useCardHover } from '@/utils/hooks';
 
 const ProjectTech = () => {
-	/* ===== Hooks ===== */
-	const { handleMouseMove, handleMouseLeave } = useCardHover(0.08);
-
 	/* ===== Constants & Variables ===== */
 	const projectTechnologies = [
 		{ description: 'Automated CI/CD pipeline for continuous deployment', name: 'GitHub Actions' },
@@ -31,14 +27,18 @@ const ProjectTech = () => {
 			<div className='grid gap-4 md:grid-cols-2'>
 				{projectTechnologies.map((tech, index) => (
 					<div
-						className='p-4 border rounded-lg bg-gray-50 cursor-pointer transition-transform duration-200 ease-out hover:shadow-lg'
+						className='group relative overflow-hidden p-4 pl-5 rounded-xl border border-slate-200/70 bg-white/70 backdrop-blur-sm cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-300/70 hover:shadow-xl hover:shadow-blue-500/10'
 						key={index}
-						onMouseLeave={handleMouseLeave}
-						onMouseMove={handleMouseMove}
 					>
-						<h4 className='font-semibold text-blue-600'>{tech.name}</h4>
+						{/* Accent bar that slides in on hover */}
+						<span className='absolute left-0 top-4 bottom-4 w-1 rounded-full bg-gradient-to-b from-blue-500 to-violet-500 opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0' />
 
-						<p className='text-sm text-gray-600 mt-1'>{tech.description}</p>
+						{/* Soft gradient wash on hover */}
+						<span className='pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-50/0 to-violet-50/0 transition-colors duration-300 group-hover:from-blue-50/60 group-hover:to-violet-50/40' />
+
+						<h4 className='relative font-semibold text-blue-600 transition-colors duration-300 group-hover:text-violet-700'>{tech.name}</h4>
+
+						<p className='relative text-sm text-gray-600 mt-1'>{tech.description}</p>
 					</div>
 				))}
 			</div>

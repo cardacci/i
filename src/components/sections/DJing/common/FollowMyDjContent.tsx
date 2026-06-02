@@ -1,3 +1,5 @@
+import { LuRadio } from 'react-icons/lu';
+
 import { SectionTitle } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants/socialNetworks';
 import { useSocialLinks } from '@/utils/hooks';
@@ -7,8 +9,9 @@ const FollowMyDjContent = () => {
 	return (
 		<div className='mt-12 pt-8 border-t border-[#A3FFD6]/20 flex flex-col items-center'>
 			<SectionTitle className='text-center' level='h3'>
-				<span className='text-white flex items-center gap-2 justify-center'>
-					<span className='text-xl'>📡</span> Follow my DJ content on
+				<span className='text-white inline-flex items-center gap-2.5 justify-center'>
+					<LuRadio className='w-6 h-6 text-[#A3FFD6]' />
+					Follow my DJ content on
 				</span>
 			</SectionTitle>
 

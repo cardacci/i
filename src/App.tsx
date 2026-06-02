@@ -20,12 +20,19 @@ const Travel = lazy(() => import('@/components/sections/Travel/Travel'));
  */
 const Layout = () => {
 	return (
-		<div className='flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30'>
+		<div className='relative flex flex-col min-h-screen overflow-x-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30'>
+			{/* Ambient gradient atmosphere — adds depth behind the glass surfaces. */}
+			<div aria-hidden='true' className='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
+				<div className='absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-blue-400/20 blur-3xl' />
+				<div className='absolute top-1/3 -right-24 h-[26rem] w-[26rem] rounded-full bg-violet-400/20 blur-3xl float' />
+				<div className='absolute bottom-0 left-1/4 h-[24rem] w-[24rem] rounded-full bg-cyan-300/15 blur-3xl' />
+			</div>
+
 			<Header />
 
 			<SidebarNavigation />
 
-			<div className='pt-32 md:pt-28'>
+			<div className='relative z-10 pt-32 md:pt-28'>
 				<main className='grow'>
 					<div className='container mx-auto py-8 px-4 sm:px-6'>
 						<Suspense
