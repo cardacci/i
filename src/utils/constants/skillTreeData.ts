@@ -28,12 +28,14 @@ import {
 	SiGithub,
 	SiGithubactions,
 	SiGithubcopilot,
+	SiGraphql,
 	SiHtml5,
 	SiJavascript,
 	SiPrettier,
 	SiReact,
 	SiRedux,
 	SiSharp,
+	SiStorybook,
 	SiStylus,
 	SiTailwindcss,
 	SiTypescript,
@@ -42,6 +44,7 @@ import {
 } from 'react-icons/si';
 import {
 	TbApi,
+	TbAtom,
 	TbBrain,
 	TbBrandReactNative,
 	TbBroadcast,
@@ -115,7 +118,11 @@ export const skillSections: SkillTreeSection[] = [
 						{ icon: SiTailwindcss, label: 'Tailwind CSS' }
 					]
 				},
-				{ icon: HiOutlinePaintBrush, label: 'Design Systems' },
+				{
+					icon: HiOutlinePaintBrush,
+					label: 'Design Systems',
+					children: [{ icon: SiStorybook, label: 'Storybook' }]
+				},
 				{ icon: SiHtml5, label: 'HTML' },
 				{
 					icon: SiJavascript,
@@ -129,7 +136,8 @@ export const skillSections: SkillTreeSection[] = [
 									icon: SiRedux,
 									label: 'Redux',
 									children: [{ icon: TbTimeline, label: 'Redux-Saga' }]
-								}
+								},
+								{ icon: TbAtom, label: 'Zustand' }
 							]
 						},
 						{ icon: SiTypescript, label: 'TypeScript' }
@@ -171,6 +179,7 @@ export const skillSections: SkillTreeSection[] = [
 						}
 					]
 				},
+				{ icon: TbBrandReactNative, label: 'React Native' },
 				{
 					icon: HiOutlineSignal,
 					label: 'Real-Time',
@@ -194,6 +203,7 @@ export const skillSections: SkillTreeSection[] = [
 			children: [
 				{ icon: HiOutlineCodeBracket, label: 'ASP.NET MVC' },
 				{ icon: SiSharp, label: 'C#' },
+				{ icon: SiGraphql, label: 'GraphQL' },
 				{ icon: TbApi, label: 'REST APIs' },
 				{ icon: BiData, label: 'SQL Server' }
 			]

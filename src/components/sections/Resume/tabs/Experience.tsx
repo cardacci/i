@@ -1,5 +1,4 @@
-import aspenSkiingCompanyLogo from '@/assets/images/experience/aspen-skiing-company-logo.jpg';
-import intaLogo from '@/assets/images/experience/inta-logo.jpg';
+import casheaLogo from '@/assets/images/experience/cashea-logo.jpg';
 import intiveLogo from '@/assets/images/experience/intive-logo.jpg';
 import klioLogo from '@/assets/images/experience/klio-logo.jpg';
 import quadionTechnologiesLogo from '@/assets/images/experience/quadion-technologies-logo.jpg';
@@ -10,7 +9,7 @@ import { Companies, Skills } from '@/utils/constants';
 /* ===== Types & Interfaces ===== */
 interface ExperienceDescription {
 	bullets?: string[];
-	title: string;
+	title?: string;
 }
 
 interface ExperienceInterface {
@@ -27,30 +26,69 @@ interface ExperienceInterface {
 
 const EXPERIENCES: ExperienceInterface[] = [
 	{
-		company: Companies.KLIO,
-		companyLogo: klioLogo,
+		company: Companies.CASHEA,
+		companyLogo: casheaLogo,
 		current: true,
 		descriptions: [
 			{
-				title: 'Lead frontend architecture and engineering practices across the organization, combining hands-on technical leadership with people management. Drive technical strategy, system design, and delivery standards while partnering closely with product and business stakeholders to scale the platform sustainably.'
+				bullets: [
+					'Contribute to component architecture, rendering performance, and the GraphQL data layer in production.',
+					'Built a Storybook-powered component library from the design system in Figma, published as an internal package and consumed across multiple projects.',
+					'Set up CI/CD workflows with GitHub Actions to automate builds and deployments.'
+				],
+				title: 'Building reliable, performant mobile experiences at scale for a React Native platform serving 10M+ users across Latin America.'
 			}
 		],
-		id: 9,
-		location: 'Argentina',
-		period: 'Oct 2020 - Present',
+		id: 6,
+		location: 'Remote',
+		period: 'Jan 2026 - Present',
 		skills: [
+			Skills.CI_CD,
 			Skills.FRONTEND_ARCHITECTURE,
+			Skills.GITHUB_ACTIONS,
+			Skills.GRAPHQL,
+			Skills.REACT_NATIVE,
 			Skills.SOFTWARE_ARCHITECTURE,
-			Skills.TECHNICAL_LEADERSHIP,
-			Skills.TEAM_MANAGEMENT,
-			Skills.HIRING_AND_INTERVIEWING,
-			Skills.REACT,
+			Skills.STORYBOOK,
 			Skills.TYPESCRIPT,
-			Skills.PROGRESSIVE_WEB_APPS,
-			Skills.MENTORING,
-			Skills.CAPACITOR
+			Skills.ZUSTAND
 		],
-		title: 'Principal Frontend Engineer & Engineering Lead'
+		title: 'Senior Frontend Engineer'
+	},
+	{
+		company: Companies.KLIO,
+		companyLogo: klioLogo,
+		descriptions: [
+			{
+				bullets: [
+					'Lead frontend architecture and engineering practices across an 8-engineer organization, managing a cross-functional team of 8 (frontend, backend, and QA). Drive technical strategy, system design, and delivery standards while partnering closely with product and business stakeholders to scale the platform sustainably.',
+					'Reduced bundle size by 50% through native code replacements and significantly improved perceived load times with an offline-first caching strategy. Established coding standards for both developers and AI agents, and built internal shared libraries adopted across all company projects. Interviewed 30+ candidates, hired 8, and mentored junior engineers through to senior-level promotions.'
+				]
+			}
+		],
+		id: 6,
+		location: 'Argentina',
+		period: 'Oct 2020 - Jan 2026',
+		skills: [
+			Skills.CAPACITOR,
+			Skills.CI_CD,
+			Skills.FRONTEND_ARCHITECTURE,
+			Skills.HIRING_AND_INTERVIEWING,
+			Skills.MENTORING,
+			Skills.PROGRESSIVE_WEB_APPS,
+			Skills.REACT,
+			Skills.REDUX,
+			Skills.REDUX_SAGA,
+			Skills.SERVICE_WORKERS,
+			Skills.SOFTWARE_ARCHITECTURE,
+			Skills.STYLUS,
+			Skills.TEAM_MANAGEMENT,
+			Skills.TECHNICAL_LEADERSHIP,
+			Skills.TYPESCRIPT,
+			Skills.WEBPACK,
+			Skills.WEBSOCKETS
+		],
+		title: 'Principal Frontend Engineer / Engineering Lead'
 	},
 	{
 		company: Companies.KLIO,
@@ -60,35 +98,43 @@ const EXPERIENCES: ExperienceInterface[] = [
 				title: 'Owned frontend architecture and delivery for a growing product, leading complex UI systems, performance improvements, and cross-team integrations. Acted as technical reference for frontend practices while progressively taking on leadership and mentoring responsibilities.'
 			}
 		],
-		id: 8,
+		id: 5,
 		location: 'Argentina',
 		period: 'Nov 2017 - Oct 2020',
 		skills: [
 			Skills.FRONTEND_ARCHITECTURE,
+			Skills.MENTORING,
+			Skills.PERFORMANCE_OPTIMIZATION,
+			Skills.PROGRESSIVE_WEB_APPS,
+			Skills.REACT,
+			Skills.REDUX,
+			Skills.REDUX_SAGA,
 			Skills.SOFTWARE_ARCHITECTURE,
 			Skills.TECHNICAL_LEADERSHIP,
-			Skills.REACT,
-			Skills.PROGRESSIVE_WEB_APPS,
-			Skills.PERFORMANCE_OPTIMIZATION,
-			Skills.WEBSOCKETS,
-			Skills.MENTORING,
-			Skills.REDUX_SAGA
+			Skills.WEBSOCKETS
 		],
-		title: 'Senior Frontend Engineer & Engineering Lead'
+		title: 'Senior Frontend Engineer / Engineering Lead'
 	},
 	{
 		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		descriptions: [
 			{
-				title: 'Joined klio at its earliest stage as part of the founding team, building the first frontend architecture and core product features while collaborating closely with backend and product to shape the initial platform.'
+				title: 'Joined klio as part of the founding team, building the frontend architecture and core product features from the ground up. Shaped early technical decisions that became the foundation for the platform\'s long-term growth, while collaborating closely with backend and product to ship the initial product.'
 			}
 		],
-		id: 7,
+		id: 4,
 		location: 'Argentina',
 		period: 'Jun 2017 - Nov 2017',
-		skills: [Skills.REACT, Skills.JAVASCRIPT, Skills.REDUX, Skills.REST_APIS, Skills.HTML_CSS, Skills.PRODUCT_DEVELOPMENT],
-		title: 'Frontend Engineer & Founding Team Member'
+		skills: [
+			Skills.HTML_CSS,
+			Skills.JAVASCRIPT,
+			Skills.PRODUCT_DEVELOPMENT,
+			Skills.REACT,
+			Skills.REDUX,
+			Skills.REST_APIS
+		],
+		title: 'Frontend Engineer / Founding Team Member'
 	},
 	{
 		company: Companies.INTIVE,
@@ -98,10 +144,19 @@ const EXPERIENCES: ExperienceInterface[] = [
 				title: 'Contributed to the development of production web applications for multiple clients, working across the full stack with a strong focus on frontend architecture, component-based UIs, and API integrations within distributed teams.'
 			}
 		],
-		id: 6,
+		id: 3,
 		location: 'Argentina',
 		period: 'May 2016 - Jun 2017',
-		skills: [Skills.REACT, Skills.JAVASCRIPT, Skills.REDUX, Skills.HTML_CSS, Skills.GIT, Skills.DOCKER, Skills.CSHARP],
+		skills: [
+			Skills.ANGULAR,
+			Skills.CSHARP,
+			Skills.DOCKER,
+			Skills.GIT,
+			Skills.HTML_CSS,
+			Skills.JAVASCRIPT,
+			Skills.REACT,
+			Skills.REDUX
+		],
 		title: 'Software Developer Engineer'
 	},
 	{
@@ -112,7 +167,7 @@ const EXPERIENCES: ExperienceInterface[] = [
 				title: 'Conducted applied research in mobile forensics as part of my Computer Science Engineering thesis, focusing on Android internals and data extraction techniques.'
 			}
 		],
-		id: 5,
+		id: 2,
 		location: 'Argentina',
 		period: 'Aug 2014 - Apr 2017',
 		title: 'Computer Forensics Researcher'
@@ -122,62 +177,23 @@ const EXPERIENCES: ExperienceInterface[] = [
 		companyLogo: quadionTechnologiesLogo,
 		descriptions: [
 			{
-				title: 'Worked as a full-stack developer building and maintaining production web applications, contributing across frontend, backend, APIs, and database design within a collaborative agile team.'
-			}
-		],
-		id: 4,
-		location: 'Argentina',
-		period: 'Aug 2015 - May 2016',
-		skills: [
-			Skills.JAVASCRIPT,
-			Skills.REST_APIS,
-			Skills.HTML_CSS,
-			Skills.GIT,
-			Skills.CSHARP,
-			Skills.ASP_NET_MVC,
-			Skills.MICROSOFT_SQL_SERVER
-		],
-		title: 'Full Stack Developer'
-	},
-	{
-		company: Companies.ASPEN_SKIING_COMPANY,
-		companyLogo: aspenSkiingCompanyLogo,
-		descriptions: [
-			{
-				title: 'Customer-facing role in a fast-paced, English-speaking environment.'
-			}
-		],
-		id: 3,
-		location: 'United States',
-		period: 'Dec 2013 - Mar 2014',
-		skills: [Skills.ENGLISH],
-		title: 'Busser'
-	},
-	{
-		company: Companies.INTA,
-		companyLogo: intaLogo,
-		descriptions: [
-			{
-				title: 'Maintained internal network infrastructure and provided technical support, including configuration of routers, switches, firewalls, and secure remote access (VPN).'
-			}
-		],
-		id: 2,
-		location: 'Argentina',
-		period: 'Jun 2013 - Nov 2013',
-		title: 'Network Administrator & Technical Support'
-	},
-	{
-		company: Companies.FASTA_UNIVERSITY,
-		companyLogo: universidadFastaLogo,
-		descriptions: [
-			{
-				title: 'Provided on-site and remote technical support for academic and administrative staff, troubleshooting hardware, software, and network issues.'
+				title: 'Worked as a full-stack developer building and maintaining production web applications, contributing across frontend, backend, APIs, and database design.'
 			}
 		],
 		id: 1,
 		location: 'Argentina',
-		period: 'Jul 2010 - Dec 2010',
-		title: 'IT Support Analyst'
+		period: 'Aug 2015 - May 2016',
+		skills: [
+			Skills.ANGULAR,
+			Skills.ASP_NET_MVC,
+			Skills.CSHARP,
+			Skills.GIT,
+			Skills.HTML_CSS,
+			Skills.JAVASCRIPT,
+			Skills.MICROSOFT_SQL_SERVER,
+			Skills.REST_APIS
+		],
+		title: 'Full Stack Developer'
 	}
 ];
 

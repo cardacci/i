@@ -68,7 +68,7 @@ const Header = () => {
 							Gabriel Cardacci
 						</span>
 						<span className='block text-xs md:text-sm font-light mt-1.5 text-blue-200/80 tracking-wide'>
-							Software Engineer • Crypto Enthusiast • World Explorer • DJ & Music Lover • Investor
+							Software Engineer • Crypto Enthusiast & Investor • World Explorer • DJ & Music Lover
 						</span>
 					</h1>
 				</div>

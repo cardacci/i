@@ -10,9 +10,9 @@ interface ProjectInterface {
 	company?: Companies;
 	description: string;
 	period: string;
-	skills: Skills[];
+	skills?: Skills[];
 	title: string;
-	url?: string;
+	urls?: string[];
 }
 
 const PROJECTS: ProjectInterface[] = [
@@ -20,94 +20,73 @@ const PROJECTS: ProjectInterface[] = [
 		company: Companies.KLIO,
 		description:
 			'Co-founded and led the frontend development of klio, a financial platform for personal and business money management. Built and evolved the frontend architecture from the ground up, scaling it to support complex financial features while leading engineering practices, technical strategy, and cross-functional collaboration.',
-		period: 'Jun 2017 - Present',
+		period: 'Jun 2017 - Jan 2026',
 		skills: [
 			Skills.FRONTEND_ARCHITECTURE,
-			Skills.SOFTWARE_ARCHITECTURE,
-			Skills.TECHNICAL_LEADERSHIP,
-			Skills.TEAM_MANAGEMENT,
 			Skills.HIRING_AND_INTERVIEWING,
-			Skills.REACT,
-			Skills.TYPESCRIPT,
 			Skills.JAVASCRIPT,
-			Skills.REDUX,
+			Skills.PRODUCT_DEVELOPMENT,
 			Skills.PROGRESSIVE_WEB_APPS,
+			Skills.REACT,
+			Skills.REDUX,
 			Skills.SERVICE_WORKERS,
-			Skills.PRODUCT_DEVELOPMENT
+			Skills.SOFTWARE_ARCHITECTURE,
+			Skills.TEAM_MANAGEMENT,
+			Skills.TECHNICAL_LEADERSHIP,
+			Skills.TYPESCRIPT,
 		],
 		title: 'klio',
-		url: 'http://klio.com.ar/'
+		urls: ['http://klio.com.ar/']
 	},
 	{
 		company: Companies.KLIO,
 		description:
 			'Led frontend delivery for a home banking platform, designing and delivering secure, user-facing financial features in collaboration with product and backend teams.',
 		period: 'Jun 2024 - Jul 2025',
-		skills: [Skills.REACT, Skills.REDUX, Skills.TYPESCRIPT],
-		title: 'Home Banking for Banco de Comercio'
-	},
-	{
-		company: Companies.INTIVE,
-		description:
-			'Internal web application built to manage expense receipts and reimbursement workflows, contributing to frontend features and user-facing flows.',
-		period: 'Mar 2017 - Jun 2017',
-		skills: [Skills.REACT, Skills.REDUX, Skills.DOCKER],
-		title: 'Expenses Tracking App'
+		skills: [
+			Skills.CAPACITOR,
+			Skills.REACT,
+			Skills.REDUX,
+			Skills.TYPESCRIPT
+		],
+		title: 'Home Banking for Banco de Comercio',
+		urls: [
+			'https://apps.apple.com/ar/app/banco-de-comercio/id6736632273',
+			'https://play.google.com/store/apps/details?id=com.ar.bdc'
+		]
 	},
 	{
 		company: Companies.FASTA_UNIVERSITY,
 		description:
 			'Final engineering thesis focused on mobile forensics, developing custom methods for extracting physical and logical data from Android devices.',
 		period: 'Aug 2014 - Apr 2017',
-		skills: [],
 		title: 'FOMO - Android'
 	},
 	{
 		company: Companies.INTIVE,
-		description:
-			'Contributed to the development of an educational web platform, leading frontend work by building reusable React components and improving architecture for scalability and maintainability.',
+		description: 'Led frontend development of an educational web platform, building reusable React components and improving architecture for scalability and maintainability.',
 		period: 'Oct 2016 - Mar 2017',
-		skills: [Skills.REACT, Skills.JAVASCRIPT, Skills.HTML_CSS],
+		skills: [
+			Skills.HTML_CSS,
+			Skills.JAVASCRIPT,
+			Skills.REACT
+		],
 		title: 'Macmillan Onboarding',
-		url: 'https://www.bfwpub.com/high-school/us/digital/achieve#/findatitle/'
-	},
-	{
-		company: Companies.INTIVE,
-		description: 'Contributed to a live video streaming and playback application, focusing on performance and reliability across devices.',
-		period: 'Feb 2017 - Mar 2017',
-		skills: [Skills.JAVASCRIPT, Skills.ADOBE_PRIMETIME],
-		title: 'Reelz Now'
-	},
-	{
-		company: Companies.INTIVE,
-		description:
-			'Contributed to the development of a web-based gradebook platform for educational institutions, building dynamic and interactive views while collaborating with backend teams to align data structures and presentation logic.',
-		period: 'Aug 2016 - Sep 2016',
-		skills: [Skills.EXT_JS],
-		title: 'Macmillan Gradebook'
-	},
-	{
-		company: Companies.INTIVE,
-		description: 'Internal web application built at intive to manage employee lunch preferences, contributing to both admin and end-user experiences.',
-		period: 'Jun 2016 - Jul 2016',
-		skills: [Skills.ANGULAR_JS],
-		title: 'Lunchify'
+		urls: ['https://www.bfwpub.com/high-school/us/digital/achieve#/findatitle/']
 	},
 	{
 		company: Companies.QUADION_TECHNOLOGIES,
-		description:
-			'Developed a production web application for managing products, pricing, customers, and sales, contributing full-stack features across frontend, backend, and database layers.',
+		description: 'Developed a production web application for managing products, pricing, customers, and sales, delivering full-stack features from UI to database.',
 		period: 'Sep 2015 - May 2016',
-		skills: [Skills.HTML_CSS, Skills.JAVASCRIPT, Skills.MICROSOFT_SQL_SERVER, Skills.ASP_NET_MVC, Skills.CSHARP],
+		skills: [
+			Skills.ASP_NET_MVC,
+			Skills.CSHARP,
+			Skills.HTML_CSS,
+			Skills.JAVASCRIPT,
+			Skills.MICROSOFT_SQL_SERVER
+		],
 		title: 'Trade Print Hub',
-		url: 'https://www.tradeprinthub.ie/'
-	},
-	{
-		company: Companies.QUADION_TECHNOLOGIES,
-		description: 'Built and delivered a full-stack ticketing and analytics platform supporting real-time sales across multiple locations.',
-		period: 'Dec 2015 - Apr 2016',
-		skills: [Skills.HTML_CSS, Skills.JAVASCRIPT, Skills.MICROSOFT_SQL_SERVER, Skills.REST_APIS, Skills.ANGULAR_JS, Skills.ASP_NET_MVC, Skills.CSHARP],
-		title: 'Cine Colombia'
+		urls: ['https://www.tradeprinthub.ie/']
 	}
 ];
 
@@ -134,7 +113,7 @@ const Projects = () => {
 
 			<div className='space-y-8'>
 				{PROJECTS.map((project, index) => {
-					const { company, description, period, skills, title, url } = project;
+					const { company, description, period, skills, title, urls } = project;
 					const companyLogo = company ? getCompanyLogo(company) : undefined;
 
 					return (
@@ -142,10 +121,11 @@ const Projects = () => {
 							<div className='flex flex-col md:flex-row md:items-center md:justify-between mb-1'>
 								<div className='flex items-center gap-2'>
 									<h4 className='text-lg font-bold text-gray-900'>{title}</h4>
-									{url && (
+									{urls?.map((url, urlIndex) => (
 										<a
 											className='text-gray-400 hover:text-blue-600 transition-colors'
 											href={url}
+											key={urlIndex}
 											rel='noopener noreferrer'
 											target='_blank'
 											title='Visit Project'
@@ -163,7 +143,7 @@ const Projects = () => {
 												/>
 											</svg>
 										</a>
-									)}
+									))}
 								</div>
 
 								<span className='bg-gray-100 text-gray-600 text-sm font-medium px-3 py-1 rounded-full'>{period}</span>

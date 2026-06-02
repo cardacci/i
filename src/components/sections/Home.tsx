@@ -1,4 +1,4 @@
-import profileImage from '@/assets/images/profile.png';
+import profileImage from '@/assets/images/profile_1.png';
 import { BaseView } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
