@@ -18,8 +18,8 @@ const RenderingPatterns = () => {
 			<SectionTitle level='h4'>Client-Side Rendering (CSR)</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				With CSR, the browser downloads a minimal HTML file — often just a{' '}
-				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<div id="root">'}</code> — then
+				With CSR, the browser downloads a minimal HTML file (often just a{' '}
+				<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<div id="root">'}</code>) and then
 				JavaScript builds the entire DOM. All rendering logic runs in the browser. This means the user sees a blank screen until the
 				JS bundle downloads, parses, and executes. The trade-off is clear: poor initial load time and bad SEO for crawlers that
 				don't run JavaScript, but excellent responsiveness for highly interactive apps behind authentication where SEO doesn't
@@ -84,7 +84,7 @@ createRoot(document.getElementById('root')!).render(<App />);`}
 
 			<p className='mb-4 text-gray-600'>
 				With SSR, the server generates full HTML on each request. The browser receives a complete, visible page immediately. Then
-				JavaScript "hydrates" it — attaching event listeners and making it interactive. This yields a faster First Contentful Paint
+				JavaScript "hydrates" it, attaching event listeners and making it interactive. This yields a faster First Contentful Paint
 				(FCP) and better SEO than CSR, but a slower Time to First Byte (TTFB) because the server must compute the HTML for every
 				request. The full JS bundle is still required for hydration.
 			</p>
@@ -94,7 +94,7 @@ createRoot(document.getElementById('root')!).render(<App />);`}
 
 				<div className='rounded-md bg-slate-50 p-3'>
 					<pre className='text-xs text-slate-700'>
-						{`// app/users/page.tsx — runs on the server per request
+						{`// app/users/page.tsx: runs on the server per request
 export default async function UsersPage() {
   const users = await fetch('https://api.example.com/users')
     .then(res => res.json());
@@ -112,7 +112,7 @@ export default async function UsersPage() {
 			</div>
 
 			<p className='mb-6 text-xs text-gray-500'>
-				<strong>Best for:</strong> Dynamic pages that need SEO — product pages, blog posts, user profiles.
+				<strong>Best for:</strong> Dynamic pages that need SEO: product pages, blog posts, user profiles.
 			</p>
 
 			{/* ===== Static Site Generation (SSG) & Incremental Static Regeneration (ISR) ===== */}
@@ -130,7 +130,7 @@ export default async function UsersPage() {
 					<p className='text-sm text-blue-700'>
 						Pages are pre-built at build time into static HTML files. Served from a CDN with near-zero TTFB. No server
 						computation per request. Ideal for content that rarely changes: blogs, documentation, marketing pages. The main
-						limitation is that a full rebuild is required when content changes — for a large site with thousands of pages, this
+						limitation is that a full rebuild is required when content changes; for a large site with thousands of pages, this
 						can take minutes.
 					</p>
 
@@ -180,7 +180,7 @@ export const revalidate = 60; // Regenerate every 60 seconds`}
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>renderToPipeableStream</code>.
 						The browser starts painting the first chunks while the server is still computing later parts. Combined with{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<Suspense>'}</code>, slow data
-						fetches don't block the entire page — a fallback is shown for loading sections while the rest of the page is already
+						fetches don't block the entire page: a fallback is shown for loading sections while the rest of the page is already
 						visible and interactive.
 					</p>
 
@@ -215,20 +215,20 @@ export default function ProductPage() {
 						Components that execute only on the server and send a serialized component tree (not HTML) to the client. Zero
 						client-side JavaScript for server components. Client components are explicitly marked with{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>"use client"</code>. RSC
-						dramatically reduces bundle size because server-only code — database queries, heavy libraries, markdown parsers —
+						dramatically reduces bundle size because server-only code (database queries, heavy libraries, markdown parsers)
 						never ships to the browser. This is the foundation of the Next.js App Router.
 					</p>
 
 					<div className='rounded-md bg-slate-50 p-3'>
 						<pre className='text-xs text-slate-700'>
-							{`// Server Component (default in App Router) — zero JS sent to client
+							{`// Server Component (default in App Router): zero JS sent to client
 async function UserProfile({ userId }) {
   const user = await db.query('SELECT * FROM users WHERE id = ?', [userId]);
 
   return <div><h2>{user.name}</h2><p>{user.bio}</p></div>;
 }
 
-// Client Component — shipped to browser for interactivity
+// Client Component: shipped to browser for interactivity
 'use client';
 function LikeButton({ postId }) {
   const [liked, setLiked] = useState(false);
@@ -267,7 +267,7 @@ function LikeButton({ postId }) {
 								Re-executes all component code on the client to attach event listeners
 							</td>
 							<td className='px-4 py-3 text-gray-600'>Full bundle required</td>
-							<td className='px-4 py-3 text-gray-600'>Longest — entire tree must hydrate</td>
+							<td className='px-4 py-3 text-gray-600'>Longest: entire tree must hydrate</td>
 						</tr>
 
 						<tr className='border-b border-gray-100 bg-gray-50/50'>
@@ -284,17 +284,17 @@ function LikeButton({ postId }) {
 							<td className='px-4 py-3 text-gray-600'>
 								Only interactive "islands" are hydrated in a sea of static HTML; static content ships zero JS
 							</td>
-							<td className='px-4 py-3 text-gray-600'>Minimal — only island bundles</td>
+							<td className='px-4 py-3 text-gray-600'>Minimal: only island bundles</td>
 							<td className='px-4 py-3 text-gray-600'>Near-zero for static; fast for islands</td>
 						</tr>
 
 						<tr className='bg-gray-50/50'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Resumability (Qwik)</td>
 							<td className='px-4 py-3 text-gray-600'>
-								Serializes execution state into HTML; no replay needed — the app "resumes" where the server left off
+								Serializes execution state into HTML; no replay needed, the app "resumes" where the server left off
 							</td>
 							<td className='px-4 py-3 text-gray-600'>Extremely minimal initial JS</td>
-							<td className='px-4 py-3 text-gray-600'>Near-instant — no hydration step</td>
+							<td className='px-4 py-3 text-gray-600'>Near-instant, no hydration step</td>
 						</tr>
 					</tbody>
 				</table>
@@ -381,7 +381,7 @@ function LikeButton({ postId }) {
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Note:</strong> These are generalizations — actual performance depends on implementation, data fetching patterns,
+					<strong>Note:</strong> These are generalizations; actual performance depends on implementation, data fetching patterns,
 					bundle size, and infrastructure. Always measure with real user monitoring (RUM), not just synthetic benchmarks. A poorly
 					implemented SSR app can easily underperform a well-optimized CSR app.
 				</p>
@@ -391,7 +391,7 @@ function LikeButton({ postId }) {
 			<SectionTitle level='h4'>Choosing a Rendering Pattern</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				There is no single "best" rendering pattern — the right choice depends on the specific requirements of each page or route.
+				There is no single "best" rendering pattern; the right choice depends on the specific requirements of each page or route.
 				Use this decision framework as a starting point.
 			</p>
 
@@ -447,7 +447,7 @@ function LikeButton({ postId }) {
 
 						<p className='text-sm text-gray-700'>
 							<strong>Is it a hybrid app with different needs per route?</strong> → Mix patterns per route. Most production
-							apps do this — SSG for the marketing site, SSR for product pages, CSR for the admin dashboard, all within the
+							apps do this: SSG for the marketing site, SSR for product pages, CSR for the admin dashboard, all within the
 							same framework.
 						</p>
 					</div>
@@ -461,13 +461,13 @@ function LikeButton({ postId }) {
 				<ul className='space-y-2 text-blue-700'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						CSR is the simplest but has the worst initial load and SEO characteristics — use it for apps behind authentication
+						CSR is the simplest but has the worst initial load and SEO characteristics: use it for apps behind authentication
 						where search engines don't matter.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						SSR improves FCP and SEO at the cost of server infrastructure and TTFB — every request requires server computation.
+						SSR improves FCP and SEO at the cost of server infrastructure and TTFB: every request requires server computation.
 					</li>
 
 					<li className='flex items-start'>
@@ -478,19 +478,19 @@ function LikeButton({ postId }) {
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Streaming SSR and React Server Components represent the future of rendering — send less JavaScript, render faster,
+						Streaming SSR and React Server Components represent the future of rendering: send less JavaScript, render faster,
 						and let the server do the heavy lifting.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Islands architecture is ideal when most of the page is static with small interactive areas — Astro and similar
+						Islands architecture is ideal when most of the page is static with small interactive areas; Astro and similar
 						frameworks make this pattern first-class.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Most production apps use a hybrid approach — different rendering patterns for different routes, optimizing each page
+						Most production apps use a hybrid approach: different rendering patterns for different routes, optimizing each page
 						for its specific requirements.
 					</li>
 				</ul>

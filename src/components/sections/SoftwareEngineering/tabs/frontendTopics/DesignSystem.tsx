@@ -20,7 +20,7 @@ const DesignSystem = () => {
 
 			<div className='mb-4 rounded-md bg-slate-50 p-3'>
 				<pre className='text-xs text-slate-700'>
-					{`/* Primitive Tokens — raw values */
+					{`/* Primitive Tokens: raw values */
 :root {
   --color-blue-500: #3b82f6;
   --color-blue-600: #2563eb;
@@ -33,7 +33,7 @@ const DesignSystem = () => {
   --font-size-sm: 0.875rem;
 }
 
-/* Semantic Tokens — purpose-mapped */
+/* Semantic Tokens: purpose-mapped */
 :root {
   --color-primary: var(--color-blue-500);
   --color-primary-hover: var(--color-blue-600);
@@ -50,7 +50,7 @@ const DesignSystem = () => {
 
 					<p className='text-sm text-blue-700'>
 						The raw values of the system: specific colors, spacing scales, font sizes, border radius. They have no semantic
-						meaning — <code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>blue-500</code> is just
+						meaning: <code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>blue-500</code> is just
 						a color. These form the complete palette from which everything is drawn.
 					</p>
 				</div>
@@ -64,7 +64,7 @@ const DesignSystem = () => {
 						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>color-error</code>,{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>color-bg-surface</code>.
 						Semantic tokens are what components actually reference. To change the theme, you remap semantic tokens to different
-						primitives — the components don't change at all.
+						primitives, and the components don't change at all.
 					</p>
 				</div>
 			</div>
@@ -100,7 +100,7 @@ const ThemeProvider = ({ children }) => {
 				<p className='mt-4 text-sm text-gray-600'>
 					The <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>data-theme</code> attribute swaps
 					the semantic token mapping. All components automatically adopt the new theme because they reference semantic variables.
-					No JS runtime cost for theming — it's pure CSS.
+					No JS runtime cost for theming: it's pure CSS.
 				</p>
 			</div>
 
@@ -189,7 +189,7 @@ const ThemeProvider = ({ children }) => {
 						<p className='text-sm text-gray-700'>
 							Using <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>{'<div onClick>'}</code>{' '}
 							instead of <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>{'<button>'}</code>{' '}
-							— no keyboard support, no screen reader role.
+							means no keyboard support and no screen reader role.
 						</p>
 					</div>
 
@@ -198,7 +198,7 @@ const ThemeProvider = ({ children }) => {
 
 						<p className='text-sm text-gray-700'>
 							Missing <code className='inline-block translate-y-[-1px] rounded bg-red-100 px-1 text-xs'>alt</code> text on
-							images — invisible to screen readers.
+							images, which makes them invisible to screen readers.
 						</p>
 					</div>
 
@@ -232,7 +232,7 @@ const ThemeProvider = ({ children }) => {
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<button>'}</code>,{' '}
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<nav>'}</code>,{' '}
 							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<main>'}</code>,{' '}
-							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<form>'}</code>) — they
+							<code className='inline-block translate-y-[-1px] rounded bg-green-100 px-1 text-xs'>{'<form>'}</code>): they
 							provide roles for free.
 						</p>
 					</div>
@@ -266,7 +266,7 @@ const ThemeProvider = ({ children }) => {
 						<span className='mt-0.5 text-green-500'>&#10003;</span>
 
 						<p className='text-sm text-gray-700'>
-							Test with screen readers (VoiceOver, NVDA) — automated tools catch only ~30% of issues.
+							Test with screen readers (VoiceOver, NVDA): automated tools catch only ~30% of issues.
 						</p>
 					</div>
 				</div>
@@ -329,10 +329,10 @@ const ThemeProvider = ({ children }) => {
 
 			<div className='mb-6 rounded-md bg-slate-50 p-3'>
 				<pre className='text-xs text-slate-700'>
-					{`/* Fluid typography — no breakpoints needed */
+					{`/* Fluid typography: no breakpoints needed */
 h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
-/* Responsive grid — columns adjust automatically */
+/* Responsive grid: columns adjust automatically */
 .card-grid {
   display: grid;
   gap: 1rem;
@@ -442,12 +442,12 @@ h1 { font-size: clamp(1.5rem, 4vw, 3rem); }
 				<ul className='space-y-2 text-blue-700'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Design tokens are the foundation — define colors, spacing, and typography as a structured vocabulary.
+						Design tokens are the foundation: define colors, spacing, and typography as a structured vocabulary.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Theming should swap semantic token mappings, not rewrite components — use CSS custom properties.
+						Theming should swap semantic token mappings, not rewrite components; use CSS custom properties.
 					</li>
 
 					<li className='flex items-start'>

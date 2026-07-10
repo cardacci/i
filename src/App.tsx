@@ -1,8 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 
-import { Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
+import { Outlet, RouterProvider, createHashRouter, useLocation } from 'react-router-dom';
 
-import { Header, SidebarNavigation } from '@/components/layout';
+import { Footer, Header, ScrollProgress, SidebarNavigation } from '@/components/layout';
 import { Home } from '@/components/sections';
 import { ROUTES } from '@/utils/constants/routes';
 import './styles/app.css';
@@ -19,20 +19,31 @@ const Travel = lazy(() => import('@/components/sections/Travel/Travel'));
  * Layout component that will be present on all pages.
  */
 const Layout = () => {
+	const location = useLocation();
+
+	// Reset scroll position when navigating between pages, so each section
+	// starts at its top instead of inheriting the previous scroll offset.
+	useEffect(() => {
+		window.scrollTo({ behavior: 'auto', top: 0 });
+	}, [location.pathname]);
+
 	return (
 		<div className='relative flex flex-col min-h-screen overflow-x-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30'>
-			{/* Ambient gradient atmosphere — adds depth behind the glass surfaces. */}
+			{/* Ambient gradient atmosphere — adds depth behind the glass surfaces.
+			    The drift classes parallax the blobs with CSS scroll-driven animations. */}
 			<div aria-hidden='true' className='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
-				<div className='absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-blue-400/20 blur-3xl' />
-				<div className='absolute top-1/3 -right-24 h-[26rem] w-[26rem] rounded-full bg-violet-400/20 blur-3xl float' />
-				<div className='absolute bottom-0 left-1/4 h-[24rem] w-[24rem] rounded-full bg-cyan-300/15 blur-3xl' />
+				<div className='absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-blue-400/20 blur-3xl drift-down' />
+				<div className='absolute top-1/3 -right-24 h-[26rem] w-[26rem] rounded-full bg-violet-400/20 blur-3xl drift-up' />
+				<div className='absolute bottom-0 left-1/4 h-[24rem] w-[24rem] rounded-full bg-cyan-300/15 blur-3xl float' />
 			</div>
+
+			<ScrollProgress />
 
 			<Header />
 
 			<SidebarNavigation />
 
-			<div className='relative z-10 pt-32 md:pt-28'>
+			<div className='relative z-10 flex flex-col grow pt-32 md:pt-28'>
 				<main className='grow'>
 					<div className='container mx-auto py-8 px-4 sm:px-6'>
 						<Suspense
@@ -49,6 +60,8 @@ const Layout = () => {
 						</Suspense>
 					</div>
 				</main>
+
+				<Footer />
 			</div>
 		</div>
 	);

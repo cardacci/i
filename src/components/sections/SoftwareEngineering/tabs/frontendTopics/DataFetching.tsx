@@ -9,7 +9,7 @@ const DataFetching = () => {
 			<SectionTitle level='h3'>Data Fetching</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				Every frontend application needs data from a server. The challenge is not just getting the data — it is managing the
+				Every frontend application needs data from a server. The challenge is not just getting the data; it is managing the
 				lifecycle around it: loading states, errors, caching, staleness, deduplication, and keeping the UI in sync when mutations
 				happen. Modern data-fetching patterns separate these concerns from component logic.
 			</p>
@@ -272,7 +272,7 @@ const { data } = useQuery(gql\`
 					<p className='text-sm text-blue-700'>
 						Uses <code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>?page=2&limit=20</code>.
 						Simple to implement. Server can return total count for page numbers. Limitation: inserting or deleting items shifts
-						pages — users may see duplicates or miss items.
+						pages, so users may see duplicates or miss items.
 					</p>
 
 					<p className='mt-2 text-xs text-blue-600'>
@@ -319,7 +319,7 @@ const { data } = useQuery(gql\`
 					<h5 className='mb-2 font-semibold text-teal-800'>WebSockets</h5>
 
 					<p className='text-sm text-teal-700'>
-						Full-duplex communication — both client and server can send messages at any time. Essential for chat, collaborative
+						Full-duplex communication: both client and server can send messages at any time. Essential for chat, collaborative
 						editing, live gaming, and trading dashboards. Requires explicit reconnection handling. Use heartbeat/ping-pong to
 						detect broken connections.
 					</p>
@@ -327,7 +327,7 @@ const { data } = useQuery(gql\`
 					<ul className='mt-3 space-y-1 text-sm text-teal-700'>
 						<li className='flex items-start'>
 							<span className='mr-2 text-green-500'>✓</span>
-							Bidirectional — client can send and receive
+							Bidirectional: client can send and receive
 						</li>
 
 						<li className='flex items-start'>
@@ -368,7 +368,7 @@ const { data } = useQuery(gql\`
 
 						<li className='flex items-start'>
 							<span className='mr-2 text-green-500'>✓</span>
-							Simple API — just EventSource
+							Simple API: just EventSource
 						</li>
 					</ul>
 
@@ -438,7 +438,7 @@ return () => source.close();`}
 						<span className='rounded-md bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-800'>1</span>
 
 						<p className='text-sm text-gray-700'>
-							<strong>Show inline error messages near the failed action</strong> — not a generic page-level error. Users
+							<strong>Show inline error messages near the failed action</strong>, not a generic page-level error. Users
 							should understand what went wrong and where.
 						</p>
 					</div>
@@ -475,7 +475,7 @@ return () => source.close();`}
 
 						<p className='text-sm text-gray-700'>
 							<strong>Distinguish retriable errors from non-retriable errors.</strong> 5xx status codes and network timeouts
-							are transient — retry them. 4xx errors (bad request, unauthorized) indicate a client-side problem that retrying
+							are transient: retry them. 4xx errors (bad request, unauthorized) indicate a client-side problem that retrying
 							will not fix.
 						</p>
 					</div>
@@ -516,7 +516,7 @@ return () => source.close();`}
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Optimistic updates make the UI feel instant — always implement rollback on error.
+						Optimistic updates make the UI feel instant; always implement rollback on error.
 					</li>
 
 					<li className='flex items-start'>

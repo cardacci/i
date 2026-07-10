@@ -74,7 +74,7 @@ const RoutingAndNavigation = () => {
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>pages/about.tsx</code>{' '}
 						automatically becomes{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>/about</code>. Used by Next.js,
-						Remix, and Nuxt. The file system <em>is</em> the route config — no separate router definition needed.
+						Remix, and Nuxt. The file system <em>is</em> the route config, so no separate router definition is needed.
 					</p>
 
 					<div className='rounded-md bg-slate-50 p-3'>
@@ -186,7 +186,7 @@ const DashboardLayout = () => (
 						<span className='rounded-md bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-800'>1</span>
 
 						<p>
-							<strong>Parent route renders the layout shell</strong> — the header, sidebar, and any chrome that persists
+							<strong>Parent route renders the layout shell:</strong> the header, sidebar, and any chrome that persists
 							across child pages.
 						</p>
 					</li>
@@ -199,7 +199,7 @@ const DashboardLayout = () => (
 								<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<Outlet />'}</code>{' '}
 								acts as a slot
 							</strong>{' '}
-							for child content — it's where the matched child route component renders.
+							for child content: it's where the matched child route component renders.
 						</p>
 					</li>
 
@@ -207,7 +207,7 @@ const DashboardLayout = () => (
 						<span className='rounded-md bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-800'>3</span>
 
 						<p>
-							<strong>Navigating between children only swaps the outlet</strong> — the layout persists, avoiding unnecessary
+							<strong>Navigating between children only swaps the outlet:</strong> the layout persists, avoiding unnecessary
 							re-renders of shared UI.
 						</p>
 					</li>
@@ -216,7 +216,7 @@ const DashboardLayout = () => (
 						<span className='rounded-md bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-800'>4</span>
 
 						<p>
-							<strong>Pathless layout routes</strong> wrap children without adding a URL segment — useful for auth gates or
+							<strong>Pathless layout routes</strong> wrap children without adding a URL segment, useful for auth gates or
 							shared providers.
 						</p>
 					</li>
@@ -321,7 +321,7 @@ const App = () => (
 
 			<p className='mb-4 text-gray-600'>
 				The URL is one of the most powerful state containers in a web application. Encoding UI state in the URL enables
-				shareability, bookmarking, and browser history integration — all for free.
+				shareability, bookmarking, and browser history integration, all for free.
 			</p>
 
 			<div className='mb-6 grid gap-4 md:grid-cols-2'>
@@ -333,7 +333,7 @@ const App = () => (
 						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>?sort=name&page=2</code>) are
 						the primary way to encode UI state in the URL. Use{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>useSearchParams</code> to read
-						and write them. This enables shareable filtered views — a user can copy the URL and share their exact filter
+						and write them. This enables shareable filtered views: a user can copy the URL and share their exact filter
 						configuration. Libraries like{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-purple-100 px-1 text-xs'>nuqs</code> provide type-safe
 						search params with automatic serialization and validation.
@@ -453,7 +453,7 @@ const App = () => (
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Nest routes to share layouts and reduce redundancy —{' '}
+						Nest routes to share layouts and reduce redundancy:{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1'>{'<Outlet />'}</code> is the key
 						primitive.
 					</li>
@@ -470,7 +470,7 @@ const App = () => (
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Treat the URL as state — sync filters, pagination, and selections to query parameters for shareability.
+						Treat the URL as state: sync filters, pagination, and selections to query parameters for shareability.
 					</li>
 
 					<li className='flex items-start'>

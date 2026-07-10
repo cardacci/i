@@ -9,7 +9,7 @@ const PerformanceOptimization = () => {
 			<SectionTitle level='h3'>Performance Optimization</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				Performance is not an afterthought — it is a feature. Slow applications lose users: a 100ms delay in load time reduces
+				Performance is not an afterthought; it is a feature. Slow applications lose users: a 100ms delay in load time reduces
 				conversion by 7%. Frontend performance optimization spans the entire pipeline from how the browser constructs the page to
 				how efficiently your JavaScript runs. The goal is to minimize the time from click to content.
 			</p>
@@ -96,7 +96,7 @@ const PerformanceOptimization = () => {
 						Large bundles directly hurt load time. Use{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>webpack-bundle-analyzer</code> or{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>rollup-plugin-visualizer</code>{' '}
-						to identify heavy dependencies. Common offenders include: moment.js (~300 kB — replace with date-fns or dayjs),
+						to identify heavy dependencies. Common offenders include: moment.js (~300 kB, replace with date-fns or dayjs),
 						lodash (import individual functions like{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>lodash/debounce</code> instead of
 						the entire library), and large icon packs (import only the icons you actually use).
@@ -136,7 +136,7 @@ const PerformanceOptimization = () => {
 							React.lazy(() =&gt; import('./Dashboard'))
 						</code>{' '}
 						with <code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>{'<Suspense>'}</code>. The
-						initial bundle only contains the shell and the current route — everything else is fetched on demand. This strategy
+						initial bundle only contains the shell and the current route; everything else is fetched on demand. This strategy
 						is covered in detail in the Routing tab.
 					</p>
 				</div>
@@ -148,7 +148,7 @@ const PerformanceOptimization = () => {
 					</div>
 
 					<p className='mb-3 text-sm text-gray-600'>
-						Split heavy components that aren't needed on initial load — rich text editors, chart libraries, modals with complex
+						Split heavy components that aren't needed on initial load: rich text editors, chart libraries, modals with complex
 						content. Load them on user interaction such as a button click or tab switch.
 					</p>
 
@@ -176,7 +176,7 @@ const PerformanceOptimization = () => {
 						Move large dependencies into separate chunks. Bundlers like Vite and webpack can be configured to split vendor code
 						automatically. Use dynamic{' '}
 						<code className='inline-block translate-y-[-1px] rounded bg-gray-200 px-1 text-xs'>import()</code> for libraries
-						only needed in specific flows — for example, loading a PDF renderer only when the user opens a document preview, or
+						only needed in specific flows, for example, loading a PDF renderer only when the user opens a document preview, or
 						loading a charting library only on the analytics page.
 					</p>
 				</div>
@@ -186,7 +186,7 @@ const PerformanceOptimization = () => {
 			<SectionTitle level='h4'>Virtualization for Large Lists</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				Rendering 10,000 DOM nodes destroys performance — layout, paint, and memory all suffer. Virtualization renders only the
+				Rendering 10,000 DOM nodes destroys performance: layout, paint, and memory all suffer. Virtualization renders only the
 				visible items plus a small overscan buffer. As the user scrolls, items are recycled: rows leaving the viewport are removed
 				from the DOM, and new rows entering it are created in their place.
 			</p>
@@ -226,7 +226,7 @@ return (
 				<p className='text-sm text-amber-800'>
 					<strong>Trade-offs:</strong> Virtualization has real costs. Native browser search (Ctrl+F) won't find off-screen items,
 					screen readers may have difficulty with dynamic content, and print layouts break. Consider whether your use case truly
-					needs 10,000+ items visible — often, better filtering, pagination, or search makes virtualization unnecessary.
+					needs 10,000+ items visible; often, better filtering, pagination, or search makes virtualization unnecessary.
 				</p>
 			</div>
 
@@ -247,7 +247,7 @@ return (
 					<tbody>
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>React.memo</td>
-							<td className='px-4 py-3 text-gray-600'>Component output — skips re-render if props are shallowly equal</td>
+							<td className='px-4 py-3 text-gray-600'>Component output: skips re-render if props are shallowly equal</td>
 							<td className='px-4 py-3 text-gray-600'>Child components with expensive render, receiving stable props</td>
 							<td className='px-4 py-3 text-gray-600'>
 								Wrapping components that receive new objects/arrays/functions every render (the memo never fires)
@@ -272,7 +272,7 @@ return (
 								Event handlers passed to memoized children, functions in dependency arrays
 							</td>
 							<td className='px-4 py-3 text-gray-600'>
-								Wrapping every function "just in case" — adds complexity without measurable benefit
+								Wrapping every function "just in case" adds complexity without measurable benefit
 							</td>
 						</tr>
 					</tbody>
@@ -283,7 +283,7 @@ return (
 				<p className='text-sm text-amber-800'>
 					<strong>React team's advice:</strong> Don't memoize by default. Profile first using React DevTools Profiler. If a
 					component re-renders frequently and each render is expensive, then memoize. The cost of comparison and memory is not
-					free — memoization is an optimization with its own overhead.
+					free; memoization is an optimization with its own overhead.
 				</p>
 			</div>
 
@@ -295,7 +295,7 @@ return (
 					<h5 className='mb-2 font-semibold text-purple-800'>When to Use</h5>
 
 					<p className='mb-3 text-sm text-purple-700'>
-						JavaScript is single-threaded — heavy computation blocks the main thread, causing UI jank (dropped frames,
+						JavaScript is single-threaded: heavy computation blocks the main thread, causing UI jank (dropped frames,
 						unresponsive input). Offload work to a Web Worker when you need to:
 					</p>
 
@@ -402,7 +402,7 @@ worker.onmessage = ({ data }) => {
 							<td className='px-4 py-3 text-gray-600'>
 								Native{' '}
 								<code className='inline-block translate-y-[-1px] rounded bg-gray-100 px-1 text-xs'>loading="lazy"</code>{' '}
-								attribute — zero JavaScript needed
+								attribute, zero JavaScript needed
 							</td>
 						</tr>
 
@@ -501,7 +501,7 @@ worker.onmessage = ({ data }) => {
 					<p className='mb-2 text-xs font-medium text-orange-600'>Cumulative Layout Shift</p>
 
 					<p className='mb-3 text-sm text-orange-700'>
-						Measures visual stability — elements shouldn't jump around. CLS captures how much the page layout shifts
+						Measures visual stability: elements shouldn't jump around. CLS captures how much the page layout shifts
 						unexpectedly during its entire lifespan.
 					</p>
 
@@ -548,12 +548,12 @@ worker.onmessage = ({ data }) => {
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Memoize deliberately after profiling, not prematurely — it has its own cost
+						Memoize deliberately after profiling, not prematurely; it has its own cost
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Optimize images first — they are usually the biggest performance win for the least effort
+						Optimize images first: they are usually the biggest performance win for the least effort
 					</li>
 
 					<li className='flex items-start'>

@@ -12,7 +12,7 @@ const RealWorldExamples = () => {
 
 			<p className='mb-6 text-gray-600'>
 				The best way to understand frontend system design is to study how real applications solve real problems. Each
-				application below presents a unique combination of challenges — from real-time collaboration to offline playback — and
+				application below presents a unique combination of challenges, from real-time collaboration to offline playback, and
 				demonstrates how the concepts from the other tabs come together in production.
 			</p>
 
@@ -274,7 +274,7 @@ const RealWorldExamples = () => {
 
 				<div className='rounded-md bg-gray-50 p-3'>
 					<p className='text-xs text-gray-600'>
-						<strong>Architecture Insight:</strong> Notion's block model is recursive — a page is a block that contains blocks, each
+						<strong>Architecture Insight:</strong> Notion's block model is recursive: a page is a block that contains blocks, each
 						of which can contain more blocks. This uniform data model simplifies the component architecture: a single BlockRenderer
 						handles all block types via a type discriminator.
 					</p>
@@ -328,7 +328,7 @@ const RealWorldExamples = () => {
 				<div className='rounded-md bg-gray-50 p-3'>
 					<p className='text-xs text-gray-600'>
 						<strong>Architecture Insight:</strong> Vercel uses Server-Sent Events for deployment logs rather than WebSockets. SSE is
-						simpler, automatically reconnects, and works over HTTP/2 — ideal for the unidirectional log streaming use case.
+						simpler, automatically reconnects, and works over HTTP/2, making it ideal for the unidirectional log streaming use case.
 					</p>
 				</div>
 			</div>
@@ -350,7 +350,7 @@ const RealWorldExamples = () => {
 					<ul className='space-y-1 text-sm text-gray-600'>
 						<li className='flex items-start'>
 							<span className='mr-2 text-gray-400'>•</span>
-							Performance at scale — every millisecond of load time affects conversion
+							Performance at scale: every millisecond of load time affects conversion
 						</li>
 						<li className='flex items-start'>
 							<span className='mr-2 text-gray-400'>•</span>
@@ -389,7 +389,7 @@ const RealWorldExamples = () => {
 			{/* ===== Notice Box ===== */}
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Notice:</strong> Every application uses a different mix of patterns. There is no single correct architecture — only
+					<strong>Notice:</strong> Every application uses a different mix of patterns. There is no single correct architecture, only
 					trade-offs chosen deliberately for each product's unique constraints. The skill of frontend system design is knowing which
 					patterns to apply, where, and why.
 				</p>

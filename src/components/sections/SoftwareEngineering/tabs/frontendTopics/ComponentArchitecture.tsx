@@ -30,19 +30,19 @@ const ComponentArchitecture = () => {
 
 				<ol className='list-decimal space-y-2 pl-5 text-gray-700'>
 					<li>
-						<strong>Identify visual boundaries</strong> — draw boxes around distinct UI regions in the mockup.
+						<strong>Identify visual boundaries:</strong> draw boxes around distinct UI regions in the mockup.
 					</li>
 					<li>
-						<strong>Name each box</strong> — if you can't name it clearly, it's probably not a single responsibility.
+						<strong>Name each box:</strong> if you can't name it clearly, it's probably not a single responsibility.
 					</li>
 					<li>
-						<strong>Establish the hierarchy</strong> — determine parent-child relationships based on containment.
+						<strong>Establish the hierarchy:</strong> determine parent-child relationships based on containment.
 					</li>
 					<li>
-						<strong>Define data flow</strong> — identify what data each component needs and where it comes from.
+						<strong>Define data flow:</strong> identify what data each component needs and where it comes from.
 					</li>
 					<li>
-						<strong>Extract shared patterns</strong> — spot repetition and abstract into reusable components.
+						<strong>Extract shared patterns:</strong> spot repetition and abstract into reusable components.
 					</li>
 				</ol>
 			</div>
@@ -152,7 +152,7 @@ const ComponentArchitecture = () => {
 					</div>
 
 					<p className='mt-2 text-xs text-gray-500'>
-						<strong>When to use:</strong> Wrappers, layouts, containers — whenever a component doesn't need to inspect its
+						<strong>When to use:</strong> Wrappers, layouts, containers, and whenever a component doesn't need to inspect its
 						content.
 					</p>
 				</div>
@@ -283,10 +283,10 @@ const ComponentArchitecture = () => {
 
 			<div className='mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4'>
 				<p className='text-sm text-amber-800'>
-					<strong>Practical note:</strong> Pure Atomic Design can be overly rigid. Most teams adopt a pragmatic variant — for
+					<strong>Practical note:</strong> Pure Atomic Design can be overly rigid. Most teams adopt a pragmatic variant (for
 					example, grouping components into <code className='rounded bg-amber-100 px-1 text-xs'>primitives</code>,{' '}
 					<code className='rounded bg-amber-100 px-1 text-xs'>composites</code>, and{' '}
-					<code className='rounded bg-amber-100 px-1 text-xs'>features</code> — keeping the spirit of the hierarchy without
+					<code className='rounded bg-amber-100 px-1 text-xs'>features</code>), keeping the spirit of the hierarchy without
 					debating whether something is a molecule or an organism.
 				</p>
 			</div>
@@ -408,12 +408,12 @@ const ComponentArchitecture = () => {
 				<ul className='space-y-2 text-blue-700'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Decompose UI into a tree of single-responsibility components — name them clearly.
+						Decompose UI into a tree of single-responsibility components, and name them clearly.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Separate presentation from logic — presentational components are easier to test, reuse, and design.
+						Separate presentation from logic: presentational components are easier to test, reuse, and design.
 					</li>
 
 					<li className='flex items-start'>
@@ -424,12 +424,12 @@ const ComponentArchitecture = () => {
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Design props as a minimal, consistent API — good defaults, predictable naming, smallest surface area.
+						Design props as a minimal, consistent API: good defaults, predictable naming, smallest surface area.
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Avoid premature abstraction — wait for the third use case before extracting a shared component.
+						Avoid premature abstraction: wait for the third use case before extracting a shared component.
 					</li>
 				</ul>
 			</div>

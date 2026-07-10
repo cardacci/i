@@ -3,6 +3,7 @@ export { default as ContentCard } from './ContentCard';
 export { default as ImageWithModal } from './ImageWithModal';
 export { default as LazyImage } from './LazyImage';
 export { default as ListWithTitle } from './ListWithTitle';
+export { default as Reveal } from './Reveal';
 export { default as SectionTitle } from './SectionTitle';
 export { default as TabView } from './TabView';
 export { default as TravelTimeline } from './TravelTimeline';

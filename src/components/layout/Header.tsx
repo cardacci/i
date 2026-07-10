@@ -63,14 +63,15 @@ const Header = () => {
 			<div className='container mx-auto px-4 flex items-center justify-between relative'>
 				{/* Title with responsive margin to avoid hamburger overlap */}
 				<div className='ml-12 md:ml-16 flex-1'>
-					<h1 className='font-bold text-xl md:text-3xl transition-all duration-300'>
+					{/* Rendered as <p> so each page keeps a single <h1> (the view title). */}
+					<p className='font-display font-bold text-xl md:text-3xl mb-0 transition-all duration-300'>
 						<span className='bg-gradient-to-r from-cyan-300 via-blue-200 to-violet-300 bg-clip-text text-transparent drop-shadow-sm'>
 							Gabriel Cardacci
 						</span>
 						<span className='block text-xs md:text-sm font-light mt-1.5 text-blue-200/80 tracking-wide'>
 							Software Engineer • Crypto Enthusiast & Investor • World Explorer • DJ & Music Lover
 						</span>
-					</h1>
+					</p>
 				</div>
 
 				{/* Typing animation effect */}

@@ -9,7 +9,7 @@ const StateManagement = () => {
 			<SectionTitle level='h3'>State Management</SectionTitle>
 
 			<p className='mb-6 text-gray-600'>
-				State is the data that drives your UI. Every interactive element — a toggle, a form input, a list that filters — depends
+				State is the data that drives your UI. Every interactive element (a toggle, a form input, a list that filters) depends
 				on state. The challenge isn't managing state itself; it's deciding <em>where</em> state lives, <em>who</em> owns it, and{' '}
 				<em>how</em> it flows through the component tree.
 			</p>
@@ -27,7 +27,7 @@ const StateManagement = () => {
 
 					<p className='text-sm text-blue-700'>
 						Controls what the user sees: modals open/closed, active tab, sidebar collapsed, tooltip visible. Ephemeral and
-						local — usually lives in the component that owns it.
+						local, it usually lives in the component that owns it.
 					</p>
 
 					<p className='mt-2 text-xs text-blue-600'>
@@ -234,7 +234,7 @@ const theme = useContext(ThemeContext);`}
 			<SectionTitle level='h4'>Global State Libraries</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				When Context isn't enough — because of performance, devtools, middleware, or complexity — dedicated state management
+				When Context isn't enough (because of performance, devtools, middleware, or complexity), dedicated state management
 				libraries fill the gap. The ecosystem has evolved from one dominant solution to a diverse set of tools, each with
 				different philosophies.
 			</p>
@@ -267,7 +267,7 @@ const theme = useContext(ThemeContext);`}
 
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Jotai</td>
-							<td className='px-4 py-3 text-gray-600'>Atomic model — bottom-up, primitive atoms compose</td>
+							<td className='px-4 py-3 text-gray-600'>Atomic model: bottom-up, primitive atoms compose</td>
 							<td className='px-4 py-3 text-gray-600'>Fine-grained reactivity, derived state, avoiding re-renders</td>
 							<td className='px-4 py-3 text-gray-500'>~3.5 kB</td>
 						</tr>
@@ -350,7 +350,7 @@ const theme = useContext(ThemeContext);`}
 					<ul className='space-y-1 text-sm text-gray-600'>
 						<li className='flex items-start'>
 							<span className='mr-2 text-green-500'>✓</span>
-							Minimal API — one hook for most cases
+							Minimal API: one hook for most cases
 						</li>
 
 						<li className='flex items-start'>
@@ -375,7 +375,7 @@ const theme = useContext(ThemeContext);`}
 			<SectionTitle level='h4'>State Machines for Complex Flows</SectionTitle>
 
 			<p className='mb-4 text-gray-600'>
-				When a component has well-defined states and transitions — and impossible states should be impossible — finite state
+				When a component has well-defined states and transitions, and impossible states should be impossible, finite state
 				machines (FSMs) are the right model. They make state transitions explicit and prevent bugs like "loading and error at the
 				same time."
 			</p>
@@ -499,7 +499,7 @@ const theme = useContext(ThemeContext);`}
 				<ul className='space-y-2 text-blue-700'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>•</span>
-						Classify state first (UI, server, global, form, URL, persistent) — the category dictates the tool.
+						Classify state first (UI, server, global, form, URL, persistent): the category dictates the tool.
 					</li>
 
 					<li className='flex items-start'>

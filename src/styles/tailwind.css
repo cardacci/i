@@ -414,4 +414,153 @@
 		-webkit-backdrop-filter: blur(12px);
 		border: 1px solid rgba(163, 255, 214, 0.2);
 	}
+
+	/* ===== Scroll-driven & Reveal Utilities ===== */
+
+	/* Reading progress bar. CSS scroll-driven animation when supported;
+	   a JS fallback (ScrollProgress component) drives scaleX otherwise. */
+	.scroll-progress {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		z-index: 60;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500), #06b6d4);
+	}
+
+	@keyframes grow-x {
+		from {
+			transform: scaleX(0);
+		}
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	/* Scroll-linked reveal base: the Reveal component toggles `.is-visible`
+	   through an IntersectionObserver, so this works in every browser. */
+	.reveal {
+		opacity: 0;
+		transition:
+			opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+		will-change: opacity, transform;
+	}
+
+	.reveal-up {
+		transform: translateY(2rem);
+	}
+
+	.reveal-left {
+		transform: translateX(-2.5rem);
+	}
+
+	.reveal-right {
+		transform: translateX(2.5rem);
+	}
+
+	.reveal-scale {
+		transform: scale(0.92);
+	}
+
+	.reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	/* Progressive enhancement: parallax drift + scroll-linked fades for
+	   browsers that support CSS scroll-driven animations. */
+	@supports (animation-timeline: scroll()) {
+		.scroll-progress {
+			animation: grow-x linear both;
+			animation-timeline: scroll(root);
+		}
+
+		.drift-down {
+			animation: drift-down linear both;
+			animation-timeline: scroll(root);
+		}
+
+		.drift-up {
+			animation: drift-up linear both;
+			animation-timeline: scroll(root);
+		}
+
+		.fade-out-on-scroll {
+			animation: fade-out-cue linear both;
+			animation-timeline: scroll(root);
+			animation-range: 0 18rem;
+		}
+	}
+
+	@keyframes drift-down {
+		to {
+			transform: translateY(9rem);
+		}
+	}
+
+	@keyframes drift-up {
+		to {
+			transform: translateY(-8rem);
+		}
+	}
+
+	@keyframes fade-out-cue {
+		to {
+			opacity: 0;
+			transform: translateY(1.5rem);
+		}
+	}
+
+	/* Infinite skills marquee: the track holds two copies of the content and
+	   translates half its width for a seamless loop. Pauses on hover. */
+	.marquee {
+		overflow: hidden;
+		mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+		-webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+	}
+
+	.marquee-track {
+		display: flex;
+		gap: 0.875rem;
+		width: max-content;
+		animation: marquee 36s linear infinite;
+	}
+
+	.marquee:hover .marquee-track {
+		animation-play-state: paused;
+	}
+
+	@keyframes marquee {
+		to {
+			transform: translateX(calc(-50% - 0.4375rem));
+		}
+	}
+
+	/* Gentle bounce for the hero scroll cue. */
+	.animate-bounce-soft {
+		animation: bounce-soft 2s ease-in-out infinite;
+	}
+
+	@keyframes bounce-soft {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(0.5rem);
+		}
+	}
+}
+
+/* Keep reveal content readable if motion is reduced: elements render in
+   their final position instead of animating in. */
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+	}
 }

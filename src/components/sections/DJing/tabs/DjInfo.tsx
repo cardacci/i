@@ -92,7 +92,7 @@ const DjInfo = () => {
 
 				<p className='mb-4 text-gray-200 leading-relaxed'>
 					I also enjoy experimenting and having fun mixing <strong className='text-[#A3FFD6]'>deep house</strong>,{' '}
-					<strong className='text-[#A3FFD6]'>house</strong>, and <strong className='text-[#A3FFD6]'>afro house</strong>—styles
+					<strong className='text-[#A3FFD6]'>house</strong>, and <strong className='text-[#A3FFD6]'>afro house</strong>, styles
 					that bring groove, energy, and fresh rhythms to my sessions. This variety lets me adapt to different environments and
 					audiences, always maintaining my own musical identity.
 				</p>

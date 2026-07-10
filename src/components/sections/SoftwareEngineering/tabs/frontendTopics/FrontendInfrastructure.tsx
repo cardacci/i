@@ -33,14 +33,14 @@ const FrontendInfrastructure = () => {
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Vite</td>
 							<td className='px-4 py-3 text-gray-600'>Very fast (native ES modules in dev, esbuild/Rollup in prod)</td>
-							<td className='px-4 py-3 text-gray-600'>Minimal — sensible defaults</td>
+							<td className='px-4 py-3 text-gray-600'>Minimal, sensible defaults</td>
 							<td className='px-4 py-3 text-gray-600'>Applications (React, Vue, Svelte)</td>
 						</tr>
 
 						<tr className='border-b border-gray-100 bg-gray-50/50'>
 							<td className='px-4 py-3 font-medium text-gray-800'>webpack</td>
 							<td className='px-4 py-3 text-gray-600'>Slow (JS-based compilation)</td>
-							<td className='px-4 py-3 text-gray-600'>Highly configurable — plugin ecosystem</td>
+							<td className='px-4 py-3 text-gray-600'>Highly configurable, plugin ecosystem</td>
 							<td className='px-4 py-3 text-gray-600'>Legacy apps, complex custom setups</td>
 						</tr>
 
@@ -61,7 +61,7 @@ const FrontendInfrastructure = () => {
 						<tr className='border-b border-gray-100'>
 							<td className='px-4 py-3 font-medium text-gray-800'>Rollup</td>
 							<td className='px-4 py-3 text-gray-600'>Fast</td>
-							<td className='px-4 py-3 text-gray-600'>Moderate — plugin-based</td>
+							<td className='px-4 py-3 text-gray-600'>Moderate, plugin-based</td>
 							<td className='px-4 py-3 text-gray-600'>Library bundling, ES module output</td>
 						</tr>
 
@@ -113,7 +113,7 @@ const FrontendInfrastructure = () => {
 							<p className='font-medium'>pnpm Workspaces</p>
 
 							<p>
-								Minimal approach — symlinked{' '}
+								Minimal approach: symlinked{' '}
 								<code className='inline-block translate-y-[-1px] rounded bg-blue-100 px-1 text-xs'>node_modules</code>,
 								workspace protocol for cross-package dependencies. No task orchestration (pair with Turborepo or Nx for
 								that).
@@ -251,7 +251,7 @@ const FrontendInfrastructure = () => {
 						<p className='font-medium text-gray-800'>Parallelism</p>
 
 						<p>
-							Run lint, type checking, and unit tests in parallel jobs — they don't depend on each other. Build only after
+							Run lint, type checking, and unit tests in parallel jobs; they don't depend on each other. Build only after
 							they pass. This structure ensures fast feedback while maintaining correctness.
 						</p>
 					</div>
@@ -291,8 +291,8 @@ const FrontendInfrastructure = () => {
 
 			<p className='mb-4 text-gray-600'>
 				The Testing Trophy (Kent C. Dodds model) challenges the traditional testing pyramid by emphasizing integration tests over
-				unit tests. The reasoning: integration tests exercise real component behavior — user interactions, DOM output, and
-				composition — giving the highest confidence per line of test code. Unit tests remain valuable for complex pure logic, while
+				unit tests. The reasoning: integration tests exercise real component behavior (user interactions, DOM output, and
+				composition), giving the highest confidence per line of test code. Unit tests remain valuable for complex pure logic, while
 				E2E tests cover critical user paths through the full stack.
 			</p>
 
@@ -348,7 +348,7 @@ const FrontendInfrastructure = () => {
 				<p className='text-sm text-amber-800'>
 					<strong>Recommended ratio:</strong> Heavy on integration tests (they give the best confidence per effort), moderate unit
 					tests for complex logic, and a thin E2E layer covering critical user paths (login, checkout, core workflow). Avoid
-					testing implementation details — test behavior.
+					testing implementation details: test behavior.
 				</p>
 			</div>
 
@@ -382,22 +382,22 @@ const Checkout = () => {
 				<ul className='mb-3 space-y-1 text-sm text-gray-600'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-green-500'>&#10003;</span>
-						<strong>Safe deployments</strong> — new code ships but isn't exposed to users until the flag is enabled
+						<strong>Safe deployments:</strong> new code ships but isn't exposed to users until the flag is enabled
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-green-500'>&#10003;</span>
-						<strong>A/B testing</strong> — show different experiences to different user segments and measure outcomes
+						<strong>A/B testing:</strong> show different experiences to different user segments and measure outcomes
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-green-500'>&#10003;</span>
-						<strong>Instant rollback</strong> — just flip the flag off instead of deploying a revert
+						<strong>Instant rollback:</strong> just flip the flag off instead of deploying a revert
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-green-500'>&#10003;</span>
-						<strong>Trunk-based development</strong> — everyone commits to main; incomplete features hide behind flags
+						<strong>Trunk-based development:</strong> everyone commits to main; incomplete features hide behind flags
 					</li>
 				</ul>
 
@@ -449,7 +449,7 @@ const Checkout = () => {
 					<h5 className='mb-2 font-semibold text-purple-800'>User Analytics</h5>
 
 					<p className='mb-3 text-sm text-purple-700'>
-						Session replay shows exactly what users see and do — clicks, scrolls, navigation. Heatmaps reveal interaction
+						Session replay shows exactly what users see and do: clicks, scrolls, navigation. Heatmaps reveal interaction
 						patterns. Funnel analysis identifies drop-off points. Helps prioritize performance and UX improvements where they
 						matter most.
 					</p>
@@ -481,7 +481,7 @@ const Checkout = () => {
 							<p className='font-medium'>iframe Isolation</p>
 
 							<p>
-								Each micro-frontend runs in its own iframe. Complete isolation but poor UX — no shared routing, styling, or
+								Each micro-frontend runs in its own iframe. Complete isolation but poor UX: no shared routing, styling, or
 								seamless interaction between parts.
 							</p>
 						</div>
@@ -566,7 +566,7 @@ const Checkout = () => {
 				<ul className='space-y-2 text-blue-700'>
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>&#8226;</span>
-						Choose a bundler that matches your needs — Vite for applications, Rollup for libraries
+						Choose a bundler that matches your needs: Vite for applications, Rollup for libraries
 					</li>
 
 					<li className='flex items-start'>
@@ -576,7 +576,7 @@ const Checkout = () => {
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>&#8226;</span>
-						Keep the CI pipeline under 10 minutes — parallelize, cache, and use preview deployments
+						Keep the CI pipeline under 10 minutes: parallelize, cache, and use preview deployments
 					</li>
 
 					<li className='flex items-start'>
@@ -586,12 +586,12 @@ const Checkout = () => {
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>&#8226;</span>
-						Feature flags decouple deployment from release — but clean them up after rollout
+						Feature flags decouple deployment from release, but clean them up after rollout
 					</li>
 
 					<li className='flex items-start'>
 						<span className='mr-2 text-blue-500'>&#8226;</span>
-						Micro-frontends are for organizational scaling, not technical scaling — adopt only when genuinely needed
+						Micro-frontends are for organizational scaling, not technical scaling; adopt only when genuinely needed
 					</li>
 				</ul>
 			</div>
