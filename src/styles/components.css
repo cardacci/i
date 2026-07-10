@@ -1,0 +1,114 @@
+/* Static look-and-feel utilities (no keyframes). Motion-related classes and
+   their @keyframes live in animations.css. */
+@layer components {
+	h1 {
+		@apply font-bold mb-4 text-3xl tracking-tight;
+		font-family: var(--font-display);
+	}
+	h2 {
+		@apply font-bold mb-3 text-2xl tracking-tight;
+		font-family: var(--font-display);
+	}
+	h3 {
+		@apply font-semibold mb-2 text-xl;
+		font-family: var(--font-display);
+	}
+	p {
+		@apply mb-4 leading-relaxed;
+	}
+	a {
+		@apply text-blue-600 hover:text-blue-700 transition-colors duration-200;
+	}
+
+	/* Scrollbar hide utility for horizontal tabs */
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Modern glass card effect */
+	.glass-card {
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+	/* Gradient text utility */
+	.gradient-text {
+		background: linear-gradient(135deg, var(--color-primary-500), var(--color-accent-500));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	/* Modern card with hover effect */
+	.card-modern {
+		background: white;
+		border-radius: 0.75rem;
+		box-shadow:
+			0 4px 6px -1px rgb(0 0 0 / 0.07),
+			0 2px 4px -2px rgb(0 0 0 / 0.07);
+		transition: all 0.3s ease;
+	}
+
+	.card-modern:hover {
+		box-shadow:
+			0 20px 25px -5px rgb(0 0 0 / 0.08),
+			0 8px 10px -6px rgb(0 0 0 / 0.08);
+		transform: translateY(-4px);
+	}
+
+	/* Glow effect on hover */
+	.glow-on-hover {
+		transition: box-shadow 0.3s ease;
+	}
+
+	.glow-on-hover:hover {
+		box-shadow: var(--shadow-glow);
+	}
+
+	/* Border gradient effect */
+	.border-gradient {
+		position: relative;
+		background: white;
+		border-radius: var(--radius-xl);
+	}
+
+	.border-gradient::before {
+		content: '';
+		position: absolute;
+		inset: -2px;
+		border-radius: calc(var(--radius-xl) + 2px);
+		background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.border-gradient:hover::before {
+		opacity: 1;
+	}
+
+	/* ===== DJing Section Specific ===== */
+
+	/* Neon text effect for DJ section */
+	.text-neon-mint {
+		text-shadow:
+			0 0 10px rgba(163, 255, 214, 0.8),
+			0 0 20px rgba(163, 255, 214, 0.5),
+			0 0 30px rgba(163, 255, 214, 0.3);
+	}
+
+	/* Glass card for dark themes */
+	.glass-dark {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(163, 255, 214, 0.2);
+	}
+}
