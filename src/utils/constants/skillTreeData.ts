@@ -21,7 +21,7 @@ import {
 } from 'react-icons/hi2';
 import { MdOutlineSpeed } from 'react-icons/md';
 import {
-	SiCss3,
+	SiCss,
 	SiDocker,
 	SiEslint,
 	SiGit,
@@ -116,7 +116,7 @@ export const skillSections: SkillTreeSection[] = [
 			label: '⚛️ Frontend',
 			children: [
 				{
-					icon: SiCss3,
+					icon: SiCss,
 					label: 'CSS',
 					children: [
 						{ icon: SiStylus, label: 'Stylus' },
