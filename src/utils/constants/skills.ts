@@ -28,6 +28,11 @@ export enum Skills {
 	CSHARP = 'C#',
 	MICROSOFT_SQL_SERVER = 'Microsoft SQL Server',
 	REST_APIS = 'REST APIs',
+	SUPABASE = 'Supabase',
+
+	// Testing.
+	JEST = 'Jest',
+	PLAYWRIGHT = 'Playwright',
 
 	// Mobile & Web.
 	CAPACITOR = 'Capacitor',

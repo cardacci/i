@@ -31,12 +31,14 @@ import {
 	SiGraphql,
 	SiHtml5,
 	SiJavascript,
+	SiJest,
 	SiPrettier,
 	SiReact,
 	SiRedux,
 	SiSharp,
 	SiStorybook,
 	SiStylus,
+	SiSupabase,
 	SiTailwindcss,
 	SiTypescript,
 	SiVite,
@@ -49,6 +51,7 @@ import {
 	TbBrandReactNative,
 	TbBroadcast,
 	TbGitBranch,
+	TbMasksTheater,
 	TbPackage,
 	TbRobot,
 	TbSparkles,
@@ -65,6 +68,7 @@ export enum SkillCategory {
 	Frontend = 'frontend',
 	Languages = 'languages',
 	Mobile = 'mobile',
+	Testing = 'testing',
 	Tools = 'tools',
 	VCS = 'vcs'
 }
@@ -77,6 +81,7 @@ export const CATEGORY_COLORS: Record<SkillCategory, { bg: string; border: string
 	[SkillCategory.Frontend]: { bg: '#3b82f6', border: '#2563eb', glow: 'rgba(59, 130, 246, 0.4)' },
 	[SkillCategory.Languages]: { bg: '#06b6d4', border: '#0891b2', glow: 'rgba(6, 182, 212, 0.4)' },
 	[SkillCategory.Mobile]: { bg: '#f59e0b', border: '#d97706', glow: 'rgba(245, 158, 11, 0.4)' },
+	[SkillCategory.Testing]: { bg: '#14b8a6', border: '#0d9488', glow: 'rgba(20, 184, 166, 0.4)' },
 	[SkillCategory.Tools]: { bg: '#64748b', border: '#475569', glow: 'rgba(100, 116, 139, 0.4)' },
 	[SkillCategory.VCS]: { bg: '#22c55e', border: '#16a34a', glow: 'rgba(34, 197, 94, 0.4)' }
 };
@@ -205,13 +210,29 @@ export const skillSections: SkillTreeSection[] = [
 				{ icon: SiSharp, label: 'C#' },
 				{ icon: SiGraphql, label: 'GraphQL' },
 				{ icon: TbApi, label: 'REST APIs' },
-				{ icon: BiData, label: 'SQL Server' }
+				{ icon: BiData, label: 'SQL Server' },
+				{ icon: SiSupabase, label: 'Supabase' }
 			]
 		}
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 4: CI/CD
+	// SECTION 4: TESTING
+	// ══════════════════════════════════════════════════════════════
+	{
+		category: SkillCategory.Testing,
+		tree: {
+			isCategory: true,
+			label: '🧪 Testing',
+			children: [
+				{ icon: SiJest, label: 'Jest' },
+				{ icon: TbMasksTheater, label: 'Playwright' }
+			]
+		}
+	},
+
+	// ══════════════════════════════════════════════════════════════
+	// SECTION 5: CI/CD
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.CI_CD,
@@ -227,7 +248,7 @@ export const skillSections: SkillTreeSection[] = [
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 5: VERSION CONTROL
+	// SECTION 6: VERSION CONTROL
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.VCS,
@@ -243,7 +264,7 @@ export const skillSections: SkillTreeSection[] = [
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 6: ARCHITECTURE & LEADERSHIP
+	// SECTION 7: ARCHITECTURE & LEADERSHIP
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Architecture,
@@ -262,7 +283,7 @@ export const skillSections: SkillTreeSection[] = [
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 7: AI ASSISTED CODING
+	// SECTION 8: AI ASSISTED CODING
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.AI,
@@ -278,7 +299,7 @@ export const skillSections: SkillTreeSection[] = [
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 8: TOOLS
+	// SECTION 9: TOOLS
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Tools,
@@ -308,7 +329,7 @@ export const skillSections: SkillTreeSection[] = [
 	},
 
 	// ══════════════════════════════════════════════════════════════
-	// SECTION 9: LANGUAGES
+	// SECTION 10: LANGUAGES
 	// ══════════════════════════════════════════════════════════════
 	{
 		category: SkillCategory.Languages,
