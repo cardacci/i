@@ -9,7 +9,7 @@ const Skills = () => {
 
 			<div className='mt-4'>
 				<p className='text-gray-600 mb-4 text-sm'>
-					Explore my skill tree! Scroll through the sections to see how my skills connect.
+					My skills grouped by category. Indented items build on the skill above them.
 				</p>
 
 				<SkillTree />

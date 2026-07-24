@@ -1,198 +1,111 @@
-/* ===== Skill Tree Container ===== */
-.skill-tree-scroll {
-	background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-	border-radius: 16px;
+/* ===== Layout: masonry columns (1 col mobile, 2 cols desktop) ===== */
+.skill-groups {
+	column-gap: 1rem;
+	columns: 1;
+}
+
+@media (min-width: 768px) {
+	.skill-groups {
+		columns: 2;
+	}
+}
+
+/* ===== Category Card ===== */
+.skill-card {
+	background: #ffffff;
 	border: 1px solid #e2e8f0;
+	border-radius: 14px;
 	box-shadow:
-		0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	padding: 2rem 1.5rem;
-	width: 100%;
+		0 2px 8px rgba(15, 23, 42, 0.06),
+		0 1px 2px rgba(15, 23, 42, 0.04);
+	break-inside: avoid;
+	margin-bottom: 1rem;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
 }
 
-/* ===== Section Connector (dashed line between sections) ===== */
-.section-connector {
-	background: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 6px, transparent 6px, transparent 12px);
-	flex-shrink: 0;
-	height: 40px;
-	margin: 0 auto;
-	width: 3px;
+.skill-card:hover {
+	box-shadow:
+		0 6px 18px rgba(15, 23, 42, 0.1),
+		0 2px 4px rgba(15, 23, 42, 0.06);
 }
 
-/* ===== Each section wraps a tree and can scroll horizontally ===== */
-.skill-tree-section {
-	overflow-x: auto;
-	padding: 4px 0;
-}
-
-/* ===== The tree structure ===== */
-.skill-tree {
+.skill-card-header {
 	align-items: center;
+	color: #ffffff;
 	display: flex;
-	flex-direction: column;
-	min-width: fit-content;
+	font-size: 1rem;
+	font-weight: 700;
+	gap: 10px;
+	padding: 12px 16px;
 }
 
-/* ===== Tree Node ===== */
-.skill-tree .tree-node {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
+.skill-card-body {
+	padding: 10px 14px 14px;
 }
 
-/* ===== Node Cards ===== */
-.node-card {
-	align-items: center;
-	border-radius: 10px;
-	border: 2px solid;
-	cursor: default;
-	display: flex;
-	gap: 8px;
-	justify-content: center;
-	text-align: center;
-	transition:
-		transform 0.3s ease,
-		box-shadow 0.3s ease;
-	white-space: nowrap;
-}
-
-.node-category {
-	border-radius: 12px;
-	border-width: 2.5px;
-	min-width: 200px;
-	padding: 14px 28px;
-}
-
-.node-skill {
-	min-width: 130px;
-	padding: 12px 22px;
-}
-
-.node-card:hover {
-	transform: scale(1.06);
-	z-index: 10;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   ORG-CHART TREE CONNECTORS
-   ═══════════════════════════════════════════════════════════ */
-
-/* ===== Tree Children (ul) ===== */
-.skill-tree ul.tree-children {
-	display: flex;
-	justify-content: center;
+/* ===== Branch Lists ===== */
+.skill-branch {
 	list-style: none;
 	margin: 0;
-	padding-top: 22px;
+	padding: 0;
+}
+
+/* Nested branches: indent and leave room for connectors */
+.skill-branch .skill-branch {
+	padding-left: 26px;
+}
+
+.skill-branch li {
 	position: relative;
 }
 
-/* Vertical connector from parent card down to the horizontal bar */
-.skill-tree ul.tree-children::before {
-	background-color: #94a3b8;
+/* ===== Connectors (only on nested levels) ===== */
+/* Elbow: vertical drop + horizontal reach into the row */
+.skill-branch .skill-branch > li::before {
+	border-bottom: 2px solid var(--branch-color, #cbd5e1);
+	border-left: 2px solid var(--branch-color, #cbd5e1);
+	border-radius: 0 0 0 8px;
 	content: '';
-	height: 22px;
-	left: 50%;
+	height: 15px;
+	left: -16px;
 	position: absolute;
 	top: 0;
-	transform: translateX(-50%);
-	width: 2px;
+	width: 12px;
 }
 
-/* ===== Tree Children Items (li) ===== */
-.skill-tree li {
+/* Vertical line continuing down to siblings below */
+.skill-branch .skill-branch > li:not(:last-child)::after {
+	border-left: 2px solid var(--branch-color, #cbd5e1);
+	bottom: 0;
+	content: '';
+	left: -16px;
+	position: absolute;
+	top: 0;
+}
+
+/* ===== Skill Rows ===== */
+.skill-row {
 	align-items: center;
+	border-radius: 8px;
+	color: #334155;
 	display: flex;
-	flex-direction: column;
-	padding: 22px 10px 0;
-	position: relative;
+	font-size: 0.875rem;
+	font-weight: 500;
+	gap: 8px;
+	margin-top: 2px;
+	padding: 5px 8px;
+	transition: background-color 0.2s ease;
 }
 
-/* Both pseudo-elements: horizontal connector bars */
-.skill-tree li::before,
-.skill-tree li::after {
-	border-top: 2px solid #94a3b8;
-	content: '';
-	height: 22px;
-	position: absolute;
-	top: 0;
-	width: 50%;
+.skill-row:hover {
+	background-color: #f1f5f9;
 }
 
-/* Left half */
-.skill-tree li::before {
-	right: 50%;
+.skill-row-group {
+	font-weight: 600;
 }
 
-/* Right half + vertical drop at center */
-.skill-tree li::after {
-	border-left: 2px solid #94a3b8;
-	left: 50%;
-}
-
-/* First child: no left horizontal extension, round the corner */
-.skill-tree li:first-child::before {
-	border: none;
-}
-
-.skill-tree li:first-child::after {
-	border-radius: 6px 0 0 0;
-}
-
-/* Last child: no right extension, add right border for drop + round corner */
-.skill-tree li:last-child::after {
-	border: none;
-}
-
-.skill-tree li:last-child::before {
-	border-radius: 0 6px 0 0;
-	border-right: 2px solid #94a3b8;
-}
-
-/* Only child: no horizontal bars at all, just the vertical from ul::before */
-.skill-tree li:only-child::before,
-.skill-tree li:only-child::after {
-	display: none;
-}
-
-.skill-tree li:only-child {
-	padding-top: 0;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-	.node-category {
-		padding: 12px 20px;
-		min-width: 160px;
-	}
-
-	.node-skill {
-		padding: 10px 16px;
-		min-width: 110px;
-	}
-
-	.skill-tree-scroll {
-		padding: 1.5rem 1rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.node-category {
-		padding: 10px 16px;
-		min-width: 140px;
-		font-size: 0.875rem;
-	}
-
-	.node-skill {
-		padding: 8px 14px;
-		min-width: 100px;
-	}
-
-	.section-connector {
-		height: 30px;
-	}
-
-	.skill-tree-scroll {
-		padding: 1rem 0.75rem;
-	}
+.skill-row-icon {
+	flex-shrink: 0;
 }

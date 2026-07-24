@@ -1,4 +1,5 @@
-import { Fragment } from 'react';
+/* ===== Imports ===== */
+import type { CSSProperties } from 'react';
 
 import {
 	CATEGORY_COLORS,
@@ -9,42 +10,63 @@ import {
 
 import './skillTree.css';
 
-/* ===== Recursive Tree Node Component ===== */
-interface TreeNodeProps {
+/* ===== Types & Interfaces ===== */
+interface SkillBranchProps {
 	category: SkillCategory;
-	node: SkillTreeNodeType;
+	nodes: SkillTreeNodeType[];
 }
 
-const TreeNode = ({ category, node }: TreeNodeProps) => {
+interface SkillCardProps {
+	category: SkillCategory;
+	tree: SkillTreeNodeType;
+}
+
+/* ===== Recursive Branch (vertical list with connectors) ===== */
+const SkillBranch = ({ category, nodes }: SkillBranchProps) => {
 	const colors = CATEGORY_COLORS[category];
-	const hasChildren = node.children && node.children.length > 0;
 
 	return (
-		<div className='tree-node'>
-			{/* Node Card */}
-			<div
-				className={`node-card ${node.isCategory ? 'node-category' : 'node-skill'}`}
-				style={{
-					background: `linear-gradient(135deg, ${colors.bg}${node.isCategory ? 'dd' : 'cc'}, ${colors.bg}${node.isCategory ? '' : 'ee'})`,
-					borderColor: colors.border,
-					boxShadow: `0 ${node.isCategory ? '4px 14px' : '2px 10px'} ${colors.glow}`
-				}}
-			>
-				{node.icon && <node.icon className='text-white' size={node.isCategory ? 22 : 18} />}
+		<ul className='skill-branch'>
+			{nodes.map((node) => {
+				const hasChildren = node.children && node.children.length > 0;
 
-				<span className={`text-white ${node.isCategory ? 'font-bold text-lg' : 'font-semibold text-sm'}`}>{node.label}</span>
+				return (
+					<li key={node.label}>
+						<div className={`skill-row ${hasChildren ? 'skill-row-group' : ''}`}>
+							{node.icon && <node.icon className='skill-row-icon' size={16} style={{ color: colors.bg }} />}
+
+							<span>{node.label}</span>
+						</div>
+
+						{hasChildren && <SkillBranch category={category} nodes={node.children!} />}
+					</li>
+				);
+			})}
+		</ul>
+	);
+};
+
+/* ===== Category Card ===== */
+const SkillCard = ({ category, tree }: SkillCardProps) => {
+	const colors = CATEGORY_COLORS[category];
+
+	return (
+		<div
+			className='skill-card'
+			style={{ '--branch-color': `${colors.bg}66` } as CSSProperties}
+		>
+			<div
+				className='skill-card-header'
+				style={{ background: `linear-gradient(135deg, ${colors.bg}, ${colors.border})` }}
+			>
+				{tree.icon && <tree.icon size={20} />}
+
+				<span>{tree.label}</span>
 			</div>
 
-			{/* Children */}
-			{hasChildren && (
-				<ul className='tree-children'>
-					{node.children!.map((child) => (
-						<li key={child.label}>
-							<TreeNode category={category} node={child} />
-						</li>
-					))}
-				</ul>
-			)}
+			<div className='skill-card-body'>
+				<SkillBranch category={category} nodes={tree.children ?? []} />
+			</div>
 		</div>
 	);
 };
@@ -52,20 +74,13 @@ const TreeNode = ({ category, node }: TreeNodeProps) => {
 /* ===== Skill Tree Component ===== */
 const SkillTree = () => {
 	return (
-		<div className='skill-tree-scroll'>
-			{skillSections.map((section, index) => (
-				<Fragment key={section.tree.label}>
-					{index > 0 && <div className='section-connector' />}
-
-					<div className='skill-tree-section'>
-						<div className='skill-tree'>
-							<TreeNode category={section.category} node={section.tree} />
-						</div>
-					</div>
-				</Fragment>
+		<div className='skill-groups'>
+			{skillSections.map((section) => (
+				<SkillCard category={section.category} key={section.tree.label} tree={section.tree} />
 			))}
 		</div>
 	);
 };
 
+/* ===== Exports ===== */
 export default SkillTree;
