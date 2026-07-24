@@ -6,6 +6,13 @@ import universidadFastaLogo from '@/assets/images/experience/universidad-fasta-l
 import { SectionTitle } from '@/components/common';
 import { Companies, Skills } from '@/utils/constants';
 
+/* ===== Constants & Enums ===== */
+enum WorkMode {
+	HYBRID = 'Hybrid',
+	ON_SITE = 'On-site',
+	REMOTE = 'Remote'
+}
+
 /* ===== Types & Interfaces ===== */
 interface ExperienceDescription {
 	bullets?: string[];
@@ -22,6 +29,7 @@ interface ExperienceInterface {
 	period: string;
 	skills?: Skills[];
 	title: string;
+	workMode: WorkMode;
 }
 
 const EXPERIENCES: ExperienceInterface[] = [
@@ -34,26 +42,30 @@ const EXPERIENCES: ExperienceInterface[] = [
 				bullets: [
 					'Contribute to component architecture, rendering performance, and the GraphQL data layer in production.',
 					'Built a Storybook-powered component library from the design system in Figma, published as an internal package and consumed across multiple projects.',
+					'Write unit tests with Jest across the codebase, occasionally contributing to backend services built with NestJS.',
 					'Set up CI/CD workflows with GitHub Actions to automate builds and deployments.'
 				],
-				title: 'Building reliable, performant mobile experiences at scale for a React Native platform serving 10M+ users across Latin America.'
+				title: 'Building a React Native fintech platform, transfers, currency exchange, cross-border remittances, and balance investment, serving 10M+ users across Latin America.'
 			}
 		],
 		id: 6,
-		location: 'Remote',
+		location: 'Venezuela',
 		period: 'Jan 2026 - Present',
 		skills: [
 			Skills.CI_CD,
 			Skills.FRONTEND_ARCHITECTURE,
 			Skills.GITHUB_ACTIONS,
 			Skills.GRAPHQL,
+			Skills.JEST,
+			Skills.NESTJS,
 			Skills.REACT_NATIVE,
 			Skills.SOFTWARE_ARCHITECTURE,
 			Skills.STORYBOOK,
 			Skills.TYPESCRIPT,
 			Skills.ZUSTAND
 		],
-		title: 'Senior Frontend Engineer'
+		title: 'Senior Frontend Engineer',
+		workMode: WorkMode.REMOTE
 	},
 	{
 		company: Companies.KLIO,
@@ -61,9 +73,16 @@ const EXPERIENCES: ExperienceInterface[] = [
 		descriptions: [
 			{
 				bullets: [
-					'Lead frontend architecture and engineering practices across an 8-engineer organization, managing a cross-functional team of 8 (frontend, backend, and QA). Drive technical strategy, system design, and delivery standards while partnering closely with product and business stakeholders to scale the platform sustainably.',
-					'Reduced bundle size by 50% through native code replacements and significantly improved perceived load times with an offline-first caching strategy. Established coding standards for both developers and AI agents, and built internal shared libraries adopted across all company projects. Interviewed 30+ candidates, hired 8, and mentored junior engineers through to senior-level promotions.'
-				]
+					'Took the core web product from desktop-only to fully responsive, then shipped native iOS and Android apps with Capacitor, integrating biometric auth, push notifications, and other native APIs, and owned the full release cycle on the App Store and Google Play.',
+					'Designed and shipped a POS payment app supporting contactless, chip, and magnetic stripe credit card payments, running React + Redux on payment hardware via Capacitor with native Java/Kotlin integrations on Android.',
+					'Transformed the platform into a white-label product with configurable branding and theming, and built the i18n layer behind it with runtime language switching and locale-aware currency and date formatting, so new client brands and markets launched from a single codebase through configuration alone.',
+					'Reduced bundle size by ~50% through lazy loading and native code replacements.',
+					'Implemented an offline-first caching strategy, rendering locally stored data instantly and syncing in the background, eliminating loading spinners and making app startup feel immediate.',
+					'Built a shared component and utilities library, published to Azure Artifacts and adopted across all company projects.',
+					'Introduced the company\'s E2E testing strategy from scratch, evaluating tools and implementing Playwright.',
+					'Established coding standards for both developers and AI agents, interviewed 30+ candidates, hired 8, and mentored junior engineers through to senior-level promotions.'
+				],
+				title: 'Lead frontend architecture and engineering practices across an 8-engineer organization, managing a cross-functional team (frontend, backend, QA) and partnering with product stakeholders to scale the platform from early-stage MVP to a production financial system processing 20M+ transfers for 50,000+ active users.'
 			}
 		],
 		id: 6,
@@ -74,7 +93,9 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.CI_CD,
 			Skills.FRONTEND_ARCHITECTURE,
 			Skills.HIRING_AND_INTERVIEWING,
+			Skills.I18N,
 			Skills.MENTORING,
+			Skills.PLAYWRIGHT,
 			Skills.PROGRESSIVE_WEB_APPS,
 			Skills.REACT,
 			Skills.REDUX,
@@ -88,14 +109,15 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.WEBPACK,
 			Skills.WEBSOCKETS
 		],
-		title: 'Principal Frontend Engineer / Engineering Lead'
+		title: 'Principal Frontend Engineer / Engineering Lead',
+		workMode: WorkMode.HYBRID
 	},
 	{
 		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		descriptions: [
 			{
-				title: 'Owned frontend architecture and delivery for a growing product, leading complex UI systems, performance improvements, and cross-team integrations. Acted as technical reference for frontend practices while progressively taking on leadership and mentoring responsibilities.'
+				title: 'Owned frontend architecture and delivery for a growing fintech product, leading complex UI systems, performance improvements, and cross-team integrations while progressively taking on leadership and mentoring responsibilities.'
 			}
 		],
 		id: 5,
@@ -113,14 +135,15 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.TECHNICAL_LEADERSHIP,
 			Skills.WEBSOCKETS
 		],
-		title: 'Senior Frontend Engineer / Engineering Lead'
+		title: 'Senior Frontend Engineer / Engineering Lead',
+		workMode: WorkMode.HYBRID
 	},
 	{
 		company: Companies.KLIO,
 		companyLogo: klioLogo,
 		descriptions: [
 			{
-				title: 'Joined klio as part of the founding team, building the frontend architecture and core product features from the ground up. Shaped early technical decisions that became the foundation for the platform\'s long-term growth, while collaborating closely with backend and product to ship the initial product.'
+				title: 'Joined as part of the founding team, building the frontend architecture and core product features from the ground up. Early technical decisions became the foundation for the platform\'s long-term growth.'
 			}
 		],
 		id: 4,
@@ -134,7 +157,8 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.REDUX,
 			Skills.REST_APIS
 		],
-		title: 'Frontend Engineer / Founding Team Member'
+		title: 'Founding Frontend Engineer',
+		workMode: WorkMode.HYBRID
 	},
 	{
 		company: Companies.INTIVE,
@@ -157,7 +181,8 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.REACT,
 			Skills.REDUX
 		],
-		title: 'Software Developer Engineer'
+		title: 'Software Developer Engineer',
+		workMode: WorkMode.HYBRID
 	},
 	{
 		company: Companies.FASTA_UNIVERSITY,
@@ -170,7 +195,8 @@ const EXPERIENCES: ExperienceInterface[] = [
 		id: 2,
 		location: 'Argentina',
 		period: 'Aug 2014 - Apr 2017',
-		title: 'Computer Forensics Researcher'
+		title: 'Computer Forensics Researcher',
+		workMode: WorkMode.ON_SITE
 	},
 	{
 		company: Companies.QUADION_TECHNOLOGIES,
@@ -193,7 +219,8 @@ const EXPERIENCES: ExperienceInterface[] = [
 			Skills.MICROSOFT_SQL_SERVER,
 			Skills.REST_APIS
 		],
-		title: 'Full Stack Developer'
+		title: 'Full Stack Developer',
+		workMode: WorkMode.HYBRID
 	}
 ];
 
@@ -268,6 +295,10 @@ const Experience = () => {
 									/>
 								</svg>
 								{firstExp.location}
+
+								<span className='ml-1 px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-xs font-medium border border-slate-200'>
+									{firstExp.workMode}
+								</span>
 							</p>
 						</div>
 					</div>

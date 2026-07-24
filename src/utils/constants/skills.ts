@@ -13,6 +13,7 @@ export enum Skills {
 	ANGULAR = 'Angular',
 	GRAPHQL = 'GraphQL',
 	HTML_CSS = 'HTML + CSS',
+	I18N = 'Internationalization (i18n)',
 	JAVASCRIPT = 'JavaScript',
 	PERFORMANCE_OPTIMIZATION = 'Performance Optimization',
 	REACT = 'React',
@@ -27,6 +28,7 @@ export enum Skills {
 	ASP_NET_MVC = 'ASP.NET MVC',
 	CSHARP = 'C#',
 	MICROSOFT_SQL_SERVER = 'Microsoft SQL Server',
+	NESTJS = 'NestJS',
 	REST_APIS = 'REST APIs',
 	SUPABASE = 'Supabase',
 

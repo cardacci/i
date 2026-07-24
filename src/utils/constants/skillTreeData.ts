@@ -24,6 +24,7 @@ import {
 	SiCss,
 	SiDocker,
 	SiEslint,
+	SiFigma,
 	SiGit,
 	SiGithub,
 	SiGithubactions,
@@ -51,6 +52,7 @@ import {
 	TbBrandReactNative,
 	TbBroadcast,
 	TbGitBranch,
+	TbLanguage,
 	TbMasksTheater,
 	TbPackage,
 	TbRobot,
@@ -103,8 +105,9 @@ export interface SkillTreeSection {
 export const skillSections: SkillTreeSection[] = [
 	// ══════════════════════════════════════════════════════════════
 	// SECTION 1: FRONTEND (tree with parent-child connections)
-	// Frontend → CSS, Design Systems, HTML, JavaScript, Performance
+	// Frontend → CSS, Design Systems, HTML, i18n, JavaScript, Performance
 	// CSS → Stylus, Tailwind CSS
+	// Design Systems → Figma, Storybook
 	// JavaScript → React, TypeScript
 	// React → Redux → Redux-Saga
 	// Performance → Code Splitting, Memoization, Web Workers
@@ -126,9 +129,13 @@ export const skillSections: SkillTreeSection[] = [
 				{
 					icon: HiOutlinePaintBrush,
 					label: 'Design Systems',
-					children: [{ icon: SiStorybook, label: 'Storybook' }]
+					children: [
+						{ icon: SiFigma, label: 'Figma' },
+						{ icon: SiStorybook, label: 'Storybook' }
+					]
 				},
 				{ icon: SiHtml5, label: 'HTML' },
+				{ icon: TbLanguage, label: 'i18n' },
 				{
 					icon: SiJavascript,
 					label: 'JavaScript',
@@ -335,7 +342,7 @@ export const skillSections: SkillTreeSection[] = [
 		category: SkillCategory.Languages,
 		tree: {
 			isCategory: true,
-			label: '🌐 Languages',
+			label: '🌐 Spoken Languages',
 			children: [{ label: '🇬🇧 English' }, { label: '🇪🇸 Spanish' }]
 		}
 	}

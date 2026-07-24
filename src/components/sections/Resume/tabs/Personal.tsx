@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import resumePdf from '@/assets/files/resume/Cardacci, Gabriel - CV 2026-06.pdf';
+import resumePdf from '@/assets/files/resume/Gabriel Cardacci - CV 2026-07.pdf';
 import { SectionTitle } from '@/components/common';
 import { SocialNetwork } from '@/utils/constants';
 import { useSocialLinks } from '@/utils/hooks';
@@ -78,11 +78,11 @@ const Personal = () => {
 					<div>
 						<p className='text-gray-600 mb-2'>Get my latest resume in PDF format</p>
 
-						<p className='text-sm text-gray-500'>Last updated: June 2026</p>
+						<p className='text-sm text-gray-500'>Last updated: July 2026</p>
 					</div>
 					<a
 						className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
-						download='Cardacci, Gabriel - CV 2026-06.pdf'
+						download='Gabriel Cardacci - CV 2026-07.pdf'
 						href={resumePdf}
 					>
 						<svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -104,11 +104,11 @@ const Personal = () => {
 
 				<div className='leading-relaxed space-y-4'>
 					<p>
-						Product-minded Senior Frontend Engineer with 12+ years of experience scaling products from early-stage MVPs to production-grade platforms, including a fintech that grew to 50,000+ users and processed 20M+ financial transactions. Currently building a financial platform to serve 10M+ users across Latin America.
+						Product-minded Senior Frontend Engineer with 12+ years of experience scaling products from early-stage MVPs to production-grade platforms, including a fintech I joined as a founding engineer that grew to 50,000+ users and 20M+ financial transactions. Currently building a React Native fintech platform serving 10M+ users across Latin America.
 					</p>
 
 					<p>
-						I combine hands-on frontend expertise with strong ownership in architecture, system design, and delivery. I work closely with product and backend teams, contribute to hiring, mentor engineers, and establish standards that enable teams to ship faster with confidence.
+						I combine hands-on React/TypeScript expertise with strong ownership in architecture, system design, and delivery: shipping native iOS/Android apps with Capacitor, building white-label platforms, introducing E2E testing with Playwright, and mentoring engineers to senior level. I work closely with product and backend teams, contribute to hiring, and establish standards that help teams ship with confidence.
 					</p>
 
 					<p>
