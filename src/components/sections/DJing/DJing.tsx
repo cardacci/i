@@ -70,7 +70,7 @@ const DJing = () => {
 				</div>
 
 				{/* Content */}
-				<div className='relative z-10 p-6 md:p-8'>
+				<div className='relative z-10 p-4 sm:p-6 md:p-8'>
 					{/* Custom tabs for DJ section */}
 					<div className='mb-8'>
 						<Routes>

@@ -24,7 +24,7 @@ const Travel = () => {
 	return (
 		<BaseView id='travel' title='Travel Adventures'>
 			<div className='space-y-6'>
-				<div className='bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100'>
+				<div className='bg-white/80 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100'>
 					<h2 className='text-2xl font-bold text-slate-800 mb-4'>Places I've Visited</h2>
 
 					<p className='text-slate-600 mb-8 text-lg leading-relaxed'>
@@ -41,7 +41,7 @@ const Travel = () => {
 					</Routes>
 				</div>
 
-				<div className='bg-gradient-to-br from-blue-50 to-violet-50 p-6 md:p-8 rounded-2xl border border-blue-100/50'>
+				<div className='bg-gradient-to-br from-blue-50 to-violet-50 p-4 sm:p-6 md:p-8 rounded-2xl border border-blue-100/50'>
 					<h3 className='text-xl font-semibold text-slate-800 mb-4'>Travel Philosophy</h3>
 
 					<p className='text-slate-600 mb-4 leading-relaxed'>

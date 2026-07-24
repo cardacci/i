@@ -11,7 +11,7 @@ const BaseView = (props: BaseViewProps) => {
 	const { children, id, title } = props;
 
 	return (
-		<section className='mx-4 sm:mx-auto animate-fade-in' id={id}>
+		<section className='animate-fade-in' id={id}>
 			{title && (
 				<div className='mb-8 text-center md:text-left'>
 					<h1 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-800 via-blue-800 to-slate-800 bg-clip-text pb-1 text-transparent tracking-tight'>

@@ -33,6 +33,7 @@ import {
 	SiHtml5,
 	SiJavascript,
 	SiJest,
+	SiNestjs,
 	SiPrettier,
 	SiReact,
 	SiRedux,
@@ -216,6 +217,7 @@ export const skillSections: SkillTreeSection[] = [
 				{ icon: HiOutlineCodeBracket, label: 'ASP.NET MVC' },
 				{ icon: SiSharp, label: 'C#' },
 				{ icon: SiGraphql, label: 'GraphQL' },
+				{ icon: SiNestjs, label: 'NestJS' },
 				{ icon: TbApi, label: 'REST APIs' },
 				{ icon: BiData, label: 'SQL Server' },
 				{ icon: SiSupabase, label: 'Supabase' }
